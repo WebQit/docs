@@ -1,0 +1,30 @@
+[
+    {
+        "title":"Featured",
+        "desc":"Explore some of the most-featured projects from the WebQit ecosystem."
+    },  {
+        "selector":["JS Development"],
+        "title":"JavaScript Development",
+        "desc":"Explore tools that bring syntactic sugar to JavaScript development."
+    }, {
+        "selector":["Browser APIs"],
+        "title":"Browser APIs",
+        "desc":"Find tools that explore new possibilities with browser technologies."
+    }, {
+        "selector":["UI Development", "UI"],
+        "title":"UI Development",
+        "desc":"Find tools that let you author the UI with just HTML5, CSS3 and ES6+."
+    }, {
+        "selector":["Integrations", "SDKs"],
+        "title":"Web Integrations",
+        "desc":"Explore clients and SDKs that let you integrate with web services seamlessly."
+    }, {
+        "selector":["Libraries"],
+        "title":"Libraries",
+        "desc":"Explore libraries that abstract complex technologies with delightful APIs."
+    }, {
+        "selector":["Frameworks"],
+        "title":"Frameworks",
+        "desc":"Explore frameworks that simplify your entire app development cycle."
+    }
+]

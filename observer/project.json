@@ -1,0 +1,9 @@
+{
+    "title": "Observer",
+    "icon": "braces",
+    "desc": "Observability and Interceptability API for JavaScript Objects and Arrays.",
+    "categories": ["JS Development"],
+    "tags": ["observer"],
+    "_after": "oohtml",
+    "outline": []
+}

@@ -1,0 +1,10 @@
+{
+    "title": "Objective SQL",
+    "icon": "layers",
+    "desc": "The object-oriented SQL - for both relational and non-relational data structures (from plain data objects, to the client-side IndexedDB, to the server-side database like MySQL).",
+    "desc2": "Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using a succinct API.",
+    "categories": ["Featured", "Libraries"],
+    "tags": ["SQL", "Indexed DB", "In-Memory Store", "Object Store"],
+    "_after": "webflo",
+    "outline": []
+}

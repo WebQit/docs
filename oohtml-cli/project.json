@@ -1,0 +1,9 @@
+{
+    "title": "OHTML CLI",
+    "icon": "terminal",
+    "desc": "OOHTML build tools.",
+    "categories": ["UI Development"],
+    "tags": ["OOHTML", "CLI"],
+    "_after": "oohtml",
+    "outline": []
+}

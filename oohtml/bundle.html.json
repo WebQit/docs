@@ -1,0 +1,537 @@
+{
+    "meta": {
+        "bundle.html": {},
+        "project": {}
+    },
+    "subtree": {
+        "docs": {
+            "meta": {
+                "readme": {
+                    "icon": "code-slash",
+                    "desc": "A suite of new DOM features that particularly facilitates writing modular, reusable, and reactive HTML and JavaScript natively and more conveniently.",
+                    "desc2": "Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.",
+                    "categories": "Featured, Web-Native",
+                    "tags": "OOHTML, CHTML, Proposal",
+                    "_before": "webflo",
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "OOHTML",
+                            "uri": "oohtml",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Features",
+                                    "uri": "features",
+                                    "subtree": [
+                                        {
+                                            "level": 3,
+                                            "title": "HTML Modules",
+                                            "uri": "html-modules",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "HTML Imports",
+                                            "uri": "html-imports",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "Namespaced HTML",
+                                            "uri": "namespaced-html",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "The State API",
+                                            "uri": "the-state-api",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "Subscript",
+                                            "uri": "subscript",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Getting Involved",
+                                    "uri": "getting-involved",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Design Goals",
+                                    "uri": "design-goals",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Issues",
+                                    "uri": "issues",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Discusions (new)",
+                                    "uri": "discusions-new",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "License",
+                                    "uri": "license",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "subtree": {
+                "examples": {
+                    "meta": {
+                        "readme": {
+                            "_after": "subscript",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Examples",
+                                    "uri": "examples",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "spa": {
+                            "meta": {
+                                "readme": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "An SPA In OOHTML",
+                                            "uri": "an-spa-in-oohtml",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "todo": {
+                            "meta": {
+                                "readme": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "A TODO List In OOHTML",
+                                            "uri": "a-todo-list-in-oohtml",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "tooling": {
+                            "meta": {
+                                "readme": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Tooling In OOHTML",
+                                            "uri": "tooling-in-oohtml",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "explainer": {
+                    "meta": {
+                        "readme": {
+                            "_after": "polyfill",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "OOHTML Features Explainer",
+                                    "uri": "oohtml-features-explainer",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Object-Oriented Markup",
+                                            "uri": "object-oriented-markup",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "HTML Modules and Imports",
+                                            "uri": "html-modules-and-imports",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "State, Observability and Reactivity",
+                                            "uri": "state-observability-and-reactivity",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "html-imports": {
+                    "meta": {
+                        "readme": {
+                            "_after": "html-modules",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "HTML Imports",
+                                    "uri": "html-imports",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Convention",
+                                            "uri": "convention",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Default Exports and Imports",
+                                                    "uri": "default-exports-and-imports",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Module Reference Specificity",
+                                                    "uri": "module-reference-specificity",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Dynamicity",
+                                            "uri": "dynamicity",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Slot Inheritance",
+                                            "uri": "slot-inheritance",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Isomorphic Rendering",
+                                            "uri": "isomorphic-rendering",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Polyfill Support",
+                                            "uri": "polyfill-support",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "html-modules": {
+                    "meta": {
+                        "readme": {
+                            "_before": "html-imports",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "HTML Modules",
+                                    "uri": "html-modules",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Convention",
+                                            "uri": "convention",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Module Nesting",
+                                                    "uri": "module-nesting",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Module Referencing",
+                                                    "uri": "module-referencing",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Remote Content",
+                                            "uri": "remote-content",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "API",
+                                            "uri": "api",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Module Events",
+                                            "uri": "module-events",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Polyfill Support",
+                                            "uri": "polyfill-support",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "namespaced-html": {
+                    "meta": {
+                        "readme": {
+                            "_after": "html-imports",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Namespaced HTML",
+                                    "uri": "namespaced-html",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Convention",
+                                            "uri": "convention",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Namespaced Selectors",
+                                            "uri": "namespaced-selectors",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "API",
+                                            "uri": "api",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Namespace Observability",
+                                            "uri": "namespace-observability",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Polyfill Support",
+                                            "uri": "polyfill-support",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "polyfill": {
+                    "meta": {
+                        "readme": {
+                            "_after": "examples",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Installation Guide",
+                                    "uri": "installation-guide",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Option 1: Embed As Script",
+                                            "uri": "option-1-embed-as-script",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Option 2: Install Via NPM",
+                                            "uri": "option-2-install-via-npm",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Server-Side Initialization",
+                                                    "uri": "server-side-initialization",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Next Steps",
+                                            "uri": "next-steps",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "subscript": {
+                    "meta": {
+                        "readme": {
+                            "_after": "the-state-api",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Subscript",
+                                    "uri": "subscript",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Convention",
+                                            "uri": "convention",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Runtime",
+                                            "uri": "runtime",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Observability",
+                                                    "uri": "observability",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Bindings",
+                                                    "uri": "bindings",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 4,
+                                                            "title": "API",
+                                                            "uri": "api",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Error Handling",
+                                            "uri": "error-handling",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Polyfill Support",
+                                            "uri": "polyfill-support",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "the-observer-api": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "The Observer API",
+                                    "uri": "the-observer-api",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "the-oohtml-meta-tag": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "The OOHTML Meta Tag",
+                                    "uri": "the-oohtml-meta-tag",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "the-state-api": {
+                    "meta": {
+                        "readme": {
+                            "_after": "namespaced-html",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "The State API",
+                                    "uri": "the-state-api",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Document-Level State",
+                                            "uri": "document-level-state",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Element-Level State",
+                                            "uri": "element-level-state",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "State Observability",
+                                            "uri": "state-observability",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "A Custom Element Example",
+                                                    "uri": "a-custom-element-example",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Polyfill Support",
+                                            "uri": "polyfill-support",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
