@@ -1,5 +1,5 @@
 # `.ready()`
-This [Ani](..) instance method accepts a callback to call when the animation is created and ready to play. This is useful as there are cases where the animation is created asynchronously as a performance strategy. For example, when the keyword `auto` is used for the *height* or *width* property, Ani will first resolve those to actual values before creating the actual animation. This happens asynchronously by queueing the operation in [Reflow](../../../reflow).
+This [Ani](..) instance method accepts a callback to call when the animation is created and ready to play. This is useful as there are cases where the animation is created asynchronously as a performance strategy. For example, when the keyword `auto` is used for the *height* or *width* property, Ani will first resolve those to actual values before creating the actual animation. This happens asynchronously by queueing the operation in [Reflow](../../../concepts#async-dom).
 
 ## Syntax
 

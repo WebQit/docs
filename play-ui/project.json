@@ -1,14 +1,40 @@
 {
     "title": "Play UI",
     "icon": "play",
-    "desc": "The resilient, jQuery-inspired DOM and UI abstraction library, and a futuristic CSS framework; everything for the modern UI.",
+    "desc": "The resilient, jQuery-inspired DOM and UI abstraction library, and a futuristic CSS framework. Play UI is everything for the modern UI.",
     "categories": ["Featured", "UI Development"],
     "tags": ["Async-DOM", "Animations", "Events", "Gestures", "UI Geometry", "CSS framework"],
     "features": [{
-        "title": "Async DOM"
+        "icon": "check-circle",
+        "title": "Succint APIs",
+        "desc": "We really love the succintness of the jQuery library, so we brought the more futuristic Play UI to look and feel like it.",
+        "cta": {
+            "href": "#overview",
+            "text": "Learn more"
+        }
     }, {
-        "title": "Ready-to-use components"
-    }],
-    "_after": "observer",
-    "outline": []
+        "icon": "check-circle",
+        "title": "Async DOM",
+        "desc": "What we want is performance without a virtual DOM! The <i>Async DOM</i> strategy in Play UI lets you build resilient UIs even without knowing it.",
+        "cta": {
+            "href": "docs/js/concepts#reflow",
+            "text": "Learn more"
+        }
+    }, {
+        "icon": "check-circle",
+        "title": "Modular",
+        "desc": "Take as much or as little of Play UI as needed; use as all-in-one (<code>$(el).xyz()</code>) or import individual utilities (<code>import { xyz } from '...'</code>).",
+        "cta": {
+            "href": "docs/js/installation",
+            "text": "Learn more"
+        }
+    }, {
+        "icon": "check-circle",
+        "title": "Universal",
+        "desc": "Run Play UI both in the browser and in server-side DOM instances. Use alongside the UI technologies or frameoworks of your choice.",
+        "cta": {
+            "href": "docs/js/installation",
+            "text": "Learn more"
+        }
+    }]
 }

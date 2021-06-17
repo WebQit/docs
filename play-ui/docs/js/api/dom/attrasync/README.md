@@ -116,7 +116,7 @@ attrAsync(article, 'role').then(value => {
 
 ## Implementation Note
 
-Technically, DOM operations initiated with `attrAsync()` are internally batched to an appropriate queue using the [Reflow](../../reflow) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
+Technically, DOM operations initiated with `attrAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
 
 Notice the order of execution in the following example.
 

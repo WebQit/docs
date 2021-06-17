@@ -39,7 +39,7 @@ prependAsync(document.body, '!', 'world', ' ', 'Hello').then(body => {
 ```
 
 ## Implementation Note
-Technically, DOM operations initiated with `prependAsync()` are internally batched to a *write* queue using the [Reflow](../../reflow) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
+Technically, DOM operations initiated with `prependAsync()` are internally batched to a *write* queue using the [Reflow](../../concepts#async-dom) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
 
 Notice the order of execution in the following example.
 

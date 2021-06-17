@@ -1,5 +1,34 @@
 {
     "meta": {
+        "readme": {
+            "outline": [
+                {
+                    "level": 2,
+                    "title": "Overview",
+                    "uri": "overview",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "What You Can Do With Play UI",
+                            "uri": "what-you-can-do-with-play-ui",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Documentation",
+                            "uri": "documentation",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        },
         "bundle.html": {},
         "project": {}
     },
@@ -95,12 +124,20 @@
                 "js": {
                     "meta": {
                         "readme": {
+                            "_index": "first",
                             "outline": [
                                 {
                                     "level": 1,
                                     "title": "Play UI JavaScript",
                                     "uri": "play-ui-javascript",
-                                    "subtree": []
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Components",
+                                            "uri": "components",
+                                            "subtree": []
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -2992,41 +3029,14 @@
                                 }
                             }
                         },
-                        "installation": {
+                        "components": {
                             "meta": {
                                 "readme": {
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Installation Guide",
-                                            "uri": "installation-guide",
-                                            "subtree": [
-                                                {
-                                                    "level": 2,
-                                                    "title": "Option 1: Embed as script",
-                                                    "uri": "option-1-embed-as-script",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Option 2: Install via NPM",
-                                                    "uri": "option-2-install-via-npm",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        },
-                        "packages": {
-                            "meta": {
-                                "readme": {
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "Packages",
-                                            "uri": "packages",
+                                            "title": "Components",
+                                            "uri": "components",
                                             "subtree": []
                                         }
                                     ]
@@ -3074,6 +3084,72 @@
                                             ]
                                         }
                                     }
+                                }
+                            }
+                        },
+                        "concepts": {
+                            "meta": {
+                                "readme": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Concepts",
+                                            "uri": "concepts",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Async DOM",
+                                                    "uri": "async-dom",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "installation": {
+                            "meta": {
+                                "readme": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Installation Guide",
+                                            "uri": "installation-guide",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 1: Embed as script",
+                                                    "uri": "option-1-embed-as-script",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 2: Install via NPM",
+                                                    "uri": "option-2-install-via-npm",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "packages": {
+                    "subtree": {
+                        "plot-js": {
+                            "meta": {
+                                "readme copy": {
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Vivid CSS",
+                                            "uri": "vivid-css",
+                                            "subtree": []
+                                        }
+                                    ]
                                 }
                             }
                         }

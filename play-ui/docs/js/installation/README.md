@@ -4,11 +4,15 @@ Play UI can be used via a script tag or as an npm package.
 
 ## Option 1: Embed as script
 
-Add the following script tag to your page to include the all-in-one Play UI module.
+Add the following script tag to your page to include the all-in-one Play UI module:
 
 ```html
 <script src="https://unpkg.com/@webqit/play-ui/dist/main.js"></script>
-<!-- The above tag loads Play UI into a global "WQ" object -->
+```
+
+The above tag loads Play UI into a global "WQ" object.
+
+```html
 <script>
     const $ = window.WQ.$;
 </script>
@@ -16,19 +20,20 @@ Add the following script tag to your page to include the all-in-one Play UI modu
 
 ## Option 2: Install via NPM
 
+With [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) available on your terminal, run the following command to install Play UI:
+
 ```text
-$ npm i -g npm
 $ npm i @webqit/play-ui
 ```
 
-The installed package is designed to be *built* into a single object from the individual [Play UI packages](packages).
+Import and initialize the installed package:
 
 ```js
 import PlayUI from '@webqit/play-ui';
 const $ = PlayUI();
 ```
 
-It is also possible to use Play UI in a server-side *window* context such as the one provided by [jsdom](https://github.com/jsdom/jsdom). Here is how that could look:
+It is also possible to use Play UI with a server-side *window* object such as the one provided by [jsdom](https://github.com/jsdom/jsdom). Here is how that could look:
 
 ```js
 // Utilities we'll need
@@ -37,6 +42,7 @@ import path from 'path';
 // Import jsdom
 import jsdom from 'jsdom';
 
+// Import Play UI
 import PlayUI from '@webqit/play-ui';
 
 // Read the HTML document file from the server

@@ -94,7 +94,7 @@ cssSync(el, ['transform', 'color']).then(values => {
 ```
 
 ## Implementation Note
-Technically, DOM operations initiated with `cssAsync()` are internally batched to an appropriate queue using the [Reflow](../../reflow) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
+Technically, DOM operations initiated with `cssAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
 
 Notice the order of execution in the following example.
 

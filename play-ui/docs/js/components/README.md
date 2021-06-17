@@ -1,4 +1,4 @@
-# Packages
+# Components
 
 + [Play Collapsible](play-collapsible)
 + [Play Icon](play-icon)

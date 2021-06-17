@@ -40,7 +40,7 @@ appendAsync(document.body, 'Hello', ' ', 'world', '!').then(body => {
 
 ## Implementation Note
 
-Technically, DOM operations initiated with `appendAsync()` are internally batched to a _write_ queue using the [Reflow](../../reflow) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
+Technically, DOM operations initiated with `appendAsync()` are internally batched to a _write_ queue using the [Reflow](../../concepts#async-dom) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
 
 Notice the order of execution in the following example.
 
