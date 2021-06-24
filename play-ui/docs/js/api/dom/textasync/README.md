@@ -1,121 +1,78 @@
-# DOM/textAsync\(\)
+---
+desc: Asynchronously set or get an element's text content.
+---
+# `.textAsync()`
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`textSync()`](../textsync). Unlike the *Sync* counterpart, `textAsync()` is a promise-based function that runs in a different flow from that of the calling code. It follows a performance strategy that lets the browser engine decide the most convenient time to honour its call.
+This method is used to asynchronously set or get an element's text content. It is the programmatic alternative to [`Element.innerText`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText). Additionally, when this function receives `undefined` for a *set* operation, it is converted to an empty string.
 
-## Import
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.textSync()`](../textsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-```javascript
-import textAsync from '@webqit/play-ui/src/dom/textAsync.js';
-```
++ [Set Text Content](#a-set-text-content)
++ [Get Text Content](#b-get-text-content)
 
-## Syntax
+## a. Set Text Content
 
-```javascript
-let promise = textAsync(el[, content = null);
-```
+### Syntax
 
-### &gt; Set Text Content
-
-```javascript
-let promise = textAsync(el, content);
-```
-
-**Parameters**
-
-* `el` - `HTMLElement`: The target DOM element.
-* `content` - `String`: The text content to set.
-
-**Return**
-
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
-
-### &gt; Get Text Content
-
-```javascript
-textAsync(el).then(content => {
-    // Do something with content
-});
+```js
+// Set text content of an element
+await $(el).textAsync(content);
 ```
 
 **Parameters**
 
-**el** - `HTMLElement`: The source DOM element.
++ `content`: `String` - The text content to set.
 
 **Return**
 
-`Promise` - A _Promise_ that resolves when the operation finally gets executed. The source element's text content is returned when the promise resolves.
++ `this` - The Play UI instance.
 
-## Usage
+### Usage
 
-```markup
-<body>
-  <div>DIV1</div>
-</body>
+Replace an element's content with some text.
+
+```js
+let text = 'Playful people!';
+$(el).textAsync(text);
 ```
 
-```javascript
-// Set content
-textAsync(document.body, 'Hello world!').then(body => {
-    // Do something with body
-});
+## b. Get Text Content
 
-// Get content
-textAsync(document.body).then(content => {
-    // Do something with content
-});
+### Syntax
+
+```js
+// Get Text content of an element
+let content = await $(el).textAsync();
 ```
 
-## Implementation Note
-Technically, DOM operations initiated with `textAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
+**Return**
 
-Notice the order of execution in the following example.
++ `content`: `String` - The element's text content.
 
-```javascript
-// Set content
-textAsync(document.body, 'Hi').then(() => {
-    console.log('Set operation 1');
-});
+### Usage
 
-// Get content
-textAsync(document.body).then(content => {
-    console.log('Get operation 1');
-});
+Get an element's text content.
 
-// Set content
-textAsync(document.body, 'Hi again').then(() => {
-    console.log('Set operation 2');
-});
-
-// Get content
-textAsync(document.body).then(content => {
-    console.log('Get operation 2');
-});
-
-// ------------
-// console
-// ------------
-Get operation 1
-Get operation 2
-Set operation 1
-Set operation 2
+```js
+let content = await $(el).textAsync();
+// Playful people!
 ```
 
-The proper way to synchronize with an async function is to move code into its `then()` block as seen below.
+------
 
-```javascript
-// Set content
-textAsync(document.body, 'Hi').then(body => {
-    console.log('Set operation 1');
-    // Get content
-    textAsync(body).then(content => {
-        console.log('Get operation 1');
-    });
-});
+## Static Usage
 
-// ------------
-// console
-// ------------
-Set operation 1
-Get operation 1
+The `.textAsync()` instance method is internally based on the standalone `dom/textAsync()` function which may be used statically.
+
+### Import
+
+```js
+const { textAsync } = $.dom;
+```
+```js
+import { textAsync } from '@webqit/play-ui/src/dom/index.js';
 ```
 
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

@@ -1,110 +1,178 @@
-# DOM/attrSync\(\)
+---
+desc: Set or get an element's attribute.
+---
+# `.attrSync()`
 
-This function sets or gets an element's attribute. It is the shorter alternative to [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
+This method is used to set or get an element's attribute. It is a shorter alternative to the native [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
 
-The suffix _Sync_ differentiates this method from its _Async_ counterpart - [`attrAsync()`](../attrasync). Unlike the _Async_ counterpart, `attrSync()` is a normal function that runs in the same flow with that of the calling code.
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`attrAsync()`](../attrasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-## Import
++ [Set Attributes](#a-set-attributes)
++ [Get Attributes](#b-get-attributes)
++ [Unset Attributes](#c-unset-attributes)
++ [Modyfying Delimited Attributes](#d-modyfying-delimited-attributes)
 
-```javascript
-import attrSync from '@webqit/play-ui/src/dom/attrSync.js';
-```
+## a. Set Attributes
 
-## Syntax
+### Syntax
 
-```javascript
-// Method signature
-attrSync(el, requestOrPayload[, valOrMutation = null[, subValMutation = null]]);
-```
-
-### &gt; Set/Remove Attribute
-
-```javascript
+```js
 // Set a single attribute
-let el = attrSync(el, name, value);
-// Remove a single attribute
-let el = attrSync(el, name, false);
+$(el).attrSync(name, value);
 
 // Set multiple attributes
-let el = attrSync(el, {
-    name: value,
+$(el).attrSync({
+    [name]: value,
 });
+```
+
+**Parameters**
+
+* `name`: `String` - The attribute name to set.
+* `value`: `String|Boolean` - The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element; [see below](#unset-attributes).
+
+**Return**
+
+* `this` - The Play UI instance.
+
+### Usage
+
+Set the ID attribute on an `<input />` element. Then set other attributes.
+
+```js
+// Set a single attribute
+$(el).attrSync('id', 'email-input');
+$(el).attrSync({
+    type: 'email',
+    required: true,
+});
+```
+
+## b. Get Attributes
+
+### Syntax
+
+```js
+// Get a single attribute
+let attribute = $(el).attrSync(name);
+
+// Get multiple attributes
+let attributes = $(el).attrSync([...name]);
+```
+
+**Parameters**
+
+* `name`: `String` - The attribute name.
+
+**Return**
+
++ `value`: `Any` - The value of the named attribute.
++ `values`: `Object` - A key/value hash of the listed attributes.
+
+### Usage
+
+Get the attribute on an `<input />` element.
+
+```js
+// Set a single attribute
+let value = $(el).attrSync('id');
+// email-input
+```
+
+## c. Unset Attributes
+
+### Syntax
+
+```js
+// Remove a single attribute
+$(el).attrSync(name, false);
+
 // Remove multiple attributes
-let el = attrSync(el, {
-    name: false,
+$(el).attrSync({
+    [name]: false,
 });
 ```
 
 **Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `name` - `String`: The attribute name to set or remove.
-* `value` - `String|Boolean`: The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element.
+* `name`: `String` - The attribute name.
 
 **Return**
 
-* `HTMLElement` - The target DOM element.
++ `this` - The Play UI instance.
 
-### &gt; Set/Remove Attribute Entry
+### Usage
 
-```javascript
-// Set a single attribute entry
-let el = attrSync(el, name, entry, state === true);
-// Remove a single attribute entry
-let el = attrSync(el, name, entry, state === false);
+Unset an element's ID attribute.
 
-// Set multiple attribute entries
-let el = attrSync(el, {
-    name: entry,
-}, state === true);
-// Remove multiple attribute entries
-let el = attrSync(el, {
-    name: entry,
-}, state === false);
+
+```js
+$(el).attrSync('id', false);
+```
+
+## d. Modyfying Delimited Attributes
+
+### Syntax
+
+```js
+// Add a member to a single delimited attribute
+$(el).attrSync(name, member, mutation === true);
+
+// Add a member to multiple delimited attributes
+$(el).attrSync({
+    [name]: member,
+}, mutation === true);
+
+// Remove a member from a single delimited attribute
+$(el).attrSync(name, member, mutation === false);
+
+// Remove a member from multiple delimited attributes
+$(el).attrSync({
+    [name]: member,
+}, mutation === false);
 ```
 
 **Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `name` - `String`: The attribute name to modify.
-* `entry` - `String`: The text to insert or remove.
-* `state` - `Boolean`: The indication of _insert_ or _remove_. When `true`, the given text is inserted into the attribute's value list. When `false`, the given text is removed from the attribute's value list.
+* `name`: `String` - The attribute name to modify.
+* `member`: `String` - The attribute member to add or remove.
+* `mutation`: `Boolean` - The *add/remove* directive. When `true`, the given string is added to the attribute's value list. When `false`, the given string is removed from the attribute's value list.
 
 **Return**
 
-* `HTMLElement` - The target DOM element.
+* `this` - The Play UI instance.
 
-### &gt; Get Attribute
+### Usage
 
-```javascript
-let value = attrSync(el, name);
-```
+Modify an element's *class* attribute, then confirm the operation.
 
-**Parameters**
-
-* `el` - `HTMLElement`: The source DOM element.
-* `name` - `String`: The attribute name to read.
-
-**Return**
-
-* `String` - The attribute value.
-
-## Usage
-
-```markup
+```html
 <div class="class1 class2" role="article"></div>
 ```
 
-```javascript
-let article = document.querySelector('.class1');
-
-// Set attribute
-attrSync(article, 'role', 'main');
-
+```js
+let el = document.querySelector('.class1');
 // Insert a class entry
-attrSync(article, 'class', 'class3', true);
-
-// Get attribute value
-let value = attrSync(article, 'role');
+$(el).attrSync('class', 'class3', true);
+// Confirm the operation
+console.log($(el).attrSync('class')); // class1 class2 class3
 ```
 
+------
+
+## Static Usage
+
+The `.attrSync()` instance method is internally based on the standalone `dom/attrSync()` function which may be used statically.
+
+### Import
+
+```js
+const { attrSync } = $.dom;
+```
+```js
+import { attrSync } from '@webqit/play-ui/src/dom/index.js';
+```
+
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

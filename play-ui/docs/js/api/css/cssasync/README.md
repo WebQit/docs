@@ -1,136 +1,112 @@
-# CSS/cssAsync\(\)
+---
+desc: Asynchronously set or get one or more style properties for the given element.
+---
+# `.cssAsync()`
 
-This function sets or returns one or more style properties for the given element. It is a convenient alternative to [`window.getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) and [`ElementCSSInlineStyle.style`](https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style). It also has special support for vendor-prefixed properties.
+This method is used to asynchronously set or get one or more style properties for the given element. It is a convenient alternative to the native [`window.getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) and [`ElementCSSInlineStyle.style`](https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style). It also has special support for vendor-prefixed properties.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`cssSync()`](../csssync). Unlike the *Sync* counterpart, `cssAsync()` is a promised-based function that runs in a different flow from that of the calling code. It follows a performance strategy that lets the browser engine decide the most convenient time to honour its call.
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.cssSync()`](../csssync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-## Import
++ [Set CSS Properties](#a-set-css-properties)
++ [Get CSS Properties](#b-get-css-properties)
 
-```javascript
-import cssAsync from '@webqit/play-ui/src/css/cssAsync.js';
-```
+## a. Set CSS Properties
 
-## Syntax
+### Syntax
 
-```javascript
-// Method signature
-let promise = cssAsync(el, ...args);
-```
+```js
+// Set a single property
+await $(el).cssAsync(prop, value, flags = {params});
 
-### &gt; Set/Unset Inline Styles
-
-```javascript
-// Set a single inline property
-let promise = cssAsync(el, name, value);
-// Unset a single inline property
-let promise = cssAsync(el, name, '');
-
-// Set multiple single inline properties
-let promise = cssAsync(el, {
-    name: value,
-});
-// Unset multiple single inline properties
-let promise = cssAsync(el, {
-    name: '',
-});
+// Set multiple properties
+await $(el).cssAsync({
+    [prop]: value,
+}, params = {});
 ```
 
 **Parameters**
-+ `el` - `HTMLElement`: The target DOM element.
-+ `name` - `String`: The CSS property to set or unset.
-+ `value` - `String|Number`: The property value to set. When an empty string `''`, the property is unset from the element's inline CSS.
+
++ `prop` - `String`: A CSS property.
++ `value` - `Any`: The property value to set. When an empty string `''`, the property is unset from the element.
++ `params` - `Object`: Additional directives for the method. Valid directives are:
+    + `inline` - Set to `true` to write to the element's `style` attribute instead. By default, the element's *computed CSS* object is what is updated. But the browser also automatically writes the rules to the element's `style` attribute. The `inline` directive thus has no special effect.
+    + `global` - Set to `true` to write the new rules to a stylesheet instead.
+    + `prepend` - Set to `true` to write the new rules behind existing rules instead, making existing rules take priority. With the `global` directive, the given rules are inserted at the start of the target stylesheet. On *inline* mode, the given rules are added to the prepended to the element's `style` attribute.
+    + `pseudo` - (Works with the `global` directive. Forbidden otherwise.) Set to a pseudo selector (e.g `:before`) to set the CSS of a pseudo element associated with the matched element instead.
+    + `autoUuid` - (Works with the `global` directive.) Set to `false` to prevent Play UI from automatically generating a special attribute `playuo-uuid` for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.
+    + `autoId` - (Works with the `global` directive.) Set to `true` to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special attribute `playuo-uuid`, as above. Note that `autoUuid` and `autoId` cannot be both `false`.
+    + `noScratchPad` - (Works with the `global` directive.) Set to `true` to target the latest *editable* stylesheet for the operation. Otherwise, a stylesheet maintained by Play UI is used.
+    + `vendorize` - Set to `true` to automatically handle applicable vendor-specific rule prefixing.
 
 **Return**
-+ `Promise` - A *Promise* that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
 
-### &gt; Get Computed Properties
++ `this` - The Play UI instance.
 
-```javascript
-// Get a single computed property
-cssSync(el, name[, pseudo = null]).then(value => {
-    // Do something with value
+### Usage
+
+Change an element's CSS, then change the CSS of its *:after* pseudo element.
+
+```js
+$(el).cssAsync('color', 'red').then($el => {
+    $el.cssAsync({
+        display: 'block',
+        content: '"[NEW]"',
+    }, {pseudo: ':after'});
 });
+```
 
-// Get a multiple computed properties
-cssSync(el, [name][, pseudo = null]).then(values => {
-    // Do something with values
-});
+## b. Get CSS Properties
+
+### Syntax
+
+```js
+// Get a single property
+let value = await $(el).cssAsync(prop);
+
+// Get multiple properties
+let values = await $(el).cssAsync([...prop], params = {});
 ```
 
 **Parameters**
-+ `el` - `HTMLElement`: The source DOM element.
-+ `name` - `String|Array`: The CSS property or list of properties to read. When an array, values are returnd as an object.
-+ `pseudo` - `String`: An optional specifier to read from the element's `before` or `after` pseudo elements.
+
++ `prop` - `String`: A CSS property.
++ `params` - `Object`: Additional directives for the method. Valid directives are:
+    + `inline` - Set to `true` to read the element's `style` attribute instead. By default, the element's *computed CSS* object is what is read.
+    + `global` - Set to `true` to read the global, stylesheet-based CSS for the matched element instead.
+    + `pseudo` - (Forbidden with the `inline` directive.) Set to a pseudo selector (e.g `:before`) to get the CSS of a pseudo element associated with the matched element instead.
+    + `all` - (Works with the `global` directive.) Set to `true` to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.
+    + `noCache` - (Works with the `global` directive.) Set to `true` to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.
+    + `vendorize` - Set to `true` to automatically handle applicable vendor-specific rule prefixing.
 
 **Return**
-+ `Promise` - A *Promise* that resolves when the operation finally gets executed. The computed CSS values are returned when the promise resolves. The resolved return type is the same return type at [`cssSync() - Return`](../csssync#return-1).
 
-## Usage
++ `value`: `Any` - The value of the named CSS property.
++ `values`: `Object` - A key/value hash of the listed CSS properties.
 
-```markup
-<div id="el" style="transform:translate(30, 40); color:red"></div>
+### Usage
+
+Get an element's computed CSS. Note that if we must provide a `params` object, *props list* has to be an array.
+
+```js
+let result = await $(el).cssAsync(['color'], {inline: true});
+// {color: 'red'}
 ```
 
-```javascript
-let el = document.querySelector('#el');
+------
 
-// Set attribute
-cssSync(el, ['transform', 'color']).then(values => {
-    // Show
-    console.log(values);
-    /**
-    {
-        transform: {
-            translate: [30, 40],
-        },
-        color: "red",
-    }
-    */
+## Static Usage
 
-    // Stringify transform
-    console.log(values.transform + '');
-    // translate(30, 40)
-});
+The `.cssAsync()` instance method is internally based on the standalone `css/cssAsync()` function which may be used statically.
+
+### Import
+
+```js
+const { cssAsync } = $.css;
+```
+```js
+import { cssAsync } from '@webqit/play-ui/src/css/index.js';
 ```
 
-## Implementation Note
-Technically, DOM operations initiated with `cssAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
+### Syntax
 
-Notice the order of execution in the following example.
-
-```javascript
-// Change color from red to blue
-cssAsync(article, 'color', 'blue').then(() => {
-    console.log('Color is now blue');
-});
-
-// Read the current color
-cssAsync(article, 'color').then(value => {
-    console.log('Current color: ' + value);
-});
-
-// ------------
-// console
-// ------------
-Current color: red
-Color is now blue
-```
-
-The proper way to synchronize with an async function is to move code into its `then()` block as seen below.
-
-```javascript
-// Change color from red to blue
-cssAsync(article, 'color', 'blue').then(() => {
-    console.log('Color is now blue');
-    // Read the current color
-    cssAsync(article, 'color').then(value => {
-        console.log('Current color: ' + value);
-    });
-});
-// ------------
-// console
-// ------------
-Color is now blue
-Current color: blue
-```
-
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

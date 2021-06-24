@@ -1,6 +1,9 @@
+---
+desc: Fires a callback on an element's attribute mutation event.
+---
 # DOM/attrChangeCallback\(\)
 
-This function observes changes on attributes of the given element.
+This function fires a callback on element's attribute mutation event.
 
 ## Import
 

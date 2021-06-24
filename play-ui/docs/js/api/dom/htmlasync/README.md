@@ -1,122 +1,78 @@
-# DOM/htmlAsync\(\)
+---
+desc: Asynchronously set or get an element's HTML/XML content.
+---
+# `.htmlAsync()`
 
-This function sets or gets an element's HTML/XML content. It is the programmatic alternative to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). Additionally, when this function receives `undefined` for a _set_ operation, an empty string will be used instead.
+This method is used to asynchronously set or get an element's HTML/XML content. It is the programmatic alternative to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). Additionally, when this function receives `undefined` for a *set* operation, it is converted to an empty string.
 
-The suffix _Async_ differentiates this method from its _Sync_ counterpart - [`htmlSync()`](../htmlsync). Unlike the _Sync_ counterpart, `htmlAsync()` is a promised-based function that runs in a different flow from that of the calling code. It follows a performance strategy that lets the browser engine decide the most convenient time to honour its call.
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.htmlSync()`](../htmlsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-## Import
++ [Set HTML Content](#a-set-html-content)
++ [Get HTML Content](#b-get-html-content)
 
-```javascript
-import htmlAsync from '@webqit/play-ui/src/dom/htmlAsync.js';
-```
+## a. Set HTML Content
 
-## Syntax
+### Syntax
 
-```javascript
-// Method signature
-let promise = htmlAsync(el[, content = null]);
-```
-
-### &gt; Set Content
-
-```javascript
-let promise = htmlAsync(el, content);
+```js
+// Set HTML content of an element
+await $(el).htmlAsync(content);
 ```
 
 **Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `content` - `String|HTMLElement`: The content to set. This could be a plain text, an HTML/XML markup, or even a DOM node.
++ `content`: `String|Node` - The text or HTML content, or some DOM node, to set.
 
 **Return**
 
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
++ `this` - The Play UI instance.
 
-### &gt; Get Content
+### Usage
 
-```javascript
-let promise = htmlAsync(el);
+Replace an element's content with some HTML markup.
+
+```js
+let div = '<div>Playful people!</div>';
+$(el).htmlAsync(div);
 ```
 
-**Parameters**
+## b. Get HTML Content
 
-* `el` - `HTMLElement`: The source DOM element.
+### Syntax
+
+```js
+// Get HTML content of an element
+let content = await $(el).htmlAsync();
+```
 
 **Return**
 
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The source element's content is returned when the promise resolves.
++ `content`: `String` - The element's HTML content.
 
-## Usage
+### Usage
 
-```markup
-<body>
-  <div>DIV1</div>
-</body>
+Get an element's HTML content.
+
+```js
+let content = await $(el).htmlAsync();
+// <div>Playful people!</div>
 ```
 
-```javascript
-// Set content
-htmlAsync(document.body, '<main><div>DIV1</div></main>').then(body => {
-    // Do something with body
-});
+------
 
-// Get content
-htmlAsync(document.body).then(content => {
-    // Do something with content
-});
+## Static Usage
+
+The `.htmlAsync()` instance method is internally based on the standalone `dom/htmlAsync()` function which may be used statically.
+
+### Import
+
+```js
+const { htmlAsync } = $.dom;
+```
+```js
+import { htmlAsync } from '@webqit/play-ui/src/dom/index.js';
 ```
 
-## Implementation Note
-Technically, DOM operations initiated with `htmlAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. *Read* operations run first, then *write* operations. This works to eliminate *layout thrashing* as discussed in *Reflow*'s documentation.
+### Syntax
 
-Notice the order of execution in the following example.
-
-```javascript
-// Set content
-htmlAsync(document.body, 'Hi').then(() => {
-    console.log('Set operation 1');
-});
-
-// Get content
-htmlAsync(document.body).then(content => {
-    console.log('Get operation 1');
-});
-
-// Set content
-htmlAsync(document.body, 'Hi again').then(() => {
-    console.log('Set operation 2');
-});
-
-// Get content
-htmlAsync(document.body).then(content => {
-    console.log('Get operation 2');
-});
-
-// ------------
-// console
-// ------------
-Get operation 1
-Get operation 2
-Set operation 1
-Set operation 2
-```
-
-The proper way to synchronize with an async function is to move code into its `then()` block as seen below.
-
-```javascript
-// Set content
-htmlAsync(document.body, 'Hi').then(body => {
-    console.log('Set operation 1');
-    // Get content
-    htmlAsync(body).then(content => {
-        console.log('Get operation 1');
-    });
-});
-
-// ------------
-// console
-// ------------
-Set operation 1
-Get operation 1
-```
-
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

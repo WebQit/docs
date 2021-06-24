@@ -1,39 +1,40 @@
 {
     "title": "Play UI",
     "icon": "play",
-    "desc": "The resilient, jQuery-inspired DOM and UI abstraction library, and a futuristic CSS framework. Play UI is everything for the modern UI.",
+    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, and a futuristic CSS framework. Try a delightful way to create modern User Interfaces!",
     "categories": ["Featured", "UI Development"],
     "tags": ["Async-DOM", "Animations", "Events", "Gestures", "UI Geometry", "CSS framework"],
+    "quickstart": {"directive": "npm i @webqit/play-ui; or CDN: https://unpkg.com/@webqit/play-ui/dist/main.js"},
     "features": [{
-        "icon": "check-circle",
-        "title": "Succint APIs",
-        "desc": "We really love the succintness of the jQuery library, so we brought the more futuristic Play UI to look and feel like it.",
+        "icon": "heart",
+        "title": "Succinct API",
+        "desc": "Love the succintness of the jQuery library? Play UI looks and feels just like it.",
         "cta": {
-            "href": "#overview",
+            "href": "/tooling/play-ui/docs/js#use-as-you-would-jqueryhttpsjquerycom",
             "text": "Learn more"
         }
     }, {
-        "icon": "check-circle",
-        "title": "Async DOM",
-        "desc": "What we want is performance without a virtual DOM! The <i>Async DOM</i> strategy in Play UI lets you build resilient UIs even without knowing it.",
+        "icon": "soundwave",
+        "title": "Async UI",
+        "desc": "Build automatically resilient UIs even without knowing it with Play UI's <i>Async UI</i> strategy.",
         "cta": {
-            "href": "docs/js/concepts#reflow",
+            "href": "/tooling/play-ui/docs/js/concepts#async-ui",
             "text": "Learn more"
         }
     }, {
-        "icon": "check-circle",
-        "title": "Modular",
-        "desc": "Take as much or as little of Play UI as needed; use as all-in-one (<code>$(el).xyz()</code>) or import individual utilities (<code>import { xyz } from '...'</code>).",
+        "icon": "hash",
+        "title": "Descrete",
+        "desc": "Use as all-in-one (<code>$(el).xyz()</code>) or via descrete modules (<code>import { xyz } from '...'</code>).",
         "cta": {
-            "href": "docs/js/installation",
+            "href": "/tooling/play-ui/docs/js#use-as-descrete-utilities",
             "text": "Learn more"
         }
     }, {
-        "icon": "check-circle",
+        "icon": "brightness-high",
         "title": "Universal",
-        "desc": "Run Play UI both in the browser and in server-side DOM instances. Use alongside the UI technologies or frameoworks of your choice.",
+        "desc": "Use in the browser and in node.js, and alongside the UI technologies of your choice.",
         "cta": {
-            "href": "docs/js/installation",
+            "href": "/tooling/play-ui/docs/js#use-with-server-side-dom-instances",
             "text": "Learn more"
         }
     }]

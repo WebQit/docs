@@ -1,3 +1,6 @@
+---
+desc: Fires a callback on an element's 'connected' or 'disconnected' mutation state event.
+---
 # DOM/mutationCallback\(\)
 
 This function observes when the specified elements are added to, or removed from the document or given context.

@@ -3,11 +3,4 @@ _index: first
 ---
 # Play UI JavaScript
 
-+ [Installation Guide](installation)
-+ [API Reference](api)
-
-## Components
-
-+ [Play Collapsible](components/play-collapsible)
-+ [Play Icon](components/play-icon)
-+ [Play Sequence](components/play-sequence)
+The Play UI JavaScript library offers a succinct API for working with the DOM and UI. 

@@ -1,38 +1,51 @@
-# DOM/prependSync\(\)
+---
+desc: Prepend content to an element.
+---
+# `.prependSync()`
 
-This function prepends content to an element. It works exactly the same as [`ParentNode.prepend()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend) except that when the implied content is undefined, it is converted to an empty string.
+This method is used to prepend content to an element. It works exactly the same as the native [`ParentNode.prepend()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`prependAsync()`](../prependasync). Unlike the *Async* counterpart, `prependSync()` is a normal function that runs in the same flow with that of the calling code.
-
-## Import
-
-```javascript
-import prependSync from '@webqit/play-ui/src/dom/prependSync.js';
-```
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`.prependAsync()`](../prependasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
 ## Syntax
 
-```javascript
-prependSync(el[, ...content);
+```js
+// Prepend content(s) to an element
+$(el).prependSync(content[, ...content]);
 ```
 
-### Parameters
+**Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `content` - `[String|HTMLElement]`: The set of content to prepend. Each could be a plain text, an HTML/XML markup, or even a DOM node.
++ `content`: `String|Node` - The text or HTML content, or some DOM node, to prepend.
 
-### Return
+**Return**
 
-* `HTMLElement` - The target DOM element.
++ `this` - The Play UI instance.
 
 ## Usage
 
-```markup
-<body></body>
+Prepend an element node and some text content to an element.
+
+```js
+let div = document.createElement("div");
+$(el).prependSync('!', 'people', ' ', 'Playful', div);
 ```
 
-```javascript
-// Prepend content
-let body = prependSync(document.body, '!', 'world', ' ', 'Hello');
+------
+
+## Static Usage
+
+The `.prependSync()` instance method is internally based on the standalone `dom/prependSync()` function which may be used statically.
+
+### Import
+
+```js
+const { prependSync } = $.dom;
+```
+```js
+import { prependSync } from '@webqit/play-ui/src/dom/index.js';
 ```
 
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

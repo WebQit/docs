@@ -1,83 +1,51 @@
-# DOM/appendAsync\(\)
+---
+desc: Asynchronously append content to an element.
+---
+# `.appendAsync()`
 
-This function appends content to an element. It works exactly the same as [`ParentNode.append()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append) except that when the implied content is undefined, it is converted to an empty string.
+This method is used to asynchronously append content to an element. It works exactly the same as the native [`ParentNode.append()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix _Async_ differentiates this method from its _Sync_ counterpart - [`appendSync()`](../appendsync). Unlike the _Sync_ counterpart, `appendAsync()` is a promise-based function that runs in a different flow from that of the calling code. It follows a performance strategy that lets the browser engine decide the most convenient time to honour its call.
-
-## Import
-
-```javascript
-import appendAsync from '@webqit/play-ui/src/dom/appendAsync.js';
-```
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.appendSync()`](../appendsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
 ## Syntax
 
-```javascript
-let promise = appendAsync(el[, ...content);
+```js
+// Append content(s) to an element
+await $(el).appendAsync(content[, ...content]);
 ```
 
-### Parameters
+**Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `content` - `[String|HTMLElement]`: The set of content to append. Each could be a plain text, an HTML/XML markup, or even a DOM node.
++ `content`: `String|Node` - The text or HTML content, or some DOM node, to append.
 
-### Return
+**Return**
 
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
++ `this` - The Play UI instance.
 
 ## Usage
 
-```markup
-<body></body>
+Append an element node and some text content to an element.
+
+```js
+let div = document.createElement("div");
+$(el).appendAsync(div, 'Playful', ' ', 'people', '!');
 ```
 
-```javascript
-// Append content
-appendAsync(document.body, 'Hello', ' ', 'world', '!').then(body => {
-    // Do something with body
-});
+------
+
+## Static Usage
+
+The `.appendAsync()` instance method is internally based on the standalone `dom/appendAsync()` function which may be used statically.
+
+### Import
+
+```js
+const { appendAsync } = $.dom;
+```
+```js
+import { appendAsync } from '@webqit/play-ui/src/dom/index.js';
 ```
 
-## Implementation Note
+### Syntax
 
-Technically, DOM operations initiated with `appendAsync()` are internally batched to a _write_ queue using the [Reflow](../../concepts#async-dom) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
-
-Notice the order of execution in the following example.
-
-```javascript
-// Append content
-appendAsync(document.body, 'Hello', ' ', 'world', '!').then(() => {
-    console.log('Append operation');
-});
-
-// Get content
-htmlAsync(document.body).then(content => {
-    console.log('Current content is: ' + content);
-});
-
-// ------------
-// console
-// ------------
-Current content is: 
-Append operation
-```
-
-The proper way to synchronize with an async function is to move code into its `then()` block as seen below.
-
-```javascript
-// Append content
-appendAsync(document.body, 'Hello', ' ', 'world', '!').then(() => {
-    console.log('Append operation');
-    // Get content
-    htmlAsync(document.body).then(content => {
-        console.log('Current content is: ' + content);
-    });
-});
-
-// ------------
-// console
-// ------------
-Append operation
-Current content is: Hello world!
-```
-
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

@@ -1,3 +1,6 @@
+---
+_subtreeType: category
+---
 # Play UI
 
 <!-- BADGES/ -->
@@ -7,7 +10,4 @@
 
 <!-- /BADGES -->
 
-[Play UI](https://github.com/webqit/play-ui) is the resilient, jQuery-inspired DOM and UI abstraction library, and a modern CSS framework. Play UI is everything for the UI: layout and styling, geometry and animations, events and getures, and more.
-
-+ [Play UI JavaScript](js)
-+ [Play UI CSS](css)
+Play UI is a resilient, jQuery-inspired, DOM and UI abstraction library, a modern CSS framework, and a Web Components library. Play UI brings everything that makes the modern UI: layout and styling, geometry and animations, events and getures, and more.

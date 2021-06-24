@@ -1,170 +1,179 @@
-# DOM/attrAsync\(\)
+---
+desc: Asynchronously set or get an element's attribute.
+---
+# `.attrAsync()`
 
-This function sets or gets an element's attribute. It is the shorter alternative to [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
+This method is used to asynchronously set or get an element's attribute. It is a shorter alternative to the native [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
 
-The suffix _Async_ differentiates this method from its _Sync_ counterpart - [`attrSync()`](../attrsync). Unlike the _Sync_ counterpart, `attrAsync()` is a promised-based function that runs in a different flow from that of the calling code. It follows a performance strategy that lets the browser engine decide the most convenient time to honour its call.
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`attrSync()`](../attrsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-## Import
++ [Set Attributes](#a-set-attributes)
++ [Get Attributes](#b-get-attributes)
++ [Unset Attributes](#c-unset-attributes)
++ [Modyfying Delimited Attributes](#d-modyfying-delimited-attributes)
 
-```javascript
-import attrAsync from '@webqit/play-ui/src/dom/attrAsync.js';
-```
+## a. Set Attributes
 
-## Syntax
+### Syntax
 
-```javascript
-// Method signature
-let promise = attrAsync(el, requestOrPayload[, valOrMutation = null[, subValMutation = null]]);
-```
-
-### &gt; Set/Remove Attribute
-
-```javascript
+```js
 // Set a single attribute
-let promise = attrAsync(el, name, value);
-// Remove a single attribute
-let promise = attrAsync(el, name, false);
+$(el).attrAsync(name, value);
 
 // Set multiple attributes
-let promise = attrAsync(el, {
-    name: value,
+await $(el).attrAsync({
+    [name]: value,
 });
+```
+
+**Parameters**
+
+* `name`: `String` - The attribute name to set.
+* `value`: `String|Boolean` - The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element; [see below](#unset-attributes).
+
+**Return**
+
+* `this` - The Play UI instance.
+
+### Usage
+
+Set the ID attribute on an `<input />` element. Then set other attributes.
+
+```js
+// Set a single attribute
+$(el).attrAsync('id', 'email-input').then($el => {
+    $el.attrAsync({
+        type: 'email',
+        required: true,
+    });
+});
+```
+
+## b. Get Attributes
+
+### Syntax
+
+```js
+// Get a single attribute
+let attribute = await $(el).attrAsync(name);
+
+// Get multiple attributes
+let attributes = await $(el).attrAsync([...name]);
+```
+
+**Parameters**
+
+* `name`: `String` - The attribute name.
+
+**Return**
+
++ `value`: `Any` - The value of the named attribute.
++ `values`: `Object` - A key/value hash of the listed attributes.
+
+### Usage
+
+Get the attribute on an `<input />` element.
+
+```js
+// Set a single attribute
+let value = await $(el).attrAsync('id');
+// email-input
+```
+
+## c. Unset Attributes
+
+### Syntax
+
+```js
+// Remove a single attribute
+$(el).attrAsync(name, false);
+
 // Remove multiple attributes
-let promise = attrAsync(el, {
-    name: false,
+await $(el).attrAsync({
+    [name]: false,
 });
 ```
 
 **Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `name` - `String`: The attribute name to set or remove.
-* `value` - `String|Boolean`: The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element.
+* `name`: `String` - The attribute name.
 
 **Return**
 
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
+* `this` - The Play UI instance.
 
-### &gt; Set/Remove Attribute Entry
+### Usage
 
-```javascript
-// Set a single attribute entry
-let promise = attrAsync(el, name, entry, state === true);
-// Remove a single attribute entry
-let promise = attrAsync(el, name, entry, state === false);
+Unset an element's ID attribute.
 
-// Set multiple attribute entries
-let promise = attrAsync(el, {
-    name: entry,
-}, state === true);
-// Remove multiple attribute entries
-let promise = attrAsync(el, {
-    name: entry,
-}, state === false);
+```js
+$(el).attrAsync('id', false);
+```
+
+## d. Modyfying Delimited Attributes
+
+### Syntax
+
+```js
+// Add a member to a single delimited attribute
+$(el).attrAsync(name, member, mutation === true);
+
+// Add a member to multiple delimited attributes
+$(el).attrAsync({
+    [name]: member,
+}, mutation === true);
+
+// Remove a member from a single delimited attribute
+$(el).attrAsync(name, member, mutation === false);
+
+// Remove a member from multiple delimited attributes
+await $(el).attrAsync({
+    [name]: member,
+}, mutation === false);
 ```
 
 **Parameters**
 
-* `el` - `HTMLElement`: The target DOM element.
-* `name` - `String`: The attribute name to modify.
-* `entry` - `String`: The text to insert or remove.
-* `state` - `Boolean`: The indication of _insert_ or _remove_. When `true`, the given text is inserted into the attribute's value list. When `false`, the given text is removed from the attribute's value list.
+* `name`: `String` - The attribute name to modify.
+* `member`: `String` - The attribute member to add or remove.
+* `mutation`: `Boolean` - The *add/remove* directive. When `true`, the given string is added to the attribute's value list. When `false`, the given string is removed from the attribute's value list.
 
 **Return**
 
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target DOM element is returned when the promise resolves.
+* `this` - The Play UI instance.
 
-### &gt; Get Attribute
+### Usage
 
-```javascript
-let promise = attrAsync(el, name);
-```
+Modify an element's *class* attribute, then confirm the operation.
 
-**Parameters**
-
-* `el` - `HTMLElement`: The source DOM element.
-* `name` - `String`: The attribute name to read.
-
-**Return**
-
-* `Promise` - A _Promise_ that resolves when the operation finally gets executed. The target attribute's value is returned when the promise resolves.
-
-## Usage
-
-```markup
+```html
 <div class="class1 class2" role="article"></div>
 ```
 
-```javascript
-let article = document.querySelector('.class1');
-
-// Set attribute
-attrAsync(article, 'role', 'main').then(article => {
-    // Do something with article
-});
-
+```js
+let el = document.querySelector('.class1');
 // Insert a class entry
-attrAsync(article, 'class', 'class3', true).then(article => {
-    // Do something with article
-});
-
-// Get attribute value
-attrAsync(article, 'role').then(value => {
-    // Do something with value
+$(el).attrAsync('class', 'class3', true).then($el => {
+    // Confirm the operation
+    console.log($el.attrSync('class')); // class1 class2 class3
 });
 ```
 
-## Implementation Note
+------
 
-Technically, DOM operations initiated with `attrAsync()` are internally batched to an appropriate queue using the [Reflow](../../concepts#async-dom) utility. _Read_ operations run first, then _write_ operations. This works to eliminate _layout thrashing_ as discussed in _Reflow_'s documentation.
+## Static Usage
 
-Notice the order of execution in the following example.
+The `.attrAsync()` instance method is internally based on the standalone `dom/attrAsync()` function which may be used statically.
 
-```javascript
-// Remove class1
-attrAsync(article, 'class', 'class1', false).then(() => {
-    console.log('class1 removed');
-});
+### Import
 
-// Read the class attribute
-attrAsync(article, 'class').then(value => {
-    console.log('classList: ' + value);
-});
-
-// Remove class2
-attrAsync(article, 'class', 'class2', false).then(() => {
-    console.log('class2 removed');
-});
-
-// Read the class attribute
-attrAsync(article, 'class').then(value => {
-    console.log('classList: ' + value);
-});
-
-// ------------
-// console
-// ------------
-classList: class1 class2
-classList: class1 class2
-class1 removed
-class2 removed
+```js
+const { attrAsync } = $.dom;
+```
+```js
+import { attrAsync } from '@webqit/play-ui/src/dom/index.js';
 ```
 
-The proper way to synchronize with an async function is to move code into its `then()` block as seen below.
+### Syntax
 
-```javascript
-// Remove class2
-attrAsync(article, 'class', 'class2', false).then(article => {
-    console.log('class2 removed');
-    // Read the class attribute
-    attrAsync(article, 'class').then(value => {
-        console.log('classList: ' + value);
-    });
-});
-// ------------
-// console
-// ------------
-class2 removed
-classList: class1
-```
-
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
