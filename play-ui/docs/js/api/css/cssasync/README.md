@@ -29,8 +29,7 @@ await $(el).cssAsync({
 + `prop` - `String`: A CSS property.
 + `value` - `Any`: The property value to set. When an empty string `''`, the property is unset from the element.
 + `params` - `Object`: Additional directives for the method. Valid directives are:
-    + `inline` - Set to `true` to write to the element's `style` attribute instead. By default, the element's *computed CSS* object is what is updated. But the browser also automatically writes the rules to the element's `style` attribute. The `inline` directive thus has no special effect.
-    + `global` - Set to `true` to write the new rules to a stylesheet instead.
+    + `scope` - Set to `global` to write the new rules to a stylesheet. Or set to `inline` to write to the element's `style` attribute. By default, the element's *computed CSS* object is what is updated. But the browser also automatically writes the rules to the element's `style` attribute. The `scope: inline` directive thus has no special effect.
     + `prepend` - Set to `true` to write the new rules behind existing rules instead, making existing rules take priority. With the `global` directive, the given rules are inserted at the start of the target stylesheet. On *inline* mode, the given rules are added to the prepended to the element's `style` attribute.
     + `pseudo` - (Works with the `global` directive. Forbidden otherwise.) Set to a pseudo selector (e.g `:before`) to set the CSS of a pseudo element associated with the matched element instead.
     + `autoUuid` - (Works with the `global` directive.) Set to `false` to prevent Play UI from automatically generating a special attribute `playuo-uuid` for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.
@@ -71,8 +70,7 @@ let values = await $(el).cssAsync([...prop], params = {});
 
 + `prop` - `String`: A CSS property.
 + `params` - `Object`: Additional directives for the method. Valid directives are:
-    + `inline` - Set to `true` to read the element's `style` attribute instead. By default, the element's *computed CSS* object is what is read.
-    + `global` - Set to `true` to read the global, stylesheet-based CSS for the matched element instead.
+    + `scope` - Set to `global` to read the global, stylesheet-based CSS for the matched element. Or set to `inline` to read the element's `style` attribute instead. By default, the element's *computed CSS* object is what is read.
     + `pseudo` - (Forbidden with the `inline` directive.) Set to a pseudo selector (e.g `:before`) to get the CSS of a pseudo element associated with the matched element instead.
     + `all` - (Works with the `global` directive.) Set to `true` to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.
     + `noCache` - (Works with the `global` directive.) Set to `true` to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.

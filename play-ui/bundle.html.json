@@ -1302,47 +1302,6 @@
                                                 }
                                             }
                                         },
-                                        "attrchangecallback": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Fires a callback on an element's attribute mutation event.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": "DOM/attrChangeCallback()",
-                                                            "uri": "domattrchangecallback",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Parameters",
-                                                                            "uri": "parameters",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "attrsync": {
                                             "meta": {
                                                 "readme": {
@@ -1711,47 +1670,6 @@
                                                 }
                                             }
                                         },
-                                        "connectedcallback": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Fires a callback on an element's 'connected' mutation state event.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": "DOM/connectedCallback()",
-                                                            "uri": "domconnectedcallback",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Parameters",
-                                                                            "uri": "parameters",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "constructor": {
                                             "meta": {
                                                 "readme": {
@@ -1820,47 +1738,6 @@
                                                                             "subtree": []
                                                                         }
                                                                     ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "disconnectedcallback": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Fires a callback on an element's 'disconnected' mutation state event.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": "DOM/disconnectedCallback()",
-                                                            "uri": "domdisconnectedcallback",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Parameters",
-                                                                            "uri": "parameters",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
                                                                 }
                                                             ]
                                                         }
@@ -2136,47 +2013,6 @@
                                                                             "subtree": []
                                                                         }
                                                                     ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "mutationcallback": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Fires a callback on an element's 'connected' or 'disconnected' mutation state event.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": "DOM/mutationCallback()",
-                                                            "uri": "dommutationcallback",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Parameters",
-                                                                            "uri": "parameters",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
                                                                 }
                                                             ]
                                                         }

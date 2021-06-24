@@ -791,8 +791,7 @@ $(el).data({
 <li><code>prop</code> - <code>String</code>: A CSS property.</li>
 <li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>inline</code> - Set to <code>true</code> to write to the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>inline</code> directive thus has no special effect.</li>
-<li><code>global</code> - Set to <code>true</code> to write the new rules to a stylesheet instead.</li>
+<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
 <li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. On <em>inline</em> mode, the given rules are added to the prepended to the element's <code>style</code> attribute.</li>
 <li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
@@ -823,8 +822,7 @@ $(el).data({
 <ul>
 <li><code>prop</code> - <code>String</code>: A CSS property.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>inline</code> - Set to <code>true</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.</li>
-<li><code>global</code> - Set to <code>true</code> to read the global, stylesheet-based CSS for the matched element instead.</li>
+<li><code>scope</code> - Set to <code>global</code> to read the global, stylesheet-based CSS for the matched element. Or set to <code>inline</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.</li>
 <li><code>pseudo</code> - (Forbidden with the <code>inline</code> directive.) Set to a pseudo selector (e.g <code>:before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>all</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
 <li><code>noCache</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
@@ -875,8 +873,7 @@ $(el).cssSync({
 <li><code>prop</code> - <code>String</code>: A CSS property.</li>
 <li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element's inline CSS.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>inline</code> - Set to <code>true</code> to write to the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>inline</code> directive thus has no special effect.</li>
-<li><code>global</code> - Set to <code>true</code> to write the new rules to a stylesheet instead.</li>
+<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
 <li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. On <em>inline</em> mode, the given rules are added to the prepended to the element's <code>style</code> attribute.</li>
 <li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
@@ -906,12 +903,11 @@ $(el).cssSync({
 <ul>
 <li><code>prop</code> - <code>String</code>: A CSS property.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>inline</code> - Set to <code>true</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.<ul>
-<li><code>global</code> - Set to <code>true</code> to read the global, stylesheet-based CSS for the matched element instead.</li>
+<li><code>scope</code> - Set to <code>global</code> to read the global, stylesheet-based CSS for the matched element. Or set to <code>inline</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.</li>
 <li><code>pseudo</code> - (Forbidden with the <code>inline</code> directive.) Set to a pseudo selector (e.g <code>:before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>all</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
 <li><code>noCache</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
-<li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li></ul></li>
+<li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -1245,46 +1241,6 @@ $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class=
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-4">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-
-					<template name="attrchangecallback">
-						<div exportgroup="readme">
-
-							<h1 id="domattrchangecallback">DOM/attrChangeCallback()</h1>
-<p>This function fires a callback on element's attribute mutation event.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> attrChangeCallback <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/attrChangeCallback.js&#x27;</span>;</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs javascript language-javascript">attrChangeCallback(el, callback[, filter = []]);</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li><code>el</code> - <code>HTMLElement</code>: The specific element to observe.</li>
-<li><code>callback</code> - <code>Function</code>: The callback function that recieves the notification. This callback will be called once for every change with the following arguments.<ul>
-<li><code>mutation</code> - <code>MutationEntry</code>: An object representing the mutation that occured.</li></ul></li>
-<li><code>filter</code> - <code>Array</code>: (Optional) A more specific list of attributes to observe.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>MutationObserver</code> - The instantiated MutationObserver.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<pre><code class="hljs markup language-markup">&lt;body&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;el1&quot;</span> <span class="hljs-built_in">class</span>=<span class="hljs-string">&quot;cls1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-&lt;/body&gt;</code></pre>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Obtain an element instance</span>
-<span class="hljs-keyword">let</span> el1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el1&#x27;</span>);
-
-<span class="hljs-comment">// Observe</span>
-attrChangeCallback(el1, <span class="hljs-function"><span class="hljs-params">mutation</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The class attribute has changed.&#x27;</span>, mutation);
-});
-
-<span class="hljs-comment">// Start mutating</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    el1.classList.add(<span class="hljs-string">&#x27;cls2&#x27;</span>); <span class="hljs-comment">// The class attribute has changed.</span>
-}, <span class="hljs-number">1000</span>);</code></pre>
 
 						</div>
 					</template>
@@ -1623,51 +1579,6 @@ $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <spa
 						</div>
 					</template>
 
-					<template name="connectedcallback">
-						<div exportgroup="readme">
-
-							<h1 id="domconnectedcallback"><code>DOM/connectedCallback()</code></h1>
-<p>This function observes when the specified elements are added to the document or given context. This is a convenience function for <a href="/tooling/play-ui/docs/js/api/dom/mutationcallback"><code>mutationCallback()</code></a></p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> connectedCallback <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/connectedCallback.js&#x27;</span>;</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs javascript language-javascript">connectedCallback(els, callback[, context = <span class="hljs-literal">null</span>[, observeIndirectMutation = <span class="hljs-literal">true</span>]]);</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li><code>els</code> - <code>HTMLElement|String|Array</code>: The specific element or elements to observe. This could be a single element instance, a CSS selector or an array of element specifiers.</li>
-<li><code>callback</code> - <code>Function</code>: The callback function that recieves the notification. This callback will recieve the following arguments.<ul>
-<li><code>nodes</code> - <code>[HTMLElement]</code>: A variadic list of the elements added to the DOM.</li></ul></li>
-<li><code>context</code> - <code>DOMDocument|HTMLElement</code>: (Optional) The subtree to observe. This is the <em>document</em> itself by default.</li>
-<li><code>observeIndirectMutation</code> - <code>Boolean</code>: (Optional) A specifier that tells whether to watch direct or indirect mutations of the specified elements.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>MutationObserver</code> - The instantiated MutationObserver.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<pre><code class="hljs markup language-markup"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;el1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Obtain an element instance</span>
-<span class="hljs-keyword">let</span> el1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el1&#x27;</span>);
-
-<span class="hljs-comment">// Observe both by instance and by selector</span>
-connectedCallback([el1, <span class="hljs-string">&#x27;#el2&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">...nodes</span>) =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;These nodes are now added to the document.&#x27;</span>, ...nodes);
-});
-
-<span class="hljs-comment">// Start mutating</span>
-el1.remove();
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-built_in">document</span>.body.appendChild(el1); <span class="hljs-comment">// These nodes are now added to the document. #el1</span>
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-        <span class="hljs-built_in">document</span>.body.append(<span class="hljs-string">&#x27;&lt;div id=&quot;el2&quot;&gt;&lt;/div&gt;&#x27;</span>); <span class="hljs-comment">// These nodes are now added to the document. #el2</span>
-    }, <span class="hljs-number">1000</span>);
-}, <span class="hljs-number">1000</span>);</code></pre>
-
-						</div>
-					</template>
-
 					<template name="constructor">
 						<div exportgroup="readme">
 
@@ -1739,51 +1650,6 @@ $(nodeList);</code></pre>
 <p>Accept a <em>NodeList</em> result.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;div&#x27;</span>);
 <span class="hljs-keyword">let</span> $divs = $(result).toArray(); <span class="hljs-comment">// .length: 2</span></code></pre>
-
-						</div>
-					</template>
-
-					<template name="disconnectedcallback">
-						<div exportgroup="readme">
-
-							<h1 id="domdisconnectedcallback"><code>DOM/disconnectedCallback()</code></h1>
-<p>This function observes when the specified elements are removed from the document or given context. This is a convenience function for <a href="/tooling/play-ui/docs/js/api/dom/mutationcallback"><code>mutationCallback()</code></a></p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> disconnectedCallback <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/disconnectedCallback.js&#x27;</span>;</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs javascript language-javascript">disconnectedCallback(els, callback[, context = <span class="hljs-literal">null</span>[, observeIndirectMutation = <span class="hljs-literal">true</span>]]);</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li><code>els</code> - <code>HTMLElement|String|Array</code>: The specific element or elements to observe. This could be a single element instance, a CSS selector or an array of element specifiers.</li>
-<li><code>callback</code> - <code>Function</code>: The callback function that recieves the notification. This callback will recieve the following arguments.<ul>
-<li><code>nodes</code> - <code>[HTMLElement]</code>: A variadic list of the elements removed from the DOM.</li></ul></li>
-<li><code>context</code> - <code>DOMDocument|HTMLElement</code>: (Optional) The subtree to observe. This is the <em>document</em> itself by default.</li>
-<li><code>observeIndirectMutation</code> - <code>Boolean</code>: (Optional) A specifier that tells whether to watch direct or indirect mutations of the specified elements.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>MutationObserver</code> - The instantiated MutationObserver.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<pre><code class="hljs markup language-markup">&lt;body&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;el1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;el2&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-&lt;/body&gt;</code></pre>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Obtain an element instance</span>
-<span class="hljs-keyword">let</span> el1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el1&#x27;</span>);
-
-<span class="hljs-comment">// Observe both by instance and by selector</span>
-disconnectedCallback([el1, <span class="hljs-string">&#x27;#el2&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">...nodes</span>) =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;These nodes are now removed from the document.&#x27;</span>, ...nodes);
-});
-
-<span class="hljs-comment">// Start mutating</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    el1.remove(); <span class="hljs-comment">// These nodes are now removed from the document. #el1</span>
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el2&#x27;</span>).remove(); <span class="hljs-comment">// These nodes are now removed from the document. #el2</span>
-    }, <span class="hljs-number">1000</span>);
-}, <span class="hljs-number">1000</span>);</code></pre>
 
 						</div>
 					</template>
@@ -2039,60 +1905,6 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { itemize } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-
-					<template name="mutationcallback">
-						<div exportgroup="readme">
-
-							<h1 id="dommutationcallback">DOM/mutationCallback()</h1>
-<p>This function observes when the specified elements are added to, or removed from the document or given context.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> mutationCallback <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/mutationCallback.js&#x27;</span>;</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs javascript language-javascript">mutationCallback(els, callback[, connectedState = <span class="hljs-literal">null</span>[, context = <span class="hljs-literal">null</span>[, observeIndirectMutation = <span class="hljs-literal">true</span>]]]);</code></pre>
-<h3 id="parameters">Parameters</h3>
-<ul>
-<li><code>els</code> - <code>HTMLElement|String|Array</code>: The specific element or elements to observe. This could be a single element instance, a CSS selector or an array of element specifiers.</li>
-<li><code>callback</code> - <code>Function</code>: The callback function that recieves the notification. This callback will recieve the following arguments.<ul>
-<li><code>connectedState</code> - <code>Int</code>: The type of mutation that occured. This could be either <code>1</code> or <code>0</code>, indicating whether the elements were added to the DOM or removed.</li>
-<li><code>nodes</code> - <code>[HTMLElement]</code>: A variadic list of the elements added or removed from the DOM.</li></ul></li>
-<li><code>connectedState</code> - <code>Int</code>: (Optional) The mutation type to watch for. This could be either <code>1</code> or <code>0</code>, indicating whether to watch only additions to the DOM or removals.</li>
-<li><code>context</code> - <code>DOMDocument|HTMLElement</code>: (Optional) The subtree to observe. This is the <em>document</em> itself by default.</li>
-<li><code>observeIndirectMutation</code> - <code>Boolean</code>: (Optional) A specifier that tells whether to watch direct or indirect mutations of the specified elements.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>MutationObserver</code> - The instantiated MutationObserver.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<pre><code class="hljs markup language-markup">&lt;body&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;el1&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-  &lt;<span class="hljs-keyword">div</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;el2&quot;</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
-&lt;/body&gt;</code></pre>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Obtain an element instance</span>
-<span class="hljs-keyword">let</span> el1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el1&#x27;</span>);
-
-<span class="hljs-comment">// Observe both by instance and by selector</span>
-mutationCallback([el1, <span class="hljs-string">&#x27;#el2&#x27;</span>, <span class="hljs-string">&#x27;#el3&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">connectedState, ...nodes</span>) =&gt;</span> {
-    <span class="hljs-keyword">if</span> (connectedState) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;These nodes are now added to the document.&#x27;</span>, ...nodes);
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;These nodes are now removed from the document.&#x27;</span>, ...nodes);
-    }
-});
-
-<span class="hljs-comment">// Start mutating</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    el1.remove(); <span class="hljs-comment">// These nodes are now removed from the document. el1</span>
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el2&#x27;</span>).remove(); <span class="hljs-comment">// These nodes are now removed from the document. #el2</span>
-        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-            <span class="hljs-built_in">document</span>.body.append(<span class="hljs-string">&#x27;&lt;div id=&quot;el3&quot;&gt;&lt;/div&gt;&#x27;</span>); <span class="hljs-comment">// These nodes are now added to the document. #el3</span>
-        }, <span class="hljs-number">1000</span>);
-    }, <span class="hljs-number">1000</span>);
-}, <span class="hljs-number">1000</span>);</code></pre>
 
 						</div>
 					</template>
