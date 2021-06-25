@@ -1,48 +1,77 @@
 ---
-desc: Unbinds event/gesture handlers previously bound using on().
+desc: Unbind event or gesture handlers previously bound to an element using on().
 ---
-# `off()`
-This function unbinds event/gesture handlers previously bound using the [`on()`](../on) function.
+# `.off()`
 
-## Import
-
-```js
-import off from '@webqit/play-ui/src/interaction/off.js';
-```
+This method is used to unbind event or gesture handlers previously bound to an element using [`.on()`](../on).
 
 ## Syntax
 
 ```js
 // Unbind all listeners bound to the following event name
 // regardless of the event handler
-off(el, eventName);
+$(el).off(eventName);
 
 // Unbind the listener bound with the following event handler  
-off(el, eventName, originalHandler);
+$(el).off(eventName, originalHandler);
 
 // Unbind the listener bound with the following event handler and tag 
-off(el, eventName, originalHandler, {tags:[...originalTags]});
+$(el).off(eventName, originalHandler, {tags:[...originalTags]});
 
 // Unbind the listener bound with the following tag 
 // regardless of the event handler
-off(el, eventName, null, {tags:[...originalTags]});
+$(el).off(eventName, null, {tags:[...originalTags]});
 ```
 
 **Parameters**
-+ `el` - `HTMLElement`: The source DOM element.
-+ `eventName` - `String`: The event name.
-+ `originalHandler` - `Function`: The handler function originally used with `on()`.
-+ `params` - `Object`: Additional parameters.
+
++ `eventName`: `String` - The event or gesture name.
++ `originalHandler`: `Function` - The handler function originally used with [`.on()`](../on).
++ `params`: `Object` - Additional parameters.
 
 **Return**
-+ `undefined`
 
-## Usage
+* `this` - The Play UI instance.
+
+### Usage
+
+Unbind a specific listenr bound to *doubletap*.
 
 ```js
-// Unbind a specific listenr bound to doubletap
-off(document.body, 'doubletap', originalHandler);
-
-// Unbind all listenrs bound to doubletap
-off(document.body, 'doubletap');
+$(document.body).off('doubletap', originalHandler);
 ```
+
+Unbind all listenrs bound to *doubletap*.
+
+```js
+$(document.body).off('doubletap');
+```
+
+------
+
+## Matching By Tags
+
+The `params.tags` parameter can be used to match listeners that were [tagged](../on#tagging-a-listener) by the [`.on()`](../on) method.
+
+```js
+$(el).off(eventName, originalHandler, {tags:['#tag']});
+```
+
+------
+
+## Static Usage
+
+The `.off()` instance method is internally based on the standalone `ui/off()` function which may be used statically.
+
+### Import
+
+```js
+const { off } = $.ui;
+```
+```js
+import { off } from '@webqit/play-ui/src/ui/index.js';
+```
+
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

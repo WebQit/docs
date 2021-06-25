@@ -1,58 +1,47 @@
 ---
-desc: Creates and play an animation.
+desc: Create and play an animation.
 ---
-# `Animation/play()`
-This function creates and play an animation. It is a convenient way to use the PlayUI's [Ani](../Ani) class.
+# `.play()`
 
-## Import
-
-```javascript
-import play from '@webqit/play-ui/src/interaction/play.js';
-```
+This method is used to create and play an animation. This method is promise-based.
 
 ## Syntax
 
-```javascript
-let promise = play(el, effect[, timing = {}]);
+```js
+await $(el).play(effect[, timing = {}]);
 ```
 
-### Parameters
-+ `el` - `HTMLElement`: The source DOM element.
-+ `effect` - `Array|Object|String`: The effect to play. This could be a standard keyframes array, a CSS object or a stylesheet-based animation name.
-+ `timing` - `Object`: Options for the animation. See [Ani](../Ani#parameters).
+**Parameters**
 
-### Return
++ `effect`: `Array|Object|String` - The effect to play. See [Animation](../classes/Animation#parameters).
++ `timing`: `Object` - Options for the animation. See [Animation](../classes/Animation#parameters).
 
-* `Promise` - A promise that resolves when the animation finishes.
+**Return**
 
-## Usage
+* `this` - The Play UI instance.
 
-### Play from Standard Keyframes
+### Usage
 
-Below, we fade out an element with keyframes.
+**Play from Standard Keyframes.** Below, we fade out an element using an array of keyframes.
 
-```javascript
+```js
 let el = document.querySelector('#el');
-play(el, [{opacity:1}, {opacity:0}], {duration:600}).then(el => {
+$(el).play([{opacity:1}, {opacity:0}], {duration:600}).then($el => {
     console.log('The end!');
 });
 ```
 
-### Play a CSS Transition
+**Play a CSS Transition.** Below, we fade out an element by simply specifying a *end-state* keyframe. The starting keyframe for the animation is automatically derived from the element's current state.
 
-Below, we fade out an element by simply specifying a end-state keyframe and letting Ani derive the starting keyframe from the element's current state.
-
-```javascript
-play(el, {opacity:0}, {duration:600}).then(el => {
+```js
+$(el).play({opacity:0}, {duration:600}).then($el => {
     console.log('The end!');
-})
+});
 ```
 
-### Play a CSS Animation Name
+**Play a CSS Animation Name.** Below, we fade out an element using an animation defined in the document's stylesheet.
 
-Below, we fade out an element with an animation keyframes defined in the document's stylesheet.
-
-```markup
+```html
 <style>
 
 @keyframes fadeout {
@@ -63,9 +52,27 @@ Below, we fade out an element with an animation keyframes defined in the documen
 </style>
 ```
 
-```javascript
-play(el, 'fadeout', {duration:600}).then(el => {
+```js
+$(el).play('fadeout', {duration:600}).then($el => {
     console.log('The end!');
-})
+});
 ```
 
+------
+
+## Static Usage
+
+The `.play()` instance method is internally based on the standalone `ui/play()` function which may be used statically.
+
+### Import
+
+```js
+const { play } = $.ui;
+```
+```js
+import { play } from '@webqit/play-ui/src/ui/index.js';
+```
+
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

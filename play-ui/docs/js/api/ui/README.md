@@ -1,4 +1,5 @@
 ---
 title: UI
+_index: last
 ---
-# API Category: The UI
+# API Category: UI

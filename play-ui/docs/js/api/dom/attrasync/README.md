@@ -18,7 +18,7 @@ The suffix *Async* differentiates this method from its *Sync* counterpart - [`at
 
 ```js
 // Set a single attribute
-$(el).attrAsync(name, value);
+await $(el).attrAsync(name, value);
 
 // Set multiple attributes
 await $(el).attrAsync({

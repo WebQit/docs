@@ -1,35 +1,31 @@
 ---
-desc: Triggers event/gesture handlers previously bound with on().
+desc: Trigger event or gesture handlers previously bound to an element using on().
 ---
-# `trigger()`
-This method is used to trigger event/gesture handlers previously bound using the [`on()`](../on) function.
+# `.trigger()`
 
-## Import
-
-```js
-import trigger from '@webqit/play-ui/src/interaction/trigger.js';
-```
+This method is used to trigger event or gesture handlers previously bound to an element using [`.on()`](../on).
 
 ## Syntax
 
 ```js
-trigger(el, eventName[, details = {}]);
+let event = $(el).trigger(eventName[, details = {}]);
 ```
 
 **Parameters**
-+ `el` - `HTMLElement`: The source DOM element.
-+ `eventName` - `String`: The event name.
-+ `details` - `Object`: (Optional) oustom data for the event.
+
++ `eventName`: `String` - The event or gesture name.
++ `details`: `Object` - Custom data to pass to the fired event handlers.
 
 **Return**
-An [*Event* instance](#the-returned-event-instance).
 
-## The Returned Event Instance
+* `event`: `Event` - An instance of [Event](../classes/Event).
 
-`trigger()` returns the fired event object which be inspected about the disposition of its handlers.
+### Usage
+
+Programmatically fire gesture handlers.
 
 ```js
-let event = trigger(el, eventName);
+let event = $(document.body).trigger('doubletap', {time:0});
 ```
 
 Inspect the event to see the disposition of the fired listeners.
@@ -51,3 +47,22 @@ if (event.defaultPrevented) {
     });
 }
 ```
+
+------
+
+## Static Usage
+
+The `.trigger()` instance method is internally based on the standalone `ui/trigger()` function which may be used statically.
+
+### Import
+
+```js
+const { trigger } = $.ui;
+```
+```js
+import { trigger } from '@webqit/play-ui/src/ui/index.js';
+```
+
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

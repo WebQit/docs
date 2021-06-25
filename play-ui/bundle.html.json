@@ -166,263 +166,6 @@
                     "subtree": {
                         "api": {
                             "meta": {
-                                "readme copy": {
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "API Reference",
-                                            "uri": "api-reference",
-                                            "subtree": [
-                                                {
-                                                    "level": 3,
-                                                    "title": "DOM Manipulation Methods",
-                                                    "uri": "dom-manipulation-methods",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".htmlAsync()",
-                                                            "uri": "htmlasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".htmlSync()",
-                                                            "uri": "htmlsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".html()",
-                                                            "uri": "html",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".textAsync()",
-                                                            "uri": "textasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".textSync()",
-                                                            "uri": "textsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".text()",
-                                                            "uri": "text",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".appendAsync()",
-                                                            "uri": "appendasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".appendSync()",
-                                                            "uri": "appendsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".append()",
-                                                            "uri": "append",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".prependAsync()",
-                                                            "uri": "prependasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".prependSync()",
-                                                            "uri": "prependsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".prepend()",
-                                                            "uri": "prepend",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".attrAsync()",
-                                                            "uri": "attrasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".attrSync()",
-                                                            "uri": "attrsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".attr()",
-                                                            "uri": "attr",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".classAsync()",
-                                                            "uri": "classasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".classSync()",
-                                                            "uri": "classsync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".class()",
-                                                            "uri": "class",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 3,
-                                                    "title": "CSS-Processing Methods",
-                                                    "uri": "css-processing-methods",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".cssAsync()",
-                                                            "uri": "cssasync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".cssSync()",
-                                                            "uri": "csssync",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".css()",
-                                                            "uri": "css",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".cssInline()",
-                                                            "uri": "cssinline",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".cssStylesheet()",
-                                                            "uri": "cssstylesheet",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".cssTransaction()",
-                                                            "uri": "csstransaction",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 3,
-                                                    "title": "Animation Methods",
-                                                    "uri": "animation-methods",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".play()",
-                                                            "uri": "play",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 3,
-                                                    "title": "Event Methods",
-                                                    "uri": "event-methods",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".on()",
-                                                            "uri": "on",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".off()",
-                                                            "uri": "off",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".trigger()",
-                                                            "uri": "trigger",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 3,
-                                                    "title": "Other Methods",
-                                                    "uri": "other-methods",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".data()",
-                                                            "uri": "data",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 3,
-                                                    "title": "Observers",
-                                                    "uri": "observers",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".onconnected()",
-                                                            "uri": "onconnected",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".ondisonconnected()",
-                                                            "uri": "ondisonconnected",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".onmutated()",
-                                                            "uri": "onmutated",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".onattrchange()",
-                                                            "uri": "onattrchange",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": ".onresize()",
-                                                            "uri": "onresize",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
                                 "readme": {
                                     "desc": "Play UI's API documentation",
                                     "_subtreeType": "category",
@@ -437,16 +180,15 @@
                                 }
                             },
                             "subtree": {
-                                "app": {
+                                "css": {
                                     "meta": {
                                         "readme": {
-                                            "title": "App",
-                                            "_index": "last",
+                                            "title": "CSS",
                                             "outline": [
                                                 {
                                                     "level": 1,
-                                                    "title": "API Category: APP",
-                                                    "uri": "api-category-app",
+                                                    "title": "API Category: CSS",
+                                                    "uri": "api-category-css",
                                                     "subtree": []
                                                 }
                                             ]
@@ -469,319 +211,44 @@
                                                 }
                                             },
                                             "subtree": {
-                                                "transaction": {
+                                                "TransformRule": {
                                                     "meta": {
                                                         "readme": {
-                                                            "title": "Transaction",
-                                                            "desc": "A class that lets us create rollback states while manipulating an element.",
+                                                            "title": "TransformRule",
+                                                            "desc": "The TransformRule class.",
                                                             "outline": [
                                                                 {
                                                                     "level": 1,
-                                                                    "title": "class Transaction {}",
-                                                                    "uri": "class-transaction-",
+                                                                    "title": "class TransformRule {}",
+                                                                    "uri": "class-transformrule-",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 2,
-                                                                            "title": "Constructor",
-                                                                            "uri": "constructor-NaN",
-                                                                            "subtree": []
+                                                                            "title": "TransformRule.parse()",
+                                                                            "uri": "transformruleparse",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
                                                                         },
                                                                         {
                                                                             "level": 2,
                                                                             "title": "Usage",
                                                                             "uri": "usage",
                                                                             "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 2,
-                                                                            "title": "Properties",
-                                                                            "uri": "properties",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 2,
-                                                                            "title": "Methods",
-                                                                            "uri": "methods",
-                                                                            "subtree": []
                                                                         }
                                                                     ]
                                                                 }
                                                             ]
-                                                        }
-                                                    },
-                                                    "subtree": {
-                                                        "apply": {
-                                                            "meta": {
-                                                                "readme": {
-                                                                    "desc": "Apply a new state to the element in a transaction.",
-                                                                    "outline": [
-                                                                        {
-                                                                            "level": 1,
-                                                                            "title": ".apply()",
-                                                                            "uri": "apply",
-                                                                            "subtree": [
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Syntax",
-                                                                                    "uri": "syntax",
-                                                                                    "subtree": []
-                                                                                },
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Usage",
-                                                                                    "uri": "usage",
-                                                                                    "subtree": []
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        },
-                                                        "commit": {
-                                                            "meta": {
-                                                                "readme": {
-                                                                    "desc": "Commit up to a savepoint in a transaction.",
-                                                                    "outline": [
-                                                                        {
-                                                                            "level": 1,
-                                                                            "title": ".commit()",
-                                                                            "uri": "commit",
-                                                                            "subtree": [
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Syntax",
-                                                                                    "uri": "syntax",
-                                                                                    "subtree": []
-                                                                                },
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Usage",
-                                                                                    "uri": "usage",
-                                                                                    "subtree": []
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        },
-                                                        "rollback": {
-                                                            "meta": {
-                                                                "readme": {
-                                                                    "desc": "Roll back up to a savepoint in a transaction.",
-                                                                    "outline": [
-                                                                        {
-                                                                            "level": 1,
-                                                                            "title": ".rollback()",
-                                                                            "uri": "rollback",
-                                                                            "subtree": [
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Syntax",
-                                                                                    "uri": "syntax",
-                                                                                    "subtree": []
-                                                                                },
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Usage",
-                                                                                    "uri": "usage",
-                                                                                    "subtree": []
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        },
-                                                        "savepoint": {
-                                                            "meta": {
-                                                                "readme": {
-                                                                    "desc": "Create a savepoint from the current state of an element in a transaction.",
-                                                                    "outline": [
-                                                                        {
-                                                                            "level": 1,
-                                                                            "title": ".savepoint()",
-                                                                            "uri": "savepoint",
-                                                                            "subtree": [
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Syntax",
-                                                                                    "uri": "syntax",
-                                                                                    "subtree": []
-                                                                                },
-                                                                                {
-                                                                                    "level": 2,
-                                                                                    "title": "Usage",
-                                                                                    "uri": "usage",
-                                                                                    "subtree": []
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                 }
                                             }
                                         },
-                                        "data": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Store and manage arbitrary data with a data store internally associated with an element.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": ".data()",
-                                                            "uri": "data",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "a. Set Data",
-                                                                    "uri": "a-set-data",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "b. Get Data",
-                                                                    "uri": "b-get-data",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-1",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "c. Unset Data",
-                                                                    "uri": "c-unset-data",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-2",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-2",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Static Usage",
-                                                                    "uri": "static-usage",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Import",
-                                                                            "uri": "import",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-3",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "transaction": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Start a transaction on an element for operations that eventually might need to be rolled back.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": ".transaction()",
-                                                            "uri": "transaction",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Static Usage",
-                                                                    "uri": "static-usage",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Import",
-                                                                            "uri": "import",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "css": {
-                                    "meta": {
-                                        "readme": {
-                                            "title": "CSS",
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "API Category: CSS",
-                                                    "uri": "api-category-css",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    "subtree": {
                                         "css": {
                                             "meta": {
                                                 "readme": {
@@ -2332,157 +1799,297 @@
                                         }
                                     }
                                 },
-                                "ui": {
+                                "misc": {
                                     "meta": {
-                                        "readme": {},
-                                        "coordsatrect": {
+                                        "readme": {
+                                            "title": "Misc",
+                                            "_index": "last",
                                             "outline": [
                                                 {
                                                     "level": 1,
-                                                    "title": "UI/coordsAtRect()",
-                                                    "uri": "uicoordsatrect",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "offsets": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/offsets()",
-                                                    "uri": "uioffsets",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "offsetto": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/offsetTo()",
-                                                    "uri": "uioffsetto",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "positioningoffsets": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/positioningOffsets()",
-                                                    "uri": "uipositioningoffsets",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "proximityobserver": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/ProximityObserver",
-                                                    "uri": "uiproximityobserver",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "rect": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/rect()",
-                                                    "uri": "uirect",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "rectatoffsets": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/rectAtOffsets()",
-                                                    "uri": "uirectatoffsets",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "resizecallback": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/resizeCallback()",
-                                                    "uri": "uiresizecallback",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "scrollparent": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/scrollParent()",
-                                                    "uri": "uiscrollparent",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "scrolls": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/scrolls()",
-                                                    "uri": "uiscrolls",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "scrollto": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/scrollTo()",
-                                                    "uri": "uiscrollto",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "size": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/size()",
-                                                    "uri": "uisize",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        },
-                                        "translateto": {
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": "UI/translateTo()",
-                                                    "uri": "uitranslateto",
+                                                    "title": "API Category: Miscellaneous",
+                                                    "uri": "api-category-miscellaneous",
                                                     "subtree": []
                                                 }
                                             ]
                                         }
                                     },
                                     "subtree": {
-                                        "off": {
+                                        "classes": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Unbinds event/gesture handlers previously bound using on().",
+                                                    "desc": "Classes in this category.",
+                                                    "_index": "last",
                                                     "outline": [
                                                         {
                                                             "level": 1,
-                                                            "title": "off()",
-                                                            "uri": "off",
+                                                            "title": "Classes",
+                                                            "uri": "classes",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "subtree": {
+                                                "Transaction": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "title": "Transaction",
+                                                            "desc": "The Transaction class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "class Transaction {}",
+                                                                    "uri": "class-transaction-",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Properties",
+                                                                            "uri": "properties",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Methods",
+                                                                            "uri": "methods",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "subtree": {
+                                                        "apply": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Apply a new state to the element in a transaction.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".apply()",
+                                                                            "uri": "apply",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "commit": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Commit up to a savepoint in a transaction.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".commit()",
+                                                                            "uri": "commit",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "rollback": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Roll back up to a savepoint in a transaction.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".rollback()",
+                                                                            "uri": "rollback",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "savepoint": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Create a savepoint from the current state of an element in a transaction.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".savepoint()",
+                                                                            "uri": "savepoint",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "data": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Store and manage arbitrary data with a data store internally associated with an element.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".data()",
+                                                            "uri": "data",
                                                             "subtree": [
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
+                                                                    "title": "a. Set Data",
+                                                                    "uri": "a-set-data",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
                                                                 },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "b. Get Data",
+                                                                    "uri": "b-get-data",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "c. Unset Data",
+                                                                    "uri": "c-unset-data",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-2",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage-2",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-3",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "transaction": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Start a transaction on an element for operations that eventually might need to be rolled back.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".transaction()",
+                                                            "uri": "transaction",
+                                                            "subtree": [
                                                                 {
                                                                     "level": 2,
                                                                     "title": "Syntax",
@@ -2494,6 +2101,1026 @@
                                                                     "title": "Usage",
                                                                     "uri": "usage",
                                                                     "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "ui": {
+                                    "meta": {
+                                        "readme": {
+                                            "title": "UI",
+                                            "_index": "last",
+                                            "outline": [
+                                                {
+                                                    "level": 1,
+                                                    "title": "API Category: UI",
+                                                    "uri": "api-category-ui",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "subtree": {
+                                        "classes": {
+                                            "subtree": {
+                                                "Animation": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "title": "Animation",
+                                                            "desc": "The Animation class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "class Animation {}",
+                                                                    "uri": "class-animation-",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Features",
+                                                                            "uri": "features",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Methods",
+                                                                            "uri": "methods",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "subtree": {
+                                                        "cancel": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Cancel an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".cancel()",
+                                                                            "uri": "cancel",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "finish": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Force an animation to the finished state.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".finish()",
+                                                                            "uri": "finish",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "oncancel": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Bind a handler to the 'cancelled' state of an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": "oncancel()",
+                                                                            "uri": "oncancel",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "onfinish": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Bind a handler to the 'finished' state of an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".onfinish()",
+                                                                            "uri": "onfinish",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "pause": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Pause an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".pause()",
+                                                                            "uri": "pause",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "play": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Play an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".play()",
+                                                                            "uri": "play",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "progress": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Get the percentage progress of an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".progress()",
+                                                                            "uri": "progress",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "ready": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Bind a handler to the 'ready' state of an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".ready()",
+                                                                            "uri": "ready",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "reverse": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Reverse an animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".reverse()",
+                                                                            "uri": "reverse",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "seek": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Seek to a percentage point in animation.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".seek()",
+                                                                            "uri": "seek",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "Event": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "title": "Event",
+                                                            "desc": "The Event class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "class Event {}",
+                                                                    "uri": "class-event-",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Properties",
+                                                                            "uri": "properties",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Instance Methods",
+                                                                            "uri": "instance-methods",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "event.preventDefault()",
+                                                                                    "uri": "eventpreventdefault",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "event.stopPropagation()",
+                                                                                    "uri": "eventstoppropagation",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "event.promise()",
+                                                                                    "uri": "eventpromise",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "event.response()",
+                                                                                    "uri": "eventresponse",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "Listener": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "title": "Listener",
+                                                            "desc": "The Listener class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "class Listener {}",
+                                                                    "uri": "class-listener-",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Instance Methods",
+                                                                            "uri": "instance-methods",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "listener.disconnect()",
+                                                                                    "uri": "listenerdisconnect",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "listener.fire()",
+                                                                                    "uri": "listenerfire",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "Timeline": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "titlw": "Timeline",
+                                                            "desc": "The Timeline class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "Timeline",
+                                                                    "uri": "timeline",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Features",
+                                                                            "uri": "features",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Methods",
+                                                                            "uri": "methods",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "subtree": {
+                                                        "add": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Add an animation to the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".add()",
+                                                                            "uri": "add",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "cancel": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Cancel all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".cancel()",
+                                                                            "uri": "cancel",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "clear": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Cancel all animations from off the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".clear()",
+                                                                            "uri": "clear",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "finish": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Finish all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".finish()",
+                                                                            "uri": "finish",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "oncancel": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Bind a handler to the 'cancelled' state of all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": "oncancel()",
+                                                                            "uri": "oncancel",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "onfinish": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Bind a handler to the 'finished' state of all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": "onfinish()",
+                                                                            "uri": "onfinish",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "pause": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Pause all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".pause()",
+                                                                            "uri": "pause",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "play": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Play all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".play()",
+                                                                            "uri": "play",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "progress": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Get the average percentage progress of all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".progress()",
+                                                                            "uri": "progress",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "remove": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Remove an animation from the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".remove()",
+                                                                            "uri": "remove",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "reverse": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Reverse all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".reverse()",
+                                                                            "uri": "reverse",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        "seek": {
+                                                            "meta": {
+                                                                "readme": {
+                                                                    "desc": "Seek to a percentage point in all animations in the timeline.",
+                                                                    "outline": [
+                                                                        {
+                                                                            "level": 1,
+                                                                            "title": ".seek()",
+                                                                            "uri": "seek",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 2,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "UIRect": {
+                                                    "meta": {
+                                                        "readme": {
+                                                            "title": "UIRect",
+                                                            "desc": "The UIRect class.",
+                                                            "outline": [
+                                                                {
+                                                                    "level": 1,
+                                                                    "title": "class UIRect {}",
+                                                                    "uri": "class-uirect-",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Properties",
+                                                                            "uri": "properties",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Static Methods",
+                                                                            "uri": "static-methods",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "UIRect.calculate(element[, params = {}])",
+                                                                                    "uri": "uirectcalculateelement-params--",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Instance Methods",
+                                                                            "uri": "instance-methods",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.intersectionWith()",
+                                                                                    "uri": "rectintersectionwith",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.unionWith()",
+                                                                                    "uri": "rectunionwith",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.angleWith()",
+                                                                                    "uri": "rectanglewith",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.proximityWith()",
+                                                                                    "uri": "rectproximitywith",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.rotationTo()",
+                                                                                    "uri": "rectrotationto",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.scaleTo()",
+                                                                                    "uri": "rectscaleto",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "rect.translationTo()",
+                                                                                    "uri": "recttranslationto",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Classes in this category.",
+                                                    "_index": "last",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": "Classes",
+                                                            "uri": "classes",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "custom-events": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Play UI's custom events system.",
+                                                    "_index": "last",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": "Custom Events",
+                                                            "uri": "custom-events",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "off": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Unbind event or gesture handlers previously bound to an element using on().",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".off()",
+                                                            "uri": "off",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Matching By Tags",
+                                                                    "uri": "matching-by-tags",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ]
                                                         }
@@ -2504,19 +3131,13 @@
                                         "on": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Binds an event/gesture handler to an element.",
+                                                    "desc": "Bind event or gesture handlers to an element.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
-                                                            "title": "EVT/on()",
-                                                            "uri": "evton",
+                                                            "title": ".on()",
+                                                            "uri": "on",
                                                             "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
                                                                 {
                                                                     "level": 2,
                                                                     "title": "Syntax",
@@ -2537,15 +3158,28 @@
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "The Returned Listener Instance",
-                                                                    "uri": "the-returned-listener-instance",
+                                                                    "title": "Gestures",
+                                                                    "uri": "gestures",
                                                                     "subtree": []
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "Gestures",
-                                                                    "uri": "gestures",
-                                                                    "subtree": []
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ]
                                                         }
@@ -2556,19 +3190,13 @@
                                         "play": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Creates and play an animation.",
+                                                    "desc": "Create and play an animation.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
-                                                            "title": "Animation/play()",
-                                                            "uri": "animationplay",
+                                                            "title": ".play()",
+                                                            "uri": "play",
                                                             "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
                                                                 {
                                                                     "level": 2,
                                                                     "title": "Syntax",
@@ -2576,39 +3204,75 @@
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
-                                                                            "title": "Parameters",
-                                                                            "uri": "parameters",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Return",
-                                                                            "uri": "return",
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
                                                                             "subtree": []
                                                                         }
                                                                     ]
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
-                                                                            "title": "Play from Standard Keyframes",
-                                                                            "uri": "play-from-standard-keyframes",
+                                                                            "title": "Import",
+                                                                            "uri": "import",
                                                                             "subtree": []
                                                                         },
                                                                         {
                                                                             "level": 3,
-                                                                            "title": "Play a CSS Transition",
-                                                                            "uri": "play-a-css-transition",
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "rect": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Obtain the rendered rectangle of an element in the UI for manipualtion.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".rect()",
+                                                            "uri": "rect",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
                                                                             "subtree": []
                                                                         },
                                                                         {
                                                                             "level": 3,
-                                                                            "title": "Play a CSS Animation Name",
-                                                                            "uri": "play-a-css-animation-name",
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -2622,30 +3286,44 @@
                                         "trigger": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Triggers event/gesture handlers previously bound with on().",
+                                                    "desc": "Trigger event or gesture handlers previously bound to an element using on().",
                                                     "outline": [
                                                         {
                                                             "level": 1,
-                                                            "title": "trigger()",
+                                                            "title": ".trigger()",
                                                             "uri": "trigger",
                                                             "subtree": [
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
                                                                     "title": "Syntax",
                                                                     "uri": "syntax",
-                                                                    "subtree": []
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "The Returned Event Instance",
-                                                                    "uri": "the-returned-event-instance",
-                                                                    "subtree": []
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
                                                                 }
                                                             ]
                                                         }

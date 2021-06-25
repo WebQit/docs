@@ -1,72 +1,70 @@
 ---
-desc: Binds an event/gesture handler to an element.
+desc: Bind event or gesture handlers to an element.
 ---
-# EVT/on\(\)
+# `.on()`
 
-This function binds an event/gesture handler to an element. This works like [`EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) but adds support for user gestures and custom event implementation.
-
-## Import
-
-```javascript
-import on from '@webqit/play-ui/src/interaction/on.js';
-```
+This method is used to bind event or gesture handlers to an element. This works like [`EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) but adds support for user gestures and custom event implementation.
 
 ## Syntax
 
 ```js
-on(el, eventName, handler[, params = {}]);
+let listener = $(el).on(eventName, handler[, params = {}]);
 ```
 
 **Parameters**
-+ `el` - `HTMLElement`: The source DOM element.
-+ `eventName` - `String`: The event name.
-+ `handler` - `Function`: The handler function. This recieves:
-    + `event` - an event object
-+ `params` - `Object`: Additional parameters.
+
++ `eventName`: `String` - The event or gesture name.
++ `handler`: `function(event)` - The handler function.
+
+    **Parameters**
+
+    + `event`: `Object` - An event object.
+
++ `params`: `Object` - Additional parameters.
 
 **Return**
-A [*Listener* instance](#the-returned-listener-instance).
+
+* `listener`: `Listener` - An instance of [Listener](../classes/Listener).
 
 ## Usage
 
-```javascript
-on(document.body, 'doubletap', event => {
+Handle gesture events.
+
+```js
+$(document.body).on('doubletap', event => {
     console.log('You doubletapped me!', event.details);
 });
 ```
 
-Use the [`trigger()`](../trigger) method to fire the event.
+Try using the [`trigger()`](../trigger) method to fire the event.
 
 ```js
 // Trigger
-trigger(document.body, 'doubletap');
+$(document.body).trigger('doubletap');
 // And we can add details
-trigger(document.body, 'doubletap'), {time:0});
+$(document.body).trigger('doubletap', {time:0});
 ```
+
+------
 
 ## Tagging a Listener
 
-The `params.tags` parameter can be used to tag a listener. Tags are an *array* of values (*strings*, *numbers*, *objects*, etc) that can be used to identify the listener for later use.
+The `params.tags` parameter can be used to tag a listener. Tags are an *array* of values (*strings*, *numbers*, *objects*, etc) that can be associated with the *listener* for later use. See tags in action using the [`.off()`](../off#matching-by-tags) method.
 
 ```js
-on(el, eventName, handler, {tags:['#tag']});
+let listener = $(el).on(eventName, handler, {tags:['#tag']});
 ```
 
-## The Returned Listener Instance
-
-The `on()` function returns a *Listener* instance that gives us per-instance control.
+Programmatically manipulate *listener*.
 
 ```js
-// Obtain the Listener instance
-let instance = on(el, eventName, handler);
-
 // Synthetically trigger the listener
-instance.fire({
+listener.fire({
     type: 'doubletap',
 });
 
 // Disconnect the listener
-instance.disconnect();
+listener.disconnect();
 ```
 
 ## Gestures
@@ -80,8 +78,23 @@ PlayUI uses the [Hammer.js](https://hammerjs.github.io/) gesture library to supp
 * **swipe**: swipe, swipeleft, swiperight, swipeup, swipedown
 * **tap**: tap, \(by custom extension: tripletap, doubletap, singletap\)
 
-Ensure to include Hammer in your page.
+Be sure to include Hammer on your page before trying to handle gestures.
 
-```markup
-<script src="//unpkg.com/@webqit/cui/ext/hammer.min.js"></script>
+------
+
+## Static Usage
+
+The `.on()` instance method is internally based on the standalone `ui/on()` function which may be used statically.
+
+### Import
+
+```js
+const { on } = $.ui;
 ```
+```js
+import { on } from '@webqit/play-ui/src/ui/index.js';
+```
+
+### Syntax
+
+See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)

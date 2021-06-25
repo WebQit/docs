@@ -106,294 +106,6 @@
 			</div>
 
 			<template name="api">
-				<div exportgroup="readme copy">
-
-					<h1 id="api-reference">API Reference</h1>
-<h3 id="dom-manipulation-methods">DOM Manipulation Methods</h3>
-<p>DOM manipulation methods. The most of these methods come in a <em>sync</em> and <em>async</em> flavour, and a third unsiffixed flavour that is an alias to the <em>async</em> method.</p>
-<h4 id="htmlasync"><code>.htmlAsync()</code></h4>
-<p>This method <em>asynchronously</em> sets or gets the HTML content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>dom/htmlAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> sets or gets the HTML content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>dom/htmlAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set the HTML content, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).htmlAsync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});
-
-<span class="hljs-comment">// Get the HTML content, log it to the console when available</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).htmlAsync().then(<span class="hljs-function"><span class="hljs-params">content</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(content);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>dom/htmlAsync()</code></a> for details.</p>
-<h4 id="htmlsync"><code>.htmlSync()</code></h4>
-<p>This method <em>synchronously</em> sets or gets the HTML content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>dom/htmlSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> sets or gets the HTML content for the current matched element. It uses the <a href="https://github.com/web-native/docs/tree/201e05f348ffbec3ef9e613f36713ffdc10badc9/play-ui/api/dom/htmlsync"><code>dom/htmlSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set the HTML content</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).htmlSync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>);
-
-<span class="hljs-comment">// Get the HTML content, log it to the console</span>
-<span class="hljs-keyword">let</span> content = $(<span class="hljs-string">&#x27;#el&#x27;</span>).htmlSync();
-<span class="hljs-built_in">console</span>.log(content);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>dom/htmlSync()</code></a> for details.</p>
-<h4 id="html"><code>.html()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instancehtmlasync"><code>.htmlAsync()</code></a> method.</p>
-<h4 id="textasync"><code>.textAsync()</code></h4>
-<p>This method <em>asynchronously</em> sets or gets the text content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/textasync"><code>dom/textAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> sets or gets the text content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/textasync"><code>dom/textAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set the text content, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).textAsync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});
-
-<span class="hljs-comment">// Get the text content, log it to the console when available</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).textAsync().then(<span class="hljs-function"><span class="hljs-params">content</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(content);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/textasync"><code>dom/textAsync()</code></a> for details.</p>
-<h4 id="textsync"><code>.textSync()</code></h4>
-<p>This method <em>synchronously</em> sets or gets the text content for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>dom/textSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> sets or gets the text content for the current matched element. It uses the <a href="https://github.com/web-native/docs/tree/201e05f348ffbec3ef9e613f36713ffdc10badc9/play-ui/api/dom/textsync"><code>dom/textSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set the text content</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).textSync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>);
-
-<span class="hljs-comment">// Get the text content, log it to the console</span>
-<span class="hljs-keyword">let</span> content = $(<span class="hljs-string">&#x27;#el&#x27;</span>).textSync();
-<span class="hljs-built_in">console</span>.log(content);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>dom/textSync()</code></a> for details.</p>
-<h4 id="text"><code>.text()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instancetextasync"><code>.textAsync()</code></a> method.</p>
-<h4 id="appendasync"><code>.appendAsync()</code></h4>
-<p>This method <em>asynchronously</em> appends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/appendasync"><code>dom/appendAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> appends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/appendasync"><code>dom/appendAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Append content, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).appendAsync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/appendasync"><code>dom/appendAsync()</code></a> for details.</p>
-<h4 id="appendsync"><code>.appendSync()</code></h4>
-<p>This method <em>synchronously</em> appends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>dom/appendSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> appends text content to the current matched element. It uses the <a href="https://github.com/web-native/docs/tree/201e05f348ffbec3ef9e613f36713ffdc10badc9/play-ui/api/dom/appendsync"><code>dom/appendSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Append content</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).appendSync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>dom/appendSync()</code></a> for details.</p>
-<h4 id="append"><code>.append()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instanceappendasync"><code>.appendAsync()</code></a> method.</p>
-<h4 id="prependasync"><code>.prependAsync()</code></h4>
-<p>This method <em>asynchronously</em> prepends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/prependasync"><code>dom/prependAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> prepends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/prependasync"><code>dom/prependAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Prepend content, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).prependAsync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/prependasync"><code>dom/prependAsync()</code></a> for details.</p>
-<h4 id="prependsync"><code>.prependSync()</code></h4>
-<p>This method <em>synchronously</em> prepends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>dom/prependSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> prepends text content to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>dom/prependSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Prepend content</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).prependSync(<span class="hljs-string">&#x27;Hello player!&#x27;</span>);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>dom/prependSync()</code></a> for details.</p>
-<h4 id="prepend"><code>.prepend()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instanceprependasync"><code>.prependAsync()</code></a> method.</p>
-<h4 id="attrasync"><code>.attrAsync()</code></h4>
-<p>This method <em>asynchronously</em> sets or gets an attribute for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>dom/attrAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> sets or gets an attribute for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>dom/attrAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set an attribute, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).attrAsync(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;value&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});
-
-<span class="hljs-comment">// Get an attribute, log it to the console when available</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).attrAsync(<span class="hljs-string">&#x27;name&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(value);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>dom/attrAsync()</code></a> for details.</p>
-<h4 id="attrsync"><code>.attrSync()</code></h4>
-<p>This method <em>synchronously</em> sets or gets an attribute for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>dom/attrSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> sets or gets an attribute for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>dom/attrSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set an attribute</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).attrSync(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;value&#x27;</span>);
-
-<span class="hljs-comment">// Get an attribute, log it to the console</span>
-<span class="hljs-keyword">let</span> value = $(<span class="hljs-string">&#x27;#el&#x27;</span>).attrSync(<span class="hljs-string">&#x27;name&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(value);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>dom/attrSync()</code></a> for details.</p>
-<h4 id="attr"><code>.attr()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instanceattrasync"><code>.attrAsync()</code></a> method.</p>
-<h4 id="classasync"><code>.classAsync()</code></h4>
-<p>This method is used to <em>asynchronously</em> set/unset the <em>class</em> attribute or add/remove entries on the <em>class</em> list for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/classasync"><code>dom/classAsync()</code></a> function.</p>
-<p>This method is used to <em>asynchronously</em> set/unset the <em>class</em> attribute or add/remove entries on the <em>class</em> list for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/classasync"><code>dom/classAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Add a class, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).classAsync(<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-literal">true</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});
-
-<span class="hljs-comment">// Remove a class</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).classAsync(<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-literal">false</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/classasync"><code>dom/classAsync()</code></a> for details.</p>
-<h4 id="classsync"><code>.classSync()</code></h4>
-<p>This method is used to <em>synchronously</em> set/unset the <em>class</em> attribute or add/remove entries on the <em>class</em> list for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>dom/classSync()</code></a> function.</p>
-<p>This method is used to <em>synchronously</em> set/unset the <em>class</em> attribute or add/remove entries on the <em>class</em> list for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>dom/classSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Add a class</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).classAsync(<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-literal">true</span>);
-
-<span class="hljs-comment">// Remove a class</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).classAsync(<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-literal">false</span>);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>dom/classSync()</code></a> for details.</p>
-<h4 id="class"><code>.class()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instanceclassasync"><code>.classAsync()</code></a> method.</p>
-<h3 id="css-processing-methods">CSS-Processing Methods</h3>
-<p>CSS-processing methods. A few of these methods come in a <em>sync</em> and <em>async</em> flavour, and a third unsiffixed flavour that is an alias to the <em>async</em> method.</p>
-<h4 id="cssasync"><code>.cssAsync()</code></h4>
-<p>This method <em>asynchronously</em> sets or gets CSS rules for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>css/cssAsync()</code></a> function.</p>
-<p>This method <em>asynchronously</em> sets or gets CSS rules for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>css/cssAsync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set a CSS rule, do something else afterward</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).cssAsync(<span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-comment">// Do something else</span>
-});
-
-<span class="hljs-comment">// Get a CSS rule, log it to the console when available</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).cssAsync(<span class="hljs-string">&#x27;color&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(value);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>css/cssAsync()</code></a> for details.</p>
-<h4 id="csssync"><code>.cssSync()</code></h4>
-<p>This method <em>synchronously</em> sets or gets CSS rules for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>css/cssSync()</code></a> function.</p>
-<p>This method <em>synchronously</em> sets or gets CSS rules for the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>css/cssSync()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set a CSS rule</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).cssSync(<span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>);
-
-<span class="hljs-comment">// Get a CSS rule, log it to the console</span>
-<span class="hljs-keyword">let</span> value = $(<span class="hljs-string">&#x27;#el&#x27;</span>).cssSync(<span class="hljs-string">&#x27;color&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(value);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>css/cssSync()</code></a> for details.</p>
-<h4 id="css"><code>.css()</code></h4>
-<p>This is an alias of the <a href="/tooling/play-ui/docs/js/api/#instancecssasync"><code>.cssAsync()</code></a> method.</p>
-<h4 id="cssinline"><code>.cssInline()</code></h4>
-<p>This method returns one or more style properties from the current matched element's style attribute. It uses the <a href="/tooling/play-ui/docs/js/api/css/readinline"><code>css/readInline()</code></a> function.</p>
-<p>This method returns one or more style properties from the current matched element's style attribute. It uses the <a href="/tooling/play-ui/docs/js/api/css/readinline"><code>css/readInline()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Read an inline CSS rule</span>
-<span class="hljs-keyword">let</span> value = $(<span class="hljs-string">&#x27;#el&#x27;</span>).cssInline(<span class="hljs-string">&#x27;color&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(value);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/css/readinline"><code>css/readInline()</code></a> for details.</p>
-<h4 id="cssstylesheet"><code>.cssStylesheet()</code></h4>
-<p>This method returns one or more style properties associated with the current matched element accross the document's stylesheets. It uses the <a href="/tooling/play-ui/docs/js/api/css/readstylesheet"><code>css/readStylesheet()</code></a> function.</p>
-<p>This method returns one or more style properties associated with the current matched element accross the document's stylesheets. It uses the <a href="/tooling/play-ui/docs/js/api/css/readstylesheet"><code>css/readStylesheet()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Read a CSS rule from stylesheet</span>
-<span class="hljs-keyword">let</span> value = $(<span class="hljs-string">&#x27;#el&#x27;</span>).cssStylesheet(<span class="hljs-string">&#x27;color&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(value);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/css/readstylesheet"><code>css/readStylesheet()</code></a> for details.</p>
-<h4 id="csstransaction"><code>.cssTransaction()</code></h4>
-<p>This method establishes a CSS operation on the current matched element that can be rolledback safely. It uses the <a href="/tooling/play-ui/docs/js/api/css/transaction"><code>css/transaction()</code></a> function.</p>
-<p>This method establishes a CSS operation on the current matched element that can be rolledback safely. It uses the <a href="/tooling/play-ui/docs/js/api/css/transaction"><code>css/transaction()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Obtaine a Transaction instance</span>
-<span class="hljs-keyword">let</span> transaction = $(<span class="hljs-string">&#x27;#el&#x27;</span>).cssTransaction(<span class="hljs-string">&#x27;color&#x27;</span>);
-
-<span class="hljs-comment">// Create a savepoint - savepoint1</span>
-<span class="hljs-comment">// We can rollback to this point later</span>
-transaction.save();
-
-<span class="hljs-comment">// Restyle the element</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).css(<span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>);
-
-<span class="hljs-comment">// Rollback to anypoint after some time</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
-    transaction.rollback(<span class="hljs-number">0</span>);
-}, <span class="hljs-number">2000</span>);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/css/transaction"><code>css/transaction()</code></a> for details.</p>
-<h3 id="animation-methods">Animation Methods</h3>
-<p>Methods for animation.</p>
-<h4 id="play"><code>.play()</code></h4>
-<p>This method creates and play an animation on the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/animation/play"><code>animation/play()</code></a> function.</p>
-<p>This method creates and play an animation on the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/animation/play"><code>animation/play()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Play fadeout</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/animation/play"><code>animation/play()</code></a> for details.</p>
-<h3 id="event-methods">Event Methods</h3>
-<p>Methods for binding events and gestures.</p>
-<h4 id="on"><code>.on()</code></h4>
-<p>This method binds an event/gesture handler to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/on"><code>interaction/on()</code></a> function.</p>
-<p>This method binds an event/gesture handler to the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/on"><code>interaction/on()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Bind a &quot;doubletap&quot; gesture handler</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).on(<span class="hljs-string">&#x27;doubletap&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
-    alert(<span class="hljs-string">&#x27;You doubletapped me!&#x27;</span>);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/interaction/on"><code>interaction/on()</code></a> for details.</p>
-<h4 id="off"><code>.off()</code></h4>
-<p>This method unbinds event/gesture handlers oreviously bound using the <a href="#instanceon"><code>.on()</code></a> method. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/off"><code>interaction/off()</code></a> function.</p>
-<p>This method unbinds event/gesture handlers oreviously bound using the <a href="./#instanceon"><code>.on()</code></a> method. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/off"><code>interaction/off()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Unbind &quot;doubletap&quot; gesture handlers</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>;</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/interaction/off"><code>interaction/off()</code></a> for details.</p>
-<h4 id="trigger"><code>.trigger()</code></h4>
-<p>This method triggers event/gesture handlers oreviously bound using the <a href="#instanceon"><code>.on()</code></a> method. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/trigger"><code>interaction/trigger()</code></a> function.</p>
-<p>This method triggers event/gesture handlers oreviously bound using the <a href="./#instanceon"><code>.on()</code></a> method. It uses the <a href="/tooling/play-ui/docs/js/api/interaction/trigger"><code>interaction/trigger()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Unbind &quot;doubletap&quot; gesture handlers</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>;</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/interaction/trigger"><code>interaction/trigger()</code></a> for details.</p>
-<h3 id="other-methods">Other Methods</h3>
-<p>Methods on cross-cutting concerns.</p>
-<h4 id="data"><code>.data()</code></h4>
-<p>This method sets or gets custom data/values associated with the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/data"><code>dom/data()</code></a> function.</p>
-<p>This method sets or gets custom data/values associated with the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/data"><code>dom/data()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Set a value</span>
-<span class="hljs-keyword">let</span> instance = $(<span class="hljs-string">&#x27;#el&#x27;</span>).data(<span class="hljs-string">&#x27;key&#x27;</span>, value);
-
-<span class="hljs-comment">// Get a value</span>
-<span class="hljs-keyword">let</span> value = $(<span class="hljs-string">&#x27;#el&#x27;</span>).data(<span class="hljs-string">&#x27;key&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(value);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/data"><code>dom/data()</code></a> for details.</p>
-<h3 id="observers">Observers</h3>
-<p>Observer APIs.</p>
-<h4 id="onconnected"><code>.onconnected()</code></h4>
-<p>This method observes when the current matched element is added to the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/connectedcallback"><code>dom/connectedCallback()</code></a> function.</p>
-<p>This method observes when the current matched element is added to the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/connectedcallback"><code>dom/connectedCallback()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Observe &quot;onconnected&quot;</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).onconnected(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am now connected to the DOM!&#x27;</span>);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/connectedcallback"><code>dom/connectedCallback()</code></a> for details.</p>
-<h4 id="ondisonconnected"><code>.ondisonconnected()</code></h4>
-<p>This method observes when the current matched element is removed from the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/disconnectedcallback"><code>dom/disonconnectedCallback()</code></a> function.</p>
-<p>This method observes when the current matched element is removed from the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/disconnectedcallback"><code>dom/disonconnectedCallback()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Observe &quot;ondisonconnected&quot;</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).ondisonconnected(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am now disconnected from the DOM!&#x27;</span>);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/disconnectedcallback"><code>dom/disconnectedCallback()</code></a> for details.</p>
-<h4 id="onmutated"><code>.onmutated()</code></h4>
-<p>This method observes when the current matched element is added to, or removed from the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/mutationcallback"><code>dom/mutationCallback()</code></a> function.</p>
-<p>This method observes when the current matched element is added to, or removed from the document or given context. It uses the <a href="/tooling/play-ui/docs/js/api/dom/mutationcallback"><code>dom/mutationCallback()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Observe &quot;onmutated&quot;</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).onmutated(<span class="hljs-function"><span class="hljs-params">connectedState</span> =&gt;</span> {
-    <span class="hljs-comment">// If connectedState === 1, connected else if connectedState === 0, disconnected</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;I am now &#x27;</span> + (connectedState ? <span class="hljs-string">&#x27;connected to&#x27;</span> : <span class="hljs-string">&#x27;disconnected from&#x27;</span>) + <span class="hljs-string">&#x27; the DOM!&#x27;</span>);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/mutationcallback"><code>dom/mutationCallback()</code></a> for details.</p>
-<h4 id="onattrchange"><code>.onattrchange()</code></h4>
-<p>This method observes changes on attributes of the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrchangecallback"><code>dom/attrChangeCallback()</code></a> function.</p>
-<p>This method observes changes on attributes of the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/dom/attrchangecallback"><code>dom/attrChangeCallback()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Observe &quot;onattrchange&quot;</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).onattrchange(<span class="hljs-function"><span class="hljs-params">changes</span> =&gt;</span> {
-    changes.forEach(<span class="hljs-function"><span class="hljs-params">change</span> =&gt;</span> {
-        <span class="hljs-built_in">console</span>.log(change);
-    });
-}, <span class="hljs-string">&#x27;attrName&#x27;</span>);</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/dom/attrchangecallback"><code>dom/attrChangeCallback()</code></a> for details.</p>
-<h4 id="onresize"><code>.onresize()</code></h4>
-<p>This method observes changes on the size of the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/ui/resizecallback"><code>ui/resizeCallback()</code></a> function.</p>
-<p>This method observes changes on the size of the current matched element. It uses the <a href="/tooling/play-ui/docs/js/api/ui/resizecallback"><code>ui/resizeCallback()</code></a> function.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-comment">// Observe &quot;onresize&quot;</span>
-$(<span class="hljs-string">&#x27;#el&#x27;</span>).onresize(<span class="hljs-function"><span class="hljs-params">newSize</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(newSize);
-});</code></pre>
-<p>See <a href="/tooling/play-ui/docs/js/api/ui/resizecallback"><code>ui/resizeCallback()</code></a> for details.</p>
-
-				</div>
-
 				<div exportgroup="readme">
 
 					<h1 id="api-reference">API Reference</h1>
@@ -401,10 +113,10 @@ $(<span class="hljs-string">&#x27;#el&#x27;</span>).onresize(<span class="hljs-f
 
 				</div>
 
-				<template name="app">
+				<template name="css">
 					<div exportgroup="readme">
 
-						<h1 id="api-category-app">API Category: APP</h1>
+						<h1 id="api-category-css">API Category: CSS</h1>
 
 					</div>
 
@@ -416,339 +128,60 @@ $(<span class="hljs-string">&#x27;#el&#x27;</span>).onresize(<span class="hljs-f
 
 						</div>
 
-						<template name="transaction">
+						<template name="TransformRule">
 							<div exportgroup="readme">
 
-								<h1 id="class-transaction-"><code>class Transaction {}</code></h1>
-<p>This class lets us create rollback states while manipulating an element.</p>
-<h2 id="constructor-NaN">Constructor</h2>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = <span class="hljs-keyword">new</span> Transaction(el, props, readCallback, writeCallback);</code></pre>
+								<h1 id="class-transformrule-"><code>class TransformRule {}</code></h1>
+<p>This class is an object model of the CSS transform rule.</p>
+<h2 id="transformruleparse"><code>TransformRule.parse()</code></h2>
+<p>This function is used to parse an element's computed transform rule into an instance of <code>TransformRule</code>.</p>
+<h3 id="syntax">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = TransformRule.parse(rule);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><p><code>el</code>: <code>Element</code> - The element that will be modified.</p></li>
-<li><p><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</p></li>
-<li><p><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>el</code>: <code>Element</code> - The element being operated on.</li>
-<li><code>props</code>: <code>Array</code> - An array of the properties passed to the instance.</li></ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><p><code>Object</code> - A key/value hash for the listed properties.</p></li>
-<li><p><code>Promise</code> - A promise that should resolve to the object above.</p>
-<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/classes/transaction/savepoint"><code>savepoint()</code></a> instance method returns when called.</p></li></ul></li>
-<li><p><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>el</code>: <code>Element</code> - The element being operated on.</li>
-<li><code>record</code>: <code>Object</code> - The recorded state of the element as previously derived by the <code>readCallback</code> function.</li></ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><p><code>Any</code> - Any value may be returned and will not be used.</p></li>
-<li><p><code>Promise</code> - A promise that may resolve to anything.</p>
-<p>This return value is what the transaction's <a href="rollback"><code>rollback()</code></a> and <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/apply"><code>apply()</code></a> instance methods return when called.</p></li></ul></li>
+<li><code>rule</code> - <code>String</code>: A CSS transform rule.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><code>Transaction</code> - The Transaction instance.</li>
+<li><code>TransformRule</code> - An object model of the parsed transform rule.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>Below, we modify an element's CSS properties and later roll back the element to its initial state.</p>
-<p><em>Define the element's stylesheet- and inline-based CSS:</em></p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 <span class="hljs-selector-tag">div</span> {
-    <span class="hljs-attribute">background-color</span>: yellow;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">30</span>, <span class="hljs-number">40</span>) <span class="hljs-built_in">scale</span>(<span class="hljs-number">3</span>);
 }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;el&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRule = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>).style.transform;
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;el&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:red&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p><em>Start a transaction:</em></p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// The readCallback will read the INLINE values of the listed properties</span>
-<span class="hljs-comment">// This state is what will be restored on a call to transaction.rollback() </span>
-<span class="hljs-comment">// Notice the &quot;inline&quot; flag, which tells cssSync() to read INLINE CSS</span>
-<span class="hljs-keyword">const</span> readCallback = <span class="hljs-function">(<span class="hljs-params">el, props</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> $(el).cssSync(props, {<span class="hljs-attr">inline</span>: <span class="hljs-literal">true</span>});
-};
+<span class="hljs-comment">// Set attribute</span>
+<span class="hljs-keyword">let</span> transformRuleObject = TransformRule.parse(transformRule);
 
-<span class="hljs-comment">// The writeCallback will restore the INLINE values of the listed properties previously stored</span>
-<span class="hljs-comment">// It is triggered by a call to transaction.rollback() and to transaction.apply() </span>
-<span class="hljs-keyword">const</span> writeCallback = <span class="hljs-function">(<span class="hljs-params">el, record</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> $(el).cssSync(record);
-};
+<span class="hljs-comment">// Show</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject);
+<span class="hljs-comment">/**
+{
+    translate: [30, 40],
+    sclae: 3,
+}
+*/</span>
 
-<span class="hljs-comment">// Obtaine a Transaction instance</span>
-<span class="hljs-keyword">let</span> transaction = $(<span class="hljs-string">&#x27;#el&#x27;</span>).transaction([<span class="hljs-string">&#x27;background-color&#x27;</span>, <span class="hljs-string">&#x27;color&#x27;</span>], readCallback, writeCallback);</code></pre>
-<p><em>Do some modifications and create savepoints along the way:</em></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>);
+<span class="hljs-comment">//Convert to string</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
+<span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
+<p>We can also create a CSS transfrom rule from an object.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = <span class="hljs-keyword">new</span> TransformRule({
+    <span class="hljs-attr">translate</span>: [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>],
+    <span class="hljs-attr">sclae</span>: <span class="hljs-number">3</span>,
+});
 
-<span class="hljs-comment">// Create a savepoint for the initial state of the element - savepoint1</span>
-<span class="hljs-comment">// We can rollback to this point later</span>
-transaction.savepoint();
-
-<span class="hljs-comment">// Alter the element&#x27;s computed style</span>
-el.style.color = <span class="hljs-string">&#x27;green&#x27;</span>;
-el.style.backgroundColor = <span class="hljs-string">&#x27;black&#x27;</span>;
-<span class="hljs-comment">// Create a savepoint - savepoint2</span>
-<span class="hljs-comment">// We can rollback to this point later</span>
-transaction.savepoint();
-
-<span class="hljs-comment">// Alter the element&#x27;s computed style further</span>
-el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
-el.style.backgroundColor = <span class="hljs-string">&#x27;teal&#x27;</span>;
-<span class="hljs-comment">// Create a savepoint - savepoint3</span>
-<span class="hljs-comment">// We can rollback to this point later</span>
-transaction.savepoint();</code></pre>
-<p><em>Rollback to a savepoint</em></p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Rollback to anypoint after some time</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
-    transaction.rollback(<span class="hljs-number">0</span>);
-    <span class="hljs-comment">// Now background-color should fallback to yellow</span>
-    <span class="hljs-comment">// And color should be back to red</span>
-}, <span class="hljs-number">2000</span>);</code></pre>
-<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign</em> changes to restore the element to the specified <em>savepoint</em>.</p>
-<p>To detect <em>foreign</em> changes and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
-el.style.color = brown;
-
-<span class="hljs-comment">// Rollback to savepoint2</span>
-<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-    <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
-    transaction.rollback(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
-}, <span class="hljs-number">2000</span>);</code></pre>
-<h2 id="properties">Properties</h2>
-<ul>
-<li><code>.length</code>: <code>Int</code> - Gives the number of savepoints in the transaction.</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<p>Check out <em>Transaction's</em> methods.</p>
+<span class="hljs-comment">//Convert to string</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
+<span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
 
 							</div>
-
-							<template name="apply">
-								<div exportgroup="readme">
-
-									<h1 id="apply"><code>.apply()</code></h1>
-<blockquote>
-  <p>The <code>transaction.apply()</code> method.</p>
-</blockquote>
-<p>This method is used to apply a new state to the element in a transaction. It is just another way to call the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">transaction.apply(state);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>state</code>: <code>Object</code> - A new state object that is passed to the instance's <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#constructor"><code>writeCallback</code></a>.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>Any</code> - The return value of the <code>writeCallback</code> function.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#usage">Transaction</a> class.</p>
-
-								</div>
-							</template>
-
-							<template name="commit">
-								<div exportgroup="readme">
-
-									<h1 id="commit"><code>.commit()</code></h1>
-<blockquote>
-  <p>The <code>transaction.commit()</code> method.</p>
-</blockquote>
-<p>This method is used to commit up to a savepoint in a transaction. It is used to certify that all records up to the specified savepoint are permanent changes.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">transaction.commit(savepoint = <span class="hljs-number">0</span>);</code></pre>
-<ul>
-<li><code>savepoint</code>: <code>Int</code> - The savepoint to commit up to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/">Transaction</a> instance.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#usage">Transaction</a> class.</p>
-
-								</div>
-							</template>
-
-							<template name="rollback">
-								<div exportgroup="readme">
-
-									<h1 id="rollback"><code>.rollback()</code></h1>
-<blockquote>
-  <p>The <code>transaction.rollback()</code> method.</p>
-</blockquote>
-<p>This method is used to roll back up to a savepoint in a transaction. It re-applies the previously recorded state of the element by calling the <a href="../#constructor"><code>writeCallback</code></a> function that was used to create the instance. The complementary <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#constructor"><code>readCallback</code></a> function will also be involved if the <code>preserveCurrentState</code> parameter is set to <code>true</code>.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">transaction.rollback(savepoint = <span class="hljs-number">0</span>, preserveCurrentState = <span class="hljs-literal">false</span>);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>savepoint</code>: <code>Int</code> - The savepoint to roll back to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
-<li><code>preserveCurrentState</code>: <code>Boolean</code> - Specifies whether or not to detect and preserve any additional changes made after the last call to <code>savepoint()</code>.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>Any</code> - The return value of the <code>writeCallback</code> function.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#usage">Transaction</a> class.</p>
-
-								</div>
-							</template>
-
-							<template name="savepoint">
-								<div exportgroup="readme">
-
-									<h1 id="savepoint"><code>.savepoint()</code></h1>
-<blockquote>
-  <p>The <code>transaction.savepoint()</code> method.</p>
-</blockquote>
-<p>This method is used to create a savepoint from the current state of an element in a transaction. It takes records by calling the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#constructor"><code>readCallback</code></a> function that was used to create the instance.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">transaction.savepoint();</code></pre>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>Any</code> - The return value of the <code>readCallback</code> function.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction/#usage">Transaction</a> class.</p>
-
-								</div>
-							</template>
 						</template>
 					</template>
-
-					<template name="data">
-						<div exportgroup="readme">
-
-							<h1 id="data">.data()</h1>
-<p>This method is used to store and manage arbitrary data with a data store internally associated with an element.</p>
-<ul>
-<li><a href="/tooling/play-ui/docs/js/api/app/data/#a-set-data">Set Data</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/app/data/#b-get-data">Get Data</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/app/data/#c-unset-data">Unset Data</a></li>
-</ul>
-<h2 id="a-set-data">a. Set Data</h2>
-<h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single value</span>
-$(el).data(key, value);
-
-<span class="hljs-comment">// Set multiple values</span>
-$(el).data({
-    [key]: value,
-});</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>key</code>: <code>String</code> - The key to set.</li>
-<li><code>value</code>: <code>Any</code> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="/tooling/play-ui/docs/js/api/app/data/#unset-data">see below</a>.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage">Usage</h3>
-<p>Set several distinct values for all elements matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value 1&#x27;</span>).data({
-    <span class="hljs-attr">key2</span>: <span class="hljs-string">&#x27;value 2&#x27;</span>,
-    <span class="hljs-attr">key3</span>: <span class="hljs-string">&#x27;value 3&#x27;</span>
-});</code></pre>
-<h2 id="b-get-data">b. Get Data</h2>
-<h3 id="syntax-1">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Retrieve single value</span>
-<span class="hljs-keyword">let</span> value = $(el).data(key);
-
-<span class="hljs-comment">// Retrieve multiples values</span>
-<span class="hljs-keyword">let</span> values = $(el).data([...key]);
-
-<span class="hljs-comment">// Retrieve all values</span>
-<span class="hljs-keyword">let</span> values = $(el).data();</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>key</code>: <code>String</code> - The data key to read.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>value</code>: <code>Any</code> - The data value as initially stored, or <code>undefined</code>.</li>
-<li><code>values</code>: <code>Object</code> - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.</li>
-</ul>
-<h3 id="usage-1">Usage</h3>
-<p>Retrieve values for the first element matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> value = $(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>);
-<span class="hljs-comment">// value-1</span></code></pre>
-<h2 id="c-unset-data">c. Unset Data</h2>
-<h3 id="syntax-2">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset single property</span>
-.data(key, <span class="hljs-literal">undefined</span>);
-
-<span class="hljs-comment">// Unset multiples values</span>
-$(el).data({
-    [key]: <span class="hljs-literal">undefined</span>,
-});</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>key</code>: <code>String</code> - The data key to unset.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage-2">Usage</h3>
-<p>Unset values for all elements matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-literal">undefined</span>).data({
-    <span class="hljs-attr">key2</span>: <span class="hljs-literal">undefined</span>,
-    <span class="hljs-attr">key3</span>: <span class="hljs-literal">undefined</span>,
-});</code></pre>
-<hr />
-<h2 id="static-usage">Static Usage</h2>
-<p>The <code>.data()</code> instance method is internally based on the standalone <code>app/data()</code> function which may be used statically.</p>
-<h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.app;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/app/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-3">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-
-					<template name="transaction">
-						<div exportgroup="readme">
-
-							<h1 id="transaction"><code>.transaction()</code></h1>
-<p>This method is used to start a transaction on an element for operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/js/api/app/classes/transaction">Transaction</a> class.</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = $(el).transaction(props, readCallback, writeCallback);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</li>
-<li><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction#constructor">Transaction</a> class.</li>
-<li><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction#constructor">Transaction</a> class.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>Transaction</code> - The <a href="/tooling/play-ui/docs/js/api/app/classes/transaction">Transaction</a> instance.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/app/classes/transaction#constructor">Transaction</a> class.</p>
-<hr />
-<h2 id="static-usage">Static Usage</h2>
-<p>The <code>.transaction()</code> instance method is internally based on the standalone <code>app/transaction()</code> function which may be used statically.</p>
-<h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { transaction } = $.app;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/app/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-				</template>
-
-				<template name="css">
-					<div exportgroup="readme">
-
-						<h1 id="api-category-css">API Category: CSS</h1>
-
-					</div>
 
 					<template name="css">
 						<div exportgroup="readme">
@@ -792,7 +225,7 @@ $(el).data({
 <li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
 <li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
-<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. On <em>inline</em> mode, the given rules are added to the prepended to the element's <code>style</code> attribute.</li>
+<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. In <em>inline</em> mode, the given rules are prepended to the element's <code>style</code> attribute.</li>
 <li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
 <li><code>autoId</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special attribute <code>playuo-uuid</code>, as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
@@ -874,7 +307,7 @@ $(el).cssSync({
 <li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element's inline CSS.</li>
 <li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
 <li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
-<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. On <em>inline</em> mode, the given rules are added to the prepended to the element's <code>style</code> attribute.</li>
+<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. In <em>inline</em> mode, the given rules are prepended to the element's <code>style</code> attribute.</li>
 <li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
 <li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
 <li><code>autoId</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special attribute <code>playuo-uuid</code>, as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
@@ -1132,7 +565,7 @@ $(el).appendSync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <spa
 <h2 id="a-set-attributes">a. Set Attributes</h2>
 <h3 id="syntax">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single attribute</span>
-$(el).attrAsync(name, value);
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, value);
 
 <span class="hljs-comment">// Set multiple attributes</span>
 <span class="hljs-keyword">await</span> $(el).attrAsync({
@@ -2110,112 +1543,1403 @@ $(el).textSync(text);</code></pre>
 					</template>
 				</template>
 
-				<template name="ui">
-					
+				<template name="misc">
+					<div exportgroup="readme">
 
-					<div exportgroup="coordsatrect">
-
-						<h1 id="uicoordsatrect">UI/coordsAtRect()</h1>
+						<h1 id="api-category-miscellaneous">API Category: Miscellaneous</h1>
 
 					</div>
 
-					<template name="off">
+					<template name="classes">
 						<div exportgroup="readme">
 
-							<h1 id="off"><code>off()</code></h1>
-<p>This function unbinds event/gesture handlers previously bound using the <a href="/tooling/play-ui/docs/js/api/ui/on"><code>on()</code></a> function.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> off <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/interaction/off.js&#x27;</span>;</code></pre>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unbind all listeners bound to the following event name</span>
-<span class="hljs-comment">// regardless of the event handler</span>
-off(el, eventName);
+							<h1 id="classes">Classes</h1>
+<p>Classes in this category.</p>
 
-<span class="hljs-comment">// Unbind the listener bound with the following event handler  </span>
-off(el, eventName, originalHandler);
+						</div>
 
-<span class="hljs-comment">// Unbind the listener bound with the following event handler and tag </span>
-off(el, eventName, originalHandler, {<span class="hljs-attr">tags</span>:[...originalTags]});
+						<template name="Transaction">
+							<div exportgroup="readme">
 
-<span class="hljs-comment">// Unbind the listener bound with the following tag </span>
-<span class="hljs-comment">// regardless of the event handler</span>
-off(el, eventName, <span class="hljs-literal">null</span>, {<span class="hljs-attr">tags</span>:[...originalTags]});</code></pre>
+								<h1 id="class-transaction-"><code>class Transaction {}</code></h1>
+<p>This class lets us create rollback states while manipulating an element.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = <span class="hljs-keyword">new</span> Transaction(el, props, readCallback, writeCallback);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>el</code> - <code>HTMLElement</code>: The source DOM element.</li>
-<li><code>eventName</code> - <code>String</code>: The event name.</li>
-<li><code>originalHandler</code> - <code>Function</code>: The handler function originally used with <code>on()</code>.</li>
-<li><code>params</code> - <code>Object</code>: Additional parameters.</li>
+<li><p><code>el</code>: <code>Element</code> - The element that will be modified.</p></li>
+<li><p><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</p></li>
+<li><p><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>el</code>: <code>Element</code> - The element being operated on.</li>
+<li><code>props</code>: <code>Array</code> - An array of the properties passed to the instance.</li></ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><p><code>Object</code> - A key/value hash for the listed properties.</p></li>
+<li><p><code>Promise</code> - A promise that should resolve to the object above.</p>
+<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/classes/transaction/savepoint"><code>savepoint()</code></a> instance method returns when called.</p></li></ul></li>
+<li><p><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>el</code>: <code>Element</code> - The element being operated on.</li>
+<li><code>record</code>: <code>Object</code> - The recorded state of the element as previously derived by the <code>readCallback</code> function.</li></ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><p><code>Any</code> - Any value may be returned and will not be used.</p></li>
+<li><p><code>Promise</code> - A promise that may resolve to anything.</p>
+<p>This return value is what the transaction's <a href="rollback"><code>rollback()</code></a> and <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/apply"><code>apply()</code></a> instance methods return when called.</p></li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><code>undefined</code></li>
+<li><code>Transaction</code> - The Transaction instance.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unbind a specific listenr bound to doubletap</span>
-off(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">&#x27;doubletap&#x27;</span>, originalHandler);
+<p>Below, we modify an element's CSS properties and later roll back the element to its initial state.</p>
+<p><em>Define the element's stylesheet- and inline-based CSS:</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">div</span> {
+    <span class="hljs-attribute">background-color</span>: yellow;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
-<span class="hljs-comment">// Unbind all listenrs bound to doubletap</span>
-off(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">&#x27;doubletap&#x27;</span>);</code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;el&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:red&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p><em>Start a transaction:</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The readCallback will read the INLINE values of the listed properties</span>
+<span class="hljs-comment">// This state is what will be restored on a call to transaction.rollback() </span>
+<span class="hljs-comment">// Notice the &quot;inline&quot; flag, which tells cssSync() to read INLINE CSS</span>
+<span class="hljs-keyword">const</span> readCallback = <span class="hljs-function">(<span class="hljs-params">el, props</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> $(el).cssSync(props, {<span class="hljs-attr">inline</span>: <span class="hljs-literal">true</span>});
+};
+
+<span class="hljs-comment">// The writeCallback will restore the INLINE values of the listed properties previously stored</span>
+<span class="hljs-comment">// It is triggered by a call to transaction.rollback() and to transaction.apply() </span>
+<span class="hljs-keyword">const</span> writeCallback = <span class="hljs-function">(<span class="hljs-params">el, record</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> $(el).cssSync(record);
+};
+
+<span class="hljs-comment">// Obtaine a Transaction instance</span>
+<span class="hljs-keyword">let</span> transaction = $(<span class="hljs-string">&#x27;#el&#x27;</span>).transaction([<span class="hljs-string">&#x27;background-color&#x27;</span>, <span class="hljs-string">&#x27;color&#x27;</span>], readCallback, writeCallback);</code></pre>
+<p><em>Do some modifications and create savepoints along the way:</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>);
+
+<span class="hljs-comment">// Create a savepoint for the initial state of the element - savepoint1</span>
+<span class="hljs-comment">// We can rollback to this point later</span>
+transaction.savepoint();
+
+<span class="hljs-comment">// Alter the element&#x27;s computed style</span>
+el.style.color = <span class="hljs-string">&#x27;green&#x27;</span>;
+el.style.backgroundColor = <span class="hljs-string">&#x27;black&#x27;</span>;
+<span class="hljs-comment">// Create a savepoint - savepoint2</span>
+<span class="hljs-comment">// We can rollback to this point later</span>
+transaction.savepoint();
+
+<span class="hljs-comment">// Alter the element&#x27;s computed style further</span>
+el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
+el.style.backgroundColor = <span class="hljs-string">&#x27;teal&#x27;</span>;
+<span class="hljs-comment">// Create a savepoint - savepoint3</span>
+<span class="hljs-comment">// We can rollback to this point later</span>
+transaction.savepoint();</code></pre>
+<p><em>Rollback to a savepoint</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Rollback to anypoint after some time</span>
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
+    transaction.rollback(<span class="hljs-number">0</span>);
+    <span class="hljs-comment">// Now background-color should fallback to yellow</span>
+    <span class="hljs-comment">// And color should be back to red</span>
+}, <span class="hljs-number">2000</span>);</code></pre>
+<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign</em> changes to restore the element to the specified <em>savepoint</em>.</p>
+<p>To detect <em>foreign</em> changes and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
+el.style.color = brown;
+
+<span class="hljs-comment">// Rollback to savepoint2</span>
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
+    transaction.rollback(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+}, <span class="hljs-number">2000</span>);</code></pre>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><code>.length</code>: <code>Int</code> - Gives the number of savepoints in the transaction.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p>Check out <em>Transaction's</em> methods.</p>
+
+							</div>
+
+							<template name="apply">
+								<div exportgroup="readme">
+
+									<h1 id="apply"><code>.apply()</code></h1>
+<blockquote>
+  <p>The <code>transaction.apply()</code> method.</p>
+</blockquote>
+<p>This method is used to apply a new state to the element in a transaction. It is just another way to call the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">transaction.apply(state);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>state</code>: <code>Object</code> - A new state object that is passed to the instance's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>Any</code> - The return value of the transaction's <code>writeCallback</code> function.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing transaction and call <code>.apply()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.apply()</code> method to apply the CSS properties in that example.</p>
+<pre><code class="hljs js language-js">ananimationi.apply({
+    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;brown&#x27;</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;teal&#x27;</span>,
+});</code></pre>
+
+								</div>
+							</template>
+
+							<template name="commit">
+								<div exportgroup="readme">
+
+									<h1 id="commit"><code>.commit()</code></h1>
+<blockquote>
+  <p>The <code>transaction.commit()</code> method.</p>
+</blockquote>
+<p>This method is used to commit up to a savepoint in a transaction. It is used to certify that all records up to the specified savepoint are permanent changes.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">transaction.commit(savepoint = <span class="hljs-number">0</span>);</code></pre>
+<ul>
+<li><code>savepoint</code>: <code>Int</code> - The savepoint to commit up to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/">Transaction</a> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing transaction and call <code>.commit()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.commit()</code> method to commit all savepoints. Calling the transaction's <code>.rollback()</code> method after this point will have no effect.</p>
+<pre><code class="hljs js language-js">ananimationi.commit(<span class="hljs-number">0</span>);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="rollback">
+								<div exportgroup="readme">
+
+									<h1 id="rollback"><code>.rollback()</code></h1>
+<blockquote>
+  <p>The <code>transaction.rollback()</code> method.</p>
+</blockquote>
+<p>This method is used to roll back up to a savepoint in a transaction. It re-applies the previously recorded state of the element by calling the <a href="../#constructor"><code>writeCallback</code></a> function that was used to create the instance. The complementary <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function will also be involved if the <code>preserveCurrentState</code> parameter is set to <code>true</code>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">transaction.rollback(savepoint = <span class="hljs-number">0</span>, preserveCurrentState = <span class="hljs-literal">false</span>);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>savepoint</code>: <code>Int</code> - The savepoint to roll back to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
+<li><code>preserveCurrentState</code>: <code>Boolean</code> - Specifies whether or not to detect and preserve any additional changes made after the last call to <code>savepoint()</code>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>Any</code> - The return value of the <code>writeCallback</code> function.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
+
+								</div>
+							</template>
+
+							<template name="savepoint">
+								<div exportgroup="readme">
+
+									<h1 id="savepoint"><code>.savepoint()</code></h1>
+<blockquote>
+  <p>The <code>transaction.savepoint()</code> method.</p>
+</blockquote>
+<p>This method is used to create a savepoint from the current state of an element in a transaction. It takes records by calling the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function that was used to create the instance.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">transaction.savepoint();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>Any</code> - The return value of the <code>readCallback</code> function.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
+
+								</div>
+							</template>
+						</template>
+					</template>
+
+					<template name="data">
+						<div exportgroup="readme">
+
+							<h1 id="data">.data()</h1>
+<p>This method is used to store and manage arbitrary data with a data store internally associated with an element.</p>
+<ul>
+<li><a href="/tooling/play-ui/docs/js/api/misc/data/#a-set-data">Set Data</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/misc/data/#b-get-data">Get Data</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/misc/data/#c-unset-data">Unset Data</a></li>
+</ul>
+<h2 id="a-set-data">a. Set Data</h2>
+<h3 id="syntax">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single value</span>
+$(el).data(key, value);
+
+<span class="hljs-comment">// Set multiple values</span>
+$(el).data({
+    [key]: value,
+});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code>: <code>String</code> - The key to set.</li>
+<li><code>value</code>: <code>Any</code> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="/tooling/play-ui/docs/js/api/misc/data/#unset-data">see below</a>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Set several distinct values for all elements matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value 1&#x27;</span>).data({
+    <span class="hljs-attr">key2</span>: <span class="hljs-string">&#x27;value 2&#x27;</span>,
+    <span class="hljs-attr">key3</span>: <span class="hljs-string">&#x27;value 3&#x27;</span>
+});</code></pre>
+<h2 id="b-get-data">b. Get Data</h2>
+<h3 id="syntax-1">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Retrieve single value</span>
+<span class="hljs-keyword">let</span> value = $(el).data(key);
+
+<span class="hljs-comment">// Retrieve multiples values</span>
+<span class="hljs-keyword">let</span> values = $(el).data([...key]);
+
+<span class="hljs-comment">// Retrieve all values</span>
+<span class="hljs-keyword">let</span> values = $(el).data();</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code>: <code>String</code> - The data key to read.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>value</code>: <code>Any</code> - The data value as initially stored, or <code>undefined</code>.</li>
+<li><code>values</code>: <code>Object</code> - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<p>Retrieve values for the first element matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> value = $(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>);
+<span class="hljs-comment">// value-1</span></code></pre>
+<h2 id="c-unset-data">c. Unset Data</h2>
+<h3 id="syntax-2">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset single property</span>
+.data(key, <span class="hljs-literal">undefined</span>);
+
+<span class="hljs-comment">// Unset multiples values</span>
+$(el).data({
+    [key]: <span class="hljs-literal">undefined</span>,
+});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>key</code>: <code>String</code> - The data key to unset.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h3 id="usage-2">Usage</h3>
+<p>Unset values for all elements matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-literal">undefined</span>).data({
+    <span class="hljs-attr">key2</span>: <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">key3</span>: <span class="hljs-literal">undefined</span>,
+});</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.data()</code> instance method is internally based on the standalone <code>misc/data()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.misc;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/misc/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-3">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
 					</template>
 
-					<div exportgroup="offsets">
+					<template name="transaction">
+						<div exportgroup="readme">
 
-						<h1 id="uioffsets">UI/offsets()</h1>
+							<h1 id="transaction"><code>.transaction()</code></h1>
+<p>This method is used to start a transaction on an element for operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction">Transaction</a> class.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = $(el).transaction(props, readCallback, writeCallback);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</li>
+<li><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+<li><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>Transaction</code> - The <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction">Transaction</a> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</p>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.transaction()</code> instance method is internally based on the standalone <code>misc/transaction()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { transaction } = $.misc;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/misc/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
+				</template>
+
+				<template name="ui">
+					<div exportgroup="readme">
+
+						<h1 id="api-category-ui">API Category: UI</h1>
 
 					</div>
 
-					<div exportgroup="offsetto">
+					<template name="classes">
+						<template name="Animation">
+							<div exportgroup="readme">
 
-						<h1 id="uioffsetto">UI/offsetTo()</h1>
+								<h1 id="class-animation-"><code>class Animation {}</code></h1>
+<p>This class provides an intuitive way to use the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API (WAAPI)</a>.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(element, effect[, timing = {}]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - A DOM element.</li>
+<li><code>effect</code>: <code>Array|Object|String</code> - The effect to play. This could be a standard keyframes array, a CSS rules object, or a stylesheet-based animation name.</li>
+<li><code>timing</code>: <code>Object</code> - Options for the animation.<ul>
+<li><code>duration</code>: <code>Number</code> - The animation's duration in milliseconds.</li>
+<li><code>fill</code>: <code>String</code> - The element's final state on finish; one of <code>none</code> (default), <code>forwards</code>, <code>both</code>.</li>
+<li><code>delay</code>: <code>Number</code> - The animation's delay in milliseconds before playing.</li>
+<li><code>endDelay</code>: <code>Number</code> - The animation's delay in milliseconds after playing.</li>
+<li><code>direction</code>: <code>String</code> - The animation's direction; one of <code>normal</code> (default), <code>reverse</code>, <code>alternate</code>, <code>alternate-reverse</code>.</li>
+<li><code>easing</code>: <code>String</code> - The rate of the animation's change over time; one of <code>linear</code> (default), <code>ease</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, or a custom <code>cubic-bezier</code> value like <code>cubic-bezier(0.42, 0, 0.58, 1)</code>.</li>
+<li><code>iterations</code>: <code>Number</code> - The number of times the animation should repeat.</li>
+<li><code>iterationStart</code>: <code>Number</code> - At what point in the iteration the animation should start.</li>
+<li><code>cancelForCss</code>: <code>Boolean</code> - (Specific to Ani) Whether to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS.</li></ul></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Create and play an animation.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>);
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, [{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>});
 
-					</div>
+animation.play().then(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
+});</code></pre>
+<h2 id="features">Features</h2>
+<p><em>Animation</em> provides the following rich set of features over WAAPI:</p>
+<ul>
+<li><p><strong>Support for single-frame keyframes.</strong> <em>Animation</em> will automatically derive the animation's first frame from the element's current state.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Fade out from current opacity level</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>: <span class="hljs-number">0</span>}, timing);</code></pre></li>
+<li><p><strong>Support for CSS keyframes.</strong> <em>Animation</em> can play animations defined in the document's stylesheets. Just mention an animation name.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+
+<span class="hljs-keyword">@keyframes</span> fadeout {
+<span class="hljs-number">0%</span> { <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;}
+<span class="hljs-number">100%</span> { <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;}
+}
+
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Play the animation from stylesheet</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, <span class="hljs-string">&#x27;fadeout&#x27;</span>, timing);</code></pre></li>
+<li><p><strong>Support for <em>auto</em> height and width.</strong> <em>Animation</em> accepts and automacally computes the keyword <em>auto</em> for the width and height properties.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:0px&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Expand to the element&#x27;s real size at &quot;auto&quot;</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">width</span>: <span class="hljs-string">&#x27;auto&#x27;</span>}, timing);</code></pre></li>
+<li><p><strong>Automatic units for unit-based CSS properties.</strong> <em>Animation</em> will automacally suffix numeric values with <code>px</code> for properties like <code>top</code> that don't go without units.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Help add &quot;px&quot; to the value for width</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">width</span>: <span class="hljs-number">50</span>}, timing);</code></pre></li>
+<li><p><strong>Support for shortform rules.</strong> <em>Animation</em> will accept an object or array for the following shortforms: inset, margin, padding.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Destructure the following object into their individual properties</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">inset</span>: {<span class="hljs-attr">top</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">100</span>}}, timing);
+<span class="hljs-comment">// Here we actually mean </span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">top</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">100</span>}, timing);
+<span class="hljs-comment">// ---------------</span>
+<span class="hljs-comment">// Destructure the following array into their individual properties</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">inset</span>: [<span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">75</span>, <span class="hljs-number">125</span>,]}, timing);
+<span class="hljs-comment">// Here we actually mean </span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">top</span>: <span class="hljs-number">50</span>, <span class="hljs-attr">right</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">bottom</span>: <span class="hljs-number">75</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">125</span>}, timing);
+<span class="hljs-comment">// All shortforms go in this order: top, right, bottom, left</span></code></pre></li>
+<li><p><strong>Sensible default timing parameters.</strong> <em>Animation</em> will automatically create sensible values for the animation timing where not defined.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timing object has the following defaults</span>
+{
+    <span class="hljs-attr">duration</span>: <span class="hljs-number">400</span>,
+    <span class="hljs-attr">fill</span>: <span class="hljs-string">&#x27;both&#x27;</span>,
+}</code></pre></li>
+<li><p><strong>Other usefull methods.</strong> See below.</p></li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p>Explore the instance methods of this class.</p>
+
+							</div>
+
+							<template name="cancel">
+								<div exportgroup="readme">
+
+									<h1 id="cancel"><code>.cancel()</code></h1>
+<blockquote>
+  <p>The <code>animation.cancel()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to cancel an animation. If there are <em>oncancel</em> handlers, they are called.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.cancel();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.cancel()</code>.</p>
+<pre><code class="hljs js language-js">animation.cancel();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="finish">
+								<div exportgroup="readme">
+
+									<h1 id="finish"><code>.finish()</code></h1>
+<blockquote>
+  <p>The <code>animation.finish()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to force an animation to the finished state. If there are <em>onfinish</em> handlers, they are called.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.finish();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.finish()</code>.</p>
+<pre><code class="hljs js language-js">animation.finish();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="oncancel">
+								<div exportgroup="readme">
+
+									<h1 id="oncancel"><code>oncancel()</code></h1>
+<blockquote>
+  <p>The <code>animation.oncancel()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'cancelled' state of an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.oncancel(callback);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>callback</code>: <code>function(element)</code> - The function to call on <em>cancel</em>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - The DOM element of the animation instance.</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Bind an <em>oncancel</em> callback to an animation.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Obtain an Animation instance</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>: <span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Bind a callback</span>
+animation.oncancel(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Animation on the &#x27;</span> + el.id + <span class="hljs-string">&#x27; element cancelled!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Bind another callback if necessary</span>
+animation.oncancel(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something else</span>
+});</code></pre>
+
+								</div>
+							</template>
+
+							<template name="onfinish">
+								<div exportgroup="readme">
+
+									<h1 id="onfinish"><code>.onfinish()</code></h1>
+<blockquote>
+  <p>The <code>animation.onfinish()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'finished' state of an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.onfinish(callback);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>callback</code>: <code>function(element)</code> - The function to call on <em>finish</em>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - The DOM element of the animation instance.</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Bind an <em>onfinish</em> callback to an animation.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Obtain an Animation instance</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>: <span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Bind a callback</span>
+animation.onfinish(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Animation on the &#x27;</span> + el.id + <span class="hljs-string">&#x27; element finished!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Bind another callback if necessary</span>
+animation.onfinish(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something else</span>
+});</code></pre>
+
+								</div>
+							</template>
+
+							<template name="pause">
+								<div exportgroup="readme">
+
+									<h1 id="pause"><code>.pause()</code></h1>
+<blockquote>
+  <p>The <code>animation.pause()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to pause an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.pause();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.pause()</code>.</p>
+<pre><code class="hljs js language-js">animation.pause();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="play">
+								<div exportgroup="readme">
+
+									<h1 id="play"><code>.play()</code></h1>
+<blockquote>
+  <p>The <code>animation.play()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to play an animation. This method is promised-based.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> animation.play();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.play()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, [{
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>,
+}, {
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>,
+}], {
+    <span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>
+});
+
+animation.play().then(<span class="hljs-function"><span class="hljs-params">animation</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
+
+    <span class="hljs-comment">// Call other methods</span>
+    animation.reverse();
+});</code></pre>
+
+								</div>
+							</template>
+
+							<template name="progress">
+								<div exportgroup="readme">
+
+									<h1 id="progress"><code>.progress()</code></h1>
+<blockquote>
+  <p>The <code>animation.progress()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to get the percentage progress of an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> progress = animation.progress();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>progress</code>: <code>Number</code> - A number between <code>0</code> and <code>1</code>, representing 0% and 100% respectively, of the animation's total timing. Here the total timing is calculated as <code>delay + duration + endDelay</code>.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Get the progress of an animation at 350ms.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, [{
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>,
+}, {
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>,
+}], {
+    <span class="hljs-attr">delay</span>: <span class="hljs-number">100</span>, 
+    <span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>,
+});
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(animation.progress()); <span class="hljs-comment">// About 0.5</span>
+}, <span class="hljs-number">350</span>);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="ready">
+								<div exportgroup="readme">
+
+									<h1 id="ready"><code>.ready()</code></h1>
+<blockquote>
+  <p>The <code>animation.ready()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'ready' state of an animation. This is useful as there are cases where the animation is created asynchronously.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.ready(readyCallback[, failureCallback = <span class="hljs-literal">null</span>]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>readyCallback</code>: <code>function(waapi, timing, firstFrame, lastFrame)</code>: The function to call on ready.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>waapi</code>: <code>Animation</code> - The underlying WAAPI <code>Animation</code> instance.</li>
+<li><code>timing</code>: <code>Object</code> - The instance's timing object.</li>
+<li><code>firstFrame</code>: <code>Object</code> - The animation's <em>firstFrame</em> object. Especially useful where this has to be automatically derived by Ani.</li>
+<li><code>lastFrame</code>: <code>Object</code> - The animation's <em>lastFrame</em> object. Especially useful where this has to be automatically resolved by Ani.</li></ul></li>
+<li><p><code>failureCallback</code>: <code>function(errorMsg)</code> - A function to call on fatal errors preventing the creation of the animation.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>errorMsg</code>: <code>String</code> - The description of the error.</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Bind a <em>ready</em> callback to an animation.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Obtain an Ani instance and call ready()</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, {
+    <span class="hljs-attr">width</span>: <span class="hljs-string">&#x27;auto&#x27;</span>,
+});
+
+aanimationni.ready(<span class="hljs-function">(<span class="hljs-params">waapi, timing, firstFrame, lastFrame</span>) =&gt;</span> {
+    <span class="hljs-comment">// Show the two keyframes</span>
+    <span class="hljs-built_in">console</span>.log(firstFrame, lastFrame);
+});</code></pre>
+
+								</div>
+							</template>
+
+							<template name="reverse">
+								<div exportgroup="readme">
+
+									<h1 id="reverse"><code>.reverse()</code></h1>
+<blockquote>
+  <p>The <code>animation.reverse()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to reverse an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.reverse();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.reverse()</code>.</p>
+<pre><code class="hljs js language-js">animation.reverse();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="seek">
+								<div exportgroup="readme">
+
+									<h1 id="seek"><code>.seek()</code></h1>
+<blockquote>
+  <p>The <code>animation.seek()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to seek to a percentage point in an animation.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">animation.seek(point);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>point</code>: <code>Number</code> - A number between <code>0</code> and <code>1</code>, representing 0% and 100% respectively, of the animation's total timing. Here the total timing is calculated as <code>delay + duration + endDelay</code>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Animation</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Seek an animation to half its total duration.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(el, [{
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>,
+}, {
+    <span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>,
+}], {
+    <span class="hljs-attr">delay</span>: <span class="hljs-number">100</span>, 
+    <span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>,
+});
+
+<span class="hljs-comment">// Seek the animation to 350ms</span>
+animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
+
+								</div>
+							</template>
+						</template>
+
+						<template name="Event">
+							<div exportgroup="readme">
+
+								<h1 id="class-event-"><code>class Event {}</code></h1>
+<p>Instances of this class represent a DOM event or user gesture event.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event(target, e);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code>: <code>Element</code> - The DOM element on which the event happend.</li>
+<li><code>e</code>: <code>Event</code> - The origin event object that this class will wrap. This is either a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">native browser event object</a> or a <a href="https://hammerjs.github.io/api/#event-object">Hammer.js event object</a> describing a gesture event.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><code>event.type</code>: <code>String</code> - (Readonly) Returns the type of the origin event passed to the constructor.</li>
+<li><code>event.target</code>: <code>Element</code> - (Readonly) Returns the target element passed to the constructor.</li>
+<li><code>event.defaultPrevented</code>: <code>Boolean</code> - (Readonly) Tells if the instance's <code>.preventDefault()</code> method has been called.</li>
+<li><code>event.propagationStopped</code>: <code>Boolean</code> - (Readonly) Tells if the instance's <code>.stopPropagation()</code> method has been called.</li>
+<li><code>event.promises</code>: <code>null|Promise</code> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.promise()</code> method. Returns <code>null</code> if not Promise has been recieved.</li>
+<li><code>event.e</code>: <code>Event</code> - (Readonly) Returns the origin event object passed to the constructor.</li>
+</ul>
+<h2 id="instance-methods">Instance Methods</h2>
+<h3 id="eventpreventdefault"><code>event.preventDefault()</code></h3>
+<h3 id="eventstoppropagation"><code>event.stopPropagation()</code></h3>
+<h3 id="eventpromise"><code>event.promise()</code></h3>
+<h3 id="eventresponse"><code>event.response()</code></h3>
+
+							</div>
+						</template>
+
+						<template name="Listener">
+							<div exportgroup="readme">
+
+								<h1 id="class-listener-"><code>class Listener {}</code></h1>
+<p>Instances of this class represent an event listener.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<p><em>Instances are created internally.</em></p>
+<h2 id="instance-methods">Instance Methods</h2>
+<h3 id="listenerdisconnect"><code>listener.disconnect()</code></h3>
+<h3 id="listenerfire"><code>listener.fire()</code></h3>
+
+							</div>
+						</template>
+
+						<div exportgroup="readme">
+
+							<h1 id="classes">Classes</h1>
+<p>Classes in this category.</p>
+
+						</div>
+
+						<template name="Timeline">
+							<div exportgroup="readme">
+
+								<h1 id="timeline">Timeline</h1>
+<p>This class provides a convenient way to control multiple <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instances.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline(animations[, params = {}]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>animations</code>: <code>Array</code> - Zero or more <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instances.</li>
+<li><code>params</code>: <code>Object</code> - A few parameters for the timeline. (Currently none).</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Play/pause multiple animations in one call.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> ani1 = <span class="hljs-keyword">new</span> Animation(el1, [{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>});
+<span class="hljs-keyword">let</span> ani2 = <span class="hljs-keyword">new</span> Animation(el2, [{<span class="hljs-attr">width</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">width</span>:<span class="hljs-number">100</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">900</span>});
+
+<span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline([ani1, ani2]);
+timeline.pause();
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+   timeline.play().then(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end; all animations!&#x27;</span>);
+    });
+}, <span class="hljs-number">1000</span>);</code></pre>
+<h2 id="features">Features</h2>
+<ul>
+<li><p><strong>Runtime manipulation of timeline.</strong> <em>Timeline</em> allows you to add/remove animation instances at runtime without altering coordination and synchronization.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Fade out from current opacity level</span>
+<span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline([ani1, ani2]);
+
+<span class="hljs-comment">// Kick off</span>
+timeline.play().then(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end; all animations!&#x27;</span>);
+});
+
+<span class="hljs-comment">// On the fly</span>
+timeline.add(ani3);
+timeline.remove(ani1);
+<span class="hljs-comment">// Yet, our play.then() will work as expected</span></code></pre></li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p>Explore the instance methods of this class.</p>
+
+							</div>
+
+							<template name="add">
+								<div exportgroup="readme">
+
+									<h1 id="add"><code>.add()</code></h1>
+<blockquote>
+  <p>The <code>timeline.add()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to add an <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> to the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.add(animation);</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain a timeline instance and call <code>.add()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timeline</span>
+<span class="hljs-keyword">let</span> timeline  = <span class="hljs-keyword">new</span> Timeline;
+<span class="hljs-comment">// The animation instance</span>
+<span class="hljs-keyword">let</span> animation  = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Add</span>
+timeline.add(animation);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="cancel">
+								<div exportgroup="readme">
+
+									<h1 id="cancel"><code>.cancel()</code></h1>
+<blockquote>
+  <p>The <code>timeline.cancel()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to cancel all animations in the timeline. If there are <em>oncancel</em> handlers, they are called. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are canclled immediately.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.cancel(except = []);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.cancel()</code>.</p>
+<pre><code class="hljs js language-js">timeline.cancel();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="clear">
+								<div exportgroup="readme">
+
+									<h1 id="clear"><code>.clear()</code></h1>
+<blockquote>
+  <p>The <code>timeline.clear()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to clear all animations from off the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.clear(except = []);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.clear()</code>.</p>
+<pre><code class="hljs js language-js">timeline.clear();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="finish">
+								<div exportgroup="readme">
+
+									<h1 id="finish"><code>.finish()</code></h1>
+<blockquote>
+  <p>The <code>timeline.finish()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to finish all animations in the timeline. If there are <em>onfinish</em> handlers, they are called. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are finished immediately.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.finish(except = []);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.finish()</code>.</p>
+<pre><code class="hljs js language-js">timeline.finish();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="oncancel">
+								<div exportgroup="readme">
+
+									<h1 id="oncancel"><code>oncancel()</code></h1>
+<blockquote>
+  <p>The <code>timeline.oncancel()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'cancelled' state of all animations in the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.oncancel(callback);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>callback</code>: <code>function(element)</code> - The function to call on <em>cancel</em>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - The DOM element of the animation instance.</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Bind an <em>oncancel</em> callback to all animations.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timeline</span>
+<span class="hljs-keyword">let</span> timeline  = <span class="hljs-keyword">new</span> Timeline;
+<span class="hljs-comment">// The animation instance</span>
+<span class="hljs-keyword">let</span> animation  = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Add</span>
+timeline.add(animation);
+
+<span class="hljs-comment">// Bind a callback</span>
+timeline.oncancel(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Animation on the &#x27;</span> + el.id + <span class="hljs-string">&#x27; element cancelled!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Bind another callback if necessary</span>
+timeline.oncancel(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something else</span>
+});
+
+<span class="hljs-comment">// Try cancel an animation</span>
+animation.cancel();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="onfinish">
+								<div exportgroup="readme">
+
+									<h1 id="onfinish"><code>onfinish()</code></h1>
+<blockquote>
+  <p>The <code>timeline.onfinish()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'finished' state of all animations in the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.onfinish(callback);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>callback</code>: <code>function(element)</code> - The function to call on <em>finish</em>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - The DOM element of the animation instance.</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Bind an <em>onfinish</em> callback to all animations.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timeline</span>
+<span class="hljs-keyword">let</span> timeline  = <span class="hljs-keyword">new</span> Timeline;
+<span class="hljs-comment">// The animation instance</span>
+<span class="hljs-keyword">let</span> animation  = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Add</span>
+timeline.add(animation);
+
+<span class="hljs-comment">// Bind a callback</span>
+timeline.onfinish(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Animation on the &#x27;</span> + el.id + <span class="hljs-string">&#x27; element finished!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Bind another callback if necessary</span>
+timeline.onfinish(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something else</span>
+});
+
+<span class="hljs-comment">// Try finish an animation</span>
+animation.finish();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="pause">
+								<div exportgroup="readme">
+
+									<h1 id="pause"><code>.pause()</code></h1>
+<blockquote>
+  <p>The <code>timeline.pause()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to pause all animations in the timeline. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are paused immediately.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.pause(except = []);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.pause()</code>.</p>
+<pre><code class="hljs js language-js">timeline.pause();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="play">
+								<div exportgroup="readme">
+
+									<h1 id="play"><code>.play()</code></h1>
+<blockquote>
+  <p>The <code>timeline.play()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to play all animations in the timeline. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are played immediately. This method is promise-based. The promise resolves at the time the animation with the highest timing completes. An animation's total timing withing the timeline could, in addition to its <em>delay</em>, <em>duration</em>, <em>endDelay</em> parameters, be affected by a direct play/play call, or its relative time of entering the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> timeline.play();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.play()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline;
+timeline.play().then(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Duration: 600ms</span>
+timeline.add(<span class="hljs-keyword">new</span> Animation(el1, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>: <span class="hljs-number">600</span>}));
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Duration: 600ms. But htis will finish in 900ms</span>
+    timeline.add(<span class="hljs-keyword">new</span> Animation(el2, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>: <span class="hljs-number">600</span>}));
+}, <span class="hljs-number">300</span>);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="progress">
+								<div exportgroup="readme">
+
+									<h1 id="progress"><code>.progress()</code></h1>
+<blockquote>
+  <p>The <code>timeline.progress()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Animation</a> instance method is used to get the average percentage progress of all animations in the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> progress = timeline.progress();</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>progress</code>: <code>Number</code> - A number between <code>0</code> and <code>1</code>, representing 0% and 100% respectively, of the timeline's calculated timing.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Get the progress of an timeline at 450ms.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline;
+timeline.play().then(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
+});
+
+<span class="hljs-comment">// Duration: 600ms</span>
+timeline.add(<span class="hljs-keyword">new</span> Animation(el1, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>: <span class="hljs-number">600</span>}));
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Duration: 600ms. But htis will finish in 900ms</span>
+    timeline.add(<span class="hljs-keyword">new</span> Animation(el2, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>: <span class="hljs-number">600</span>}));
+}, <span class="hljs-number">300</span>);
+
+<span class="hljs-comment">// Total duration of timeline: 900ms</span>
+<span class="hljs-comment">// Get the progress of an animation at 450ms.</span>
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(timeline.progress()); <span class="hljs-comment">// About 0.5</span>
+}, <span class="hljs-number">450</span>);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="remove">
+								<div exportgroup="readme">
+
+									<h1 id="remove"><code>.remove()</code></h1>
+<blockquote>
+  <p>The <code>timeline.remove()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to remove an <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> from the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.remove(animation);</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain a timeline instance and call <code>.remove()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timeline</span>
+<span class="hljs-keyword">let</span> timeline  = <span class="hljs-keyword">new</span> Timeline;
+<span class="hljs-comment">// The animation instance</span>
+<span class="hljs-keyword">let</span> animation  = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Add</span>
+timeline.add(animation);
+
+<span class="hljs-comment">// Then remove</span>
+timeline.remove(animation);</code></pre>
+
+								</div>
+							</template>
+
+							<template name="reverse">
+								<div exportgroup="readme">
+
+									<h1 id="reverse"><code>.reverse()</code></h1>
+<blockquote>
+  <p>The <code>timeline.reverse()</code> method.</p>
+</blockquote>
+<p>This <a href="..">Timeline</a> instance method is used to reverse all animations in the timeline. <a href="../Animation">Animation</a> instances added after this call are reversed immediately. But where the last call to <code>timeline.reverse()</code> restores the timeline to its original direction, <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added are left as-is.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.reverse(except = []);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Obtain an instance of an ongoing animation and call <code>.reverse()</code>.</p>
+<pre><code class="hljs js language-js">timeline.reverse();</code></pre>
+
+								</div>
+							</template>
+
+							<template name="seek">
+								<div exportgroup="readme">
+
+									<h1 id="seek"><code>.seek()</code></h1>
+<blockquote>
+  <p>The <code>timeline.seek()</code> method.</p>
+</blockquote>
+<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to seek to a percentage point in all animations in the timeline.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">timeline.seek(point[, except = []]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>point</code>: <code>Number</code> - A number between <code>0</code> and <code>1</code>, representing 0% and 100% respectively, of an animation's total timing. Here the total timing is calculated as <code>delay + duration + endDelay</code>.</li>
+<li><code>except</code>: <code>Array</code> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The <code>Timeline</code> instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Seek an animation to half its total duration.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The timeline</span>
+<span class="hljs-keyword">let</span> timeline  = <span class="hljs-keyword">new</span> Timeline;
+<span class="hljs-comment">// The animation instance</span>
+<span class="hljs-keyword">let</span> animation  = <span class="hljs-keyword">new</span> Animation(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>});
+
+<span class="hljs-comment">// Add</span>
+timeline.add(animation);
+
+<span class="hljs-comment">// Seek the timeline to half its total duration</span>
+timeline.seek(<span class="hljs-number">0.5</span>);</code></pre>
+
+								</div>
+							</template>
+						</template>
+
+						<template name="UIRect">
+							<div exportgroup="readme">
+
+								<h1 id="class-uirect-"><code>class UIRect {}</code></h1>
+<p>Instances of this class represent the rendered rectangle of an element in the UI. And a good amount of transformation to this <em>rect</em> is possible.</p>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> rect = <span class="hljs-keyword">new</span> UIRectect(props[, params = {}]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>props</code>: <code>Object</code> - Properties with to initalize the instance. These props are set as <em>readonly</em> properties of the instance. Standard properties are: <code>left</code>, <code>top</code>, <code>bottom</code>, <code>right</code>, <code>width</code>, <code>height</code>. Any additional properties are defined as <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description">non-enumerable</a></em> on the instance.</li>
+<li><code>params</code>: <code>Object</code> - The directives used during calculation of the given props.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><code>rect.params</code>: <code>Object</code> - (Readonly) The original <code>params</code> object passed to the constructor.</li>
+<li><code>rect.offset</code>: <code>Object</code> - (Readonly) A hash of the instance's <code>.left</code> and <code>.top</code> properties.</li>
+<li><code>rect.size</code>: <code>Object</code> - (Readonly) A hash of the instance's <code>.width</code> and <code>.height</code> properties.</li>
+<li><code>rect[prop]</code>: <code>Any</code> - (Readonly) Any other property (<code>prop</code>) in the original <code>props</code> object passed to the constructor.</li>
+</ul>
+<h2 id="static-methods">Static Methods</h2>
+<h3 id="uirectcalculateelement-params--">UIRect.calculate(element[, params = {}])</h3>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>element</code>: <code>Element</code> - A DOM element.</li>
+<li><code>params</code>: <code>Object</code> - Directives for the method.<ul>
+<li><code>offsetOrigin</code>: <code>Any</code> - This directive is used to specify the offset origin from which to calculate the <em>top/left</em> distances of the rendered rectangle for the element. Three origins can be used:<br />
+<code>client</code> - offsets are calculated from the <em>top/left</em> origins of the screen. This is the default offset origin.<br />
+<code>page</code> - offsets are calculated from the <em>top/left</em> origins of the page. Specify this origin by setting this directive to the keyword <code>page</code> or <code>document</code>, or the <em>document</em> object.<br />
+<code>offset</code> - offsets are calculated from the <em>top/left</em> origins of the element's <em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent">offset parent</a></em>. Specify this origin by setting this directive to <code>true</code> or the keyword <code>offset</code>, or an instance of the element to use as origin (must be an ancestor of the subject element).</li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<p><code>UIRect</code> - An instance of <em>UIRect</em>.</p>
+<h2 id="instance-methods">Instance Methods</h2>
+<h3 id="rectintersectionwith"><code>rect.intersectionWith()</code></h3>
+<h3 id="rectunionwith"><code>rect.unionWith()</code></h3>
+<h3 id="rectanglewith"><code>rect.angleWith()</code></h3>
+<h3 id="rectproximitywith"><code>rect.proximityWith()</code></h3>
+<h3 id="rectrotationto"><code>rect.rotationTo()</code></h3>
+<h3 id="rectscaleto"><code>rect.scaleTo()</code></h3>
+<h3 id="recttranslationto"><code>rect.translationTo()</code></h3>
+
+							</div>
+						</template>
+					</template>
+
+					<template name="custom-events">
+						<div exportgroup="readme">
+
+							<h1 id="custom-events">Custom Events</h1>
+<p>Play UI's event system can be hooked into to provide custom event implementations. For example, its <em>tripletap</em>, <em>doubletap</em>, and <em>singletap</em> gestures are custom implementations/variations of the <em>tap</em> gesture. But custom events can also be just an alias for another event. Play UI makes everything easy!</p>
+<p>To create a custom event, import the <code>CustomEvents</code> object.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { CustomEvents } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { CustomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<p>To create an alias of an existing event:</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Simply map the custom event name to an existing event name</span>
+CustomEvents.hit = <span class="hljs-string">&#x27;tap&#x27;</span>;
+
+<span class="hljs-comment">// Now we can bind to the &quot;hit&quot; event instead of &quot;tap&quot;</span>
+$(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;hit&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(event.type);
+})</code></pre>
+<p>To create a full custom event implementation, provide a class with two methods: <code>setup()</code> and <code>teardown()</code>. The <code>setup()</code> method will be called the first time the event is being bound to on the given element. This function will receive certain useful parameters - the emitter being the most important. The <code>teardown()</code> method will be called the last time the event is being unbound off the element.</p>
+<pre><code class="hljs js language-js">CustomEvents.tick = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{
+    <span class="hljs-comment">// When the fisrt listenr of this event</span>
+    <span class="hljs-comment">// is attached to the element, we start ticking</span>
+    <span class="hljs-function"><span class="hljs-title">setup</span>(<span class="hljs-params">el, type, emitter, hammertime</span>)</span> {
+        <span class="hljs-built_in">this</span>.el = el;
+        <span class="hljs-built_in">this</span>.type = type;
+        <span class="hljs-built_in">this</span>.hammertime = hammertime;
+        <span class="hljs-built_in">this</span>.intervalID = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+            emitter.call();
+        }, <span class="hljs-number">100</span>);
+    }
+
+    <span class="hljs-comment">// When the last listener of this</span>
+    <span class="hljs-comment">// event is removed, no need to keep ticking</span>
+    <span class="hljs-function"><span class="hljs-title">teardown</span>(<span class="hljs-params"></span>)</span> {
+        <span class="hljs-built_in">clearInterval</span>(<span class="hljs-built_in">this</span>.intervalID);
+    }
+};
+
+<span class="hljs-comment">// Now we can bind to the &quot;tick&quot; event</span>
+$(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;tick&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(event.type);
+});</code></pre>
+
+						</div>
+					</template>
+
+					<template name="off">
+						<div exportgroup="readme">
+
+							<h1 id="off"><code>.off()</code></h1>
+<p>This method is used to unbind event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Unbind all listeners bound to the following event name</span>
+<span class="hljs-comment">// regardless of the event handler</span>
+$(el).off(eventName);
+
+<span class="hljs-comment">// Unbind the listener bound with the following event handler  </span>
+$(el).off(eventName, originalHandler);
+
+<span class="hljs-comment">// Unbind the listener bound with the following event handler and tag </span>
+$(el).off(eventName, originalHandler, {<span class="hljs-attr">tags</span>:[...originalTags]});
+
+<span class="hljs-comment">// Unbind the listener bound with the following tag </span>
+<span class="hljs-comment">// regardless of the event handler</span>
+$(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-attr">tags</span>:[...originalTags]});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>eventName</code>: <code>String</code> - The event or gesture name.</li>
+<li><code>originalHandler</code>: <code>Function</code> - The handler function originally used with <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</li>
+<li><code>params</code>: <code>Object</code> - Additional parameters.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Unbind a specific listenr bound to <em>doubletap</em>.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>, originalHandler);</code></pre>
+<p>Unbind all listenrs bound to <em>doubletap</em>.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>);</code></pre>
+<hr />
+<h2 id="matching-by-tags">Matching By Tags</h2>
+<p>The <code>params.tags</code> parameter can be used to match listeners that were <a href="../on#tagging-a-listener">tagged</a> by the <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a> method.</p>
+<pre><code class="hljs js language-js">$(el).off(eventName, originalHandler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.off()</code> instance method is internally based on the standalone <code>ui/off()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { off } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { off } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
 
 					<template name="on">
 						<div exportgroup="readme">
 
-							<h1 id="evton">EVT/on()</h1>
-<p>This function binds an event/gesture handler to an element. This works like <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>EventTarget.addEventListener()</code></a> but adds support for user gestures and custom event implementation.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> on <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/interaction/on.js&#x27;</span>;</code></pre>
+							<h1 id="on"><code>.on()</code></h1>
+<p>This method is used to bind event or gesture handlers to an element. This works like <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>EventTarget.addEventListener()</code></a> but adds support for user gestures and custom event implementation.</p>
 <h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">on(el, eventName, handler[, params = {}]);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler[, params = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>el</code> - <code>HTMLElement</code>: The source DOM element.</li>
-<li><code>eventName</code> - <code>String</code>: The event name.</li>
-<li><code>handler</code> - <code>Function</code>: The handler function. This recieves:<ul>
-<li><code>event</code> - an event object</li></ul></li>
-<li><code>params</code> - <code>Object</code>: Additional parameters.</li>
+<li><p><code>eventName</code>: <code>String</code> - The event or gesture name.</p></li>
+<li><p><code>handler</code>: <code>function(event)</code> - The handler function.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>event</code>: <code>Object</code> - An event object.</li></ul></li>
+<li><p><code>params</code>: <code>Object</code> - Additional parameters.</p></li>
 </ul>
-<p><strong>Return</strong><br />
-A <a href="/tooling/play-ui/docs/js/api/ui/on/#the-returned-listener-instance"><em>Listener</em> instance</a>.</p>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>listener</code>: <code>Listener</code> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/Listener">Listener</a>.</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<pre><code class="hljs javascript language-javascript">on(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">&#x27;doubletap&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+<p>Handle gesture events.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;doubletap&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;You doubletapped me!&#x27;</span>, event.details);
 });</code></pre>
-<p>Use the <a href="/tooling/play-ui/docs/js/api/ui/trigger"><code>trigger()</code></a> method to fire the event.</p>
+<p>Try using the <a href="/tooling/play-ui/docs/js/api/ui/trigger"><code>trigger()</code></a> method to fire the event.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Trigger</span>
-trigger(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">&#x27;doubletap&#x27;</span>);
+$(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>);
 <span class="hljs-comment">// And we can add details</span>
-trigger(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">&#x27;doubletap&#x27;</span>), {<span class="hljs-attr">time</span>:<span class="hljs-number">0</span>});</code></pre>
+$(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>, {<span class="hljs-attr">time</span>:<span class="hljs-number">0</span>});</code></pre>
+<hr />
 <h2 id="tagging-a-listener">Tagging a Listener</h2>
-<p>The <code>params.tags</code> parameter can be used to tag a listener. Tags are an <em>array</em> of values (<em>strings</em>, <em>numbers</em>, <em>objects</em>, etc) that can be used to identify the listener for later use.</p>
-<pre><code class="hljs js language-js">on(el, eventName, handler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
-<h2 id="the-returned-listener-instance">The Returned Listener Instance</h2>
-<p>The <code>on()</code> function returns a <em>Listener</em> instance that gives us per-instance control.</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Obtain the Listener instance</span>
-<span class="hljs-keyword">let</span> instance = on(el, eventName, handler);
-
-<span class="hljs-comment">// Synthetically trigger the listener</span>
-instance.fire({
+<p>The <code>params.tags</code> parameter can be used to tag a listener. Tags are an <em>array</em> of values (<em>strings</em>, <em>numbers</em>, <em>objects</em>, etc) that can be associated with the <em>listener</em> for later use. See tags in action using the <a href="/tooling/play-ui/docs/js/api/ui/off#matching-by-tags"><code>.off()</code></a> method.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
+<p>Programmatically manipulate <em>listener</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Synthetically trigger the listener</span>
+listener.fire({
     <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;doubletap&#x27;</span>,
 });
 
 <span class="hljs-comment">// Disconnect the listener</span>
-instance.disconnect();</code></pre>
+listener.disconnect();</code></pre>
 <h2 id="gestures">Gestures</h2>
 <p>PlayUI uses the <a href="https://hammerjs.github.io/">Hammer.js</a> gesture library to support the following gestures out of the box. For details of these gestures, see the <em>Hammer.js</em> documentation.</p>
 <ul>
@@ -2226,8 +2950,15 @@ instance.disconnect();</code></pre>
 <li><strong>swipe</strong>: swipe, swipeleft, swiperight, swipeup, swipedown</li>
 <li><strong>tap</strong>: tap, (by custom extension: tripletap, doubletap, singletap)</li>
 </ul>
-<p>Ensure to include Hammer in your page.</p>
-<pre><code class="hljs markup language-markup"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/@webqit/cui/ext/hammer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p>Be sure to include Hammer on your page before trying to handle gestures.</p>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.on()</code> instance method is internally based on the standalone <code>ui/on()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { on } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { on } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
 					</template>
@@ -2235,37 +2966,31 @@ instance.disconnect();</code></pre>
 					<template name="play">
 						<div exportgroup="readme">
 
-							<h1 id="animationplay"><code>Animation/play()</code></h1>
-<p>This function creates and play an animation. It is a convenient way to use the PlayUI's <a href="/tooling/play-ui/docs/js/api/ui/Ani">Ani</a> class.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">import</span> play <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/interaction/play.js&#x27;</span>;</code></pre>
+							<h1 id="play"><code>.play()</code></h1>
+<p>This method is used to create and play an animation. This method is promise-based.</p>
 <h2 id="syntax">Syntax</h2>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">let</span> promise = play(el, effect[, timing = {}]);</code></pre>
-<h3 id="parameters">Parameters</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).play(effect[, timing = {}]);</code></pre>
+<p><strong>Parameters</strong></p>
 <ul>
-<li><code>el</code> - <code>HTMLElement</code>: The source DOM element.</li>
-<li><code>effect</code> - <code>Array|Object|String</code>: The effect to play. This could be a standard keyframes array, a CSS object or a stylesheet-based animation name.</li>
-<li><code>timing</code> - <code>Object</code>: Options for the animation. See <a href="/tooling/play-ui/docs/js/api/ui/Ani#parameters">Ani</a>.</li>
+<li><code>effect</code>: <code>Array|Object|String</code> - The effect to play. See <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation#parameters">Animation</a>.</li>
+<li><code>timing</code>: <code>Object</code> - Options for the animation. See <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation#parameters">Animation</a>.</li>
 </ul>
-<h3 id="return">Return</h3>
+<p><strong>Return</strong></p>
 <ul>
-<li><code>Promise</code> - A promise that resolves when the animation finishes.</li>
+<li><code>this</code> - The Play UI instance.</li>
 </ul>
-<h2 id="usage">Usage</h2>
-<h3 id="play-from-standard-keyframes">Play from Standard Keyframes</h3>
-<p>Below, we fade out an element with keyframes.</p>
-<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>);
-play(el, [{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+<h3 id="usage">Usage</h3>
+<p><strong>Play from Standard Keyframes.</strong> Below, we fade out an element using an array of keyframes.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;#el&#x27;</span>);
+$(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}], {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then($el =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
 });</code></pre>
-<h3 id="play-a-css-transition">Play a CSS Transition</h3>
-<p>Below, we fade out an element by simply specifying a end-state keyframe and letting Ani derive the starting keyframe from the element's current state.</p>
-<pre><code class="hljs javascript language-javascript">play(el, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+<p><strong>Play a CSS Transition.</strong> Below, we fade out an element by simply specifying a <em>end-state</em> keyframe. The starting keyframe for the animation is automatically derived from the element's current state.</p>
+<pre><code class="hljs js language-js">$(el).play({<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then($el =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
-})</code></pre>
-<h3 id="play-a-css-animation-name">Play a CSS Animation Name</h3>
-<p>Below, we fade out an element with an animation keyframes defined in the document's stylesheet.</p>
-<pre><code class="hljs markup language-markup"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+});</code></pre>
+<p><strong>Play a CSS Animation Name.</strong> Below, we fade out an element using an animation defined in the document's stylesheet.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 
 <span class="hljs-keyword">@keyframes</span> fadeout {
   <span class="hljs-number">0%</span> { <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;}
@@ -2273,93 +2998,72 @@ play(el, [{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1</s
 }
 
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
-<pre><code class="hljs javascript language-javascript">play(el, <span class="hljs-string">&#x27;fadeout&#x27;</span>, {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> {
+<pre><code class="hljs js language-js">$(el).play(<span class="hljs-string">&#x27;fadeout&#x27;</span>, {<span class="hljs-attr">duration</span>:<span class="hljs-number">600</span>}).then($el =&gt; {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;The end!&#x27;</span>);
-})</code></pre>
+});</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.play()</code> instance method is internally based on the standalone <code>ui/play()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { play } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { play } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
 					</template>
 
-					<div exportgroup="positioningoffsets">
+					<template name="rect">
+						<div exportgroup="readme">
 
-						<h1 id="uipositioningoffsets">UI/positioningOffsets()</h1>
+							<h1 id="rect"><code>.rect()</code></h1>
+<p>This method is used to obtain the rendered rectangle of an element in the UI for manipualtion. It is an alias of the <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect#uirectcalculateelement-params--">UIRect.calculate()</a> function.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> rect = $(el).rect(params = {});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>params</code>: <code>Object</code> - Directives for the method. See <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect#">UIRect.calculate()</a>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>rect</code>: <code>UIRect</code> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect">UIRect</a>.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Get the <em>rect</em> of a button element.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> rect = $(<span class="hljs-string">&#x27;button&#x27;</span>).rect();</code></pre>
+<p>Manipulate the <em>rect</em>.</p>
+<pre><code class="hljs js language-js"></code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.rect()</code> instance method is internally based on the standalone <code>ui/rect()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { rect } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { rect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-					</div>
-
-					<div exportgroup="proximityobserver">
-
-						<h1 id="uiproximityobserver">UI/ProximityObserver</h1>
-
-					</div>
-
-					<div exportgroup="rect">
-
-						<h1 id="uirect">UI/rect()</h1>
-
-					</div>
-
-					<div exportgroup="rectatoffsets">
-
-						<h1 id="uirectatoffsets">UI/rectAtOffsets()</h1>
-
-					</div>
-
-					<div exportgroup="resizecallback">
-
-						<h1 id="uiresizecallback">UI/resizeCallback()</h1>
-
-					</div>
-
-					<div exportgroup="scrollparent">
-
-						<h1 id="uiscrollparent">UI/scrollParent()</h1>
-
-					</div>
-
-					<div exportgroup="scrolls">
-
-						<h1 id="uiscrolls">UI/scrolls()</h1>
-
-					</div>
-
-					<div exportgroup="scrollto">
-
-						<h1 id="uiscrollto">UI/scrollTo()</h1>
-
-					</div>
-
-					<div exportgroup="size">
-
-						<h1 id="uisize">UI/size()</h1>
-
-					</div>
-
-					<div exportgroup="translateto">
-
-						<h1 id="uitranslateto">UI/translateTo()</h1>
-
-					</div>
+						</div>
+					</template>
 
 					<template name="trigger">
 						<div exportgroup="readme">
 
-							<h1 id="trigger"><code>trigger()</code></h1>
-<p>This method is used to trigger event/gesture handlers previously bound using the <a href="/tooling/play-ui/docs/js/api/ui/on"><code>on()</code></a> function.</p>
-<h2 id="import">Import</h2>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> trigger <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/interaction/trigger.js&#x27;</span>;</code></pre>
+							<h1 id="trigger"><code>.trigger()</code></h1>
+<p>This method is used to trigger event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</p>
 <h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">trigger(el, eventName[, details = {}]);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = $(el).trigger(eventName[, details = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>el</code> - <code>HTMLElement</code>: The source DOM element.</li>
-<li><code>eventName</code> - <code>String</code>: The event name.</li>
-<li><code>details</code> - <code>Object</code>: (Optional) oustom data for the event.</li>
+<li><code>eventName</code>: <code>String</code> - The event or gesture name.</li>
+<li><code>details</code>: <code>Object</code> - Custom data to pass to the fired event handlers.</li>
 </ul>
-<p><strong>Return</strong><br />
-An <a href="/tooling/play-ui/docs/js/api/ui/trigger/#the-returned-event-instance"><em>Event</em> instance</a>.</p>
-<h2 id="the-returned-event-instance">The Returned Event Instance</h2>
-<p><code>trigger()</code> returns the fired event object which be inspected about the disposition of its handlers.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = trigger(el, eventName);</code></pre>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>event</code>: <code>Event</code> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/Event">Event</a>.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Programmatically fire gesture handlers.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = $(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>, {<span class="hljs-attr">time</span>:<span class="hljs-number">0</span>});</code></pre>
 <p>Inspect the event to see the disposition of the fired listeners.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> (event.defaultPrevented) {
     <span class="hljs-comment">// event.preventDefault() has been called by a handler</span>
@@ -2376,6 +3080,14 @@ An <a href="/tooling/play-ui/docs/js/api/ui/trigger/#the-returned-event-instance
     <span class="hljs-comment">// When any of the promises fail</span>
     });
 }</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.trigger()</code> instance method is internally based on the standalone <code>ui/trigger()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { trigger } = $.ui;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { trigger } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
 					</template>
