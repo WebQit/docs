@@ -88,7 +88,7 @@ $$(selector).append('Ready!');
 
 ## Use as Descrete Utilities
 
-Play UI's instance methods are internally based on Play UI's core standalone functions which may be imported and used individually. The [`.on()`](../api/ui/on) instance method, for example, is based on the standalone [`ui/on()`](../api/ui/on#static-usage) function.
+Play UI's instance methods are internally based on it's core standalone functions which may be imported and used individually. The [`.on()`](../api/ui/on) instance method, for example, is based on the standalone [`ui/on()`](../api/ui/on#static-usage) function.
 
 ```js
 const ( on ) = $.ui;
