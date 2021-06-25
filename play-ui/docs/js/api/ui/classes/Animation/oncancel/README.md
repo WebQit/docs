@@ -1,7 +1,7 @@
 ---
 desc: Bind a handler to the 'cancelled' state of an animation.
 ---
-# `oncancel()`
+# `.oncancel()`
 
 > The `animation.oncancel()` method.
 

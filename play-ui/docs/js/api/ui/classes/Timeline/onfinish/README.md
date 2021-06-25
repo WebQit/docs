@@ -1,7 +1,7 @@
 ---
 desc: Bind a handler to the 'finished' state of all animations in the timeline.
 ---
-# `onfinish()`
+# `.onfinish()`
 
 > The `timeline.onfinish()` method.
 

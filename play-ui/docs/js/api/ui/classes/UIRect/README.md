@@ -34,8 +34,8 @@ let rect = new UIRectect(props[, params = {}]);
 + `params`: `Object` - Directives for the method.
     + `offsetOrigin`: `Any` - This directive is used to specify the offset origin from which to calculate the *top/left* distances of the rendered rectangle for the element. Three origins can be used:
         `client` - offsets are calculated from the *top/left* origins of the screen. This is the default offset origin.
-        `page` - offsets are calculated from the *top/left* origins of the page. Specify this origin by setting this directive to the keyword `page` or `document`, or the *document* object.
-        `offset` - offsets are calculated from the *top/left* origins of the element's *[offset parent](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent)*. Specify this origin by setting this directive to `true` or the keyword `offset`, or an instance of the element to use as origin (must be an ancestor of the subject element).
+        `page` - offsets are calculated from the *top/left* origins of the page. Specify this origin by setting this directive to the keyword `page` or `document`, or to the *document* object.
+        `offset` - offsets are calculated from the *top/left* origins of the element's *[offset parent](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent)*. Specify this origin by setting this directive to `true` or the keyword `offset`, or to an instance of the element to use as origin (must be an ancestor of the subject element).
 
 **Return**
 

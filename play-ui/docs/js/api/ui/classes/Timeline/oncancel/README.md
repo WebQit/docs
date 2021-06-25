@@ -1,7 +1,7 @@
 ---
 desc: Bind a handler to the 'cancelled' state of all animations in the timeline.
 ---
-# `oncancel()`
+# `.oncancel()`
 
 > The `timeline.oncancel()` method.
 

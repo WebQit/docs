@@ -4,7 +4,7 @@ desc: The Transaction class.
 ---
 # `class Transaction {}`
 
-This class lets us create rollback states while manipulating an element.
+This class lets us create rollback points while manipulating an element.
 
 ## Constructor
 
@@ -16,7 +16,7 @@ let transaction = new Transaction(el, props, readCallback, writeCallback);
 
 + `el`: `Element` - The element that will be modified.
 + `props`: `String|Array` - A property or list of properties that describes the operation on the element.
-+ `readCallback`: `function(el, props)` - A functation that is called to capture the state of the element using the listed *props*.
++ `readCallback`: `function(el, props)` - A function that is called to capture the state of the element using the listed *props*.
 
     **Parameters**
 
@@ -30,7 +30,7 @@ let transaction = new Transaction(el, props, readCallback, writeCallback);
         
         This return value is what the transaction's [`savepoint()`](classes/transaction/savepoint) instance method returns when called.
 
-+ `writeCallback`: `function(el, record)` - A functation that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function.
++ `writeCallback`: `function(el, record)` - A function that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function.
 
     **Parameters**
 

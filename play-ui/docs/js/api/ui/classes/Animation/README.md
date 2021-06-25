@@ -25,7 +25,7 @@ let animation = new Animation(element, effect[, timing = {}]);
     + `easing`: `String` - The rate of the animation's change over time; one of `linear` (default), `ease`, `ease-in`, `ease-out`, `ease-in-out`, or a custom `cubic-bezier` value like `cubic-bezier(0.42, 0, 0.58, 1)`.
     + `iterations`: `Number` - The number of times the animation should repeat.
     + `iterationStart`: `Number` - At what point in the iteration the animation should start.
-    + `cancelForCss`: `Boolean` - (Specific to Ani) Whether to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS.
+    + `cancelForCss`: `Boolean` - (Specific to this class) Whether or not to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS. Setting `cancelForCss` to `true` fixes it. 
 
 ## Usage
 

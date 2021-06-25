@@ -26,7 +26,7 @@ $(el).data({
 **Parameters**
 
 + `key`: `String` - The key to set.
-+ `value`: `Any` - The data value to set. When `undefined`, the data key is unset from the data store; [see below](#unset-data).
++ `value`: `Any` - The data value to set. When `undefined`, the data key is unset from the data store; [see below](#c-unset-data).
 
 **Return**
 

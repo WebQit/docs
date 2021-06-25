@@ -14,8 +14,8 @@ let transaction = $(el).transaction(props, readCallback, writeCallback);
 **Parameters**
 
 + `props`: `String|Array` - A property or list of properties that describes the operation on the element.
-+ `readCallback`: `function(el, props)` - A functation that is called to capture the state of the element using the listed *props*. See the [Transaction](../classes/Transaction#constructor) class.
-+ `writeCallback`: `function(el, record)` - A functation that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function. See the [Transaction](../classes/Transaction#constructor) class.
++ `readCallback`: `function(el, props)` - A function that is called to capture the state of the element using the listed *props*. See the [Transaction](../classes/Transaction#constructor) class.
++ `writeCallback`: `function(el, record)` - A function that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function. See the [Transaction](../classes/Transaction#constructor) class.
 
 **Return**
 
