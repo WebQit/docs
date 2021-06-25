@@ -26,7 +26,7 @@ $(el).itemize(items[, renderCallback[, overflowCallback[, params]]]);
 
     **Return**
 
-    `viod|false` - A return value is not required for this function. But `false` can be returned to tell `temize()` that `itemData` has been successfully *rendered/unrendered*. Otherwise, `temize()` will automatically *render/unrender* `itemData` using the `itemElement`'x `setState()` and `clearState()` methods respectively.
+    `viod|false` - A return value is not required for this function. But `false` can be returned to tell `temize()` that `itemData` has been successfully *rendered/unrendered*. Otherwise, `temize()` will automatically *render/unrender* `itemData` using the `itemElement`'s `setState()` and `clearState()` methods respectively.
 
 + `overflowCallback`: `function(directive, itemElement, itemData, index, collapsedCount)` - An optional callback that is called to handle overflow events. When omitted, `temize()` doesn't watch any items for overflow.
 
@@ -43,12 +43,13 @@ $(el).itemize(items[, renderCallback[, overflowCallback[, params]]]);
     `viod|Promise` - A return value is not required for this function. But a `Promise` can be returned to tell `temize()` to wait while collapsing or restoring `itemElement`.
 
 + `params`: `Object` - An optional list of additional parameters for the operation.
-    + `live`: `String` - Specifies whether or not for `temize()` to observe input `items` for mutations.
+    + `live`: `String` - Specifies whether or not for `temize()` to observe input `items` for mutations. This is `true` by default.
     + `itemIndexAttribute`: `String` - The attribute name on `itemElement` on which to set the index of the item. This defaults to `data-index`.
     + `itemExportId`: `String` - The *export ID* used for importing *item elements* for each item in the input `items`. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the *default* export of the  referenced module is used.
-    + `parentalOverflowBounds`: `Boolean` - Whether or not to the container of the list container or the list container itself for the overflow bounds. By default, container of the list container is used. Set to `false` to use the list container itself.
-    + `orientation`: `String` - This is either `horizontal` or `vertical` to indicate the direction of the list and along which axis to watch for overflows. Default is `horizontal`.
-    + `collapsionPoint`: `String` - A keyword specifying what end of the list container to clip overflowing elements. Valid values are:
+    + `parentalOverflowBounds`: `Boolean` - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to `false` to use the list container itself.
+    + `orientation`: `String` - This is either `horizontal` or `vertical` to indicate the direction of the list and along which axis to watch for overflow. Default is `horizontal`.
+    + `collapsionPoint`: `String` - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:
+    
         + `start` - Clip overflows at the left (for horizontal lists) or top (for vertical lists) of the list container.
         + `center-start` - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the left (for horizontal lists) or top (for vertical lists) of the list container.
         + `center` - Clip overflows at the center of the list container. This behaves as `center-start` when visible elements are even in number.

@@ -4,7 +4,7 @@ _index: last
 ---
 # Custom Events
 
-Play UI's event system can be hooked into to provide custom event implementations. For example, its *tripletap*, *doubletap*, and *singletap* gestures are custom implementations/variations of the *tap* gesture. But custom events can also be just an alias for another event. Play UI makes everything easy!
+Play UI's event system can be hooked into to provide custom event implementations. For example, its *tripletap*, *doubletap*, and *singletap* gestures are custom implementations/variations of the *tap* gesture. But, a custom event can be as simple as an alias for another event. Play UI makes everything easy!
 
 To create a custom event, import the `CustomEvents` object.
 
@@ -27,7 +27,7 @@ $(document.body).on('hit', event => {
 })
 ```
 
-To create a full custom event implementation, provide a class with two methods: `setup()` and `teardown()`. The `setup()` method will be called the first time the event is being bound to on the given element. This function will receive certain useful parameters - the emitter being the most important. The `teardown()` method will be called the last time the event is being unbound off the element.
+To create an advanced custom event implementation, provide a class with two methods: `setup()` and `teardown()`. The `setup()` method will be called the first time the event is being bound to on the given element. This function will receive certain useful parameters, e.g. the *emitter* (being the most important). The `teardown()` method will be called the last time the event is being unbound off the element.
 
 ```js
 CustomEvents.tick = class {
@@ -37,7 +37,7 @@ CustomEvents.tick = class {
         this.el = el;
         this.type = type;
         this.hammertime = hammertime;
-        this.intervalID = setInterval(() => {
+        this.interval_id = setInterval(() => {
             emitter.call();
         }, 100);
     }
@@ -45,7 +45,7 @@ CustomEvents.tick = class {
     // When the last listener of this
     // event is removed, no need to keep ticking
     teardown() {
-        clearInterval(this.intervalID);
+        clearInterval(this.interval_id);
     }
 };
 

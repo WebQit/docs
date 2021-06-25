@@ -14,7 +14,7 @@ let transaction = $(el).cssTransaction(props, asyncWrites = false);
 **Parameters**
 
 + `props`: `String|Array` - A property or list of properties that describes the operation on the element.
-+ `asyncWrites`: `Bool` - Specifies whether to use the asynchronous mode for writes by using [`cssAsync`](../cssasync) instead of [`cssSync`](../csssync).
++ `asyncWrites`: `Boolean` - Specifies whether to use the asynchronous mode for writes by using [`cssAsync`](../cssasync) instead of [`cssSync`](../csssync).
 
 **Return**
 
@@ -53,15 +53,21 @@ const el = document.querySelector('#el');
 transaction.savepoint();
 
 // Alter the element's computed style
-el.style.color = 'green';
-el.style.backgroundColor = 'black';
+$(el).cssSync({
+    color: 'green',
+    backgroundColor: 'black',
+});
 // Create a savepoint - savepoint2
 // We can rollback to this point later
 transaction.savepoint();
 
-// Alter the element's computed style further
-el.style.color = 'brown';
-el.style.backgroundColor = 'teal';
+// Alter the element's computed style further.
+// Here we use the transaction's .apply method to keep things neat.
+// Calls cssSync() (or cssAsync where asyncWrites is true) under the hood. 
+transaction.apply({
+    color: 'brown',
+    backgroundColor: 'teal',
+});
 // Create a savepoint - savepoint3
 // We can rollback to this point later
 transaction.savepoint();
@@ -79,18 +85,19 @@ setTimeout(() => {
 }, 2000);
 ```
 
-In the code above, if another part of the app had changed one of those properties after the last *savepoint* we made, then the call to `rollback()` would have overridden those *foreign* changes to restore the element to the specified *savepoint*.
+In the code above, if another part of the app had changed one of those properties after the last *savepoint* we made, then the call to `rollback()` would have overridden those *foreign changes* to restore the element to the specified *savepoint*.
 
-To detect *foreign* changes and leave them untouched, we would set the `preserveCurrentState` parameter of the [`rollback()`](../classes/transaction/rollback) method to `true`.
+To automatically detect *foreign changes* and leave them untouched, we would set the `preserveCurrentState` parameter of the [`rollback()`](../classes/transaction/rollback) method to `true`.
 
 ```js
 // The following changes were made after our last savepoint
-el.style.color = brown;
+el.style.color = 'brown';
 
 // Rollback to savepoint2
 setTimeout(() => {
     // Rollback all the way to the element's initial state
     transaction.rollback(0, true);
+    // Color will be left at 'brown'
 }, 2000);
 ```
 

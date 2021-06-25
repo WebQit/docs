@@ -28,7 +28,7 @@ Programmatically fire gesture handlers.
 let event = $(document.body).trigger('doubletap', {time:0});
 ```
 
-Inspect the event to see the disposition of the fired listeners.
+Inspect the returned *event* object to see how the fired listeners responded to the event.
 
 ```js
 if (event.defaultPrevented) {

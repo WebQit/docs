@@ -35,13 +35,13 @@ $(el).off(eventName, null, {tags:[...originalTags]});
 
 ### Usage
 
-Unbind a specific listenr bound to *doubletap*.
+Unbind a specific listener bound to *doubletap*.
 
 ```js
 $(document.body).off('doubletap', originalHandler);
 ```
 
-Unbind all listenrs bound to *doubletap*.
+Unbind all listeners bound to *doubletap*.
 
 ```js
 $(document.body).off('doubletap');

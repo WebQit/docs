@@ -50,8 +50,8 @@ import { htmlSync as html } from '@webqit/play-ui/src/dom/index.js';
 html(selector, 'Play away!');
 ```
 
-Learn more in the [Quick Start](../#use-as-descrete-utilities) guide.
+Details are in the [Quick Start](../quickstart#use-as-descrete-utilities) guide.
 
 ## Next Steps
 
-Explore the [API Reference](../api).
+Go to the [API Reference](../api).

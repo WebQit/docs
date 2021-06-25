@@ -3,7 +3,7 @@ desc: Bind event or gesture handlers to an element.
 ---
 # `.on()`
 
-This method is used to bind event or gesture handlers to an element. This works like [`EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) but adds support for user gestures and custom event implementation.
+This method is used to bind event or gesture handlers to an element. This works like the native [`EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) function but adds support for user gestures and custom event implementation.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ let listener = $(el).on(eventName, handler[, params = {}]);
 
     **Parameters**
 
-    + `event`: `Object` - An event object.
+    + `event`: `Object` - An [Event](../classes/Event) object.
 
 + `params`: `Object` - Additional parameters.
 
@@ -55,7 +55,7 @@ The `params.tags` parameter can be used to tag a listener. Tags are an *array* o
 let listener = $(el).on(eventName, handler, {tags:['#tag']});
 ```
 
-Programmatically manipulate *listener*.
+Programmatically manipulate the returned *listener* object.
 
 ```js
 // Synthetically trigger the listener
@@ -78,7 +78,7 @@ PlayUI uses the [Hammer.js](https://hammerjs.github.io/) gesture library to supp
 * **swipe**: swipe, swipeleft, swiperight, swipeup, swipedown
 * **tap**: tap, \(by custom extension: tripletap, doubletap, singletap\)
 
-Be sure to include Hammer on your page before trying to handle gestures.
+Be sure to include Hammer.js on your page before trying to observe gestures.
 
 ------
 

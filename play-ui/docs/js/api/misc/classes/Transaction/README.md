@@ -120,18 +120,19 @@ setTimeout(() => {
 }, 2000);
 ```
 
-In the code above, if another part of the app had changed one of those properties after the last *savepoint* we made, then the call to `rollback()` would have overridden those *foreign* changes to restore the element to the specified *savepoint*.
+In the code above, if another part of the app had changed one of those properties after the last *savepoint* we made, then the call to `rollback()` would have overridden those *foreign changes* to restore the element to the specified *savepoint*.
 
-To detect *foreign* changes and leave them untouched, we would set the `preserveCurrentState` parameter of the [`rollback()`](rollback) method to `true`. (The `readCallback` function will be called again to take the element's current state for comparison.)
+To automatically detect *foreign changes* and leave them untouched, we would set the `preserveCurrentState` parameter of the [`rollback()`](rollback) method to `true`. (The `readCallback` function will be called again to take the element's current state for comparison.)
 
 ```js
 // The following changes were made after our last savepoint
-el.style.color = brown;
+el.style.color = 'brown';
 
 // Rollback to savepoint2
 setTimeout(() => {
     // Rollback all the way to the element's initial state
     transaction.rollback(0, true);
+    // Now, color will be left at 'brown'
 }, 2000);
 ```
 
