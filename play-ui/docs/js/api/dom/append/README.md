@@ -1,23 +1,23 @@
 ---
-desc: Alias of the .appendAsync() method.
+desc: Alias of the .appendSync() method.
 ---
 # `.append()`
 
-This method is an alias of the [`.appendAsync()`](../appendasync) method. See [`.appendAsync()`](../appendasync) for documentation.
+This method is an alias of the [`.appendSync()`](../appendsync) method. See [`.appendSync()`](../appendsync) for documentation.
 
 ------
 
 ## Static Usage
 
-The `.append()` instance method is internally based on the standalone `dom/appendAsync()` function which may be used statically.
+The `.append()` instance method is internally based on the standalone `dom/appendSync()` function which may be used statically.
 
 ### Import
 
 ```js
-const { appendAsync: append } = $.dom;
+const { appendSync: append } = $.dom;
 ```
 ```js
-import { appendAsync as append } from '@webqit/play-ui/src/dom/index.js';
+import { appendSync as append } from '@webqit/play-ui/src/dom/index.js';
 ```
 
 ### Syntax

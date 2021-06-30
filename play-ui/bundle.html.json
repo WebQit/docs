@@ -224,13 +224,32 @@
                                                                     "subtree": [
                                                                         {
                                                                             "level": 2,
-                                                                            "title": "TransformRule.parse()",
-                                                                            "uri": "transformruleparse",
+                                                                            "title": "Constructor",
+                                                                            "uri": "constructor-NaN",
                                                                             "subtree": [
                                                                                 {
                                                                                     "level": 3,
                                                                                     "title": "Syntax",
                                                                                     "uri": "syntax",
+                                                                                    "subtree": []
+                                                                                },
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "Usage",
+                                                                                    "uri": "usage",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "static parse()",
+                                                                            "uri": "static-parse",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax-1",
                                                                                     "subtree": []
                                                                                 }
                                                                             ]
@@ -238,7 +257,26 @@
                                                                         {
                                                                             "level": 2,
                                                                             "title": "Usage",
-                                                                            "uri": "usage",
+                                                                            "uri": "usage-1",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "static parseMatrix()",
+                                                                            "uri": "static-parsematrix",
+                                                                            "subtree": [
+                                                                                {
+                                                                                    "level": 3,
+                                                                                    "title": "Syntax",
+                                                                                    "uri": "syntax-2",
+                                                                                    "subtree": []
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "level": 2,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage-2",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -252,7 +290,7 @@
                                         "css": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .cssAsync() method.",
+                                                    "desc": "Alias of the .cssSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -497,7 +535,7 @@
                                         "append": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .appendAsync() method.",
+                                                    "desc": "Alias of the .appendSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -623,10 +661,104 @@
                                                 }
                                             }
                                         },
+                                        "appendtoasync": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Asynchronously append matched elements to target elements.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".appendToAsync()",
+                                                            "uri": "appendtoasync",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "appendtosync": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Append matched elements to target elements.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".appendToSync()",
+                                                            "uri": "appendtosync",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "attr": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .attrAsync() method.",
+                                                    "desc": "Alias of the .attrSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -883,7 +1015,7 @@
                                         "class": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .classAsync() method.",
+                                                    "desc": "Alias of the .classSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -918,7 +1050,7 @@
                                         "classasync": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Asynchronously modify an element's class attribute.",
+                                                    "desc": "Asynchronously modify or match an element's class list.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -927,8 +1059,8 @@
                                                             "subtree": [
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "a. Set Whole Class Attribute",
-                                                                    "uri": "a-set-whole-class-attribute",
+                                                                    "title": "a. Modify Class List",
+                                                                    "uri": "a-modify-class-list",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
@@ -946,8 +1078,8 @@
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "b. Get Whole Class Attribute",
-                                                                    "uri": "b-get-whole-class-attribute",
+                                                                    "title": "b. Match Class List",
+                                                                    "uri": "b-match-class-list",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
@@ -959,44 +1091,6 @@
                                                                             "level": 3,
                                                                             "title": "Usage",
                                                                             "uri": "usage-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "c. Unset Whole Class Attribute",
-                                                                    "uri": "c-unset-whole-class-attribute",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-2",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-2",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "d. Modify Member Classes",
-                                                                    "uri": "d-modify-member-classes",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-3",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-3",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -1015,7 +1109,7 @@
                                                                         {
                                                                             "level": 3,
                                                                             "title": "Syntax",
-                                                                            "uri": "syntax-4",
+                                                                            "uri": "syntax-2",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -1029,7 +1123,7 @@
                                         "classsync": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Modify an element's class attribute.",
+                                                    "desc": "Modify or match an element's class list.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -1038,8 +1132,8 @@
                                                             "subtree": [
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "a. Set Whole Class Attribute",
-                                                                    "uri": "a-set-whole-class-attribute",
+                                                                    "title": "a. Modify Class List",
+                                                                    "uri": "a-modify-class-list",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
@@ -1057,8 +1151,8 @@
                                                                 },
                                                                 {
                                                                     "level": 2,
-                                                                    "title": "b. Get Whole Class Attribute",
-                                                                    "uri": "b-get-whole-class-attribute",
+                                                                    "title": "b. Match Class List",
+                                                                    "uri": "b-match-class-list",
                                                                     "subtree": [
                                                                         {
                                                                             "level": 3,
@@ -1070,44 +1164,6 @@
                                                                             "level": 3,
                                                                             "title": "Usage",
                                                                             "uri": "usage-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "c. Unset Whole Class Attribute",
-                                                                    "uri": "c-unset-whole-class-attribute",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-2",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-2",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "d. Modify Member Classes",
-                                                                    "uri": "d-modify-member-classes",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-3",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-3",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -1126,7 +1182,7 @@
                                                                         {
                                                                             "level": 3,
                                                                             "title": "Syntax",
-                                                                            "uri": "syntax-4",
+                                                                            "uri": "syntax-2",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -1262,7 +1318,7 @@
                                         "html": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .htmlAsync() method.",
+                                                    "desc": "Alias of the .htmlSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -1490,7 +1546,7 @@
                                         "prepend": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .prependAsync() method.",
+                                                    "desc": "Alias of the .prependSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -1616,10 +1672,104 @@
                                                 }
                                             }
                                         },
+                                        "prependtoasync": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Asynchronously prepend matched elements to target elements.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".prependToAsync()",
+                                                            "uri": "prependtoasync",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "prependtosync": {
+                                            "meta": {
+                                                "readme": {
+                                                    "desc": "Prepend matched elements to target elements.",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": ".prependToSync()",
+                                                            "uri": "prependtosync",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "Static Usage",
+                                                                    "uri": "static-usage",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Import",
+                                                                            "uri": "import",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
                                         "text": {
                                             "meta": {
                                                 "readme": {
-                                                    "desc": "Alias of the .textAsync() method.",
+                                                    "desc": "Alias of the .textSync() method.",
                                                     "outline": [
                                                         {
                                                             "level": 1,
@@ -2251,7 +2401,7 @@
                                                                     "outline": [
                                                                         {
                                                                             "level": 1,
-                                                                            "title": "oncancel()",
+                                                                            "title": ".oncancel()",
                                                                             "uri": "oncancel",
                                                                             "subtree": [
                                                                                 {
@@ -2732,7 +2882,7 @@
                                                                     "outline": [
                                                                         {
                                                                             "level": 1,
-                                                                            "title": "oncancel()",
+                                                                            "title": ".oncancel()",
                                                                             "uri": "oncancel",
                                                                             "subtree": [
                                                                                 {
@@ -2760,7 +2910,7 @@
                                                                     "outline": [
                                                                         {
                                                                             "level": 1,
-                                                                            "title": "onfinish()",
+                                                                            "title": ".onfinish()",
                                                                             "uri": "onfinish",
                                                                             "subtree": [
                                                                                 {

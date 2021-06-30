@@ -1,23 +1,23 @@
 ---
-desc: Alias of the .prependAsync() method.
+desc: Alias of the .prependSync() method.
 ---
 # `.prepend()`
 
-This method is an alias of the [`.prependAsync()`](../prependasync) method. See [`.prependAsync()`](../prependasync) for documentation.
+This method is an alias of the [`.prependSync()`](../prependsync) method. See [`.prependSync()`](../prependsync) for documentation.
 
 ------
 
 ## Static Usage
 
-The `.prepend()` instance method is internally based on the standalone `dom/prependAsync()` function which may be used statically.
+The `.prepend()` instance method is internally based on the standalone `dom/prependSync()` function which may be used statically.
 
 ### Import
 
 ```js
-const { prependAsync: prepend } = $.dom;
+const { prependSync: prepend } = $.dom;
 ```
 ```js
-import { prependAsync as prepend } from '@webqit/play-ui/src/dom/index.js';
+import { prependSync as prepend } from '@webqit/play-ui/src/dom/index.js';
 ```
 
 ### Syntax

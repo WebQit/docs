@@ -1,23 +1,23 @@
 ---
-desc: Alias of the .cssAsync() method.
+desc: Alias of the .cssSync() method.
 ---
 # `.css()`
 
-This method is an alias of the [`.cssAsync()`](../cssasync) method. See [`.cssAsync()`](../cssasync) for documentation.
+This method is an alias of the [`.cssSync()`](../csssync) method. See [`.cssSync()`](../csssync) for documentation.
 
 ------
 
 ## Static Usage
 
-The `.css()` instance method is internally based on the standalone `css/cssAsync()` function which may be used statically.
+The `.css()` instance method is internally based on the standalone `css/cssSync()` function which may be used statically.
 
 ### Import
 
 ```js
-const { cssAsync: css } = $.css;
+const { cssSync: css } = $.css;
 ```
 ```js
-import { cssAsync as css } from '@webqit/play-ui/src/css/index.js';
+import { cssSync as css } from '@webqit/play-ui/src/css/index.js';
 ```
 
 ### Syntax

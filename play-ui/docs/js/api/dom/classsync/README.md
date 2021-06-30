@@ -1,104 +1,16 @@
 ---
-desc: Modify an element's class attribute.
+desc: Modify or match an element's class list.
 ---
 # `.classSync()`
 
-This method is used to modify an element's class attribute. It provides convenience over using the [`attrSync()`](../attrsync) method to modify an element's class attribute.
+This method is used to modify or match an element's class list. It provides convenience over using the [`attrSync()`](../attrsync) method to modify an element's class attribute.
 
 The suffix *Sync* differentiates this method from its *Async* counterpart - [`classAsync()`](../classasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-+ [Set Whole Class Attribute](#a-set-whole-class-attribute)
-+ [Get Whole Class Attribute](#b-get-whole-class-attribute)
-+ [Unset Whole Class Attribute](#c-unset-whole-class-attribute)
-+ [Modify Member Classes](#d-modify-member-classes)
++ [Modify Class List](#a-modify-class-list)
++ [Match Class List](#b-match-class-list)
 
-## a. Set Whole Class Attribute
-
-### Syntax
-
-```js
-// Set the whole class attribute
-$(el).classSync(classList);
-```
-
-**Parameters**
-
-* `classList`: `String` - The whole class attribute.
-
-**Return**
-
-* `this` - The Play UI instance.
-
-### Usage
-
-Set whole class attribute of an element, then confirm operation. (Existing attribute value is replaced.)
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-$(el).classSync('class3 class4');
-// Confirm operation
-console.log($(el).attrAsync('class')); // class3 class4
-```
-
-## b. Get Whole Class Attribute
-
-### Syntax
-
-```js
-// Get the whole class attribute
-let classList = $(el).classSync();
-```
-
-**Return**
-
-* `classList`: `String` - The whole class attribute.
-
-### Usage
-
-Get whole class attribute of an element.
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-console.log($(el).classSync(); // class1 class2
-```
-
-## c. Unset Whole Class Attribute
-
-### Syntax
-
-```js
-// Unset the whole class attribute
-$(el).classSync(false);
-```
-
-**Return**
-
-* `this` - The Play UI instance.
-
-### Usage
-
-Unset whole class attribute of an element, then confirm operation.
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-$(el).classSync(false);
-// Confirm operation
-console.log($(el).attrSync('class')); // undefined
-```
-
-## d. Modify Member Classes
+## a. Modify Class List
 
 ### Syntax
 
@@ -112,7 +24,7 @@ $(el).classSync(classList, mutation === false);
 
 **Parameters**
 
-* `classList`: `String` - The class list to add or remove.
+* `classList`: `String|Array` - The class list to add or remove.
 * `mutation`: `Boolean` - The *add/remove* directive. When `true`, the given string is added to the class list. When `false`, the given string is removed from the class list.
 
 **Return**
@@ -132,6 +44,45 @@ let el = document.querySelector('.class1');
 $(el).classSync('class3 class4', true);
 // Confirm operation
 console.log($(el).attrSync('class')); // class1 class2 class3 class4
+```
+
+## b. Match Class List
+
+### Syntax
+
+```js
+// See if one pr more class exists
+var exists = $(el).classSync(classList);
+```
+
+**Parameters**
+
+* `classList`: `String|Array` - One or more class names.
+
+**Return**
+
+* `exists`: `Boolean` - This is `true` if *all* listed classes exist.
+
+### Usage
+
+Assert that the given class names exist.
+
+```html
+<div class="class1 class2 class3"></div>
+```
+
+```js
+let el = document.querySelector('.class1');
+// Match classes
+console.log($(el).classSync('class1')); // true
+console.log($(el).classSync('class1 class3')); // true
+console.log($(el).classSync('class1 class4')); // false
+// As an array
+console.log($(el).classSync(['class1 class3'])); // true
+console.log($(el).classSync(['class1', 'class3'])); // true
+console.log($(el).classSync(['class1', 'class4'])); // false
+// Mixed
+console.log($(el).classSync(['class1', 'class3 class2'])); // true
 ```
 
 ------

@@ -43,8 +43,6 @@ $(selector).html('Play away!');
 
 Now, while a 100% parity with jQuery isn't the goal, Play UI comes helpfully close, covering most day to day use cases. Examples: [`.html()`](../api/dom/html), [`.append()`](../api/dom/append), [`.prepend()`](../api/dom/prepend), [`.attr()`](../api/dom/attr), [`.css()`](../api/css/css), [`.data()`](../api/app/data), [`.on()`](../api/ui/on), [`.off()`](../api/ui/off), [`.trigger()`](../api/ui/trigger).
 
-> Note, however, that much of the methods above are promise-based, unlike their jQuery counterparts. See the documentation for each method for details.
-
 ## Use With Server-Side DOM Instances
 
 Use Play UI with server-side *window* objects such as the type provided by the [jsdom](https://github.com/jsdom/jsdom) library. (Think server-side rendering, web crawling, or just server-side DOM manipulation.) Here is how that could look.

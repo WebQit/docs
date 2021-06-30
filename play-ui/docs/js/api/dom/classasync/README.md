@@ -1,106 +1,16 @@
 ---
-desc: Asynchronously modify an element's class attribute.
+desc: Asynchronously modify or match an element's class list.
 ---
 # `.classAsync()`
 
-This method is used to asynchronously modify an element's class attribute. It provides convenience over using the [`attrAsync()`](../attrasync) method to modify an element's class attribute.
+This method is used to asynchronously modify or match an element's class list. It provides convenience over using the [`attrAsync()`](../attrasync) method to modify an element's class attribute.
 
 The suffix *Async* differentiates this method from its *Sync* counterpart - [`classSync()`](../classsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
 
-+ [Set Whole Class Attribute](#a-set-whole-class-attribute)
-+ [Get Whole Class Attribute](#b-get-whole-class-attribute)
-+ [Unset Whole Class Attribute](#c-unset-whole-class-attribute)
-+ [Modify Member Classes](#d-modify-member-classes)
++ [Modify Class List](#a-modify-class-list)
++ [Match Class List](#b-match-class-list)
 
-## a. Set Whole Class Attribute
-
-### Syntax
-
-```js
-// Set the whole class attribute
-await $(el).classAsync(classList);
-```
-
-**Parameters**
-
-* `classList`: `String` - The whole class attribute.
-
-**Return**
-
-* `this` - The Play UI instance.
-
-### Usage
-
-Set whole class attribute of an element, then confirm operation. (Existing attribute value is replaced.)
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-$(el).classAsync('class3 class4').then(Sel => {
-    // Confirm operation
-    console.log($el.attrSync('class')); // class3 class4
-});
-```
-
-## b. Get Whole Class Attribute
-
-### Syntax
-
-```js
-// Get the whole class attribute
-let classList = await $(el).classAsync();
-```
-
-**Return**
-
-* `classList`: `String` - The whole class attribute.
-
-### Usage
-
-Get whole class attribute of an element.
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-console.log(await $(el).classAsync(); // class1 class2
-```
-
-## c. Unset Whole Class Attribute
-
-### Syntax
-
-```js
-// Unset the whole class attribute
-await $(el).classAsync(false);
-```
-
-**Return**
-
-* `this` - The Play UI instance.
-
-### Usage
-
-Unset whole class attribute of an element, then confirm operation.
-
-```html
-<div class="class1 class2"></div>
-```
-
-```js
-let el = document.querySelector('.class1');
-$(el).classAsync(false).then($el => {
-    // Confirm operation
-    console.log($el.attrSync('class')); // undefined
-});
-```
-
-## d. Modify Member Classes
+## a. Modify Class List
 
 ### Syntax
 
@@ -135,6 +45,45 @@ $(el).classAsync('class3 class4', true).then(Sel => {
     // Confirm operation
     console.log($el.attrSync('class')); // class1 class2 class3 class4
 });
+```
+
+## b. Match Class List
+
+### Syntax
+
+```js
+// See if one pr more class exists
+var exists = await $(el).classAsync(classList);
+```
+
+**Parameters**
+
+* `classList`: `String|Array` - One or more class names.
+
+**Return**
+
+* `exists`: `Boolean` - This is `true` if *all* listed classes exist.
+
+### Usage
+
+Assert that the given class names exist.
+
+```html
+<div class="class1 class2 class3"></div>
+```
+
+```js
+let el = document.querySelector('.class1');
+// Match classes
+console.log(await $(el).classAsync('class1')); // true
+console.log(await $(el).classAsync('class1 class3')); // true
+console.log(await $(el).classAsync('class1 class4')); // false
+// As an array
+console.log(await $(el).classAsync(['class1 class3'])); // true
+console.log(await $(el).classAsync(['class1', 'class3'])); // true
+console.log(await $(el).classAsync(['class1', 'class4'])); // false
+// Mixed
+console.log(await $(el).classAsync(['class1', 'class3 class2'])); // true
 ```
 
 ------

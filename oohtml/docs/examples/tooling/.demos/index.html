@@ -13,8 +13,8 @@
         <div id="alert" namespace>
             <div id="message"></div>
             <script type="subscript">
-                // The .html() method is asynchronous
-                $(this.namespace.message).html(this.state.message).then(() => {
+                // The .htmlAsync() method is asynchronous
+                $(this.namespace.message).htmlAsync(this.state.message).then(() => {
                     // Do something sync
                 });
             </script>

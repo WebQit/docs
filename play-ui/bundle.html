@@ -133,9 +133,32 @@
 
 								<h1 id="class-transformrule-"><code>class TransformRule {}</code></h1>
 <p>This class is an object model of the CSS transform rule.</p>
-<h2 id="transformruleparse"><code>TransformRule.parse()</code></h2>
-<p>This function is used to parse an element's computed transform rule into an instance of <code>TransformRule</code>.</p>
+<h2 id="constructor-NaN">Constructor</h2>
 <h3 id="syntax">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = <span class="hljs-keyword">new</span> TransformRule(transformRuleDefinition);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>transformRuleDefinition</code>: <code>Object|String</code> - An object of the transform rule properties or the string <code>none</code>.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Create a transfrom rule instance from an object.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = <span class="hljs-keyword">new</span> TransformRule({
+    <span class="hljs-attr">translate</span>: [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>],
+    <span class="hljs-attr">sclae</span>: <span class="hljs-number">3</span>,
+});
+
+<span class="hljs-comment">// Convert to string</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
+<span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
+<p>Create a transfrom rule instance from the string <code>none</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = <span class="hljs-keyword">new</span> TransformRule(<span class="hljs-string">&#x27;none&#x27;</span>);
+
+<span class="hljs-comment">// Convert to string</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
+<span class="hljs-comment">// none</span></code></pre>
+<h2 id="static-parse">static <code>parse()</code></h2>
+<p>This function is used to parse an element's transform rule into an instance of <code>TransformRule</code>. If the input is a computed transform matrix, it automatically calls the <code>TransformRule.parseMatrix()</code> method.</p>
+<h3 id="syntax-1">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = TransformRule.parse(rule);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -145,7 +168,37 @@
 <ul>
 <li><code>TransformRule</code> - An object model of the parsed transform rule.</li>
 </ul>
-<h2 id="usage">Usage</h2>
+<h2 id="usage-1">Usage</h2>
+<p>Parse <em>transform rule</em> declaration.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Parse</span>
+<span class="hljs-keyword">let</span> transformRuleObject = TransformRule.parse(<span class="hljs-string">&#x27;translate(30, 40) scale(3)&#x27;</span>);
+
+<span class="hljs-comment">// Show</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject);
+<span class="hljs-comment">/**
+{
+    translate: [30, 40],
+    sclae: 3,
+}
+*/</span>
+
+<span class="hljs-comment">//Convert to string</span>
+<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
+<span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
+<h2 id="static-parsematrix">static <code>parseMatrix()</code></h2>
+<p>This function is used to parse an element's computed transform rule matrix into an instance of <code>TransformRule</code>.</p>
+<h3 id="syntax-2">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = TransformRule.parseMatrix(matrix);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>matrix</code> - <code>String</code>: The computed CSS transform matrix.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>TransformRule</code> - An object model of the parsed transform rule.</li>
+</ul>
+<h2 id="usage-2">Usage</h2>
+<p>Parse an element's <em>computed</em> transform rule.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
 <span class="hljs-selector-tag">div</span> {
     <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">30</span>, <span class="hljs-number">40</span>) <span class="hljs-built_in">scale</span>(<span class="hljs-number">3</span>);
@@ -169,15 +222,6 @@
 <span class="hljs-comment">//Convert to string</span>
 <span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
 <span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
-<p>We can also create a CSS transfrom rule from an object.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transformRuleObject = <span class="hljs-keyword">new</span> TransformRule({
-    <span class="hljs-attr">translate</span>: [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>],
-    <span class="hljs-attr">sclae</span>: <span class="hljs-number">3</span>,
-});
-
-<span class="hljs-comment">//Convert to string</span>
-<span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
-<span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
 
 							</div>
 						</template>
@@ -187,13 +231,13 @@
 						<div exportgroup="readme">
 
 							<h1 id="css"><code>.css()</code></h1>
-<p>This method is an alias of the <a href="../cssasync"><code>.cssAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>.cssAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../csssync"><code>.cssSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>.cssSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.css()</code> instance method is internally based on the standalone <code>css/cssAsync()</code> function which may be used statically.</p>
+<p>The <code>.css()</code> instance method is internally based on the standalone <code>css/cssSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">cssAsync</span>: css } = $.css;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssAsync <span class="hljs-keyword">as</span> css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">cssSync</span>: css } = $.css;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssSync <span class="hljs-keyword">as</span> css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -213,7 +257,7 @@
 <h2 id="a-set-css-properties">a. Set CSS Properties</h2>
 <h3 id="syntax">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single property</span>
-<span class="hljs-keyword">await</span> $(el).cssAsync(prop, value, flags = {params});
+<span class="hljs-keyword">await</span> $(el).cssAsync(prop, value, params = {});
 
 <span class="hljs-comment">// Set multiple properties</span>
 <span class="hljs-keyword">await</span> $(el).cssAsync({
@@ -221,15 +265,15 @@
 }, params = {});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>prop</code> - <code>String</code>: A CSS property.</li>
-<li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element.</li>
-<li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
-<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. In <em>inline</em> mode, the given rules are prepended to the element's <code>style</code> attribute.</li>
-<li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
-<li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
-<li><code>autoId</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special attribute <code>playuo-uuid</code>, as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
-<li><code>noScratchPad</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to target the latest <em>editable</em> stylesheet for the operation. Otherwise, a stylesheet maintained by Play UI is used.</li>
+<li><code>prop</code>: <code>String</code> - A CSS property.</li>
+<li><code>value</code>: <code>Any</code> - The property value to set. When an empty string <code>''</code>, the property is unset from the element.</li>
+<li><code>params</code>: <code>Object</code> - Additional directives for the method. (This parameter only applies in the second syntax above, where the first parameter is an array.) Valid directives are:<ul>
+<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope:inline</code> directive thus has no special effect.</li>
+<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>scope:global</code> directive, the given rules are inserted at the start of the target stylesheet. With the <code>scope:inline</code> directive, the given rules are prepended to the element's <code>style</code> attribute.</li>
+<li><code>pseudo</code> - (Works with the <code>scope:global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>::before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
+<li><code>autoUuid</code> - (Works with the <code>scope:global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
+<li><code>autoId</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special <code>playuo-uuid</code> attribute as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
+<li><code>noScratchPad</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to target the latest <em>editable</em> stylesheet for the operation. Otherwise, a stylesheet maintained by Play UI is used.</li>
 <li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
@@ -253,12 +297,12 @@
 <span class="hljs-keyword">let</span> values = <span class="hljs-keyword">await</span> $(el).cssAsync([...prop], params = {});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>prop</code> - <code>String</code>: A CSS property.</li>
-<li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
+<li><code>prop</code>: <code>String</code> - A CSS property.</li>
+<li><code>params</code>: <code>Object</code> - Additional directives for the method. Valid directives are:<ul>
 <li><code>scope</code> - Set to <code>global</code> to read the global, stylesheet-based CSS for the matched element. Or set to <code>inline</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.</li>
-<li><code>pseudo</code> - (Forbidden with the <code>inline</code> directive.) Set to a pseudo selector (e.g <code>:before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
-<li><code>all</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
-<li><code>noCache</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
+<li><code>pseudo</code> - (Forbidden with the <code>scope:inline</code> directive.) Set to a pseudo selector (e.g <code>::before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
+<li><code>all</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
+<li><code>noCache</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
 <li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
@@ -268,7 +312,7 @@
 </ul>
 <h3 id="usage-1">Usage</h3>
 <p>Get an element's computed CSS. Note that if we must provide a <code>params</code> object, <em>props list</em> has to be an array.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = <span class="hljs-keyword">await</span> $(el).cssAsync([<span class="hljs-string">&#x27;color&#x27;</span>], {<span class="hljs-attr">inline</span>: <span class="hljs-literal">true</span>});
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = <span class="hljs-keyword">await</span> $(el).cssAsync([<span class="hljs-string">&#x27;color&#x27;</span>], {<span class="hljs-attr">scope</span>: <span class="hljs-string">&#x27;inline&#x27;</span>});
 <span class="hljs-comment">// {color: &#x27;red&#x27;}</span></code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
@@ -303,15 +347,15 @@ $(el).cssSync({
 }, params = {});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>prop</code> - <code>String</code>: A CSS property.</li>
-<li><code>value</code> - <code>Any</code>: The property value to set. When an empty string <code>''</code>, the property is unset from the element's inline CSS.</li>
-<li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
-<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope: inline</code> directive thus has no special effect.</li>
-<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>global</code> directive, the given rules are inserted at the start of the target stylesheet. In <em>inline</em> mode, the given rules are prepended to the element's <code>style</code> attribute.</li>
-<li><code>pseudo</code> - (Works with the <code>global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>:before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
-<li><code>autoUuid</code> - (Works with the <code>global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
-<li><code>autoId</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special attribute <code>playuo-uuid</code>, as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
-<li><code>noScratchPad</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to target the latest <em>editable</em> stylesheet for the operation. Otherwise, a stylesheet maintained by Play UI is used.</li>
+<li><code>prop</code>: <code>String</code> - A CSS property.</li>
+<li><code>value</code>: <code>Any</code> - The property value to set. When an empty string <code>''</code>, the property is unset from the element's inline CSS.</li>
+<li><code>params</code>: <code>Object</code> - Additional directives for the method. Valid directives are:<ul>
+<li><code>scope</code> - Set to <code>global</code> to write the new rules to a stylesheet. Or set to <code>inline</code> to write to the element's <code>style</code> attribute. By default, the element's <em>computed CSS</em> object is what is updated. But the browser also automatically writes the rules to the element's <code>style</code> attribute. The <code>scope:inline</code> directive thus has no special effect.</li>
+<li><code>prepend</code> - Set to <code>true</code> to write the new rules behind existing rules instead, making existing rules take priority. With the <code>scope:global</code> directive, the given rules are inserted at the start of the target stylesheet. With the <code>scope:inline</code> directive, the given rules are prepended to the element's <code>style</code> attribute.</li>
+<li><code>pseudo</code> - (Works with the <code>scope:global</code> directive. Forbidden otherwise.) Set to a pseudo selector (e.g <code>::before</code>) to set the CSS of a pseudo element associated with the matched element instead.</li>
+<li><code>autoUuid</code> - (Works with the <code>scope:global</code> directive.) Set to <code>false</code> to prevent Play UI from automatically generating a special attribute <code>playuo-uuid</code> for the element. By default, this is what is used as the CSS selector for the rules written to stylesheet.</li>
+<li><code>autoId</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to automatically generate an ID for the element where not present. This is used as the CSS selector for the rules written to stylesheet. This also prevents Play UI from automatically generating the special <code>playuo-uuid</code> attribute as above. Note that <code>autoUuid</code> and <code>autoId</code> cannot be both <code>false</code>.</li>
+<li><code>noScratchPad</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to target the latest <em>editable</em> stylesheet for the operation. Otherwise, a stylesheet maintained by Play UI is used.</li>
 <li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
@@ -334,12 +378,12 @@ $(el).cssSync({
 <span class="hljs-keyword">let</span> values = $(el).cssSync([...prop], params = {});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>prop</code> - <code>String</code>: A CSS property.</li>
-<li><code>params</code> - <code>Object</code>: Additional directives for the method. Valid directives are:<ul>
+<li><code>prop</code>: <code>String</code> - A CSS property.</li>
+<li><code>params</code>: <code>Object</code> - Additional directives for the method. (This parameter only applies in the second syntax above, where the first parameter is an array.) Valid directives are:<ul>
 <li><code>scope</code> - Set to <code>global</code> to read the global, stylesheet-based CSS for the matched element. Or set to <code>inline</code> to read the element's <code>style</code> attribute instead. By default, the element's <em>computed CSS</em> object is what is read.</li>
-<li><code>pseudo</code> - (Forbidden with the <code>inline</code> directive.) Set to a pseudo selector (e.g <code>:before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
-<li><code>all</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
-<li><code>noCache</code> - (Works with the <code>global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
+<li><code>pseudo</code> - (Forbidden with the <code>scope:inline</code> directive.) Set to a pseudo selector (e.g <code>::before</code>) to get the CSS of a pseudo element associated with the matched element instead.</li>
+<li><code>all</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to return an array of rule blocks gathered for the matched element from across stylesheets. Otherwise, rule blocks are merged into a single object and returned.</li>
+<li><code>noCache</code> - (Works with the <code>scope:global</code> directive.) Set to <code>true</code> to bypass Play UI's internal cache that optimizes traversing the document's stylesheets.</li>
 <li><code>vendorize</code> - Set to <code>true</code> to automatically handle applicable vendor-specific rule prefixing.</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
@@ -349,7 +393,7 @@ $(el).cssSync({
 </ul>
 <h3 id="usage-1">Usage</h3>
 <p>Get an element's computed CSS. Note that if we must provide a <code>params</code> object, <em>props list</em> has to be an array.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = $(el).cssSync([<span class="hljs-string">&#x27;color&#x27;</span>], {<span class="hljs-attr">inline</span>: <span class="hljs-literal">true</span>});
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = $(el).cssSync([<span class="hljs-string">&#x27;color&#x27;</span>], {<span class="hljs-attr">scope</span>: <span class="hljs-string">&#x27;inline&#x27;</span>});
 <span class="hljs-comment">// {color: &#x27;red&#x27;}</span></code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
@@ -373,7 +417,7 @@ $(el).cssSync({
 <p><strong>Parameters</strong></p>
 <ul>
 <li><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</li>
-<li><code>asyncWrites</code>: <code>Bool</code> - Specifies whether to use the asynchronous mode for writes by using <a href="../cssasync"><code>cssAsync</code></a> instead of <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>cssSync</code></a>.</li>
+<li><code>asyncWrites</code>: <code>Boolean</code> - Specifies whether to use the asynchronous mode for writes by using <a href="../cssasync"><code>cssAsync</code></a> instead of <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>cssSync</code></a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -400,15 +444,21 @@ $(el).cssSync({
 transaction.savepoint();
 
 <span class="hljs-comment">// Alter the element&#x27;s computed style</span>
-el.style.color = <span class="hljs-string">&#x27;green&#x27;</span>;
-el.style.backgroundColor = <span class="hljs-string">&#x27;black&#x27;</span>;
+$(el).cssSync({
+    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;green&#x27;</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;black&#x27;</span>,
+});
 <span class="hljs-comment">// Create a savepoint - savepoint2</span>
 <span class="hljs-comment">// We can rollback to this point later</span>
 transaction.savepoint();
 
-<span class="hljs-comment">// Alter the element&#x27;s computed style further</span>
-el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
-el.style.backgroundColor = <span class="hljs-string">&#x27;teal&#x27;</span>;
+<span class="hljs-comment">// Alter the element&#x27;s computed style further.</span>
+<span class="hljs-comment">// Here we use the transaction&#x27;s .apply method to keep things neat.</span>
+<span class="hljs-comment">// Calls cssSync() (or cssAsync where asyncWrites is true) under the hood. </span>
+transaction.apply({
+    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;brown&#x27;</span>,
+    <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;teal&#x27;</span>,
+});
 <span class="hljs-comment">// Create a savepoint - savepoint3</span>
 <span class="hljs-comment">// We can rollback to this point later</span>
 transaction.savepoint();</code></pre>
@@ -420,15 +470,16 @@ transaction.savepoint();</code></pre>
     <span class="hljs-comment">// Now background-color should fallback to yellow</span>
     <span class="hljs-comment">// And color should be back to red</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
-<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign</em> changes to restore the element to the specified <em>savepoint</em>.</p>
-<p>To detect <em>foreign</em> changes and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/css/classes/transaction/rollback"><code>rollback()</code></a> method to <code>true</code>.</p>
+<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign changes</em> to restore the element to the specified <em>savepoint</em>.</p>
+<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/css/classes/transaction/rollback"><code>rollback()</code></a> method to <code>true</code>.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
-el.style.color = brown;
+el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 
 <span class="hljs-comment">// Rollback to savepoint2</span>
 <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
     <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
     transaction.rollback(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Color will be left at &#x27;brown&#x27;</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
@@ -454,13 +505,13 @@ el.style.color = brown;
 						<div exportgroup="readme">
 
 							<h1 id="append"><code>.append()</code></h1>
-<p>This method is an alias of the <a href="../appendasync"><code>.appendAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/appendasync"><code>.appendAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../appendsync"><code>.appendSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>.appendSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.append()</code> instance method is internally based on the standalone <code>dom/appendAsync()</code> function which may be used statically.</p>
+<p>The <code>.append()</code> instance method is internally based on the standalone <code>dom/appendSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">appendAsync</span>: append } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendAsync <span class="hljs-keyword">as</span> append } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">appendSync</span>: append } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendSync <span class="hljs-keyword">as</span> append } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -533,17 +584,85 @@ $(el).appendSync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <spa
 						</div>
 					</template>
 
+					<template name="appendtoasync">
+						<div exportgroup="readme">
+
+							<h1 id="appendtoasync"><code>.appendToAsync()</code></h1>
+<p>This method is used to asynchronously append matched elements to target elements.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="../appendtosync"><code>.appendToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).appendToAsync(target);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code>: <code>String|Element</code> - A CSS selector of the element, or the element itself <code>Element</code>, to append to.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Append some dynamically-created nodes to document body.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;&lt;h1&gt;Playful people!&lt;/h1&gt;&#x27;</span>).appendToAsync(<span class="hljs-built_in">document</span>.body);</code></pre>
+<p>Append an existing <code>div</code> to multiple targets. The <code>div</code> is cloned into all targets except the last target.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);
+$(div).appendToAsync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.appendToAsync()</code> instance method is internally based on the standalone <code>dom/appendToAsync()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendToAsync } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendToAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
+
+					<template name="appendtosync">
+						<div exportgroup="readme">
+
+							<h1 id="appendtosync"><code>.appendToSync()</code></h1>
+<p>This method is used to append matched elements to target elements.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="../appendtoasync"><code>.appendToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">$(el).appendToSync(target);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code>: <code>String|Element</code> - A CSS selector of the element, or the element itself <code>Element</code>, to append to.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Append some dynamically-created nodes to document body.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;&lt;h1&gt;Playful people!&lt;/h1&gt;&#x27;</span>).appendToSync(<span class="hljs-built_in">document</span>.body);</code></pre>
+<p>Append an existing <code>div</code> to multiple targets. The <code>div</code> is cloned into all targets except the last target.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);
+$(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.appendToSync()</code> instance method is internally based on the standalone <code>dom/appendToSync()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendToSync } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
+
 					<template name="attr">
 						<div exportgroup="readme">
 
 							<h1 id="attr"><code>.attr()</code></h1>
-<p>This method is an alias of the <a href="../attrasync"><code>.attrAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>.attrAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../attrsync"><code>.attrSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>.attrSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.attr()</code> instance method is internally based on the standalone <code>dom/attrAsync()</code> function which may be used statically.</p>
+<p>The <code>.attr()</code> instance method is internally based on the standalone <code>dom/attrSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">attrAsync</span>: attr } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrAsync <span class="hljs-keyword">as</span> attr } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">attrSync</span>: attr } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrSync <span class="hljs-keyword">as</span> attr } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -808,13 +927,13 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 						<div exportgroup="readme">
 
 							<h1 id="class"><code>.class()</code></h1>
-<p>This method is an alias of the <a href="../classasync"><code>.classAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/classasync"><code>.classAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../classsync"><code>.classSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>.classSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.class()</code> instance method is internally based on the standalone <code>dom/classAsync()</code> function which may be used statically.</p>
+<p>The <code>.class()</code> instance method is internally based on the standalone <code>dom/classSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">classAsync</span>: _class } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classAsync <span class="hljs-keyword">as</span> _class } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">classSync</span>: _class } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync <span class="hljs-keyword">as</span> _class } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -825,65 +944,14 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 						<div exportgroup="readme">
 
 							<h1 id="classasync"><code>.classAsync()</code></h1>
-<p>This method is used to asynchronously modify an element's class attribute. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>attrAsync()</code></a> method to modify an element's class attribute.</p>
+<p>This method is used to asynchronously modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>attrAsync()</code></a> method to modify an element's class attribute.</p>
 <p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="../classsync"><code>classSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
 <ul>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#a-set-whole-class-attribute">Set Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#b-get-whole-class-attribute">Get Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#c-unset-whole-class-attribute">Unset Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#d-modify-member-classes">Modify Member Classes</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#a-modify-class-list">Modify Class List</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/dom/classasync/#b-match-class-list">Match Class List</a></li>
 </ul>
-<h2 id="a-set-whole-class-attribute">a. Set Whole Class Attribute</h2>
+<h2 id="a-modify-class-list">a. Modify Class List</h2>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Set the whole class attribute</span>
-<span class="hljs-keyword">await</span> $(el).classAsync(classList);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>classList</code>: <code>String</code> - The whole class attribute.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage">Usage</h3>
-<p>Set whole class attribute of an element, then confirm operation. (Existing attribute value is replaced.)</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-$(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">Sel</span> =&gt;</span> {
-    <span class="hljs-comment">// Confirm operation</span>
-    <span class="hljs-built_in">console</span>.log($el.attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class3 class4</span>
-});</code></pre>
-<h2 id="b-get-whole-class-attribute">b. Get Whole Class Attribute</h2>
-<h3 id="syntax-1">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Get the whole class attribute</span>
-<span class="hljs-keyword">let</span> classList = <span class="hljs-keyword">await</span> $(el).classAsync();</code></pre>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>classList</code>: <code>String</code> - The whole class attribute.</li>
-</ul>
-<h3 id="usage-1">Usage</h3>
-<p>Get whole class attribute of an element.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync(); <span class="hljs-comment">// class1 class2</span></code></pre>
-<h2 id="c-unset-whole-class-attribute">c. Unset Whole Class Attribute</h2>
-<h3 id="syntax-2">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset the whole class attribute</span>
-<span class="hljs-keyword">await</span> $(el).classAsync(<span class="hljs-literal">false</span>);</code></pre>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage-2">Usage</h3>
-<p>Unset whole class attribute of an element, then confirm operation.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-$(el).classAsync(<span class="hljs-literal">false</span>).then($el =&gt; {
-    <span class="hljs-comment">// Confirm operation</span>
-    <span class="hljs-built_in">console</span>.log($el.attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// undefined</span>
-});</code></pre>
-<h2 id="d-modify-member-classes">d. Modify Member Classes</h2>
-<h3 id="syntax-3">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Add member classes</span>
 <span class="hljs-keyword">await</span> $(el).classAsync(classList, mutation === <span class="hljs-literal">true</span>);
 
@@ -898,7 +966,7 @@ $(el).classAsync(<span class="hljs-literal">false</span>).then($el =&gt; {
 <ul>
 <li><code>this</code> - The Play UI instance.</li>
 </ul>
-<h3 id="usage-3">Usage</h3>
+<h3 id="usage">Usage</h3>
 <p>Add member classes to an element, then confirm operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
@@ -906,13 +974,39 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
     <span class="hljs-comment">// Confirm operation</span>
     <span class="hljs-built_in">console</span>.log($el.attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3 class4</span>
 });</code></pre>
+<h2 id="b-match-class-list">b. Match Class List</h2>
+<h3 id="syntax-1">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// See if one pr more class exists</span>
+<span class="hljs-keyword">var</span> exists = <span class="hljs-keyword">await</span> $(el).classAsync(classList);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>classList</code>: <code>String|Array</code> - One or more class names.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>exists</code>: <code>Boolean</code> - This is <code>true</code> if <em>all</em> listed classes exist.</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<p>Assert that the given class names exist.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2 class3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
+<span class="hljs-comment">// Match classes</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync(<span class="hljs-string">&#x27;class1&#x27;</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync(<span class="hljs-string">&#x27;class1 class3&#x27;</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync(<span class="hljs-string">&#x27;class1 class4&#x27;</span>)); <span class="hljs-comment">// false</span>
+<span class="hljs-comment">// As an array</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync([<span class="hljs-string">&#x27;class1 class3&#x27;</span>])); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class3&#x27;</span>])); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class4&#x27;</span>])); <span class="hljs-comment">// false</span>
+<span class="hljs-comment">// Mixed</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).classAsync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class3 class2&#x27;</span>])); <span class="hljs-comment">// true</span></code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.classAsync()</code> instance method is internally based on the standalone <code>dom/classAsync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-4">Syntax</h3>
+<h3 id="syntax-2">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
@@ -922,63 +1016,14 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
 						<div exportgroup="readme">
 
 							<h1 id="classsync"><code>.classSync()</code></h1>
-<p>This method is used to modify an element's class attribute. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>attrSync()</code></a> method to modify an element's class attribute.</p>
+<p>This method is used to modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>attrSync()</code></a> method to modify an element's class attribute.</p>
 <p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="../classasync"><code>classAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
 <ul>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#a-set-whole-class-attribute">Set Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#b-get-whole-class-attribute">Get Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#c-unset-whole-class-attribute">Unset Whole Class Attribute</a></li>
-<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#d-modify-member-classes">Modify Member Classes</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#a-modify-class-list">Modify Class List</a></li>
+<li><a href="/tooling/play-ui/docs/js/api/dom/classsync/#b-match-class-list">Match Class List</a></li>
 </ul>
-<h2 id="a-set-whole-class-attribute">a. Set Whole Class Attribute</h2>
+<h2 id="a-modify-class-list">a. Modify Class List</h2>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Set the whole class attribute</span>
-$(el).classSync(classList);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><code>classList</code>: <code>String</code> - The whole class attribute.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage">Usage</h3>
-<p>Set whole class attribute of an element, then confirm operation. (Existing attribute value is replaced.)</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-$(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>);
-<span class="hljs-comment">// Confirm operation</span>
-<span class="hljs-built_in">console</span>.log($(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class3 class4</span></code></pre>
-<h2 id="b-get-whole-class-attribute">b. Get Whole Class Attribute</h2>
-<h3 id="syntax-1">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Get the whole class attribute</span>
-<span class="hljs-keyword">let</span> classList = $(el).classSync();</code></pre>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>classList</code>: <code>String</code> - The whole class attribute.</li>
-</ul>
-<h3 id="usage-1">Usage</h3>
-<p>Get whole class attribute of an element.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-<span class="hljs-built_in">console</span>.log($(el).classSync(); <span class="hljs-comment">// class1 class2</span></code></pre>
-<h2 id="c-unset-whole-class-attribute">c. Unset Whole Class Attribute</h2>
-<h3 id="syntax-2">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset the whole class attribute</span>
-$(el).classSync(<span class="hljs-literal">false</span>);</code></pre>
-<p><strong>Return</strong></p>
-<ul>
-<li><code>this</code> - The Play UI instance.</li>
-</ul>
-<h3 id="usage-2">Usage</h3>
-<p>Unset whole class attribute of an element, then confirm operation.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
-$(el).classSync(<span class="hljs-literal">false</span>);
-<span class="hljs-comment">// Confirm operation</span>
-<span class="hljs-built_in">console</span>.log($(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// undefined</span></code></pre>
-<h2 id="d-modify-member-classes">d. Modify Member Classes</h2>
-<h3 id="syntax-3">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Add member classes</span>
 $(el).classSync(classList, mutation === <span class="hljs-literal">true</span>);
 
@@ -986,27 +1031,53 @@ $(el).classSync(classList, mutation === <span class="hljs-literal">true</span>);
 $(el).classSync(classList, mutation === <span class="hljs-literal">false</span>);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>classList</code>: <code>String</code> - The class list to add or remove.</li>
+<li><code>classList</code>: <code>String|Array</code> - The class list to add or remove.</li>
 <li><code>mutation</code>: <code>Boolean</code> - The <em>add/remove</em> directive. When <code>true</code>, the given string is added to the class list. When <code>false</code>, the given string is removed from the class list.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
 <li><code>this</code> - The Play UI instance.</li>
 </ul>
-<h3 id="usage-3">Usage</h3>
+<h3 id="usage">Usage</h3>
 <p>Add member classes to an element, then confirm operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <span class="hljs-literal">true</span>);
 <span class="hljs-comment">// Confirm operation</span>
 <span class="hljs-built_in">console</span>.log($(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3 class4</span></code></pre>
+<h2 id="b-match-class-list">b. Match Class List</h2>
+<h3 id="syntax-1">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// See if one pr more class exists</span>
+<span class="hljs-keyword">var</span> exists = $(el).classSync(classList);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>classList</code>: <code>String|Array</code> - One or more class names.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>exists</code>: <code>Boolean</code> - This is <code>true</code> if <em>all</em> listed classes exist.</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<p>Assert that the given class names exist.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2 class3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
+<span class="hljs-comment">// Match classes</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync(<span class="hljs-string">&#x27;class1&#x27;</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync(<span class="hljs-string">&#x27;class1 class3&#x27;</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync(<span class="hljs-string">&#x27;class1 class4&#x27;</span>)); <span class="hljs-comment">// false</span>
+<span class="hljs-comment">// As an array</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync([<span class="hljs-string">&#x27;class1 class3&#x27;</span>])); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class3&#x27;</span>])); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class4&#x27;</span>])); <span class="hljs-comment">// false</span>
+<span class="hljs-comment">// Mixed</span>
+<span class="hljs-built_in">console</span>.log($(el).classSync([<span class="hljs-string">&#x27;class1&#x27;</span>, <span class="hljs-string">&#x27;class3 class2&#x27;</span>])); <span class="hljs-comment">// true</span></code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.classSync()</code> instance method is internally based on the standalone <code>dom/classSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-4">Syntax</h3>
+<h3 id="syntax-2">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 						</div>
@@ -1123,13 +1194,13 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 						<div exportgroup="readme">
 
 							<h1 id="html"><code>.html()</code></h1>
-<p>This method is an alias of the <a href="../htmlasync"><code>.htmlAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>.htmlAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../htmlsync"><code>.htmlSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>.htmlSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.html()</code> instance method is internally based on the standalone <code>dom/htmlAsync()</code> function which may be used statically.</p>
+<p>The <code>.html()</code> instance method is internally based on the standalone <code>dom/htmlSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">htmlAsync</span>: html } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlAsync <span class="hljs-keyword">as</span> html } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">htmlSync</span>: html } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlSync <span class="hljs-keyword">as</span> html } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -1242,10 +1313,12 @@ $(el).htmlSync(div);</code></pre>
 							<h1 id="itemize"><code>.itemize()</code></h1>
 <p>This method is used to create a live list within an element in an <a href="/tooling/play-ui/docs/js/api/dom/itemize/tooling/oohtml">OOHTML</a>-based document. (It requires the OHHTML polyfill to be available in the document.)</p>
 <h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">$(el).itemize(items[, renderCallback[, overflowCallback[, params]]]);</code></pre>
+<pre><code class="hljs js language-js">$(el).itemize(items[, params]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><p><code>items</code>: <code>Array</code> - A list of data items to populate into a list container.</p></li>
+<li><p><code>params</code>: <code>Object</code> - An optional list of additional parameters for the operation.</p>
+<ul>
 <li><p><code>renderCallback</code>: <code>function(directive, itemElement, itemData, index[, isUpdate])</code> - An optional callback that is called to handle rendering or <em>unrendering</em> of <code>itemData</code>.</p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -1255,7 +1328,7 @@ $(el).htmlSync(div);</code></pre>
 <li><code>index</code>: <code>Int</code> - The index of <code>itemData</code> in the input <code>items</code>.</li>
 <li><code>isUpdate</code>: <code>Boolean</code> - A flag that indicates whether or not the given <code>itemData</code> is an update to a previous entry in the input <code>items</code>. This flag is only supplied when <code>directive</code> is <code>render</code>.</li></ul>
 <p><strong>Return</strong></p>
-<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>temize()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>temize()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'x <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
+<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>temize()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>temize()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'s <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
 <li><p><code>overflowCallback</code>: <code>function(directive, itemElement, itemData, index, collapsedCount)</code> - An optional callback that is called to handle overflow events. When omitted, <code>temize()</code> doesn't watch any items for overflow.</p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -1266,19 +1339,27 @@ $(el).htmlSync(div);</code></pre>
 <li><code>collapsedCount</code>: <code>Int</code> - The number of items still in the <em>collapsed</em> state. This will be <code>0</code> if <code>itemElement</code> is the last element in <em>collapsed</em> state.</li></ul>
 <p><strong>Return</strong></p>
 <p><code>viod|Promise</code> - A return value is not required for this function. But a <code>Promise</code> can be returned to tell <code>temize()</code> to wait while collapsing or restoring <code>itemElement</code>.</p></li>
-<li><p><code>params</code>: <code>Object</code> - An optional list of additional parameters for the operation.</p>
+<li><p><code>overflowContainerCallback</code>: <code>function(isOverflowing, containerElement, uncollapsedCount, collapsedCount)</code> - An optional callback that is called both <em>at the start</em> and <em>at the end</em> of the reflow process that collapses or restores overflowing items.</p>
+<p><strong>Parameters</strong></p>
 <ul>
-<li><code>live</code>: <code>String</code> - Specifies whether or not for <code>temize()</code> to observe input <code>items</code> for mutations.</li>
-<li><code>itemIndexAttribute</code>: <code>String</code> - The attribute name on <code>itemElement</code> on which to set the index of the item. This defaults to <code>data-index</code>.</li>
-<li><code>itemExportId</code>: <code>String</code> - The <em>export ID</em> used for importing <em>item elements</em> for each item in the input <code>items</code>. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the <em>default</em> export of the  referenced module is used.</li>
-<li><code>parentalOverflowBounds</code>: <code>Boolean</code> - Whether or not to the container of the list container or the list container itself for the overflow bounds. By default, container of the list container is used. Set to <code>false</code> to use the list container itself.</li>
-<li><code>orientation</code>: <code>String</code> - This is either <code>horizontal</code> or <code>vertical</code> to indicate the direction of the list and along which axis to watch for overflows. Default is <code>horizontal</code>.</li>
-<li><code>collapsionPoint</code>: <code>String</code> - A keyword specifying what end of the list container to clip overflowing elements. Valid values are:<ul>
+<li><code>isOverflowing</code>: <code>Boolean</code> - This is <code>true</code> when the reflow process is just beginning; <code>false</code> when the process has just ended.</li>
+<li><code>containerElement</code>: <code>Element</code> - The container element undergoing a reflow.</li>
+<li><code>uncollapsedCount</code>: <code>Int</code> - The number of items in the <em>uncollapsed</em> state.</li>
+<li><code>collapsedCount</code>: <code>Int</code> - The number of items still in the <em>collapsed</em> state.</li></ul>
+<p><strong>Return</strong></p>
+<p><code>Boolean|Promise</code> - A return value is not required for this function. But <code>false</code> (or a <code>Promise</code> that resolves to <code>false</code>) can be returned when <code>isOverflowing</code> is <em>true</em> to tell <code>temize()</code> to skip a reflow.</p></li>
+<li><p><code>collapsionPoint</code>: <code>String</code> - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:</p>
+<ul>
 <li><code>start</code> - Clip overflows at the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
 <li><code>center-start</code> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
 <li><code>center</code> - Clip overflows at the center of the list container. This behaves as <code>center-start</code> when visible elements are even in number.</li>
 <li><code>center-end</code> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li>
-<li><code>end</code> - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li></ul></li></ul></li>
+<li><code>end</code> - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li></ul></li>
+<li><p><code>orientation</code>: <code>String</code> - This is either <code>horizontal</code> or <code>vertical</code> to indicate the direction of the list and along which axis to watch for overflow. Default is <code>horizontal</code>.</p></li>
+<li><p><code>live</code>: <code>String</code> - Specifies whether or not for <code>temize()</code> to observe input <code>items</code> for mutations. This is <code>true</code> by default.</p></li>
+<li><p><code>itemIndexAttribute</code>: <code>String</code> - The attribute name on <code>itemElement</code> on which to set the index of the item. This defaults to <code>data-index</code>.</p></li>
+<li><p><code>itemExportId</code>: <code>String</code> - The <em>export ID</em> used for importing <em>item elements</em> for each item in the input <code>items</code>. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the <em>default</em> export of the  referenced module is used.</p></li>
+<li><p><code>parentalOverflowBounds</code>: <code>Boolean</code> - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to <code>false</code> to use the list container itself.</p></li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -1313,9 +1394,11 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Now, we provide a <code>renderCallback</code> function to handle rendering of item data.</p>
-<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items, <span class="hljs-function">(<span class="hljs-params">directive, itemElement, itemData</span>) =&gt;</span> {
-    <span class="hljs-keyword">if</span> (directive === <span class="hljs-string">&#x27;render&#x27;</span>) {
-        itemElement.innerHTML = itemData.name;
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items, {
+    renderCallback(directive, itemElement, itemData) =&gt; {
+        <span class="hljs-keyword">if</span> (directive === <span class="hljs-string">&#x27;render&#x27;</span>) {
+            itemElement.innerHTML = itemData.name;
+        }
     }
 });</code></pre>
 <p>Item data are now rendered.</p>
@@ -1346,13 +1429,13 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 						<div exportgroup="readme">
 
 							<h1 id="prepend"><code>.prepend()</code></h1>
-<p>This method is an alias of the <a href="../prependasync"><code>.prependAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/prependasync"><code>.prependAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../prependsync"><code>.prependSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>.prependSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.prepend()</code> instance method is internally based on the standalone <code>dom/prependAsync()</code> function which may be used statically.</p>
+<p>The <code>.prepend()</code> instance method is internally based on the standalone <code>dom/prependSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">prependAsync</span>: prepend } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependAsync <span class="hljs-keyword">as</span> prepend } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">prependSync</span>: prepend } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependSync <span class="hljs-keyword">as</span> prepend } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -1425,17 +1508,85 @@ $(el).prependSync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="h
 						</div>
 					</template>
 
+					<template name="prependtoasync">
+						<div exportgroup="readme">
+
+							<h1 id="prependtoasync"><code>.prependToAsync()</code></h1>
+<p>This method is used to asynchronously prepend matched elements to target elements.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="../prependtosync"><code>.prependToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).prependToAsync(target);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code>: <code>String|Element</code> - A CSS selector of the element, or the element itself <code>Element</code>, to prepend to.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Prepend some dynamically-created nodes to document body.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;&lt;h1&gt;Playful people!&lt;/h1&gt;&#x27;</span>).prependToAsync(<span class="hljs-built_in">document</span>.body);</code></pre>
+<p>Prepend an existing <code>div</code> to multiple targets. The <code>div</code> is cloned into all targets except the last target.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);
+$(div).prependToAsync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.prependToAsync()</code> instance method is internally based on the standalone <code>dom/prependToAsync()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToAsync } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
+
+					<template name="prependtosync">
+						<div exportgroup="readme">
+
+							<h1 id="prependtosync"><code>.prependToSync()</code></h1>
+<p>This method is used to prepend matched elements to target elements.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="../prependtoasync"><code>.prependToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/concepts#async-ui">Async UI</a>.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">$(el).prependToSync(target);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>target</code>: <code>String|Element</code> - A CSS selector of the element, or the element itself <code>Element</code>, to prepend to.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><code>this</code> - The Play UI instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>Prepend some dynamically-created nodes to document body.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;&lt;h1&gt;Playful people!&lt;/h1&gt;&#x27;</span>).prependToSync(<span class="hljs-built_in">document</span>.body);</code></pre>
+<p>Prepend an existing <code>div</code> to multiple targets. The <code>div</code> is cloned into all targets except the last target.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);
+$(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.prependToSync()</code> instance method is internally based on the standalone <code>dom/prependToSync()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToSync } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+						</div>
+					</template>
+
 					<template name="text">
 						<div exportgroup="readme">
 
 							<h1 id="text"><code>.text()</code></h1>
-<p>This method is an alias of the <a href="../textasync"><code>.textAsync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/textasync"><code>.textAsync()</code></a> for documentation.</p>
+<p>This method is an alias of the <a href="../textsync"><code>.textSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>.textSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
-<p>The <code>.text()</code> instance method is internally based on the standalone <code>dom/textAsync()</code> function which may be used statically.</p>
+<p>The <code>.text()</code> instance method is internally based on the standalone <code>dom/textSync()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">textAsync</span>: text } = $.dom;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textAsync <span class="hljs-keyword">as</span> text } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">textSync</span>: text } = $.dom;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textSync <span class="hljs-keyword">as</span> text } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
@@ -1562,14 +1713,14 @@ $(el).textSync(text);</code></pre>
 							<div exportgroup="readme">
 
 								<h1 id="class-transaction-"><code>class Transaction {}</code></h1>
-<p>This class lets us create rollback states while manipulating an element.</p>
+<p>This class lets us create rollback points while manipulating an element.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = <span class="hljs-keyword">new</span> Transaction(el, props, readCallback, writeCallback);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><p><code>el</code>: <code>Element</code> - The element that will be modified.</p></li>
 <li><p><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</p></li>
-<li><p><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>.</p>
+<li><p><code>readCallback</code>: <code>function(el, props)</code> - A function that is called to capture the state of the element using the listed <em>props</em>.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><code>el</code>: <code>Element</code> - The element being operated on.</li>
@@ -1579,7 +1730,7 @@ $(el).textSync(text);</code></pre>
 <li><p><code>Object</code> - A key/value hash for the listed properties.</p></li>
 <li><p><code>Promise</code> - A promise that should resolve to the object above.</p>
 <p>This return value is what the transaction's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/classes/transaction/savepoint"><code>savepoint()</code></a> instance method returns when called.</p></li></ul></li>
-<li><p><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function.</p>
+<li><p><code>writeCallback</code>: <code>function(el, record)</code> - A function that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><code>el</code>: <code>Element</code> - The element being operated on.</li>
@@ -1648,15 +1799,16 @@ transaction.savepoint();</code></pre>
     <span class="hljs-comment">// Now background-color should fallback to yellow</span>
     <span class="hljs-comment">// And color should be back to red</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
-<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign</em> changes to restore the element to the specified <em>savepoint</em>.</p>
-<p>To detect <em>foreign</em> changes and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
+<p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign changes</em> to restore the element to the specified <em>savepoint</em>.</p>
+<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
-el.style.color = brown;
+el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 
 <span class="hljs-comment">// Rollback to savepoint2</span>
 <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
     <span class="hljs-comment">// Rollback all the way to the element&#x27;s initial state</span>
     transaction.rollback(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+    <span class="hljs-comment">// Now, color will be left at &#x27;brown&#x27;</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
 <h2 id="properties">Properties</h2>
 <ul>
@@ -1788,7 +1940,7 @@ $(el).data({
 <p><strong>Parameters</strong></p>
 <ul>
 <li><code>key</code>: <code>String</code> - The key to set.</li>
-<li><code>value</code>: <code>Any</code> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="/tooling/play-ui/docs/js/api/misc/data/#unset-data">see below</a>.</li>
+<li><code>value</code>: <code>Any</code> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="/tooling/play-ui/docs/js/api/misc/data/#c-unset-data">see below</a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -1868,8 +2020,8 @@ $(el).data({
 <p><strong>Parameters</strong></p>
 <ul>
 <li><code>props</code>: <code>String|Array</code> - A property or list of properties that describes the operation on the element.</li>
-<li><code>readCallback</code>: <code>function(el, props)</code> - A functation that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
-<li><code>writeCallback</code>: <code>function(el, record)</code> - A functation that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+<li><code>readCallback</code>: <code>function(el, props)</code> - A function that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+<li><code>writeCallback</code>: <code>function(el, record)</code> - A function that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -1918,7 +2070,7 @@ $(el).data({
 <li><code>easing</code>: <code>String</code> - The rate of the animation's change over time; one of <code>linear</code> (default), <code>ease</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, or a custom <code>cubic-bezier</code> value like <code>cubic-bezier(0.42, 0, 0.58, 1)</code>.</li>
 <li><code>iterations</code>: <code>Number</code> - The number of times the animation should repeat.</li>
 <li><code>iterationStart</code>: <code>Number</code> - At what point in the iteration the animation should start.</li>
-<li><code>cancelForCss</code>: <code>Boolean</code> - (Specific to Ani) Whether to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS.</li></ul></li>
+<li><code>cancelForCss</code>: <code>Boolean</code> - (Specific to this class) Whether or not to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS. Setting <code>cancelForCss</code> to <code>true</code> fixes it. </li></ul></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Create and play an animation.</p>
@@ -2021,7 +2173,7 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">el</
 							<template name="oncancel">
 								<div exportgroup="readme">
 
-									<h1 id="oncancel"><code>oncancel()</code></h1>
+									<h1 id="oncancel"><code>.oncancel()</code></h1>
 <blockquote>
   <p>The <code>animation.oncancel()</code> method.</p>
 </blockquote>
@@ -2301,7 +2453,7 @@ animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <li><code>event.target</code>: <code>Element</code> - (Readonly) Returns the target element passed to the constructor.</li>
 <li><code>event.defaultPrevented</code>: <code>Boolean</code> - (Readonly) Tells if the instance's <code>.preventDefault()</code> method has been called.</li>
 <li><code>event.propagationStopped</code>: <code>Boolean</code> - (Readonly) Tells if the instance's <code>.stopPropagation()</code> method has been called.</li>
-<li><code>event.promises</code>: <code>null|Promise</code> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.promise()</code> method. Returns <code>null</code> if not Promise has been recieved.</li>
+<li><code>event.promises</code>: <code>null|Promise</code> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.promise()</code> method. Returns <code>null</code> if no Promise has been recieved.</li>
 <li><code>event.e</code>: <code>Event</code> - (Readonly) Returns the origin event object passed to the constructor.</li>
 </ul>
 <h2 id="instance-methods">Instance Methods</h2>
@@ -2484,7 +2636,7 @@ timeline.add(animation);</code></pre>
 							<template name="oncancel">
 								<div exportgroup="readme">
 
-									<h1 id="oncancel"><code>oncancel()</code></h1>
+									<h1 id="oncancel"><code>.oncancel()</code></h1>
 <blockquote>
   <p>The <code>timeline.oncancel()</code> method.</p>
 </blockquote>
@@ -2531,7 +2683,7 @@ animation.cancel();</code></pre>
 							<template name="onfinish">
 								<div exportgroup="readme">
 
-									<h1 id="onfinish"><code>onfinish()</code></h1>
+									<h1 id="onfinish"><code>.onfinish()</code></h1>
 <blockquote>
   <p>The <code>timeline.onfinish()</code> method.</p>
 </blockquote>
@@ -2786,8 +2938,8 @@ timeline.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <li><code>params</code>: <code>Object</code> - Directives for the method.<ul>
 <li><code>offsetOrigin</code>: <code>Any</code> - This directive is used to specify the offset origin from which to calculate the <em>top/left</em> distances of the rendered rectangle for the element. Three origins can be used:<br />
 <code>client</code> - offsets are calculated from the <em>top/left</em> origins of the screen. This is the default offset origin.<br />
-<code>page</code> - offsets are calculated from the <em>top/left</em> origins of the page. Specify this origin by setting this directive to the keyword <code>page</code> or <code>document</code>, or the <em>document</em> object.<br />
-<code>offset</code> - offsets are calculated from the <em>top/left</em> origins of the element's <em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent">offset parent</a></em>. Specify this origin by setting this directive to <code>true</code> or the keyword <code>offset</code>, or an instance of the element to use as origin (must be an ancestor of the subject element).</li></ul></li>
+<code>page</code> - offsets are calculated from the <em>top/left</em> origins of the page. Specify this origin by setting this directive to the keyword <code>page</code> or <code>document</code>, or to the <em>document</em> object.<br />
+<code>offset</code> - offsets are calculated from the <em>top/left</em> origins of the element's <em><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent">offset parent</a></em>. Specify this origin by setting this directive to <code>true</code> or the keyword <code>offset</code>, or to an instance of the element to use as origin (must be an ancestor of the subject element).</li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
 <p><code>UIRect</code> - An instance of <em>UIRect</em>.</p>
@@ -2808,7 +2960,7 @@ timeline.seek(<span class="hljs-number">0.5</span>);</code></pre>
 						<div exportgroup="readme">
 
 							<h1 id="custom-events">Custom Events</h1>
-<p>Play UI's event system can be hooked into to provide custom event implementations. For example, its <em>tripletap</em>, <em>doubletap</em>, and <em>singletap</em> gestures are custom implementations/variations of the <em>tap</em> gesture. But custom events can also be just an alias for another event. Play UI makes everything easy!</p>
+<p>Play UI's event system can be hooked into to provide custom event implementations. For example, its <em>tripletap</em>, <em>doubletap</em>, and <em>singletap</em> gestures are custom implementations/variations of the <em>tap</em> gesture. But, a custom event can be as simple as an alias for another event. Play UI makes everything easy!</p>
 <p>To create a custom event, import the <code>CustomEvents</code> object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { CustomEvents } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { CustomEvents } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
@@ -2820,7 +2972,7 @@ CustomEvents.hit = <span class="hljs-string">&#x27;tap&#x27;</span>;
 $(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;hit&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(event.type);
 })</code></pre>
-<p>To create a full custom event implementation, provide a class with two methods: <code>setup()</code> and <code>teardown()</code>. The <code>setup()</code> method will be called the first time the event is being bound to on the given element. This function will receive certain useful parameters - the emitter being the most important. The <code>teardown()</code> method will be called the last time the event is being unbound off the element.</p>
+<p>To create an advanced custom event implementation, provide a class with two methods: <code>setup()</code> and <code>teardown()</code>. The <code>setup()</code> method will be called the first time the event is being bound to on the given element. This function will receive certain useful parameters, e.g. the <em>emitter</em> (being the most important). The <code>teardown()</code> method will be called the last time the event is being unbound off the element.</p>
 <pre><code class="hljs js language-js">CustomEvents.tick = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{
     <span class="hljs-comment">// When the fisrt listenr of this event</span>
     <span class="hljs-comment">// is attached to the element, we start ticking</span>
@@ -2828,7 +2980,7 @@ $(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string"
         <span class="hljs-built_in">this</span>.el = el;
         <span class="hljs-built_in">this</span>.type = type;
         <span class="hljs-built_in">this</span>.hammertime = hammertime;
-        <span class="hljs-built_in">this</span>.intervalID = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-built_in">this</span>.interval_id = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
             emitter.call();
         }, <span class="hljs-number">100</span>);
     }
@@ -2836,7 +2988,7 @@ $(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string"
     <span class="hljs-comment">// When the last listener of this</span>
     <span class="hljs-comment">// event is removed, no need to keep ticking</span>
     <span class="hljs-function"><span class="hljs-title">teardown</span>(<span class="hljs-params"></span>)</span> {
-        <span class="hljs-built_in">clearInterval</span>(<span class="hljs-built_in">this</span>.intervalID);
+        <span class="hljs-built_in">clearInterval</span>(<span class="hljs-built_in">this</span>.interval_id);
     }
 };
 
@@ -2878,9 +3030,9 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <li><code>this</code> - The Play UI instance.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>Unbind a specific listenr bound to <em>doubletap</em>.</p>
+<p>Unbind a specific listener bound to <em>doubletap</em>.</p>
 <pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>, originalHandler);</code></pre>
-<p>Unbind all listenrs bound to <em>doubletap</em>.</p>
+<p>Unbind all listeners bound to <em>doubletap</em>.</p>
 <pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>);</code></pre>
 <hr />
 <h2 id="matching-by-tags">Matching By Tags</h2>
@@ -2902,7 +3054,7 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 						<div exportgroup="readme">
 
 							<h1 id="on"><code>.on()</code></h1>
-<p>This method is used to bind event or gesture handlers to an element. This works like <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>EventTarget.addEventListener()</code></a> but adds support for user gestures and custom event implementation.</p>
+<p>This method is used to bind event or gesture handlers to an element. This works like the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>EventTarget.addEventListener()</code></a> function but adds support for user gestures and custom event implementation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler[, params = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2911,7 +3063,7 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <li><p><code>handler</code>: <code>function(event)</code> - The handler function.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><code>event</code>: <code>Object</code> - An event object.</li></ul></li>
+<li><code>event</code>: <code>Object</code> - An <a href="/tooling/play-ui/docs/js/api/ui/classes/Event">Event</a> object.</li></ul></li>
 <li><p><code>params</code>: <code>Object</code> - Additional parameters.</p></li>
 </ul>
 <p><strong>Return</strong></p>
@@ -2932,7 +3084,7 @@ $(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-st
 <h2 id="tagging-a-listener">Tagging a Listener</h2>
 <p>The <code>params.tags</code> parameter can be used to tag a listener. Tags are an <em>array</em> of values (<em>strings</em>, <em>numbers</em>, <em>objects</em>, etc) that can be associated with the <em>listener</em> for later use. See tags in action using the <a href="/tooling/play-ui/docs/js/api/ui/off#matching-by-tags"><code>.off()</code></a> method.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
-<p>Programmatically manipulate <em>listener</em>.</p>
+<p>Programmatically manipulate the returned <em>listener</em> object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Synthetically trigger the listener</span>
 listener.fire({
     <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;doubletap&#x27;</span>,
@@ -2950,7 +3102,7 @@ listener.disconnect();</code></pre>
 <li><strong>swipe</strong>: swipe, swipeleft, swiperight, swipeup, swipedown</li>
 <li><strong>tap</strong>: tap, (by custom extension: tripletap, doubletap, singletap)</li>
 </ul>
-<p>Be sure to include Hammer on your page before trying to handle gestures.</p>
+<p>Be sure to include Hammer.js on your page before trying to observe gestures.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.on()</code> instance method is internally based on the standalone <code>ui/on()</code> function which may be used statically.</p>
@@ -3064,7 +3216,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <h3 id="usage">Usage</h3>
 <p>Programmatically fire gesture handlers.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = $(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>, {<span class="hljs-attr">time</span>:<span class="hljs-number">0</span>});</code></pre>
-<p>Inspect the event to see the disposition of the fired listeners.</p>
+<p>Inspect the returned <em>event</em> object to see how the fired listeners responded to the event.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> (event.defaultPrevented) {
     <span class="hljs-comment">// event.preventDefault() has been called by a handler</span>
     <span class="hljs-comment">// Or a handler returned false</span>
@@ -3230,9 +3382,6 @@ html(selector, <span class="hljs-string">&#x27;Play away!&#x27;</span>);</code><
 <p><em>Statically:</em></p>
 <pre><code class="hljs js language-js">$(selector).html(<span class="hljs-string">&#x27;Play away!&#x27;</span>);</code></pre>
 <p>Now, while a 100% parity with jQuery isn't the goal, Play UI comes helpfully close, covering most day to day use cases. Examples: <a href="../api/dom/html"><code>.html()</code></a>, <a href="../api/dom/append"><code>.append()</code></a>, <a href="../api/dom/prepend"><code>.prepend()</code></a>, <a href="../api/dom/attr"><code>.attr()</code></a>, <a href="../api/css/css"><code>.css()</code></a>, <a href="../api/app/data"><code>.data()</code></a>, <a href="../api/ui/on"><code>.on()</code></a>, <a href="../api/ui/off"><code>.off()</code></a>, <a href="/tooling/play-ui/docs/js/api/ui/trigger"><code>.trigger()</code></a>.</p>
-<blockquote>
-  <p>Note, however, that much of the methods above are promise-based, unlike their jQuery counterparts. See the documentation for each method for details.</p>
-</blockquote>
 <h2 id="use-with-server-side-dom-instances">Use With Server-Side DOM Instances</h2>
 <p>Use Play UI with server-side <em>window</em> objects such as the type provided by the <a href="https://github.com/jsdom/jsdom">jsdom</a> library. (Think server-side rendering, web crawling, or just server-side DOM manipulation.) Here is how that could look.</p>
 <p><em>Create a <code>window</code> object:</em></p>

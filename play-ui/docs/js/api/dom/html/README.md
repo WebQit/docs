@@ -1,23 +1,23 @@
 ---
-desc: Alias of the .htmlAsync() method.
+desc: Alias of the .htmlSync() method.
 ---
 # `.html()`
 
-This method is an alias of the [`.htmlAsync()`](../htmlasync) method. See [`.htmlAsync()`](../htmlasync) for documentation.
+This method is an alias of the [`.htmlSync()`](../htmlsync) method. See [`.htmlSync()`](../htmlsync) for documentation.
 
 ------
 
 ## Static Usage
 
-The `.html()` instance method is internally based on the standalone `dom/htmlAsync()` function which may be used statically.
+The `.html()` instance method is internally based on the standalone `dom/htmlSync()` function which may be used statically.
 
 ### Import
 
 ```js
-const { htmlAsync: html } = $.dom;
+const { htmlSync: html } = $.dom;
 ```
 ```js
-import { htmlAsync as html } from '@webqit/play-ui/src/dom/index.js';
+import { htmlSync as html } from '@webqit/play-ui/src/dom/index.js';
 ```
 
 ### Syntax
