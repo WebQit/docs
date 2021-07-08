@@ -15,12 +15,12 @@ timeline.seek(point[, except = []]);
 
 **Parameters**
 
-+ `point`: `Number` - A number between `0` and `1`, representing 0% and 100% respectively, of an animation's total timing. Here the total timing is calculated as `delay + duration + endDelay`.
-+ `except`: `Array` - An optional list of [Animation](../Animation) instances to excempt.
++ **`point`**: **`Number`** - A number between `0` and `1`, representing 0% and 100% respectively, of an animation's total timing. Here the total timing is calculated as `delay + duration + endDelay`.
++ **`except`**: **`Array`** - An optional list of [Animation](../Animation) instances to excempt.
 
 **Return**
 
-+ `this` - The `Timeline` instance.
++ **`this`** - The `Timeline` instance.
 
 ## Usage
 

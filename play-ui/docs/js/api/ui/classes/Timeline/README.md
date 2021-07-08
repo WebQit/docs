@@ -14,8 +14,8 @@ let timeline = new Timeline(animations[, params = {}]);
 
 **Parameters**
 
-+ `animations`: `Array` - Zero or more [Animation](../Animation) instances.
-+ `params`: `Object` - A few parameters for the timeline. (Currently none).
++ **`animations`**: **`Array`** - Zero or more [Animation](../Animation) instances.
++ **`params`**: **`Object`** - A few parameters for the timeline. (Currently none).
 
 ## Usage
 

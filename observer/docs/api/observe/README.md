@@ -68,9 +68,9 @@ Observer.set(obj, 'fruit', 'apple');
 
 With the *set* operation above, the value of `event.name` and `event.path` in the console will be `fruit` and `[fruit]` respectively.
 
-#### Using the `params.sutree` Parameter
+#### Using the `params.subtree` Parameter
 
-To observe changes on nested objects or arrays, we would use *the `params.sutree` parameter*.
+To observe changes on nested objects or arrays, we would use *the `params.subtree` parameter*.
 
 ```js
 let obj = {

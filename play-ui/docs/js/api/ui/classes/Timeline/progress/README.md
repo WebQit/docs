@@ -15,7 +15,7 @@ let progress = timeline.progress();
 
 **Return**
 
-+ `progress`: `Number` - A number between `0` and `1`, representing 0% and 100% respectively, of the timeline's calculated timing.
++ **`progress`**: **`Number`** - A number between `0` and `1`, representing 0% and 100% respectively, of the timeline's calculated timing.
 
 ## Usage
 

@@ -19,21 +19,21 @@ animation.ready(readyCallback[, failureCallback = null]);
 
     **Parameters**
 
-    + `waapi`: `Animation` - The underlying WAAPI `Animation` instance.
-    + `timing`: `Object` - The instance's timing object.
-    + `firstFrame`: `Object` - The animation's *firstFrame* object. Especially useful where this has to be automatically derived by Ani.
-    + `lastFrame`: `Object` - The animation's *lastFrame* object. Especially useful where this has to be automatically resolved by Ani.
+    + **`waapi`**: **`Animation`** - The underlying WAAPI `Animation` instance.
+    + **`timing`**: **`Object`** - The instance's timing object.
+    + **`firstFrame`**: **`Object`** - The animation's *firstFrame* object. Especially useful where this has to be automatically derived by Ani.
+    + **`lastFrame`**: **`Object`** - The animation's *lastFrame* object. Especially useful where this has to be automatically resolved by Ani.
 
-+ `failureCallback`: `function(errorMsg)` - A function to call on fatal errors preventing the creation of the animation.
++ **`failureCallback`**: **`function(errorMsg)`** - A function to call on fatal errors preventing the creation of the animation.
 
     **Parameters**
 
-    + `errorMsg`: `String` - The description of the error.
+    + **`errorMsg`**: **`String`** - The description of the error.
 
 
 **Return**
 
-+ `this` - The `Animation` instance.
++ **`this`** - The `Animation` instance.
 
 ## Usage
 

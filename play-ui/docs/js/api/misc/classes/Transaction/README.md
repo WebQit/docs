@@ -14,39 +14,39 @@ let transaction = new Transaction(el, props, readCallback, writeCallback);
 
 **Parameters**
 
-+ `el`: `Element` - The element that will be modified.
-+ `props`: `String|Array` - A property or list of properties that describes the operation on the element.
-+ `readCallback`: `function(el, props)` - A function that is called to capture the state of the element using the listed *props*.
++ **`el`**: **`Element`** - The element that will be modified.
++ **`props`**: **`String|Array`** - A property or list of properties that describes the operation on the element.
++ **`readCallback`**: **`function(el, props)`** - A function that is called to capture the state of the element using the listed *props*.
 
     **Parameters**
 
-    + `el`: `Element` - The element being operated on.
-    + `props`: `Array` - An array of the properties passed to the instance.
+    + **`el`**: **`Element`** - The element being operated on.
+    + **`props`**: **`Array`** - An array of the properties passed to the instance.
 
     **Return**
 
-    + `Object` - A key/value hash for the listed properties.
-    + `Promise` - A promise that should resolve to the object above.
+    + **`Object`** - A key/value hash for the listed properties.
+    + **`Promise`** - A promise that should resolve to the object above.
         
         This return value is what the transaction's [`savepoint()`](classes/transaction/savepoint) instance method returns when called.
 
-+ `writeCallback`: `function(el, record)` - A function that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function.
++ **`writeCallback`**: **`function(el, record)`** - A function that is called to re-apply the recorded state of the element as previously derived by the `readCallback` function.
 
     **Parameters**
 
-    + `el`: `Element` - The element being operated on.
-    + `record`: `Object` - The recorded state of the element as previously derived by the `readCallback` function.
+    + **`el`**: **`Element`** - The element being operated on.
+    + **`record`**: **`Object`** - The recorded state of the element as previously derived by the `readCallback` function.
 
     **Return**
 
-    + `Any` - Any value may be returned and will not be used.
-    + `Promise` - A promise that may resolve to anything.
+    + **`Any`** - Any value may be returned and will not be used.
+    + **`Promise`** - A promise that may resolve to anything.
         
         This return value is what the transaction's [`rollback()`](rollback) and [`apply()`](apply) instance methods return when called.
 
 **Return**
 
-+ `Transaction` - The Transaction instance.
++ **`Transaction`** - The Transaction instance.
 
 ## Usage
 
@@ -138,7 +138,7 @@ setTimeout(() => {
 
 ## Properties
 
-+ `.length`: `Int` - Gives the number of savepoints in the transaction.
++ **`.length`**: **`Int`** - Gives the number of savepoints in the transaction.
 
 ## Methods
 

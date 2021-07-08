@@ -13,12 +13,12 @@ await $(el).play(effect[, timing = {}]);
 
 **Parameters**
 
-+ `effect`: `Array|Object|String` - The effect to play. See [Animation](../classes/Animation#parameters).
-+ `timing`: `Object` - Options for the animation. See [Animation](../classes/Animation#parameters).
++ **`effect`**: **`Array|Object|String`** - The effect to play. See [Animation](../classes/Animation#parameters).
++ **`timing`**: **`Object`** - Options for the animation. See [Animation](../classes/Animation#parameters).
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -75,4 +75,4 @@ import { play } from '@webqit/play-ui/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

@@ -16,7 +16,7 @@ let transformRuleObject = new TransformRule(transformRuleDefinition);
 
 **Parameters**
 
-+ `transformRuleDefinition`: `Object|String` - An object of the transform rule properties or the string `none`.
++ **`transformRuleDefinition`**: **`Object|String`** - An object of the transform rule properties or the string `none`.
 
 ### Usage
 
@@ -54,10 +54,10 @@ let transformRuleObject = TransformRule.parse(rule);
 ```
 
 **Parameters**
-+ `rule` - `String`: A CSS transform rule.
++ **`rule`** - `String`: A CSS transform rule.
 
 **Return**
-+ `TransformRule` - An object model of the parsed transform rule.
++ **`TransformRule`** - An object model of the parsed transform rule.
 
 ## Usage
 
@@ -92,10 +92,10 @@ let transformRuleObject = TransformRule.parseMatrix(matrix);
 ```
 
 **Parameters**
-+ `matrix` - `String`: The computed CSS transform matrix.
++ **`matrix`** - `String`: The computed CSS transform matrix.
 
 **Return**
-+ `TransformRule` - An object model of the parsed transform rule.
++ **`TransformRule`** - An object model of the parsed transform rule.
 
 ## Usage
 

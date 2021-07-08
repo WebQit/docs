@@ -15,7 +15,7 @@ await animation.play();
 
 **Return**
 
-+ `this` - The `Animation` instance.
++ **`this`** - The `Animation` instance.
 
 ## Usage
 

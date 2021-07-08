@@ -15,15 +15,15 @@ animation.oncancel(callback);
 
 **Parameters**
 
-+ `callback`: `function(element)` - The function to call on *cancel*.
++ **`callback`**: **`function(element)`** - The function to call on *cancel*.
 
     **Parameters**
 
-    + `element`: `Element` - The DOM element of the animation instance.
+    + **`element`**: **`Element`** - The DOM element of the animation instance.
 
 **Return**
 
-+ `this` - The `Animation` instance.
++ **`this`** - The `Animation` instance.
 
 ## Usage
 

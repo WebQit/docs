@@ -13,11 +13,11 @@ let rect = $(el).rect(params = {});
 
 **Parameters**
 
-+ `params`: `Object` - Directives for the method. See [UIRect.calculate()](../classes/UIRect#).
++ **`params`**: **`Object`** - Directives for the method. See [UIRect.calculate()](../classes/UIRect#).
 
 **Return**
 
-* `rect`: `UIRect` - An instance of [UIRect](../classes/UIRect).
++ **`rect`**: **`UIRect`** - An instance of [UIRect](../classes/UIRect).
 
 ### Usage
 
@@ -50,4 +50,4 @@ import { rect } from '@webqit/play-ui/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

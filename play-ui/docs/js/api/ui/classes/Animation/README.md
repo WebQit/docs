@@ -14,18 +14,18 @@ let animation = new Animation(element, effect[, timing = {}]);
 
 **Parameters**
 
-+ `element`: `Element` - A DOM element.
-+ `effect`: `Array|Object|String` - The effect to play. This could be a standard keyframes array, a CSS rules object, or a stylesheet-based animation name.
-+ `timing`: `Object` - Options for the animation.
-    + `duration`: `Number` - The animation's duration in milliseconds.
-    + `fill`: `String` - The element's final state on finish; one of `none` (default), `forwards`, `both`.
-    + `delay`: `Number` - The animation's delay in milliseconds before playing.
-    + `endDelay`: `Number` - The animation's delay in milliseconds after playing.
-    + `direction`: `String` - The animation's direction; one of `normal` (default), `reverse`, `alternate`, `alternate-reverse`.
-    + `easing`: `String` - The rate of the animation's change over time; one of `linear` (default), `ease`, `ease-in`, `ease-out`, `ease-in-out`, or a custom `cubic-bezier` value like `cubic-bezier(0.42, 0, 0.58, 1)`.
-    + `iterations`: `Number` - The number of times the animation should repeat.
-    + `iterationStart`: `Number` - At what point in the iteration the animation should start.
-    + `cancelForCss`: `Boolean` - (Specific to this class) Whether or not to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS. Setting `cancelForCss` to `true` fixes it. 
++ **`element`**: **`Element`** - A DOM element.
++ **`effect`**: **`Array|Object|String`** - The effect to play. This could be a standard keyframes array, a CSS rules object, or a stylesheet-based animation name.
++ **`timing`**: **`Object`** - Options for the animation.
+    + **`duration`**: **`Number`** - The animation's duration in milliseconds.
+    + **`fill`**: **`String`** - The element's final state on finish; one of `none` (default), `forwards`, `both`.
+    + **`delay`**: **`Number`** - The animation's delay in milliseconds before playing.
+    + **`endDelay`**: **`Number`** - The animation's delay in milliseconds after playing.
+    + **`direction`**: **`String`** - The animation's direction; one of `normal` (default), `reverse`, `alternate`, `alternate-reverse`.
+    + **`easing`**: **`String`** - The rate of the animation's change over time; one of `linear` (default), `ease`, `ease-in`, `ease-out`, `ease-in-out`, or a custom `cubic-bezier` value like `cubic-bezier(0.42, 0, 0.58, 1)`.
+    + **`iterations`**: **`Number`** - The number of times the animation should repeat.
+    + **`iterationStart`**: **`Number`** - At what point in the iteration the animation should start.
+    + **`cancelForCss`**: **`Boolean`** - (Specific to this class) Whether or not to cancel the animation on finish for subsequent CSS rules on the element to take effect. By default, properties animated with WAAPI cannot be modified with CSS. Setting `cancelForCss` to `true` fixes it. 
 
 ## Usage
 

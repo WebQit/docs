@@ -21,11 +21,11 @@ $(el).textSync(content);
 
 **Parameters**
 
-+ `content`: `String` - The text content to set.
++ **`content`**: **`String`** - The text content to set.
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -47,7 +47,7 @@ let content = $(el).textSync();
 
 **Return**
 
-+ `content`: `String` - The element's text content.
++ **`content`**: **`String`** - The element's text content.
 
 ### Usage
 
@@ -75,4 +75,4 @@ import { textSync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

@@ -25,13 +25,13 @@ $(el).off(eventName, null, {tags:[...originalTags]});
 
 **Parameters**
 
-+ `eventName`: `String` - The event or gesture name.
-+ `originalHandler`: `Function` - The handler function originally used with [`.on()`](../on).
-+ `params`: `Object` - Additional parameters.
++ **`eventName`**: **`String`** - The event or gesture name.
++ **`originalHandler`**: **`Function`** - The handler function originally used with [`.on()`](../on).
++ **`params`**: **`Object`** - Additional parameters.
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -74,4 +74,4 @@ import { off } from '@webqit/play-ui/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

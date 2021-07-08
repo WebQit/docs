@@ -15,7 +15,7 @@ await timeline.play();
 
 **Return**
 
-+ `this` - The `Timeline` instance.
++ **`this`** - The `Timeline` instance.
 
 ## Usage
 

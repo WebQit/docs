@@ -4,9 +4,28 @@
             "outline": [
                 {
                     "level": 2,
-                    "title": "About Play UI",
-                    "uri": "about-play-ui",
-                    "subtree": []
+                    "title": "Why Play UI",
+                    "uri": "why-play-ui",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Learn",
+                            "uri": "learn",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Contribute to the Project",
+                            "uri": "contribute-to-the-project",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
                 }
             ]
         },
@@ -623,53 +642,6 @@
                                                             "level": 1,
                                                             "title": ".appendSync()",
                                                             "uri": "appendsync",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "Static Usage",
-                                                                    "uri": "static-usage",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Import",
-                                                                            "uri": "import",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
-                                        "appendtoasync": {
-                                            "meta": {
-                                                "readme": {
-                                                    "desc": "Asynchronously append matched elements to target elements.",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": ".appendToAsync()",
-                                                            "uri": "appendtoasync",
                                                             "subtree": [
                                                                 {
                                                                     "level": 2,
@@ -3556,16 +3528,16 @@
                                 }
                             }
                         },
-                        "quickstart": {
+                        "overview": {
                             "meta": {
                                 "readme": {
-                                    "desc": "Getting started with Play UI.",
+                                    "desc": "Play UI overview.",
                                     "_index": "first",
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Quick Start",
-                                            "uri": "quick-start",
+                                            "title": "Overview",
+                                            "uri": "overview",
                                             "subtree": [
                                                 {
                                                     "level": 2,

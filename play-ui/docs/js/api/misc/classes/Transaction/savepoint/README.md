@@ -15,7 +15,7 @@ transaction.savepoint();
 
 **Return**
 
-+ `Any` - The return value of the `readCallback` function.
++ **`Any`** - The return value of the `readCallback` function.
 
 ## Usage
 

@@ -14,7 +14,7 @@ let textNodes = $(el).getTextNodes();
 
 **Return**
 
-* `textNodes`: `Array` - The text nodes found; each an instance of [`Text`](https://developer.mozilla.org/en-US/docs/Web/API/Text).
++ **`textNodes`**: **`Array`** - The text nodes found; each an instance of [`Text`](https://developer.mozilla.org/en-US/docs/Web/API/Text).
 
 ## Usage
 
@@ -47,4 +47,4 @@ import { getTextNodes } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

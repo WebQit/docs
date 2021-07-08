@@ -15,11 +15,11 @@ timeline.clear(except = []);
 
 **Parameters**
 
-+ `except`: `Array` - An optional list of [Animation](../Animation) instances to excempt.
++ **`except`**: **`Array`** - An optional list of [Animation](../Animation) instances to excempt.
 
 **Return**
 
-+ `this` - The `Timeline` instance.
++ **`this`** - The `Timeline` instance.
 
 ## Usage
 

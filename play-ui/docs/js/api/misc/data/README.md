@@ -25,12 +25,12 @@ $(el).data({
 
 **Parameters**
 
-+ `key`: `String` - The key to set.
-+ `value`: `Any` - The data value to set. When `undefined`, the data key is unset from the data store; [see below](#c-unset-data).
++ **`key`**: **`String`** - The key to set.
++ **`value`**: **`Any`** - The data value to set. When `undefined`, the data key is unset from the data store; [see below](#c-unset-data).
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -60,12 +60,12 @@ let values = $(el).data();
 
 **Parameters**
 
-+ `key`: `String` - The data key to read.
++ **`key`**: **`String`** - The data key to read.
 
 **Return**
 
-+ `value`: `Any` - The data value as initially stored, or `undefined`.
-+ `values`: `Object` - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.
++ **`value`**: **`Any`** - The data value as initially stored, or `undefined`.
++ **`values`**: **`Object`** - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.
 
 ### Usage
 
@@ -92,11 +92,11 @@ $(el).data({
 
 **Parameters**
 
-+ `key`: `String` - The data key to unset.
++ **`key`**: **`String`** - The data key to unset.
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -126,4 +126,4 @@ import { data } from '@webqit/play-ui/src/misc/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

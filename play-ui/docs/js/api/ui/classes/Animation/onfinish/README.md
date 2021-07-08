@@ -15,15 +15,15 @@ animation.onfinish(callback);
 
 **Parameters**
 
-+ `callback`: `function(element)` - The function to call on *finish*.
++ **`callback`**: **`function(element)`** - The function to call on *finish*.
 
     **Parameters**
 
-    + `element`: `Element` - The DOM element of the animation instance.
+    + **`element`**: **`Element`** - The DOM element of the animation instance.
 
 **Return**
 
-+ `this` - The `Animation` instance.
++ **`this`** - The `Animation` instance.
 
 ## Usage
 

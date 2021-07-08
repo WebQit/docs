@@ -28,12 +28,12 @@ await $(el).attrAsync({
 
 **Parameters**
 
-* `name`: `String` - The attribute name to set.
-* `value`: `String|Boolean` - The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element; [see below](#unset-attributes).
++ **`name`**: **`String`** - The attribute name to set.
++ **`value`**: **`String|Boolean`** - The attribute value to set. When `true`, the string `"true"` is set on the attribute. When `false`, the attribute is unset from the element; [see below](#unset-attributes).
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -63,12 +63,12 @@ let attributes = await $(el).attrAsync([...name]);
 
 **Parameters**
 
-* `name`: `String` - The attribute name.
++ **`name`**: **`String`** - The attribute name.
 
 **Return**
 
-+ `value`: `Any` - The value of the named attribute.
-+ `values`: `Object` - A key/value hash of the listed attributes.
++ **`value`**: **`Any`** - The value of the named attribute.
++ **`values`**: **`Object`** - A key/value hash of the listed attributes.
 
 ### Usage
 
@@ -96,11 +96,11 @@ await $(el).attrAsync({
 
 **Parameters**
 
-* `name`: `String` - The attribute name.
++ **`name`**: **`String`** - The attribute name.
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -134,13 +134,13 @@ await $(el).attrAsync({
 
 **Parameters**
 
-* `name`: `String` - The attribute name to modify.
-* `member`: `String` - The attribute member to add or remove.
-* `mutation`: `Boolean` - The *add/remove* directive. When `true`, the given string is added to the attribute's value list. When `false`, the given string is removed from the attribute's value list.
++ **`name`**: **`String`** - The attribute name to modify.
++ **`member`**: **`String`** - The attribute member to add or remove.
++ **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given string is added to the attribute's value list. When `false`, the given string is removed from the attribute's value list.
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -176,4 +176,4 @@ import { attrAsync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

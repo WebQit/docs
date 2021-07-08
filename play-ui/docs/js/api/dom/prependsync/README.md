@@ -16,11 +16,11 @@ $(el).prependSync(content[, ...content]);
 
 **Parameters**
 
-+ `content`: `String|Node` - The text or HTML content, or some DOM node, to prepend.
++ **`content`**: **`String|Node`** - The text or HTML content, or some DOM node, to prepend.
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ## Usage
 
@@ -48,4 +48,4 @@ import { prependSync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

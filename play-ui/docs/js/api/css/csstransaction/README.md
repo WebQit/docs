@@ -13,12 +13,12 @@ let transaction = $(el).cssTransaction(props, asyncWrites = false);
 
 **Parameters**
 
-+ `props`: `String|Array` - A property or list of properties that describes the operation on the element.
-+ `asyncWrites`: `Boolean` - Specifies whether to use the asynchronous mode for writes by using [`cssAsync`](../cssasync) instead of [`cssSync`](../csssync).
++ **`props`**: **`String|Array`** - A property or list of properties that describes the operation on the element.
++ **`asyncWrites`**: **`Boolean`** - Specifies whether to use the asynchronous mode for writes by using [`cssAsync`](../cssasync) instead of [`cssSync`](../csssync).
 
 **Return**
 
-+ `Transaction` - The [Transaction](../classes/transaction) instance.
++ **`Transaction`** - The [Transaction](../classes/transaction) instance.
 
 ## Usage
 
@@ -118,4 +118,4 @@ import { cssTransaction } from '@webqit/play-ui/src/css/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

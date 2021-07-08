@@ -26,17 +26,17 @@
 <span class="hljs-built_in">cd</span> webflo-app</code></pre>
 <p>We should now learn the following concepts on which Webflo is built:</p>
 <ul>
-<li><a href="/tooling/webflo/docs/#project-layout">Project Layout</a></li>
-<li><a href="/tooling/webflo/docs/#routing">Routing</a></li>
-<li><a href="/tooling/webflo/docs/#http-requests-and-responses">HTTP Requests and Responses</a></li>
+<li><a href="#project-layout">Project Layout</a></li>
+<li><a href="#routing">Routing</a></li>
+<li><a href="#http-requests-and-responses">HTTP Requests and Responses</a></li>
 </ul>
 <h3 id="project-layout">Project Layout</h3>
 <p>It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):</p>
 <ul>
-<li><a href="/tooling/webflo/docs/#the-public-directory"><code>/public</code></a></li>
-<li><a href="/tooling/webflo/docs/#the-server-directory"><code>/server</code></a></li>
-<li><a href="/tooling/webflo/docs/#the-client-directory"><code>/client</code></a></li>
-<li><a href="/tooling/webflo/docs/#the-worker-directory"><code>/worker</code></a></li>
+<li><a href="#the-public-directory"><code>/public</code></a></li>
+<li><a href="#the-server-directory"><code>/server</code></a></li>
+<li><a href="#the-client-directory"><code>/client</code></a></li>
+<li><a href="#the-worker-directory"><code>/worker</code></a></li>
 </ul>
 <p>Let's now see what goes into each directory, and how they're all related.</p>
 <h4 id="the-public-directory">The <code>/public</code> Directory</h4>
@@ -119,26 +119,26 @@
 </ul>
 <p>Woohoo! With a combition of just four files - <code>/public/index.html</code>, <code>/server/index.js</code>, <code>/client/index.js</code> and <code>/worker/index.js</code> - we can already have any type of application with great offline experiences.</p>
 <blockquote>
-  <p>It is even just possible to build an entire app out of the <code>/worker</code> directory alone, if all you're building is a client-side, offline-capable app! Routing is covered in <a href="#routing">the next section</a>. And <a href="learn/worker-level-routing">here</a> are worker-level routing examples. Service Workers are covered in detail in <a href="/tooling/webflo/docs/learn/progressive-web-apps">the Progressive Web Apps (PWA) tutorial</a>.</p>
+  <p>It is even just possible to build an entire app out of the <code>/worker</code> directory alone, if all you're building is a client-side, offline-capable app! Routing is covered in <a href="#routing">the next section</a>. And <a href="/tooling/webflo/docs/learn/worker-level-routing">here</a> are worker-level routing examples. Service Workers are covered in detail in <a href="/tooling/webflo/docs/learn/progressive-web-apps">the Progressive Web Apps (PWA) tutorial</a>.</p>
 </blockquote>
 <h3 id="routing">Routing</h3>
 <p>As seen, Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the <em>request/response flow and what happens along the path it takes</em>. Webflo's <em>skillfulness with flows</em> is probabbly the best thing about its name.</p>
-<p>If we've grasped the concept of <a href="/tooling/webflo/docs/#project-layout">project layout</a> above, we've done routing in Webflo, basically. What we will now cover is orchestrating routes along the request/response flow.</p>
+<p>If we've grasped the concept of <a href="#project-layout">project layout</a> above, we've done routing in Webflo, basically. What we will now cover is orchestrating routes along the request/response flow.</p>
 <p>In Webflo, we can implement routing at <em>vertical layers</em> between the client and the server. And in a routing layer, we can lay out route handlers in <em>horizontal steps</em> for URL paths of more than one level (e.g <code>/a/b/c</code>).</p>
 <ul>
-<li><a href="/tooling/webflo/docs/#vertical-routing-layers">Vertical Routing Layers</a></li>
-<li><a href="/tooling/webflo/docs/#horizontal-routing-steps">Horizontal Routing Steps</a></li>
-<li><a href="/tooling/webflo/docs/#route-handlers">Route Handlers</a></li>
+<li><a href="#vertical-routing-layers">Vertical Routing Layers</a></li>
+<li><a href="#horizontal-routing-steps">Horizontal Routing Steps</a></li>
+<li><a href="#route-handlers">Route Handlers</a></li>
 </ul>
 <h4 id="vertical-routing-layers">Vertical Routing Layers</h4>
-<p>Each directory discussed in the <a href="/tooling/webflo/docs/#project-layout">Project Layout</a> section above lives at a point on a vertical path between the client and the server. Here's that layout now in the order of request/response flow.</p>
+<p>Each directory discussed in the <a href="#project-layout">Project Layout</a> section above lives at a point on a vertical path between the client and the server. Here's that layout now in the order of request/response flow.</p>
 <ul>
 <li>-&gt; enter <code>/client</code> if exists; continue?</li>
 <li>-&gt; enter <code>/worker</code> if exists; continue?</li>
 <li>-&gt; enter <code>/server</code> if exists; continue?</li>
 <li>-&gt; enter <code>/public</code> if exists; match a static file.</li>
 </ul>
-<p>As seen in the <a href="/tooling/webflo/docs/#project-layout">Project Layout</a> section above, the type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing or fullstack routing in any combination of it, as we will see soon.</p>
+<p>As seen in the <a href="#project-layout">Project Layout</a> section above, the type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing or fullstack routing in any combination of it, as we will see soon.</p>
 <h4 id="horizontal-routing-steps">Horizontal Routing Steps</h4>
 <p>In a routing directory, we can lay out route handlers in a way that represents the structure of the URLs that they will handle. If we chose to do routing in the <code>/server</code> directory, for a example, we would place a route handler at <code>/server/index.js</code> to handle the request URL <code>/</code>, and a route handler at <code>/server/products/index.js</code> to handle the request URL <code>/products</code>, and so on. So, each level of an URL path (e.g <code>/a/b/c</code>) is a place to implement a route handler.</p>
 <p>But in Webflo, requests are processed in steps along an URL path, that is, are made to <em>flow</em> through every handler in the route path until it hits the final handler. Here, the request URL <code>/products</code> would actually flow like this:</p>

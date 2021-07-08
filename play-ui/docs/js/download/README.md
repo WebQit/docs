@@ -5,7 +5,7 @@ _index: 1
 ---
 # Download Options
 
-Play UI can be used via a script tag or downloaded as an npm package.
+Play UI can be used via a script tag or as an npm package.
 
 ## Option 1: Embed as script
 
@@ -50,7 +50,7 @@ import { htmlSync as html } from '@webqit/play-ui/src/dom/index.js';
 html(selector, 'Play away!');
 ```
 
-Details are in the [Quick Start](../quickstart#use-as-descrete-utilities) guide.
+Details are in the [Quick Start](../overview#use-as-descrete-utilities) guide.
 
 ## Next Steps
 

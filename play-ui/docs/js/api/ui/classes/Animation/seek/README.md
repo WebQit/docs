@@ -15,11 +15,11 @@ animation.seek(point);
 
 **Parameters**
 
-+ `point`: `Number` - A number between `0` and `1`, representing 0% and 100% respectively, of the animation's total timing. Here the total timing is calculated as `delay + duration + endDelay`.
++ **`point`**: **`Number`** - A number between `0` and `1`, representing 0% and 100% respectively, of the animation's total timing. Here the total timing is calculated as `delay + duration + endDelay`.
 
 **Return**
 
-+ `this` - The `Animation` instance.
++ **`this`** - The `Animation` instance.
 
 ## Usage
 

@@ -15,11 +15,11 @@ transaction.apply(state);
 
 **Parameters**
 
-+ `state`: `Object` - A new state object that is passed to the instance's [`writeCallback`](../#constructor).
++ **`state`**: **`Object`** - A new state object that is passed to the instance's [`writeCallback`](../#constructor).
 
 **Return**
 
-+ `Any` - The return value of the transaction's `writeCallback` function.
++ **`Any`** - The return value of the transaction's `writeCallback` function.
 
 ## Usage
 

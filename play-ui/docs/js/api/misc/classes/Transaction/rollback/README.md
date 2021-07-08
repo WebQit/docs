@@ -15,13 +15,13 @@ transaction.rollback(savepoint = 0, preserveCurrentState = false);
 
 **Parameters**
 
-+ `savepoint`: `Int` - The savepoint to roll back to. `0` refers to the record of the first call to [`.savepoint()`](../savepoint); `1` to the second call; and so on.
-+ `preserveCurrentState`: `Boolean` - Specifies whether or not to detect and preserve any additional changes made after the last call to `savepoint()`.
++ **`savepoint`**: **`Int`** - The savepoint to roll back to. `0` refers to the record of the first call to [`.savepoint()`](../savepoint); `1` to the second call; and so on.
++ **`preserveCurrentState`**: **`Boolean`** - Specifies whether or not to detect and preserve any additional changes made after the last call to `savepoint()`.
 
 
 **Return**
 
-+ `Any` - The return value of the `writeCallback` function.
++ **`Any`** - The return value of the `writeCallback` function.
 
 ## Usage
 

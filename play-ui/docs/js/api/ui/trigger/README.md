@@ -13,12 +13,12 @@ let event = $(el).trigger(eventName[, details = {}]);
 
 **Parameters**
 
-+ `eventName`: `String` - The event or gesture name.
-+ `details`: `Object` - Custom data to pass to the fired event handlers.
++ **`eventName`**: **`String`** - The event or gesture name.
++ **`details`**: **`Object`** - Custom data to pass to the fired event handlers.
 
 **Return**
 
-* `event`: `Event` - An instance of [Event](../classes/Event).
++ **`event`**: **`Event`** - An instance of [Event](../classes/Event).
 
 ### Usage
 
@@ -65,4 +65,4 @@ import { trigger } from '@webqit/play-ui/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

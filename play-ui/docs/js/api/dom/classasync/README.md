@@ -24,12 +24,12 @@ await $(el).classAsync(classList, mutation === false);
 
 **Parameters**
 
-* `classList`: `String` - The class list to add or remove.
-* `mutation`: `Boolean` - The *add/remove* directive. When `true`, the given string is added to the class list. When `false`, the given string is removed from the class list.
++ **`classList`**: **`String`** - The class list to add or remove.
++ **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given string is added to the class list. When `false`, the given string is removed from the class list.
 
 **Return**
 
-* `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -58,11 +58,11 @@ var exists = await $(el).classAsync(classList);
 
 **Parameters**
 
-* `classList`: `String|Array` - One or more class names.
++ **`classList`**: **`String|Array`** - One or more class names.
 
 **Return**
 
-* `exists`: `Boolean` - This is `true` if *all* listed classes exist.
++ **`exists`**: **`Boolean`** - This is `true` if *all* listed classes exist.
 
 ### Usage
 
@@ -103,4 +103,4 @@ import { classAsync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

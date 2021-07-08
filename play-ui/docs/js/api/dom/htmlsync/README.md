@@ -21,11 +21,11 @@ $(el).htmlSync(content);
 
 **Parameters**
 
-+ `content`: `String|Node` - The text or HTML content, or some DOM node, to set.
++ **`content`**: **`String|Node`** - The text or HTML content, or some DOM node, to set.
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ### Usage
 
@@ -47,7 +47,7 @@ let content = $(el).htmlSync();
 
 **Return**
 
-+ `content`: `String` - The element's HTML content.
++ **`content`**: **`String`** - The element's HTML content.
 
 ### Usage
 
@@ -75,4 +75,4 @@ import { htmlSync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

@@ -15,7 +15,7 @@ timeline.remove(animation);
 
 **Return**
 
-+ `this` - The `Timeline` instance.
++ **`this`** - The `Timeline` instance.
 
 ## Usage
 

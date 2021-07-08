@@ -15,11 +15,11 @@ await $(el).prependToAsync(target);
 
 **Parameters**
 
-+ `target`: `String|Element` - A CSS selector of the element, or the element itself `Element`, to prepend to.
++ **`target`**: **`String|Element`** - A CSS selector of the element, or the element itself `Element`, to prepend to.
 
 **Return**
 
-+ `this` - The Play UI instance.
++ **`this`** - The Play UI instance.
 
 ## Usage
 
@@ -53,4 +53,4 @@ import { prependToAsync } from '@webqit/play-ui/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)

@@ -13,18 +13,18 @@ let listener = $(el).on(eventName, handler[, params = {}]);
 
 **Parameters**
 
-+ `eventName`: `String` - The event or gesture name.
-+ `handler`: `function(event)` - The handler function.
++ **`eventName`**: **`String`** - The event or gesture name.
++ **`handler`**: **`function(event)`** - The handler function.
 
     **Parameters**
 
-    + `event`: `Object` - An [Event](../classes/Event) object.
+    + **`event`**: **`Object`** - An [Event](../classes/Event) object.
 
-+ `params`: `Object` - Additional parameters.
++ **`params`**: **`Object`** - Additional parameters.
 
 **Return**
 
-* `listener`: `Listener` - An instance of [Listener](../classes/Listener).
++ **`listener`**: **`Listener`** - An instance of [Listener](../classes/Listener).
 
 ## Usage
 
@@ -97,4 +97,4 @@ import { on } from '@webqit/play-ui/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../quickstart#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
