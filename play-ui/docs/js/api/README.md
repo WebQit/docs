@@ -1,7 +1,7 @@
 ---
-desc: Play UI's API documentation
+desc: The API Reference
 _subtreeType: category
 ---
 # API Reference
 
-Check out the documentation for each of Play UI's methods.
+Explore the API Reference.

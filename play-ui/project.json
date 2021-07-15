@@ -1,7 +1,7 @@
 {
     "title": "Play UI",
     "icon": "play",
-    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, and a futuristic CSS framework. Try a delightful way to create modern User Interfaces!",
+    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, plus a futuristic CSS framework and a Web Components library - for modern user interfaces.",
     "categories": ["Featured", "UI Development"],
     "tags": ["Async-DOM", "Animations", "Events", "Gestures", "UI Geometry", "CSS framework"],
     "quickstart": {"directive": "npm i @webqit/play-ui; or CDN: https://unpkg.com/@webqit/play-ui/dist/main.js"},

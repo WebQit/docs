@@ -5,18 +5,17 @@
 <p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/oohtml" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/oohtml.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/oohtml" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/oohtml.svg" alt="NPM downloads" /></a></span></p>
 <!-- /BADGES -->
 <h2 id="why-oohtml">Why OOHTML</h2>
-<p>Think an all-new ability to author the UI from modular, reusable parts that are also auto-updating (or reactive) with the state of an appliaction - this time, <strong>not with some kind of a framework, but out of the native web platform itself</strong>! This is the prospect now held community-wide that OOHTML seeks to fullfil! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.</p>
+<p>Think an all-new ability to author the UI from modular, reusable parts that maintain a one-way or two-way binding with your JavaScript appliaction - but this time, <strong>altogether based on just native web platform features and none of a framework</strong>! OOHTML is that suite of DOM features that provides a native and more convenient way to write modular, reusable, and reactive HTML. It comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.</p>
+<p>Try handcrafting your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code or dealing with a compile step!</p>
 <blockquote>
-  <p><strong>OOHTML is being proposed as a <a href="https://discourse.wicg.io/t/proposal-chtml/4716">W3C standard at the Web Platform Incubator Community Group</a>. Consider bringing your ideas to the discussion.</strong></p>
+  <p><strong>OOHTML is <a href="https://discourse.wicg.io/t/proposal-chtml/4716">being proposed as a native browser technology</a> at the Web Platform Incubator Community Group. Consider joining the discussion.</strong></p>
 </blockquote>
-<h2 id="learn">Learn</h2>
-<p>Get started handcrafting your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code or dealing with a compile step!</p>
-<ul>
-<li><a href="/tooling/oohtml/docs">Visit the docs</a> for an overview, the specifications and usage.</li>
-<li><a href="https://github.com/webqit/oohtml/discussions">Join the Github Discussions</a> for OOHTML.</li>
-</ul>
-<h2 id="contribute-to-the-project">Contribute to the Project</h2>
-<p>Simply help report bugs, or request features; or join in the development.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p><a href="/tooling/oohtml/docs">Visit the docs</a> for an overview, the specifications and usage guides.</p>
+<p><html-import data-id="quickstart" template="@layout/quickstart"></html-import></p>
+<p>Also, <a href="https://github.com/webqit/oohtml/discussions">join the Github Discussions</a> for OOHTML.</p>
+<h2 id="contributing-to-the-project">Contributing to the Project</h2>
+<p>Help report bugs, or request features; or join in the development.</p>
 <ul>
 <li><a href="https://github.com/webqit/oohtml">Visit this project on github</a>.</li>
 <li><a href="https://github.com/webqit/webqit-tooling.docs/edit/master/oohtml/docs">Contribute to the docs on github</a>.</li>
@@ -32,7 +31,10 @@
 		<div exportgroup="readme">
 
 			<h1 id="oohtml">OOHTML</h1>
+<h2 id="introduction">Introduction</h2>
 <p>Object-Oriented HTML (OOHTML) is a suite of new DOM features that particularly facilitates writing <em>modular</em>, <em>reusable</em>, and <em>reactive</em> HTML and JavaScript <em>natively</em> and <em>more conveniently</em>.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Take <a href="/tooling/oohtml/docs/intro/overview">the five-munite overview</a> of OOHTML and follow the <a href="/tooling/oohtml/docs/intro/polyfill">download options</a> to add the OOHTML polyfill to your page.</p>
 <h2 id="explore-the-docs">Explore the Docs</h2>
 
 		</div>
@@ -43,6 +45,120 @@
 				<h1 id="introduction-to-oohtml">Introduction to OOHTML</h1>
 
 			</div>
+
+			<template name="explainer">
+				<div exportgroup="readme">
+
+					<h1 id="explainer-oohtml">Explainer: OOHTML</h1>
+
+				</div>
+
+				<div exportgroup="readme1">
+
+					<h1 id="explainer-oohtml">Explainer: OOHTML</h1>
+<p>This information is being gathered to present OOHTML's design and architectural choices in the light of the problem space. We intend to maintain this as a living document; watch this space, or help us improve it by submitting a pull request or by <a href="https://github.com/webqit/oohtml/issues">filing an issue</a>.</p>
+<h2 id="object-oriented-markup">Object-Oriented Markup</h2>
+<p><em>Naming and finding things</em> is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just couldn't before now address HTML's old idea of one global scope for IDs and CSS selectors. Here's how we currently struggle with creating modular markup and how OOHTML makes it a lot easier.</p>
+<ul>
+<li><p><strong><a href="https://getbem.com">BEM</a></strong> has been an agreeable workaround for many people. It's, however, clunky.</p>
+<ul>
+<li>Compare that with the more succinct <strong><a href="/tooling/oohtml/docs/intro/namespaced-html#namespaced-selectors">Namespaced Selectors</a></strong> in <a href="/tooling/oohtml/docs/intro/namespaced-html">Namespaced HTML</a>.</li></ul>
+<p><em>BEM also doesn't really go beyond usage in CSS. Namespaced HTML, on the other hand, is able to translate Namespaces in markup into namespace objects in JavaScript by means of the Namespace API.</em></p></li>
+<li><p><strong><a href="https://github.com/stuartpb/pwalls-spec">Stuart P.'s Parts and Walls</a></strong> proposal from 2015 also points to the same need for a modular naming that's accessible in JavaScript.</p>
+<ul>
+<li>But while the above is based on programmatic DOM traversal, Namespaced HTML let's us access the same elements declaratively as live DOM properties. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. <em>See details in the <a href="/tooling/oohtml/docs/intro/namespaced-html#api">Namespace API</a> of <a href="/tooling/oohtml/docs/intro/namespaced-html">Namespaced HTML</a>.</em></li></ul>
+<p><em>And just for fun, it also looks like the DOM itself likes the idea of exposing strategic UI objects in JavaScript as DOM properties. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/head"><code>document.head</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/body"><code>document.body</code></a>. These are indeed more concise than <code>document.querySelector('head')</code> and <code>document.querySelector('body')</code>.</em></p></li>
+</ul>
+<p>Overall, <a href="/tooling/oohtml/docs/intro/namespaced-html">Namespaced HTML</a> is the far-reaching solution to authoring modular HTML and CSS.</p>
+<h2 id="html-modules-and-imports">HTML Modules and Imports</h2>
+<p>We currently have HTML's standard <code>&lt;template&gt;</code> elements for defining reusable HTML snippets. But it still feels difficult getting things to work without a standard templating system.</p>
+<p>For so many reasons, we often have to deal with application data at the document and element levels. We either want to render data on an element or pass it down its subtree to be eventually rendered. The state of this data may be changing, and we may have to maintain some of it at each level. These are modern UI development paradigms that have not particularly been welcomed natively.</p>
+<hr />
+<p>On the expansive subject of <a href="https://github.com/WICG/webcomponents/issues/645"><em>HTML Modules</em></a>, OOHTML takes a very, very different approach from the many existing opinions to how reusable markup should be delivered and consumed in the browser - <em><a href="/tooling/oohtml/docs/intro/html-modules">OOHTML's HTML Modules</a></em>. What is the most important difference?</p>
+<ul>
+<li>OOHTML sees HTML Modules as simply a way to ship and consume <strong>static, inert content</strong>, and is thus more oriented towards HTML's standard primitive for <em>static, inert content</em> - the <code>&lt;template&gt;</code> element. OOHTML simply introduces <a href="/tooling/oohtml/docs/intro/html-modules#remote-content">the <strong>src</strong> attribute</a> as a way to <em>load a template's content from a remote HTML file</em>.</li>
+<li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/html-modules-explainer.md">This explainer</a>, among others, however, follows the JavaScript route of using ES6 module infrastructure to load <strong>both static content and active script elements</strong>.</li>
+</ul>
+<p>How do these compare?</p>
+<ul>
+<li><p><strong>OOHTML's approach let's us <em>author and deliver HTML in HTML</em>.</strong> And it's as declarative as this:</p>
+<p><em>Remote File: /bundle.html</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p><em>Main Document:</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bundle&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<p><em>See also: <a href="https://discourse.wicg.io/t/add-src-attribute-to-template/2721">[proposal - <strong>src</strong> attribute]</a>, <a href="https://github.com/whatwg/html/issues/2791">[proposal - <strong>src</strong> attribute]</a></em></p>
+<p><strong>But, the other approach gets us to deal with JavaScript code to import remote HTML</strong></p>
+<p><em>Remote File: /import.html</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">let</span> blogPost = <span class="hljs-keyword">import</span>.meta.document.querySelector(<span class="hljs-string">&quot;#blogPost&quot;</span>);
+    <span class="hljs-keyword">export</span> { blogPost }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p><em>Main Document:</em>`</p>
+<pre><code class="hljs js language-js">&lt;script type=<span class="hljs-string">&quot;module&quot;</span>&gt;
+    <span class="hljs-keyword">import</span> { blogPost } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;import.html&quot;</span>;
+&lt;/script&gt;</code></pre></li>
+<li><p><strong>OOHTML's approach provides for consuming the imported HTML <em>both in JavaScript and in HTML</em>.</strong> And it's as declarative as the following two cases:</p>
+<p><em>In JavaScript - as detailed in <a href="/tooling/oohtml/docs/intro/html-modules#api">HTML Modules API</a></em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">let</span> [ blogPost ] = <span class="hljs-built_in">document</span>.templates.bundle.exports.blogPost;
+    <span class="hljs-built_in">document</span>.body.appendChild(blogPost.cloneNode(<span class="hljs-literal">true</span>));
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p><em>See also: <a href="https://discourse.wicg.io/t/document-templates/1057">[proposal - <code>document.templates</code>]</a></em></p>
+<p><em>In HTML - as detailed in <a href="/tooling/oohtml/docs/intro/html-imports">OOHTML Imports</a></em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p><strong>But, the other approach remains based <em>only in JavaScript</em></strong></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">import</span> { blogPost } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;import.html&quot;</span>
+        <span class="hljs-built_in">document</span>.body.appendChild(blogPost);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p><em>But <a href="https://github.com/WICG/webcomponents/issues/863">the new direction</a> of this approach is having an afterthought toward a declarative way to place imported content in markup.</em></p></li>
+<li><p><strong>OOHTML's approach follows <em>lazy-loading of remote modules and lazy rendering of <code>&lt;import&gt;</code> elements, as driven by module events</em>.</strong> This makes <code>&lt;import&gt;</code> elements work just like elements like <code>&lt;img&gt;</code>: 'display whenever you can load', as seen below:</p>
+<p><em>In HTML - as detailed in <a href="/tooling/oohtml/docs/intro/html-imports">OOHTML Imports</a></em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Resolves whenever module loads --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p><strong>But, the other approach simply does not.</strong></p></li>
+</ul>
+<p>Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).</p>
+<p>But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how another of OOHTML's features - <a href="/tooling/oohtml/docs/intro/subscript">Subscript</a> - lets us add such non-global JavaScript to HTML markup, with everything working happily:</p>
+<p><em>Remote File: /bundle.html</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;subscript&quot;</span>&gt;</span><span class="javascript">
+        <span class="hljs-built_in">this</span>.querySelector(<span class="hljs-string">&#x27;#content&#x27;</span>).innerHTML = <span class="hljs-built_in">document</span>.state.content;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- previous syntax: &lt;script type=&quot;scoped&quot;&gt;&lt;/script&gt; --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p><em>Main Document:</em></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bundle&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Resolves whenever module loads, and the slotted element&#x27;s scoped script activates --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p>And how far can this go? We run this in production with webqit.io. Our real life success with this pattern is something we want to eagerly publish.</p>
+<h2 id="state-observability-and-reactivity">State, Observability and Reactivity</h2>
+<p>Primitives for building <em>reactive</em> applications and keeping track of very dynamic state have not particularly found their way to native web languages.</p>
+<ul>
+<li><p><strong>State:</strong> We indeed have some primitives related to the concept of <em>state</em>, but they have very limited usecases. An example is <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset">HTML5's DataSet API</a> that lets us keep state with HTML elements. But, it turns out to be tied to just HTML data <code>(data-*)</code> attributes - making it less useful as a general way to work with application state in the UI.</p>
+<p>Compare OOHTML's <a href="/tooling/oohtml/docs/intro/the-state-api">State API</a> which gives us robust <em>state management</em> - covering both document-level and element-level state, with automatic support for observability.</p></li>
+<li><p><strong>Observability:</strong> Much engineering still goes into using JavaScript's change-detection mechanisms for <em>reactive</em> UI development, and some things don't even scale. Check out a consideration of some of those difficulties in <a href="https://webqit.io/tooling/observer/explainer">this explainer</a>.</p>
+<p>Compare the <a href="https://github.com/webqit/observer">Observer API</a> which provides generic functions for observing and intercepting JavaScript objects. See its <em>universal</em> role across the rest of OOHTML, and potentially other technologies.</p></li>
+<li><p><strong>Reactivity:</strong> A Reactuve UI binding language? See <a href="/tooling/oohtml/docs/intro/subscript">Subscript</a>. It comes bringing the full power of JavaScript for the job.</p>
+<p>Compare <a href="https://discourse.wicg.io/t/extension-of-template/447">this early idea for a template syntax by Jonathan Kingston</a> from 2014, <a href="https://github.com/whatwg/html/issues/2254">this proposal</a> from 2017, and <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Apple's proposal</a> from 2017.</p></li>
+</ul>
+
+				</div>
+			</template>
 
 			<template name="overview">
 				<div exportgroup="readme">
@@ -158,7 +274,7 @@
 <p>This opens up new simple ways to create very dynamic applications.</p>
 <p><strong>Details are in the <a href="/tooling/oohtml/docs/spec/html-imports">HTML Imports</a> specification. Learn more about the convention, dynamicity, Slot Inheritance, isomorphic rendering, and the polyfill support.</strong></p>
 <h2 id="namespaced-html">Namespaced HTML</h2>
-<p>Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.</p>
+<p>Namespacing provides a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.</p>
 <p>The following modular markup implements its IDs in namespaces:</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;continents&quot;</span> <span class="hljs-attr">namespace</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;europe&quot;</span> <span class="hljs-attr">namespace</span>&gt;</span>
@@ -388,120 +504,6 @@ OOHTML.call(JSDOM.window);
 				<h1 id="resources">Resources</h1>
 
 			</div>
-
-			<template name="explainer">
-				<div exportgroup="readme">
-
-					<h1 id="explainer-oohtml">Explainer: OOHTML</h1>
-
-				</div>
-
-				<div exportgroup="readme1">
-
-					<h1 id="explainer-oohtml">Explainer: OOHTML</h1>
-<p>This information is being gathered to present OOHTML's design and architectural choices in the light of the problem space. We intend to maintain this as a living document; watch this space, or help us improve it by submitting a pull request or by <a href="https://github.com/webqit/oohtml/issues">filing an issue</a>.</p>
-<h2 id="object-oriented-markup">Object-Oriented Markup</h2>
-<p><em>Naming and finding things</em> is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just couldn't before now address HTML's old idea of one global scope for IDs and CSS selectors. Here's how we currently struggle with creating modular markup and how OOHTML makes it a lot easier.</p>
-<ul>
-<li><p><strong><a href="https://getbem.com">BEM</a></strong> has been an agreeable workaround for many people. It's, however, clunky.</p>
-<ul>
-<li>Compare that with the more succinct <strong><a href="/tooling/oohtml/docs/resources/namespaced-html#namespaced-selectors">Namespaced Selectors</a></strong> in <a href="/tooling/oohtml/docs/resources/namespaced-html">Namespaced HTML</a>.</li></ul>
-<p><em>BEM also doesn't really go beyond usage in CSS. Namespaced HTML, on the other hand, is able to translate Namespaces in markup into namespace objects in JavaScript by means of the Namespace API.</em></p></li>
-<li><p><strong><a href="https://github.com/stuartpb/pwalls-spec">Stuart P.'s Parts and Walls</a></strong> proposal from 2015 also points to the same need for a modular naming that's accessible in JavaScript.</p>
-<ul>
-<li>But while the above is based on programmatic DOM traversal, Namespaced HTML let's us access the same elements declaratively as live DOM properties. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. <em>See details in the <a href="/tooling/oohtml/docs/resources/namespaced-html#api">Namespace API</a> of <a href="/tooling/oohtml/docs/resources/namespaced-html">Namespaced HTML</a>.</em></li></ul>
-<p><em>And just for fun, it also looks like the DOM itself likes the idea of exposing strategic UI objects in JavaScript as DOM properties. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/head"><code>document.head</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/body"><code>document.body</code></a>. These are indeed more concise than <code>document.querySelector('head')</code> and <code>document.querySelector('body')</code>.</em></p></li>
-</ul>
-<p>Overall, <a href="/tooling/oohtml/docs/resources/namespaced-html">Namespaced HTML</a> is the far-reaching solution to authoring modular HTML and CSS.</p>
-<h2 id="html-modules-and-imports">HTML Modules and Imports</h2>
-<p>We currently have HTML's standard <code>&lt;template&gt;</code> elements for defining reusable HTML snippets. But it still feels difficult getting things to work without a standard templating system.</p>
-<p>For so many reasons, we often have to deal with application data at the document and element levels. We either want to render data on an element or pass it down its subtree to be eventually rendered. The state of this data may be changing, and we may have to maintain some of it at each level. These are modern UI development paradigms that have not particularly been welcomed natively.</p>
-<hr />
-<p>On the expansive subject of <a href="https://github.com/WICG/webcomponents/issues/645"><em>HTML Modules</em></a>, OOHTML takes a very, very different approach from the many existing opinions to how reusable markup should be delivered and consumed in the browser - <em><a href="/tooling/oohtml/docs/resources/html-modules">OOHTML's HTML Modules</a></em>. What is the most important difference?</p>
-<ul>
-<li>OOHTML sees HTML Modules as simply a way to ship and consume <strong>static, inert content</strong>, and is thus more oriented towards HTML's standard primitive for <em>static, inert content</em> - the <code>&lt;template&gt;</code> element. OOHTML simply introduces <a href="/tooling/oohtml/docs/resources/html-modules#remote-content">the <strong>src</strong> attribute</a> as a way to <em>load a template's content from a remote HTML file</em>.</li>
-<li><a href="https://github.com/WICG/webcomponents/blob/gh-pages/proposals/html-modules-explainer.md">This explainer</a>, among others, however, follows the JavaScript route of using ES6 module infrastructure to load <strong>both static content and active script elements</strong>.</li>
-</ul>
-<p>How do these compare?</p>
-<ul>
-<li><p><strong>OOHTML's approach let's us <em>author and deliver HTML in HTML</em>.</strong> And it's as declarative as this:</p>
-<p><em>Remote File: /bundle.html</em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p><em>Main Document:</em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bundle&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p><em>See also: <a href="https://discourse.wicg.io/t/add-src-attribute-to-template/2721">[proposal - <strong>src</strong> attribute]</a>, <a href="https://github.com/whatwg/html/issues/2791">[proposal - <strong>src</strong> attribute]</a></em></p>
-<p><strong>But, the other approach gets us to deal with JavaScript code to import remote HTML</strong></p>
-<p><em>Remote File: /import.html</em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">let</span> blogPost = <span class="hljs-keyword">import</span>.meta.document.querySelector(<span class="hljs-string">&quot;#blogPost&quot;</span>);
-    <span class="hljs-keyword">export</span> { blogPost }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<p><em>Main Document:</em>`</p>
-<pre><code class="hljs js language-js">&lt;script type=<span class="hljs-string">&quot;module&quot;</span>&gt;
-    <span class="hljs-keyword">import</span> { blogPost } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;import.html&quot;</span>;
-&lt;/script&gt;</code></pre></li>
-<li><p><strong>OOHTML's approach provides for consuming the imported HTML <em>both in JavaScript and in HTML</em>.</strong> And it's as declarative as the following two cases:</p>
-<p><em>In JavaScript - as detailed in <a href="/tooling/oohtml/docs/resources/html-modules#api">HTML Modules API</a></em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">let</span> [ blogPost ] = <span class="hljs-built_in">document</span>.templates.bundle.exports.blogPost;
-    <span class="hljs-built_in">document</span>.body.appendChild(blogPost.cloneNode(<span class="hljs-literal">true</span>));
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<p><em>See also: <a href="https://discourse.wicg.io/t/document-templates/1057">[proposal - <code>document.templates</code>]</a></em></p>
-<p><em>In HTML - as detailed in <a href="/tooling/oohtml/docs/resources/html-imports">OOHTML Imports</a></em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p><strong>But, the other approach remains based <em>only in JavaScript</em></strong></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript">
-        <span class="hljs-keyword">import</span> { blogPost } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;import.html&quot;</span>
-        <span class="hljs-built_in">document</span>.body.appendChild(blogPost);
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p><em>But <a href="https://github.com/WICG/webcomponents/issues/863">the new direction</a> of this approach is having an afterthought toward a declarative way to place imported content in markup.</em></p></li>
-<li><p><strong>OOHTML's approach follows <em>lazy-loading of remote modules and lazy rendering of <code>&lt;import&gt;</code> elements, as driven by module events</em>.</strong> This makes <code>&lt;import&gt;</code> elements work just like elements like <code>&lt;img&gt;</code>: 'display whenever you can load', as seen below:</p>
-<p><em>In HTML - as detailed in <a href="/tooling/oohtml/docs/resources/html-imports">OOHTML Imports</a></em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Resolves whenever module loads --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p><strong>But, the other approach simply does not.</strong></p></li>
-</ul>
-<p>Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).</p>
-<p>But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how another of OOHTML's features - <a href="/tooling/oohtml/docs/resources/subscript">Subscript</a> - lets us add such non-global JavaScript to HTML markup, with everything working happily:</p>
-<p><em>Remote File: /bundle.html</em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;blogPost&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>Content...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;subscript&quot;</span>&gt;</span><span class="javascript">
-        <span class="hljs-built_in">this</span>.querySelector(<span class="hljs-string">&#x27;#content&#x27;</span>).innerHTML = <span class="hljs-built_in">document</span>.state.content;
-    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- previous syntax: &lt;script type=&quot;scoped&quot;&gt;&lt;/script&gt; --&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p><em>Main Document:</em></p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bundle&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Resolves whenever module loads, and the slotted element&#x27;s scoped script activates --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;blogPost&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;bundle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p>And how far can this go? We run this in production with webqit.io. Our real life success with this pattern is something we want to eagerly publish.</p>
-<h2 id="state-observability-and-reactivity">State, Observability and Reactivity</h2>
-<p>Primitives for building <em>reactive</em> applications and keeping track of very dynamic state have not particularly found their way to native web languages.</p>
-<ul>
-<li><p><strong>State:</strong> We indeed have some primitives related to the concept of <em>state</em>, but they have very limited usecases. An example is <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset">HTML5's DataSet API</a> that lets us keep state with HTML elements. But, it turns out to be tied to just HTML data <code>(data-*)</code> attributes - making it less useful as a general way to work with application state in the UI.</p>
-<p>Compare OOHTML's <a href="/tooling/oohtml/docs/resources/the-state-api">State API</a> which gives us robust <em>state management</em> - covering both document-level and element-level state, with automatic support for observability.</p></li>
-<li><p><strong>Observability:</strong> Much engineering still goes into using JavaScript's change-detection mechanisms for <em>reactive</em> UI development, and some things don't even scale. Check out a consideration of some of those difficulties in <a href="https://webqit.io/tooling/observer/explainer">this explainer</a>.</p>
-<p>Compare the <a href="https://github.com/webqit/observer">Observer API</a> which provides generic functions for observing and intercepting JavaScript objects. See its <em>universal</em> role across the rest of OOHTML, and potentially other technologies.</p></li>
-<li><p><strong>Reactivity:</strong> A Reactuve UI binding language? See <a href="/tooling/oohtml/docs/resources/subscript">Subscript</a>. It comes bringing the full power of JavaScript for the job.</p>
-<p>Compare <a href="https://discourse.wicg.io/t/extension-of-template/447">this early idea for a template syntax by Jonathan Kingston</a> from 2014, <a href="https://github.com/whatwg/html/issues/2254">this proposal</a> from 2017, and <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md">Apple's proposal</a> from 2017.</p></li>
-</ul>
-
-				</div>
-			</template>
 		</template>
 
 		<template name="spec">
@@ -1111,7 +1113,7 @@ template.setAttribute(<span class="hljs-string">&#x27;name&#x27;</span>, <span c
 				<div exportgroup="readme">
 
 					<h1 id="namespaced-html">Namespaced HTML</h1>
-<p>Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.</p>
+<p>Namespacing provides a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.</p>
 <p>Namespaced HTML is a document that is structured as a hierarchy of <em>scopes</em> and <em>subscopes</em>.</p>
 <blockquote>
   <p>OOHTML is <a href="https://discourse.wicg.io/t/proposal-chtml/4716">being proposed as a native browser technology</a> while currently available through a polyfill. Be sure to check the <a href="#polyfill-support">Polyfill Support</a> section below for the features on this page.</p>

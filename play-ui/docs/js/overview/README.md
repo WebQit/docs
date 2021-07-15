@@ -4,7 +4,7 @@ _index: first
 ---
 # Overview
 
-Play UI is designed to meet a wide range of usage scenarios.
+Play UI JavaScript is a UI library designed to meet a wide range of usage scenarios.
 
 ## Use as You Would [jQuery](https://jquery.com)
 

@@ -9,14 +9,14 @@
                     "subtree": [
                         {
                             "level": 2,
-                            "title": "Learn",
-                            "uri": "learn",
+                            "title": "Getting Started",
+                            "uri": "getting-started",
                             "subtree": []
                         },
                         {
                             "level": 2,
-                            "title": "Contribute to the Project",
-                            "uri": "contribute-to-the-project",
+                            "title": "Contributing to the Project",
+                            "uri": "contributing-to-the-project",
                             "subtree": []
                         },
                         {
@@ -45,6 +45,18 @@
                             "subtree": [
                                 {
                                     "level": 2,
+                                    "title": "Introduction",
+                                    "uri": "introduction",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
                                     "title": "Explore the Docs",
                                     "uri": "explore-the-docs",
                                     "subtree": []
@@ -70,6 +82,54 @@
                         }
                     },
                     "subtree": {
+                        "explainer": {
+                            "meta": {
+                                "readme": {
+                                    "title": "Explainer",
+                                    "desc": "The OOHTML explainer.",
+                                    "_index": "last",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Explainer: OOHTML",
+                                            "uri": "explainer-oohtml",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                "readme1": {
+                                    "title": "Explainer",
+                                    "desc": "The OOHTML explainer.",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Explainer: OOHTML",
+                                            "uri": "explainer-oohtml",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Object-Oriented Markup",
+                                                    "uri": "object-oriented-markup",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "HTML Modules and Imports",
+                                                    "uri": "html-modules-and-imports",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "State, Observability and Reactivity",
+                                                    "uri": "state-observability-and-reactivity",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
                         "overview": {
                             "meta": {
                                 "readme": {
@@ -180,55 +240,6 @@
                                     "subtree": []
                                 }
                             ]
-                        }
-                    },
-                    "subtree": {
-                        "explainer": {
-                            "meta": {
-                                "readme": {
-                                    "title": "Explainer",
-                                    "desc": "The OOHTML explainer.",
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "Explainer: OOHTML",
-                                            "uri": "explainer-oohtml",
-                                            "subtree": []
-                                        }
-                                    ]
-                                },
-                                "readme1": {
-                                    "title": "Explainer",
-                                    "desc": "The OOHTML explainer.",
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "Explainer: OOHTML",
-                                            "uri": "explainer-oohtml",
-                                            "subtree": [
-                                                {
-                                                    "level": 2,
-                                                    "title": "Object-Oriented Markup",
-                                                    "uri": "object-oriented-markup",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "HTML Modules and Imports",
-                                                    "uri": "html-modules-and-imports",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "State, Observability and Reactivity",
-                                                    "uri": "state-observability-and-reactivity",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
                         }
                     }
                 },

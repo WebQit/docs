@@ -160,7 +160,7 @@ This opens up new simple ways to create very dynamic applications.
 
 ## Namespaced HTML
 
-Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.
+Namespacing provides a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.
 
 The following modular markup implements its IDs in namespaces:
 

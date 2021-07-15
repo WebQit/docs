@@ -9,14 +9,14 @@
                     "subtree": [
                         {
                             "level": 2,
-                            "title": "Learn",
-                            "uri": "learn",
+                            "title": "Getting Started",
+                            "uri": "getting-started",
                             "subtree": []
                         },
                         {
                             "level": 2,
-                            "title": "Contribute to the Project",
-                            "uri": "contribute-to-the-project",
+                            "title": "Contributing to the Project",
+                            "uri": "contributing-to-the-project",
                             "subtree": []
                         },
                         {
@@ -186,7 +186,7 @@
                         "api": {
                             "meta": {
                                 "readme": {
-                                    "desc": "Play UI's API documentation",
+                                    "desc": "The API Reference",
                                     "_subtreeType": "category",
                                     "outline": [
                                         {

@@ -1,8 +1,12 @@
-# API Explainer
+---
+desc: The design and architectural concepts.
+_index: 2
+---
+# Concepts
 
 Here is how the approach we took with the Observer API compares, or contrasts, with those of some existing alternatives.
 
-## JavaScript's Reflection APIs
+## With JavaScript's Reflection APIs
 
 The Observer API shares much in API surface with JavaScript's built-in [*Object*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) and [*Reflect*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) APIs. Compare:
 

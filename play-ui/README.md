@@ -7,18 +7,19 @@
 
 ## Why Play UI
 
-Play UI provides a fast and delightful way to create modern User Interfaces. There is [the JavaScript library](docs/js) that lets you work with the DOM and UI in syntactic sugar. There is [the set of CSS libraries](docs/css) that lets you do all the layout and styling that defines the modern UI. Note the conscious goal of not trading standard JavaScript and CSS the usual way for some proprietary syntax!
+Play UI provides a fast and delightful way to render modern user interfaces. There is [the JavaScript library](docs/js/overview) that lets you work with the DOM and UI in syntactic sugar. There is [the set of CSS libraries](docs/css) that lets you do all the layout and styling that characterizes the modern UI. Notice the conscious goal of not trading standard JavaScript and CSS the usual way for some proprietary syntax!
 
-## Learn
+## Getting Started
 
-Take the playbook!
+Take the playbook! [Visit the docs](docs) for an overview, the API and usage guides.
 
-+ [Visit the docs](docs) for an overview, the API and usage.
-+ [Join the Github Discussions](https://github.com/webqit/play-ui/discussions) for Play UI.
+<html-import data-id="quickstart" template="@layout/quickstart"></html-import>
 
-## Contribute to the Project
+Also, [join the Github Discussions](https://github.com/webqit/play-ui/discussions) for Play UI.
 
-Simply help report bugs, or request features; or join in the development.
+## Contributing to the Project
+
+Help report bugs, or request features; or join in the development.
 
 + [Visit this project on github](https://github.com/webqit/play-ui).
 + [Contribute to the docs on github](https://github.com/webqit/webqit-tooling.docs/edit/master/play-ui/docs).
