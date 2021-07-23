@@ -80,7 +80,7 @@ export default function loadsCSS(resource, params, args, recieved, meta, next) {
 
 Loaders are expected to return a valid markup string as the *module export* for the resource.
 
-**Error Handling**
+### Error Handling
 
 Loaders may throw exceptions, they will be gracefully handled, that is, formatted and printed to the console.
 

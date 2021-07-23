@@ -73,12 +73,13 @@
                         "explainer": {
                             "meta": {
                                 "readme": {
+                                    "title": "Explainer",
                                     "desc": "The OOHTML design and architectural concepts.",
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Explainer",
-                                            "uri": "explainer",
+                                            "title": "Explainer [TODO]",
+                                            "uri": "explainer-todo",
                                             "subtree": []
                                         }
                                     ]

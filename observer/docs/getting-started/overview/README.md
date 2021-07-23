@@ -14,7 +14,7 @@ Observe operations on any object or array...
 let obj = {};
 ```
 
-...using the [`Observer.observe()`](../api/subscribers/observe) method.
+...using the [`Observer.observe()`](../../api/reactions/observe) method.
 
 ```js
 Observer.observe(obj, changes => {
@@ -28,7 +28,7 @@ Now changes will be delivered *synchronously* - as they happen.
 
 ## Mutate
 
-Programmatically make *reactive* changes using the *[native-like](../concepts#with-javascripts-reflection-apis)* [set of operators](../api/operators)...
+Programmatically make *reactive* changes using the *Reflect-like* [set of operators](../../api/actions)...
 
 ```js
 // A single set operation
@@ -42,7 +42,7 @@ Observer.set(obj, {
 });
 ```
 
-...or switch to using *object accessors* - using the [`Observer.accessorize()`](../api/operators/accessorize) method...
+...or switch to using *object accessors* - using the [`Observer.accessorize()`](../../api/actors/accessorize) method...
 
 ```js
 // Accessorize all (existing) properties
@@ -76,23 +76,23 @@ And no problem if you inadvertently cascade the approaches. No bizzare behaviour
 // Accessorized properties are already reactive
 Observer.accessorize(obj, ['prop1', 'prop6', 'prop10']);
 
-// But no problem if we still want a proxy over an accessorized object
+// But no problem if you inadvertently proxy an accessorized object
 let _obj = Observer.proxy(obj);
 
-// And yet no problem if we still made a programmatic call over an already reactive Proxy
+// And yet no problem if you inadvertently made a programmatic call over an already reactive Proxy
 Observer.set(_obj, 'prop1', 'value1');
 ```
 
 ## Intercept
 
-How about some level of indirection - the ability to hook into operators like `Observer.set()` and  `Observer.deleteProperty()` to repurpose their operation? That's all possible using the [`Observer.intercept()`](../api/subscribers/intercept) method!
+How about some level of indirection - the ability to hook into operators like `Observer.set()` and  `Observer.deleteProperty()` to repurpose their operation? That's all possible using the [`Observer.intercept()`](../../api/reactions/intercept) method!
 
 Below, we catch any attempt to set an HTTP URL and force it to an HTTPS URL.
 
 ```js
-Observer.intercept(obj, 'set', (event, previous, next) => {
-    if (event.name === 'url' && event.value.startsWith('http:')) {
-        return next(event.value.replace('http:', 'https:'));
+Observer.intercept(obj, 'set', (action, previous, next) => {
+    if (action.name === 'url' && action.value.startsWith('http:')) {
+        return next(action.value.replace('http:', 'https:'));
     }
     return next();
 });
@@ -107,15 +107,81 @@ Observer.set(obj, 'url', 'https://webqit.io');
 Observer.set(obj, 'url', 'http://webqit.io');
 ```
 
-## Cleaning Up
+## Pass Some Detail to Observers
 
-You'll sometimes want to clean up? There are the methods for that!
+Operators, like `Observer.set()`, can pass arbitrary value to observers via a `params.detail` property.
 
-+ [`Observer.unobserve()`](../api/subscribers/unobserve)
-+ [`Observer.unintercept()`](../api/subscribers/unintercept)
-+ [`Observer.unproxy()`](../api/operators/unproxy)
-+ [`Observer.unaccessorize()`](../api/operators/unaccessorize)
+```js
+// A set operation with detail
+Observer.set(obj, {
+    prop2: 'value2',
+    prop3: 'value3',
+}, { detail: 'Certain detail' });
+```
 
-## But Beyond this Point Lies...
+Observers will recieve this value in a `delta.detail` property.
 
-Everything from the [download](../download) page, to the [concepts](../concepts) page, to the [API Reference](../api).
+```js
+// An observer with detail
+Observer.observe(obj, 'prop1', delta => {
+    console.log('An operation has been made with detail:' + delta.detail);
+});
+```
+
+## Negotiate with Observers
+
+Observers can access and *act* on a special object called the *Response Object*.
+
+```js
+// An observer and the response object
+Observer.observe(obj, 'prop1', (delta, response) => {
+    if (1) {
+        response.preventDefault(); // Or return false
+    } else if (2) {
+        response.stopPropagation(); // Or return false
+    } else if (3) {
+        response.waitUntil(new Promise); // Or return new Promise
+    }
+});
+```
+
+Operators can access and honour the response.
+
+```js
+// A set operation that returns the responseObject
+let response = Observer.set(obj, {
+    prop2: 'value2',
+    prop3: 'value3',
+}, { responseObject: true });
+```
+
+```js
+if (response.defaultPrevented) {
+    // response.preventDefault() was called
+} else if (response.propagationStopped) {
+    // response.stopPropagation() was called
+} else if (response.promises) {
+    // response.waitUntil() was called
+    response.promises.then(() => {
+
+    });
+}
+```
+
+*Learn more about negotiation [here](../../api/core/Event#negotiating-with-operators)*
+
+## Clean Up Anytime
+
+Need to undo certain bindings? There are the methods for that!
+
++ [`Observer.unobserve()`](../../api/reactions/unobserve)
++ [`Observer.unintercept()`](../../api/reactions/unintercept)
++ [`Observer.unproxy()`](../../api/actors/unproxy)
++ [`Observer.unaccessorize()`](../../api/actors/unaccessorize)
+
+## The End?
+
+Certainly not! But this rundown should be a good start. Next:
+
++ Visit the [download](../download) page to obtain the Observer API.
++ Explore the [API Reference](../../api).

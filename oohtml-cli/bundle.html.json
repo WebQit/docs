@@ -331,6 +331,12 @@
                                                                 },
                                                                 {
                                                                     "level": 3,
+                                                                    "title": "Error Handling",
+                                                                    "uri": "error-handling",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
                                                                     "title": "Usage",
                                                                     "uri": "usage-1",
                                                                     "subtree": []
@@ -394,7 +400,7 @@
                         "installation": {
                             "meta": {
                                 "readme": {
-                                    "desc": "Follow the download options for OOHTML CLI.",
+                                    "desc": "OOHTML CLI installation guide.",
                                     "_index": "last",
                                     "outline": [
                                         {

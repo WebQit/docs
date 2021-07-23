@@ -1,5 +1,5 @@
 ---
-desc: Follow the download options for OOHTML CLI.
+desc: OOHTML CLI installation guide.
 _index: last
 ---
 # Installation

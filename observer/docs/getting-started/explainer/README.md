@@ -1,10 +1,13 @@
 ---
+title: Explainer
 desc: The design and architectural concepts.
 _index: 1
 ---
-# Explainer
+# Explainer [TODO]
 
 <!--
+The observable alternative to Reflect
+
 Here is how the approach we took with the Observer API compares, or contrasts, with those of some existing alternatives.
 
 ## With JavaScript's Reflection APIs
@@ -55,7 +58,7 @@ Problem is:
 
     // -------------------------
 
-    // Multiple actors
+    // Multiple actions
     let someValue = obj.someProperty; // "some value"; // from the "get" interceptor above
     obj.someProperty = 'some new value'; // triggers the "set" interceptor above
     obj.someProperty = 'some other new value'; // triggers the "set" interceptor above
@@ -84,7 +87,7 @@ Problem is:
 
     // -------------------------
 
-    // Multiple actors, but acting on a wrapper unknowingly
+    // Multiple actions, but acting on a wrapper unknowingly
     let someValue = wrapped.someProperty; // "some value"; // from the "get" interceptor above
     // Or let someValue = Reflect.get(obj, 'someProperty');
     wrapped.someProperty = 'some new value'; // triggers the "set" interceptor above
@@ -117,18 +120,18 @@ But, with the Observer API:
     });
 
     // Any number of interceptors
-    Observer.intercept(obj, 'get', (event, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, recieved, next) => {
         console.log('"get" operation', event.name);
         return next('some value');
     });
-    Observer.intercept(obj, 'get', (event, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, recieved, next) => {
         console.log('"get" operation', event.name);
         return next(recieved/*from any preceding interceptor*/ || 'some different value');
     });
 
     // -------------------------
 
-    // Multiple actors
+    // Multiple actions
     let someValue = Observer.get(obj, 'someProperty'); // "some value"; // from the interceptors above
     Observer.set(obj, 'someProperty', 'some new value'); // triggers both the interceptors and observers above
     Observer.set(obj, 'someProperty', 'some other new value'); // triggers both the interceptors and observers above
