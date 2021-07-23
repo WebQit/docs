@@ -4,7 +4,7 @@ _index: 1
 ---
 # HTML Imports
 
-HTML Imports are a declarative way to use the *exports* of an *[HTML Module](../html-modules)* everywhere in the main document.
+HTML Imports are a declarative way to use the *exports* of an *[HTML Module](../html-modules)* from anywhere in the main document.
 
 > Note that this is different from the HTML Imports that was spec'd with an early version of Web Components.
 
@@ -364,7 +364,7 @@ An `<import>` element's attributes and default content may also be inheritted by
 
 When rendering happens on the server and has to be serialized for the browser to take over, `<import>` elements that are replaced on the server will need to be kept in some way in the serialized HTML output. This would enable the browser, on load, to *hydrate* the original `<import>` elements and map them in their replaced state to their currently slotted contents. With this, deleting a slot's contents, for example, should still trigger the restoration of the hydrated `<import>` element.
 
-HTML Imports makes it possible to serialize `<import>` elements into *comment nodes* (`<!-- <import></import> -->`) when rendering on the server. HTML Imports in the browser can also be told to rehydrate the resolved `<!-- <import></import> -->` elements found in the server's serialized HTML output. This feature is turned on by setting the `isomorphic` directive to `1` or `true` on the [OOHTML META tag](../../usage/meta-tag).
+HTML Imports makes it possible to serialize `<import>` elements into *comment nodes* (`<!-- <import></import> -->`) when rendering on the server. HTML Imports in the browser can also be told to rehydrate the resolved `<!-- <import></import> -->` elements found in the server's serialized HTML output. This feature is turned on by setting the `isomorphic` directive to `1` or `true` on the [OOHTML META tag](../../resources/meta-tag).
 
 **HTML to be rendered on the server**
 
@@ -458,16 +458,16 @@ On loading the above serialized HTML output in the browser, find and delete the 
 
 ## Polyfill Support
 
-The current [OOHTML polyfill implementation](../../intro/polyfill) has full support for HTML Imports. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../usage/meta-tag):
+The current [OOHTML polyfill implementation](../../getting-started/polyfill) has full support for HTML Imports. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../resources/meta-tag):
 
-+ **[element.import](#convention)** - The tag name for the `<import>` element. The standard `<import>` element is `<import>`, but the polyfill uses `<html-import>` by default. This can be reset to the standard tag name or to something else.
++ **[element.import](#convention)** - The tag name for the `<import>` element. The standard `<import>` element is `<import>`. This can be changed where necessary.
         
     ```html
     <head>
-        <meta name="oohtml" content="element.import=import;" />
+        <meta name="oohtml" content="element.import=html-import;" />
     </head>
     <body>
-        <import name="export-1" template="module2"></import>
+        <html-import name="export-1" template="module2"></html-import>
     </body>
     ```
 
@@ -493,4 +493,4 @@ The current [OOHTML polyfill implementation](../../intro/polyfill) has full supp
     </body>
     ```
 
-Learn more about customization and the OOHTML META tag [here](../../usage/meta-tag).
+Learn more about customization and the OOHTML META tag [here](../../resources/meta-tag).

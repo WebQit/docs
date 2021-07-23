@@ -1,9 +1,6 @@
-# `Observer.getObservers)`
+# `.getObservers)`
 
 This function is used to obtain an object's internal observers list - an `ObserversList` instance. The returned `ObserversList` instance could then be programatically fired with some custom events.
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
 
 ## Syntax
 

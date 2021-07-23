@@ -1,9 +1,9 @@
-# `Observer.unintercept()`
+---
+desc: Unbind interceptors previously bound with <code>Observer.intercept()</code>.
+---
+# `.unintercept()`
 
-This method is used to unbind interceptors previously bound with [`Observer.intercept()`](/interceptor/api/intercept).
-
-+ [Syntax](#syntax)
-+ [Related Methods](#related-methods)
+This method is used to unbind interceptors previously bound with [`Observer.intercept()`](../intercept).
 
 ## Syntax
 
@@ -25,10 +25,10 @@ Observer.unintercept(obj, type, null, {tags:[...originalTags]});
 
 **Parameters**
 
-+ `obj:             Object|Array` - an object or array.
-+ `type:            String` - if not `null`, the operation type used on [`Observer.intercept()`](/interceptor/api/intercept)
-+ `originalHandler: Function` - if not `null`, the *original* callback function used on [`Observer.intercept()`](/interceptor/api/intercept)
-+ `params.tags:     Array` - if not `null`, the list of *tags* (in any order) used on [`Observer.intercept()`](/interceptor/api/intercept)
++ **`obj:             Object|Array`** - an object or array.
++ **`type:            String`** - if not `null`, the operation type used on [`Observer.intercept()`](../intercept)
++ **`originalHandler: Function`** - if not `null`, the *original* callback function used on [`Observer.intercept()`](../intercept)
++ **`params.tags:     Array`** - if not `null`, the list of *tags* (in any order) used on [`Observer.intercept()`](../intercept)
 
 
 **Return Value**
@@ -37,4 +37,4 @@ Observer.unintercept(obj, type, null, {tags:[...originalTags]});
 
 ## Related Methods
 
-+ [`Observer.intercept()`](/interceptor/api/intercept)
++ [`Observer.intercept()`](../intercept)

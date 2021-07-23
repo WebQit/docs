@@ -137,6 +137,89 @@ $.ui.on(selector, 'swipeleft', e => {
 
 Now, build bigger things, like web components, with Play UI kicking under the hood. Selectively import just the functions you need into your projects.
 
+## Meet Async UI
+
+Surgically updating the UI is generally a costly operation for browsers. It happens when we write to the DOM and read from it in quick succession in a rendering cycle - causing document reflows, or better put, forced synchronous layout. (But a common word is *layout thrashing*.) This is covered in detail in [this article on Web Fundamentals](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing).
+
+Play UI meets this challenge with a simple timing strategy that keeps UI manipulation in sync with the browser's rendering cycle. To do this, DOM operations are internally held in read/write queues, then executed in read/write batches within each rendering cycle, eliminating the forced synchronous layout problem. This is what happens under the hood with all of the Play UI functions that have the *Async* suffix; e.g [`htmlAsync()`](../api/dom/htmlasync). The asynchronous nature of these functions bring them under the term *Async UI*.
+
+The order of execution of the code below demonstrates the asynchronous nature of these functions.
+
+```js
+// Set content
+$(document.body).htmlAsync('Hi').then(() => {
+    console.log('Completed: write operation 1');
+});
+
+// Get content
+$(document.body).htmlAsync().then(content => {
+    console.log('Completed: read operation 1');
+});
+
+// Set content
+$(document.body).htmlAsync('Hi again').then(() => {
+    console.log('Completed: write operation 2');
+});
+
+// Get content
+$(document.body).htmlAsync().then(content => {
+    console.log('Completed: read operation 2');
+});
+
+// ------------
+// console
+// ------------
+Completed: read operation 1
+Completed: read operation 2
+Completed: write operation 1
+Completed: write operation 2
+```
+
+Notice that *read* operations are executed first, then *write* operations.
+
+Where the order of execution matters, subsequent code could be moved into the `then()` block each of the *async* functions.
+
+```js
+// Set content
+$(document.body).htmlAsync('Hi').then(() => {
+    console.log('Completed: write operation 1');
+    // Get content
+    $(document.body).htmlAsync().then(content => {
+        console.log('Completed: read operation 1');
+    });
+});
+
+// ------------
+// console
+// ------------
+Completed: write operation 1
+Completed: read operation 1
+```
+
+Now, where immediate DOM manipulation is still a necessity, the *Sync* counterpart of the functions above will be just as good.
+
+```js
+// Set content
+$(document.body).htmlSync('Hi');
+console.log('Completed: write operation 1');
+// Get content
+$(document.body).htmlSync();
+console.log('Completed: read operation 1');
+
+// ------------
+// console
+// ------------
+Completed: write operation 1
+Completed: read operation 1
+```
+
+Note that the *Sync* option is what is implied where no suffix is explicitly used in the function name.
+
+```js
+$(document.body).html('Hi');
+console.log('Completed: write operation 1');
+```
+
 ## Next Steps
 
-Explore further: [The concepts](../concepts).
+Explore further: [The API Reference](../api).

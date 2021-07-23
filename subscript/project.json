@@ -1,7 +1,41 @@
 {
     "title": "Subscript",
     "icon": "terminal",
-    "desc": "A pseudo JavaScript engine.",
+    "desc": "A light-weight JavaScript parser and interpreter written in JavaScript; a completely-interceptable JavaScript runtime for ambitious usecases.",
     "categories": ["JS Development"],
-    "outline": []
+    "tags": ["OOHTML", "UI", "Build Tool"],
+    "quickstart": {"cdn": true},
+    "features": [{
+        "icon": "percent",
+        "title": "Small! Fast!",
+        "desc": "Try a focused implementation of just everyday JavaScript that fits anywhere.",
+        "cta": {
+            "href": "/tooling/subscript/docs/getting-started/overview#small-fast",
+            "text": "Learn more"
+        }
+    }, {
+        "icon": "diagram-2",
+        "title": "AST Plus Tree-Walking",
+        "desc": "Parse your JavaScript into a traversable AST, and back again into JavaScript rewritten!",
+        "cta": {
+            "href": "/tooling/subscript/docs/getting-started/overview#traversable-ast",
+            "text": "Learn more"
+        }
+    }, {
+        "icon": "cpu",
+        "title": "A Pseudo Runtime!",
+        "desc": "Fully execute an AST with just any object as its scope! Ditch the native <code>eval()</code> function!",
+        "cta": {
+            "href": "/tooling/subscript/docs/getting-started/overview#a-pseudo-runtime",
+            "text": "Learn more"
+        }
+    }, {
+        "icon": "plug",
+        "title": "Runtime Traps and Hooks",
+        "desc": "Follow every operation with Proxy-traps'ish callbacks and runtime hooks.",
+        "cta": {
+            "href": "/tooling/subscript/docs/getting-started/overview#runtime-traps-and-hooks",
+            "text": "Learn more"
+        }
+    }]
 }

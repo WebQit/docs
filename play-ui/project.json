@@ -1,10 +1,10 @@
 {
     "title": "Play UI",
     "icon": "play",
-    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, plus a futuristic CSS framework and a Web Components library - for modern user interfaces.",
+    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, plus a futuristic CSS framework and a Web Components library for the modern UI.",
     "categories": ["Featured", "UI Development"],
     "tags": ["Async-DOM", "Animations", "Events", "Gestures", "UI Geometry", "CSS framework"],
-    "quickstart": {"directive": "npm i @webqit/play-ui; or CDN: https://unpkg.com/@webqit/play-ui/dist/main.js"},
+    "quickstart": {"cdn": true},
     "features": [{
         "icon": "heart",
         "title": "Succinct API",

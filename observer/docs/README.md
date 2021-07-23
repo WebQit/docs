@@ -1,11 +1,10 @@
-# The Observer API
+---
+_subtreeType: category
+---
+# The Observer API Docs
 
-## Introduction
+Welcome to the Observer API documentation. We hope you find it easy to understand and navigate.
 
-Observer is an API for intercepting and observing JavaScript objects and arrays. And this is not the regular state management library. It's web-native design and arhitecture and simplicity are the deal! 
-
-## Getting Started
-
-Take [the one-munite overview](overview) of The Observer API and follow the [download options](download) to add the Observer library to your project.
+If you have questions about anything related to the Observer API, you're always welcome to ask on our [GitHub Discussions](https://github.com/webqit/observer/discussions).
 
 ## Explore the Docs

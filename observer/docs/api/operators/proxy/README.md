@@ -1,35 +1,39 @@
-# `Observer.proxy()`
+---
+desc: Wrap an object or array in a reactive proxy.
+---
+# `.proxy()`
 
-This function wraps an object or array in a proxy with all operations on the instance forwarded to the appropriate [*interceptors*](../interceptors), and announced to [*observers*](../observe).
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
-+ [Related Methods](#related-methods)
+This function is used to wrap an object or array in a reactive proxy that forwards all operations to the appropriate [*interceptors*](../../subscribers/interceptors), and announces them to [*observers*](../../subscribers/observe).
 
 ## Syntax
 
 ```js
 // Wrap an object
-let _obj = Observer.proxy(obj);
+let _obj = Observer.proxy(obj[, params = {}]);
 ```
 
 **Parameters**
 
-+ `obj:             Object|Array` - an object or array.
++ **`obj:             Object|Array`** - an object or array.
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.responseObject` parameter cannot be used with `Observer.proxy()`.*
 
 **Return Value**
 
-*Proxy*
++ **`_obj:            Proxy`**
 
 ## Usage
 
 ```js
 // The observed object/array
 let arr = [];
-Observer.observe(arr, changes => {
-    console.log(changes);
+Observer.observe(arr, deltas => {
+    deltas.forEach(delta => {
+        console.log(delta.type, delta.name, delta.path, delta.value, delta.oldValue);
+    });
 });
+```
 
+```js
 // The proxy
 Observer.proxy(arr).push('one', 'two');
 ```
@@ -38,6 +42,5 @@ The above operation above will notify our observer *three times* each for a *set
 
 ## Related Methods
 
-+ [`Observer.closure()`](../closure)
-+ [`Observer.observe()`](../observe)
-+ [`Observer.intercept()`](../intercept)
++ [`Observer.unproxy()`](../unproxy)
++ [`Observer.accessorize()`](../accessorize)

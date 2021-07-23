@@ -1,14 +1,14 @@
 {
     "title": "The Observer API",
     "icon": "braces",
-    "desc": "The web-native reactivity API for anything from observing and intercepting JavaScript objects and arrays, to writing the event-driven everything!",
+    "desc": "The web-native, JavaScript reactivity API for observing and intercepting JavaScript objects and arrays, and achieving the reactive everything!",
     "categories": ["JS Development"],
     "tags": ["reactivity", "proxies", "accessors"],
-    "quickstart": {"directive": "npm i @webqit/observer; or CDN: https://unpkg.com/@webqit/observer/dist/main.js"},
+    "quickstart": {"cdn": true},
     "features": [{
         "icon": "braces",
-        "title": "Primitves on Steroids",
-        "desc": "True reactivity with even object literals <code>{}</code> - without the object -wrapping or -rewriting tricks!",
+        "title": "The Reactive Everything",
+        "desc": "True reactivity with even plain objects <code>{}</code>; no special classes or object wrappers!",
         "desc-ideas": "No re-defining and messing around object properties; no wrapping and messing around object identity; that leave your code unnatural. This is utility-first/based not wrapper/encapsulation/observable-based.",
         "desc-ideas2": "No object re-writing or encapsulation trick; everything kicks even with object literals: <code>Observer.observe({}, callback);</code>. adds observable capabilities to existing data structures like objects, arrays and class instances",
         "cta": {
@@ -19,7 +19,7 @@
         "icon": "bullseye",
         "icon-ideas": "diagram-2 bullseye broadcast",
         "title": "Deeeep-Tree Bangs",
-        "desc": "Observe deep-tree events! Optionally specify paths and even depths.",
+        "desc": "Observe deep object-tree operations! Optionally specify paths and even depths.",
         "cta": {
             "href": "/tooling/observer/docs/js/concepts#async-ui",
             "text": "Learn more"

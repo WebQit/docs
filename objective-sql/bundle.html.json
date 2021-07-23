@@ -1,5 +1,34 @@
 {
     "meta": {
+        "readme": {
+            "outline": [
+                {
+                    "level": 2,
+                    "title": "Simpler SQL Everywhere!",
+                    "uri": "simpler-sql-everywhere",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Getting Started",
+                            "uri": "getting-started",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Contributing to the Project",
+                            "uri": "contributing-to-the-project",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        },
         "bundle.html": {},
         "project": {}
     },
@@ -7,51 +36,124 @@
         "docs": {
             "meta": {
                 "readme": {
-                    "icon": "layers",
-                    "desc": "Fullstack, object-oriented SQL for modern apps; one language and one API over diverse data storage technologies - from in-memory storage, to the client-side IndexedDB, to the server-side database like MySQL.",
-                    "desc2": "Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using a succinct API.",
-                    "categories": "Featured, Libraries",
-                    "tags": "SQL, Indexed DB, In-Memory Store, Object Store",
-                    "_after": "webflo",
+                    "_subtreeType": "category",
                     "outline": [
                         {
                             "level": 1,
-                            "title": "Objective SQL",
-                            "uri": "objective-sql",
+                            "title": "The Objective-SQL Docs",
+                            "uri": "the-objective-sql-docs",
                             "subtree": [
                                 {
                                     "level": 2,
-                                    "title": "Basic Usage",
-                                    "uri": "basic-usage",
-                                    "subtree": []
-                                },
-                                {
-                                    "level": 2,
-                                    "title": "The Language",
-                                    "uri": "the-language",
-                                    "subtree": []
-                                },
-                                {
-                                    "level": 2,
-                                    "title": "The API",
-                                    "uri": "the-api",
-                                    "subtree": []
-                                },
-                                {
-                                    "level": 2,
-                                    "title": "Storage",
-                                    "uri": "storage",
-                                    "subtree": []
-                                },
-                                {
-                                    "level": 2,
-                                    "title": "Schemas",
-                                    "uri": "schemas",
+                                    "title": "Explore the Docs",
+                                    "uri": "explore-the-docs",
                                     "subtree": []
                                 }
                             ]
                         }
                     ]
+                }
+            },
+            "subtree": {
+                "getting-started": {
+                    "meta": {
+                        "readme": {
+                            "_index": "first",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "download": {
+                            "meta": {
+                                "readme": {
+                                    "title": "Download",
+                                    "desc": "Follow the download options to add Objective SQL to your project.",
+                                    "_index": "last",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Download Options",
+                                            "uri": "download-options",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 1: From a CDN",
+                                                    "uri": "option-1-from-a-cdn",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 2: As an npm Package",
+                                                    "uri": "option-2-as-an-npm-package",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Next Steps",
+                                                    "uri": "next-steps",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "overview": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "Take a one-minute overview of Objective SQL.",
+                                    "_index": "first",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Overview",
+                                            "uri": "overview",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Basic Usage",
+                                                    "uri": "basic-usage",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "The Language",
+                                                    "uri": "the-language",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "The API",
+                                                    "uri": "the-api",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Storage",
+                                                    "uri": "storage",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Schemas",
+                                                    "uri": "schemas",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

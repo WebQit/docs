@@ -5,7 +5,7 @@ desc: Prepend content to an element.
 
 This method is used to prepend content to an element. It works exactly the same as the native [`ParentNode.prepend()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`.prependAsync()`](../prependasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`.prependAsync()`](../prependasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 ## Syntax
 

@@ -5,11 +5,9 @@
 
 <!-- /BADGES -->
 
-## Why OOHTML
+## Robust, Web-Native UI Development
 
-Think an all-new ability to author the UI from modular, reusable parts that maintain a one-way or two-way binding with your JavaScript appliaction - but this time, **altogether based on just native web platform features and none of a framework**! OOHTML is that suite of DOM features that provides a native and more convenient way to write modular, reusable, and reactive HTML. It comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.
-
-Try handcrafting your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code or dealing with a compile step!
+Think an all-new ability to author your entire UI from modular, reusable and granularly reactive HTML, letting you maintain a one-way or two-way binding with your JavaScript appliaction - and this time, **altogether based on just native web platform primitives and none of a framework**! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.
 
 > **OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) at the Web Platform Incubator Community Group. Consider joining the discussion.**
 

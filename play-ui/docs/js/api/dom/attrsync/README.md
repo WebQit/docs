@@ -5,7 +5,7 @@ desc: Set or get an element's attribute.
 
 This method is used to set or get an element's attribute. It is a shorter alternative to the native [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`attrAsync()`](../attrasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`attrAsync()`](../attrasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 + [Set Attributes](#a-set-attributes)
 + [Get Attributes](#b-get-attributes)

@@ -5,7 +5,7 @@ desc: Prepend matched elements to target elements.
 
 This method is used to prepend matched elements to target elements.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`.prependToAsync()`](../prependtoasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`.prependToAsync()`](../prependtoasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 ## Syntax
 

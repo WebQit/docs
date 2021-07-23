@@ -1,9 +1,9 @@
-# `Observer.unobserve()`
+---
+desc: Unbind observers previously bound with <code>Observer.observe()</code>.
+---
+# `.unobserve()`
 
-This method is used to unbind observers previously bound with [`Observer.observe()`](../observe).
-
-+ [Syntax](#syntax)
-+ [Related Methods](#related-methods)
+This method is used to unbind *observers* previously bound with the [`Observer.observe()`](../observe) method.
 
 ## Syntax
 
@@ -16,28 +16,33 @@ Observer.unobserve(obj, path);
 Observer.unobserve(obj, path, originalCallback);
 
 // Unbind the observer bound with the following handler function and tags
-Observer.unobserve(obj, path, originalCallback, {tags:[...originalTags]});
+Observer.unobserve(obj, path, originalCallback, { tags: [ ...originalTags ] });
 
 // Unbind the observer bound with the following handler function and reflex type 
-Observer.unobserve(obj, path, originalCallback, {type:’set’});
+Observer.unobserve(obj, path, originalCallback, { type: ’set’ });
 
 // Unbind all observers bound with the following tags
 // regardless of the handler function
-Observer.unobserve(obj, paths, null, {tags:[...originalTags]});
+Observer.unobserve(obj, [ path, ... ], null, { tags: [ ...originalTags ] });
 ```
 
 **Parameters**
 
-+ `obj:             Object|Array` - an object or array.
-+ `path:            String|Array` - if not `null`, a path to unobserve.
-+ `paths:           Array` - if not `null`, the list of paths (in any order) to unobserve.
-+ `originalCallback: Function` - if not `null`, the *original* callback function used during [`observe()`](../observe)
-+ `params.tags:     Array` - if not `null`, the list of the *original* tags (in any order) used during [`observe()`](../observe)
++ **`obj:             Object|Array`** - An object or array.
++ **`path:            String|Array`** - If not `null`, a path to unobserve.
++ **`originalCallback: Function`** - If not `null`, the *original* callback function used during [`Observer.observe()`](../observe)
++ **`params:          Object`** - Additional parameters for the method.
+        
+    + **`tags:     Array`** - If not `null`, the list of the *original* tags (in any order) used during [`Observer.observe()`](../observe).
 
 
 **Return Value**
 
 *undefined*
+
+## Usage
+
+*See [`Observer.observe()`](../observe#usage).*
 
 ## Related Methods
 

@@ -1,141 +1,48 @@
-# `Observer.defineProperty()`
+---
+desc: Reactively define a property on an object or array or reconfigures an existing property.
+---
+# `.defineProperty()`
 
-This method is used to define a property on an object or modifies an existing property. It corresponds to the JavaScript's `Reflect.defineProperty()` function.
-
-`Observer.defineProperty()` brings the added benefit of driving [*observers*](../observe) and [*interceptors*](../intercept).
+This method is used to reactively define a property on an object or array or reconfigures an existing property. It corresponds to the native [`Reflect.defineProperty()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty). `Observer.defineProperty()` offers reactivity over this operation.
 
 The `Observer.def()` function is an alias of this function and can be used interchangeably.
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
-+ [Usage as a Trap's defineProperty Handler](#usage-as-a-traps-defineproperty-handler)
-+ [Intercepting `Observer.defineProperty()`](#Intercepting-observer.defineproperty)
-+ [Related Methods](#related-methods)
 
 ## Syntax
 
 ```js
 // Define a property
-Observer.defineProperty(obj, propertyName, propertyDescriptor);
+Observer.defineProperty(obj, propertyName, propertyDescriptor[, params = {}]);
 
 // Define a list of properties
-Observer.defineProperty(obj, propertyNames, propertyDescriptor);
+Observer.defineProperty(obj, [ propertyName, ... ], propertyDescriptor[, params = {}]);
 ```
 
 **Parameters**
 
-+ `obj:                 Object|Array` - an object or array.
-+ `propertyName:        String` - the property to define.
-+ `propertyNames:       Array` - a list of properties to define with the same *propertyDescriptor*.
-+ `propertyDescriptor:  Object` - the property descriptor as specified for [`Reflect.defineProperty()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect).
++ **`obj:                 Object|Array`** - An object or array.
++ **`propertyName:        String`** - The property to define. If multiple, all listed properties will be defined with the same *propertyDescriptor*.
++ **`propertyDescriptor:  Object`** - The property descriptor as specified for [`Reflect.defineProperty()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty).
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams).
 
 **Return Value**
 
-*Boolean*
-*Object* - See [Returning Responses Back from Observers](#returning-responses-back-from-observers)
++ **Boolean** - This is either `true` or `false` on the outcome of the operation.
++ **Response** - The returned [Response](../../../core/Response) object for the operation, where the `params.responseObject` is set to `true`. *See the section [Returning Responses Back to Operators](../../subscribers/observe#returning-responses-back-to-operators) at [`Observer.observe()`](../../subscribers/observe).*
 
 ## Usage
 
-### Defining a Specific Property
+*Case 1 - Define a specific property:*
 
 ```js
 // On an object
-Observer.defineProperty(obj, 'fruit', {value:'orange'});
+Observer.defineProperty(obj, 'fruit', { value: 'orange' });
 ```
 
-### Defining a List of Properties
+*Case 2 - Define a list of properties:*
 
 ```js
 // On an object
-Observer.defineProperty(obj, ['fruit', 'brand'], {value:'orange'});
-```
-
-### Passing a Value to Observers
-
-The `params.detail` property can be used to pass a value specifically to observers that might be responding to the `del` event. Any type of value can be passed.
-
-```js
-Observer.defineProperty(obj, propertyName, propertyDescriptor, {
-    detail: 'This is observer-specific detail',
-});
-```
-
-The *detail* above would now be available to every handler.
-
-```js
-Observer.observe(obj, propertyName, event => {
-    console.log(event.detail);
-});
-```
-
-### Returning Responses Back from Observers
-
-When a *def* operation fires an event, event handlers recieve a special object, called the *Response Object*, in addition to the standard event object. The Response Object can be used to, either *halt*, or *keep in sync* with what happens next.
-
-**response.stopPropagation()** cancels the event, that is, prevents the event from reaching other event handlers. Returning `false` from the handler has the same effect. 
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    response.stopPropagation();
-    // Or, return false;
-});
-```
-
-The initiator of the *def* operation has to flag the event as *cancellable* for the above to be honoured. It may also obtain the response object to determine the state of this response.
-
-```js
-let response = Observer.defineProperty(obj, propertyName, propertyDescriptor, {
-    cancellable: true,
-    responseObject: true,
-});
-// Determine response state...
-if (response.propagationStopped) {
-}
-```
-
-**response.preventDefault()** tells the initiator of the *def* operation to skip the *default action* that it takes, if any, after *def* operations. Returning `false` from the handler has the same effect. (The event still reaches other handlers.)
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    response.preventDefault();
-    // Or, return false;
-});
-```
-
-The initiator of the *def* operation may obtain the response object to determine the state of this response.
-
-```js
-let response = Observer.defineProperty(obj, propertyName, propertyDescriptor, {
-    responseObject: true,
-});
-// Determine response state...
-if (response.defaultPrevented) {
-}
-```
-
-**response.waitUntil(promise)** tells the initiator of the *def* operation to wait until a *Promise* is resolved before continuing with further operations. Returning a `Promise` from the handler has the same effect. (The event still reaches other handlers without waiting.)
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    let promise = new Promise(resolve => {
-        setTimeout(resolve, 2000);
-    });
-    response.waitUntil(promise);
-    // Or, return promise;
-});
-```
-
-The initiator of the *def* operation may obtain the response object to determine the state of this response. The state of this response becomes a promise when one or more handlers return a promise.
-
-```js
-let response = Observer.defineProperty(obj, propertyName, propertyDescriptor, {
-    responseObject: true,
-});
-// Determine response state...
-if (response.promises) {
-    response.promises.then(() => {
-    });
-}
+Observer.defineProperty(obj, [ 'fruit', 'brand' ], { value: 'orange' });
 ```
 
 ## Usage as a Trap's defineProperty Handler
@@ -147,30 +54,62 @@ let _obj = new Proxy(obj, {defineProperty: Observer.defineProperty});
 let _arr = new Proxy(arr, {defineProperty: Observer.defineProperty});
 ```
 
-*Define* operations will now be forwarded to `Observer.defineProperty()` and [*observers*](../observe) and [*interceptors*](../intercept) that may be bound to the object will continue to respond.
+*Define* operations will now be forwarded to `Observer.defineProperty()`, triggering any [*interceptors*](../../../core/overview/interceptors) and [*observers*](../../../core/overview/observers) that may be bound to the object.
 
 ```js
-Reflect.defineProperty(_obj, 'fruit', {value:'apple'});
+Reflect.defineProperty(_obj, 'fruit', { value:'apple' });
 ```
 
 ## Intercepting `Observer.defineProperty()`
 
-Using [`Observer.intercept()`](../intercept), it is possible to intercept calls to `Observer.defineProperty()`. When a "def" operation triggers an interceptor, the interceptor will receive an event object containing the property name to define and the property descriptor.
+Using [`Observer.intercept()`](../../subscribers/intercept), it is possible to intercept calls to `Observer.defineProperty()`. During a "defineProperty" operation, interceptors will receive an event object containing the property name being defined and the descriptor object.
 
 ```js
-Observer.intercept(obj, 'def', (event, recieved, next) => {
+Observer.intercept(obj, 'def', (event, previous, next) => {
+    
     // What we recieved...
     console.log(event.name, event.descriptor);
-    // The define operation, and the return value - Boolean
-    return Reflect.defineProperty(obj, event.name, event.descriptor);
-});
 
-Observer.defineProperty(obj, 'fruit', {value:'apple'});
+    // Reconfigure the descriptor that the next
+    // interceptor (or the default handler) sees
+    let _descriptor = { ...event.descriptor };
+    if (_descriptor.configurable === true) {
+        _descriptor.configurable = false;
+    }
+
+    return next(_descriptor);
+});
 ```
 
-The interceptor is expected to return *true* when the deletion is successful; *false* otherwise.
+```js
+Observer.defineProperty(obj, 'fruit', {
+    value:'apple',
+    configurable: true,
+});
+```
+
+The interceptor is expected to return *true* if the custom operation was successful; *false* otherwise.
+
+When the "defineProperty" operation is of multiple properties, the interceptor gets fired for each property while also recieving the total list of properties as a hint - via `event.related`.
+
+```js
+Observer.intercept(obj, 'def', (event, previous, next) => {
+    
+    // What we recieved...
+    console.log(event.name, event.related);
+
+    // Just forward the operation
+    return next();
+});
+```
+
+```js
+Observer.deleteProperty(obj, [ 'fruit', 'brand' ], { value:'apple' });
+```
+
+The above should trigger our interceptor twice with `event.related` being `['fruit', 'brand']` each time.
 
 ## Related Methods
 
-+ [`Observer.observe()`](../observe)
-+ [`Observer.intercept()`](../intercept)
++ [`Observer.observe()`](../../subscribers/observe)
++ [`Observer.intercept()`](../../subscribers/intercept)

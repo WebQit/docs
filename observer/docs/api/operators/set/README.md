@@ -1,15 +1,9 @@
-# `Observer.set()`
+---
+desc: Reactively set the value of an object's property.
+---
+# `.set()`
 
-This method is used to set the value of an object's property. It corresponds to the JavaScript's `Reflect.set()` function, which is itself the programmatic alternative to the assignment expression – `obj.property = value`.
-
-`Observer.set()` brings the added benefit of triggering [*observers*](../observe) and [*interceptors*](../intercept).
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
-+ [Usage as a Trap's "set" Handler](#usage-as-a-traps-set-handler)
-+ [Usage with Property Setters](#usage-with-property-setters)
-+ [Intercepting `Observer.set()`](#Intercepting-observer.set)
-+ [Related Methods](#related-methods)
+This method is used to reactively set the value of an object's property. It corresponds to the JavaScript's [`Reflect.set()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set) function, which is itself the programmatic alternative to the assignment expression – `object.property = value`. `Observer.set()` offers reactivity over this operation.
 
 ## Syntax
 
@@ -26,39 +20,33 @@ Observer.set(obj, keyValueMap[, = {}]);
 
 **Parameters**
 
-+ `obj:             Object|Array` - an object or array.
-+ `propertyName:    String|Number` - the property to modify.
-+ `propertyNames:   Array` - a list of properties to modify.
-+ `value:           Any` - the value to set.
-+ `keyValueMap:     Object` - an object of key/value pairs.
-+ `params:          Object` - optional paramters for the operation.
++ **`obj:             Object|Array`** - An object or array.
++ **`propertyName:    String|Number`** - The property to create or update.
++ **`propertyNames:   Array`** - A list of properties to create or update. *These will be assigned the same value.*
++ **`value:           Any`** - The value to set.
++ **`keyValueMap:     Object`** - An object of key/value pairs.
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams).
 
 **Return Value**
 
-*Boolean*
-*Object* - See [Returning Responses Back from Observers](#returning-responses-back-from-observers)
++ **Boolean** - This is either `true` or `false` on the outcome of the operation.
++ **Response** - The returned [Response](../../../core/Response) object for the operation, where the `params.responseObject` is set to `true`. *See the section [Returning Responses Back to Operators](../../subscribers/observe#returning-responses-back-to-operators) at [`Observer.observe()`](../../subscribers/observe).*
 
 ## Usage
 
-### Assigning On a Specific Property
+*Case 1 - Setting a specific property:*
 
 ```js
 // On an object
 Observer.set(obj, 'fruit', 'orange');
+```
+
+```js
 // On an array
 Observer.set(arr, 0, 'orange');
 ```
 
-### Assigning On a List of Propertieskeys
-
-```js
-// On an object
-Observer.set(obj, ['fruit', 'brand'], 'apple');
-// On an array
-Observer.set(arr, [0, 3], 'apple');
-```
-
-### Multiple Key/Value Assignment
+*Case 2 - Setting multiple properties:*
 
 ```js
 // On an object
@@ -66,7 +54,9 @@ Observer.set(obj, {
     fruit:'apple',
     brand:'apple'
 });
+```
 
+```js
 // On an array
 // Provide key/value as an object
 Observer.set(arr, {
@@ -75,92 +65,16 @@ Observer.set(arr, {
 });
 ```
 
-### Passing a Value to Observers
-
-The `params.detail` property can be used to pass a value specifically to observers that might be responding to the `set` event. Any type of value can be passed.
+*Case 3 - Setting multiple properties - with a shared value:*
 
 ```js
-Observer.set(obj, propertyName, value, {
-    detail: 'This is observer-specific detail',
-});
+// On an object
+Observer.set(obj, [ 'fruit', 'brand' ], 'apple');
 ```
 
-The *detail* above would now be available to every handler.
-
 ```js
-Observer.observe(obj, propertyName, event => {
-    console.log(event.detail);
-});
-```
-
-### Returning Responses Back from Observers
-
-When a *set* operation fires an event, event handlers recieve a special object, called the *Response Object*, in addition to the standard event object. The Response Object can be used to, either *halt*, or *keep in sync* with what happens next.
-
-**response.stopPropagation()** cancels the event, that is, prevents the event from reaching other event handlers. Returning `false` from the handler has the same effect. 
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    response.stopPropagation();
-    // Or, return false;
-});
-```
-
-The initiator of the *set* operation has to flag the event as *cancellable* for the above to be honoured. It may also obtain the response object to determine the state of this response.
-
-```js
-let response = Observer.set(obj, propertyName, value, {
-    cancellable: true,
-    responseObject: true,
-});
-// Determine response state...
-if (response.propagationStopped) {
-}
-```
-
-**response.preventDefault()** tells the initiator of the *set* operation to skip the *default action* that it takes, if any, after *set* operations. Returning `false` from the handler has the same effect. (The event still reaches other handlers.)
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    response.preventDefault();
-    // Or, return false;
-});
-```
-
-The initiator of the *set* operation may obtain the response object to determine the state of this response.
-
-```js
-let response = Observer.set(obj, propertyName, value, {
-    responseObject: true,
-});
-// Determine response state...
-if (response.defaultPrevented) {
-}
-```
-
-**response.waitUntil(promise)** tells the initiator of the *set* operation to wait until a *Promise* is resolved before continuing with further operations. Returning a `Promise` from the handler has the same effect. (The event still reaches other handlers without waiting.)
-
-```js
-Observer.observe(obj, propertyName, (event, response) => {
-    let promise = new Promise(resolve => {
-        setTimeout(resolve, 2000);
-    });
-    response.waitUntil(promise);
-    // Or, return promise;
-});
-```
-
-The initiator of the *set* operation may obtain the response object to determine the state of this response. The state of this response becomes a promise when one or more handlers return a promise.
-
-```js
-let response = Observer.set(obj, propertyName, value, {
-    responseObject: true,
-});
-// Determine response state...
-if (response.promises) {
-    response.promises.then(() => {
-    });
-}
+// On an array
+Observer.set(arr, [0, 3], 'apple');
 ```
 
 ## Usage as a Trap's "set" Handler
@@ -172,7 +86,7 @@ let _obj = new Proxy(obj, {set: Observer.set});
 let _arr = new Proxy(arr, {set: Observer.set});
 ```
 
-Assignment operations will now be forwarded to `Observer.set()` and [*observers*](../observe) and [*interceptors*](../intercept) that may be bound to the object will continue to respond.
+Assignment operations will now be forwarded to `Observer.set()` and triggering any [*interceptors*](../../../core/overview/interceptors) and [*observers*](../../../core/overview/observers) that may be bound to the object.
 
 ```js
 _obj.fruit = 'apple';
@@ -181,69 +95,71 @@ _arr[2] = 'Item 3';
 
 ## Usage with Property Setters
 
-It is possible to implement *property setters* that use `Observer.set()` behind the scene. This gives us the benefit of using JavaScript's assignment syntax while still driving [*observers*](../observe) and [*interceptors*](../intercept).
+It is possible to implement *property setters* that use `Observer.set()` behind the scene. This gives us the benefit of using JavaScript's assignment syntax reactively.
 
-This is automatically done by the [`Observer.init()`](../init) support function.
+This is automatically done by the [`Observer.accessorize()`](../accessorize) method.
 
 ```js
 // Virtualize a property or multiple properties
-Observer.init(obj, 'fruit');
-Observer.init(obj, ['fruit', 'brand']);
+Observer.accessorize(obj, 'fruit');
+Observer.accessorize(obj, [ 'fruit', 'brand' ]);
+```
 
+Now assigning on the properties will trigger any [*interceptors*](../../../core/overview/interceptors) and [*observers*](../../../core/overview/observers) that may be bound to the object.
+
+```js
 // Now we can do without Observer.set
 obj.fruit = 'apple';
 obj.brand = 'apple';
 ```
 
-We could follow the pattern above for arrays; we could even *init* an array's prototype methods instead. The specific keys modified after calling these methods will be announced to [*observers*](../observe).
-
-```js
-// Virtualize the arr.push() and arr.splice() methods
-Observer.init(arr, ['push', 'splice']);
-
-// Now we can do without Observer.set
-arr.push('Item 1');
-arr.push('Item 2');
-arr.splice(1);
-```
-
 ## Intercepting `Observer.set()`
 
-Using [`Observer.intercept()`](../intercept), it is possible to intercept calls to `Observer.set()`. When a "set" operation triggers an interceptor, the interceptor will receive an event object containing the property name and the assignable value.
+Using [`Observer.intercept()`](../../subscribers/intercept), it is possible to intercept calls to `Observer.set()`. During a "set" operation, interceptors will receive an event object containing the property name being set and the assignable value.
 
 ```js
-Observer.intercept(obj, 'set', (event, recieved, next) => {
+Observer.intercept(obj, 'set', (event, previous, next) => {
+    
     // What we recieved...
     console.log(event.name, event.value);
+
     // The assignment operation
     obj[event.name] = event.value;
+
     // The return value - Boolean
     return true;
 });
+```
 
+```js
 Observer.set(obj, 'fruit', 'orange');
 ```
 
-When the "set" operation is of multiple key/value assignments, the interceptor gets fired for each pair while also recieving the total list of properties as a hint - via `event.related`.
+The interceptor is expected to return *true* if the custom operation was successful; *false* otherwise.
+
+When the "set" operation is of multiple key/value assignments, an interceptor will get fired for each pair while also recieving the total list of properties as a hint - via `event.related`.
 
 ```js
-Observer.intercept(obj, 'set', (event, recieved, next) => {
+Observer.intercept(obj, 'set', (event, previous, next) => {
+
     // What we recieved...
     console.log(event.name, event.value, event.related);
+
     // The assignment operation
     obj[event.name] = event.value;
+
     // The return value - Boolean
     return true;
 });
+```
 
+```js
 Observer.set(obj, {fruit: 'orange', brand:'apple'});
 ```
 
-The above should trigger our interceptor twice with `event.related` being `['fruit', 'brand']`.
-
-The interceptor is expected to return *true* when the operation is successful; *false* otherwise.
+The above should trigger our interceptor twice with `event.related` being `[ 'fruit', 'brand' ]` each time.
 
 ## Related Methods
 
-+ [`Observer.observe()`](../observe)
-+ [`Observer.intercept()`](../intercept)
++ [`Observer.observe()`](../../subscribers/observe)
++ [`Observer.intercept()`](../../subscribers/intercept)

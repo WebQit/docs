@@ -5,7 +5,7 @@ desc: Asynchronously set or get an element's text content.
 
 This method is used to asynchronously set or get an element's text content. It is the programmatic alternative to [`Element.innerText`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText). Additionally, when this function receives `undefined` for a *set* operation, it is converted to an empty string.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.textSync()`](../textsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.textSync()`](../textsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 + [Set Text Content](#a-set-text-content)
 + [Get Text Content](#b-get-text-content)

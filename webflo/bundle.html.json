@@ -1,12 +1,41 @@
 {
     "meta": {
+        "readme": {
+            "outline": [
+                {
+                    "level": 2,
+                    "title": "For a Full Development Story!",
+                    "uri": "for-a-full-development-story",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Getting Started",
+                            "uri": "getting-started",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Contributing to the Project",
+                            "uri": "contributing-to-the-project",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        },
         "bundle.html": {},
         "project": {}
     },
     "subtree": {
         "docs": {
             "meta": {
-                "readme": {
+                "readme-1": {
                     "icon": "app-indicator",
                     "desc": "The universal JavaScript framework for Web, Mobile, and API Backends; one tool for every step of the way - from development, to deployment, to continous delivery.",
                     "desc2": "Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to a rich web and mobile experience.",
@@ -116,6 +145,126 @@
                             ]
                         }
                     ]
+                },
+                "readme": {
+                    "_subtreeType": "category",
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "The Webflo Docs",
+                            "uri": "the-webflo-docs",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Explore the Docs",
+                                    "uri": "explore-the-docs",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "subtree": {
+                "getting-started": {
+                    "meta": {
+                        "readme": {
+                            "_index": "first",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "download": {
+                            "meta": {
+                                "readme": {
+                                    "title": "Download",
+                                    "desc": "Follow the download options to add the Observer API to your project.",
+                                    "_index": "last",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Download Options",
+                                            "uri": "download-options",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 1: From a CDN",
+                                                    "uri": "option-1-from-a-cdn",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 2: As an npm Package",
+                                                    "uri": "option-2-as-an-npm-package",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Next Steps",
+                                                    "uri": "next-steps",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "overview": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "Take a one-minute overview of the Observer API.",
+                                    "_index": "first",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Overview",
+                                            "uri": "overview",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Observe",
+                                                    "uri": "observe",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Mutate",
+                                                    "uri": "mutate",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Intercept",
+                                                    "uri": "intercept",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Cleaning Up",
+                                                    "uri": "cleaning-up",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "But Beyond this Point Lies…",
+                                                    "uri": "but-beyond-this-point-lies",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

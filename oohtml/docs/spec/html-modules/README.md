@@ -4,7 +4,7 @@ _index: first
 ---
 # HTML Modules
 
-*HTML Modules* are a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigms. This feature establishes the standard `<template>` element as the module infrastructure for HTML and introduces new attributes, properties and events that make that work.
+*HTML Modules* are a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigm. This feature establishes the standard `<template>` element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.
 
 > OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 
@@ -198,7 +198,6 @@ Remote contents automatically become the template's content on load.
 
     ```js
     customElements.define('my-prompt', class extends HTMLElement {
-
         constructor() {
             super();
             // Get the referenced template element
@@ -209,7 +208,6 @@ Remote contents automatically become the template's content on load.
             let shadow =  this.attachShadow({mode: 'open'});
             shadow.append(...shadowContent);
         }
-
     });
     ```
 
@@ -217,12 +215,10 @@ Remote contents automatically become the template's content on load.
 
     ```html
     <body>
-
         <!-- Flavour 1 of <my-prompt> -->
         <my-prompt template="module1"></my-prompt>
         <!-- Flavour 2 of <my-prompt> -->
         <my-prompt template="module2"></my-prompt>
-
     </body>
     ```
 
@@ -309,7 +305,7 @@ The following events are fired on the document object when the document's module
 
 ## Polyfill Support
 
-The current [OOHTML polyfill implementation](../../intro/polyfill) has full support for the HTML Modules specification. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../usage/meta-tag):
+The current [OOHTML polyfill implementation](../../getting-started/polyfill) has full support for the HTML Modules specification. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../resources/meta-tag):
 
 + **[attr.moduleid](#convention)** - The *module ID* attribute. The standard attribute is `name`, but you may use a custom attribute name, where necessary.
         
@@ -319,6 +315,19 @@ The current [OOHTML polyfill implementation](../../intro/polyfill) has full supp
         <template data-name="module2">
             <div exportgroup="export-1"></div>
             <div exportgroup="export-2"></div>
+        </template>
+    </head>
+    ```
+
++ **[element.export](#convention)** - The tag name for the `<export>` element. The standard `<export>` element is `<export>`. This can be changed where necessary.
+        
+    ```html
+    <head>
+        <meta name="oohtml" content="element.export=html-export;" />
+        <template name="module2">
+            <html-export name="export-1">
+                <div></div>
+            </html-export>
         </template>
     </head>
     ```
@@ -398,4 +407,4 @@ The current [OOHTML polyfill implementation](../../intro/polyfill) has full supp
     let templateDependency = myPrompt.tpl;
     ```
 
-Learn more about customization and the OOHTML meta tag [here](../../usage/meta-tag).
+Learn more about customization and the OOHTML meta tag [here](../../resources/meta-tag).

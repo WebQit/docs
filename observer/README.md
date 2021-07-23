@@ -5,13 +5,13 @@
 
 <!-- /BADGES -->
 
-## Why Observer
+## A Utility-First Reactivity API
 
-Observer is an API for observing and intercepting operations on any type of JavaScript objects and arrays, and for implementing the event-driven everything. It is uniquely  web-native in design and arhitecture, notably lightweight, completely transparent and synchronous, but magical!
+Observe and intercept operations on any type of JavaScript objects and arrays, using a uniquely  web-native API! The Observer API is notably lightweight, completely transparent and synchronous, but magical!
 
 ## Getting Started
 
-Take the playbook! [Visit the docs](docs) for an overview, the API and usage guides.
+[Visit the docs](docs) for an overview, the API and usage guides.
 
 <html-import data-id="quickstart" template="@layout/quickstart"></html-import>
 

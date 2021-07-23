@@ -5,7 +5,7 @@ desc: Asynchronously append content to an element.
 
 This method is used to asynchronously append content to an element. It works exactly the same as the native [`ParentNode.append()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.appendSync()`](../appendsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.appendSync()`](../appendsync). Unlike the *Sync* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 ## Syntax
 

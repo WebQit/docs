@@ -10,7 +10,7 @@ The State API is a DOM API that lets us maintain application state at the docume
 
 ## API
 
-This API exposes a `.state` property to a *state object* on the document object and on element instances. Arbitrary values can be set and retrieved on *state objects* the same way we would with regular objects.
+This API exposes a document-level *state object* on a `document.state` property, and an element-level *state object* on an `element.state` property. Arbitrary values can be set and retrieved on *state objects* the same way we would with regular objects.
 
 ### Document-Level State
 
@@ -143,7 +143,7 @@ Element-level state represents the local state of an element.
 
 ## State Observability
 
-The `document.state` property and the `Element.prototype.state` property are implemented as *live objects* that can be observed for property changes. Live objects are observed using the [Observer API](../../spec/the-observer-api).
+State objects are a special kind of objects in that they support *observability*. The `document.state` property and the `Element.prototype.state` property are implemented as *live objects* that can be observed for property changes using the [Observer API](../../spec/the-observer-api).
 
 ```js
 // Obtain the Observer API and use the Observer.observe() method
@@ -274,7 +274,7 @@ myCollapsible.state.collapsed = true;
 
 ## Polyfill Support
 
-The current [OOHTML polyfill implementation](../../intro/polyfill) has full support for The State API. The polyfill additionally makes it possible to customise following areas of its implementation of the API using the [OOHTML META tag](../../usage/meta-tag):
+The current [OOHTML polyfill implementation](../../getting-started/polyfill) has full support for The State API. The polyfill additionally makes it possible to customise following areas of its implementation of the API using the [OOHTML META tag](../../resources/meta-tag):
 
 + **[api.state](#api)** - The property name for exposing the *state object* on DOM elements and the document object. The standard property name is `state`, but you may use a custom property name, where necessary.
         
@@ -312,4 +312,4 @@ The current [OOHTML polyfill implementation](../../intro/polyfill) has full supp
     document.clearStateObject();
     ```
 
-Learn more about customization and the OOHTML meta tag [here](../../usage/meta-tag).
+Learn more about customization and the OOHTML meta tag [here](../../resources/meta-tag).

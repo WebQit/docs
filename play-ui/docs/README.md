@@ -1,6 +1,10 @@
 ---
 _subtreeType: category
 ---
-# Play UI
+# The Play UI Docs
 
-Play UI is a resilient, jQuery-inspired, DOM and UI abstraction library, a modern CSS framework, and a Web Components library. Play UI brings everything that makes the modern UI: layout and styling, geometry and animations, events and getures, and more.
+Welcome to the Play UI documentation. We hope you find it easy to understand and navigate. 
+
+If you have questions about anything related to the Play UI, you're always welcome to ask on our [GitHub Discussions](https://github.com/webqit/play-ui/discussions).
+
+## Explore the Docs

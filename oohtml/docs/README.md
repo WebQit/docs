@@ -1,14 +1,10 @@
 ---
 _subtreeType: category
 ---
-# OOHTML
+# The OOHTML Docs
 
-## Introduction
+Welcome to the OOHTML documentation. We hope you find it easy to understand and navigate.
 
-Object-Oriented HTML (OOHTML) is a suite of new DOM features that particularly facilitates writing *modular*, *reusable*, and *reactive* HTML and JavaScript *natively* and *more conveniently*.
-
-## Getting Started
-
-Take [the five-munite overview](intro/overview) of OOHTML and follow the [download options](intro/polyfill) to add the OOHTML polyfill to your page.
+If you have questions about anything related to OOHTML, you're always welcome to ask on our [GitHub Discussions](https://github.com/webqit/oohtml/discussions).
 
 ## Explore the Docs

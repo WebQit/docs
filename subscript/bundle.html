@@ -1,88 +1,97 @@
 
+	<div exportgroup="readme">
+
+		<!-- BADGES/ -->
+<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/subscript" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/subscript.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/subscript" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/subscript.svg" alt="NPM downloads" /></a></span></p>
+<!-- /BADGES -->
+<h2 id="a-pseudo-javascript-engine">A Pseudo JavaScript Engine</h2>
+<p>Parse and interprete JavaScript with new possibilities! Designate any object as your runtime scope, and even hook into the runtime with traps and custom callbacks! Take all of the magic as a small piece that fits in any project and any environment!</p>
+<h2 id="getting-started">Getting Started</h2>
+<p><a href="/tooling/subscript/docs">Visit the docs</a> for an overview, the commands and usage guides.</p>
+<p><html-import data-id="quickstart" template="@layout/quickstart"></html-import></p>
+<p>Also, <a href="https://github.com/webqit/subscript/discussions">join the Github Discussions</a> for OOHTML.</p>
+<h2 id="contributing-to-the-project">Contributing to the Project</h2>
+<p>Help report bugs, or request features; or join in the development.</p>
+<ul>
+<li><a href="https://github.com/webqit/subscript">Visit this project on github</a>.</li>
+<li><a href="https://github.com/webqit/webqit-tooling.docs/edit/master/subscript/docs">Contribute to the docs on github</a>.</li>
+</ul>
+<h2 id="license">License</h2>
+<p>The MIT license.</p>
+
+	</div>
+
 	
 
 	<template name="docs">
 		<div exportgroup="readme">
 
-			<h1 id="subscript">Subscript</h1>
-<!-- BADGES/ -->
-<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/subscript" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/subscript.svg" alt="NPM version" /></a></span><br />
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/subscript" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/subscript.svg" alt="NPM downloads" /></a></span></p>
-<!-- /BADGES -->
-<p><em><a href="https://webqit.io/tooling/subscript">Subscript</a></em> is a pseudo implementation (parser + runtime) of the JavaScript language. It is used for parsing JavaScript code and executing them in user-defined context.</p>
-<p>Subscript is currently at the core of the <a href="https://webqit.io/tooling/oohtml/scoped-scripts">Scoped Scripts</a> feature of the <a href="https://webqit.io/tooling/oohtml">OOHTML</a> technology. It is also light enough for simple language tooling.</p>
-<blockquote>
-  <p><a href="https://github.com/webqit/subscript">Visit this project on GitHub</a>.</p>
-</blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() an expression</span>
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());</code></pre>
-<p>Follow the <a href="/tooling/subscript/docs/installation">installation guide</a> to obtain this library.</p>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li><a href="/tooling/subscript/docs/language">The Language</a></li>
-<li><a href="/tooling/subscript/docs/api">API</a></li>
-</ul>
-<h2 id="issues">Issues</h2>
-<p>To report bugs or request features, please submit an <a href="https://github.com/webqit/subscript/issues">issue</a>.</p>
-<h2 id="license">License</h2>
-<p>MIT.</p>
+			<h1 id="the-subscript-docs">The Subscript Docs</h1>
+<p>Welcome to the Subscript documentation. We hope you find it easy to understand and navigate. </p>
+<p>If you have questions about anything related to the Subscript, you're always welcome to ask on our <a href="https://github.com/webqit/subscript/discussions">GitHub Discussions</a>.</p>
+<h2 id="explore-the-docs-unstable">Explore the Docs (Unstable)</h2>
 
 		</div>
 
-		<template name="api">
+		<template name="getting-started">
 			<div exportgroup="readme">
 
-				<h1 id="api">API</h1>
+				<h1 id="getting-started">Getting Started</h1>
 
 			</div>
-		</template>
 
-		<template name="installation">
-			<div exportgroup="readme">
+			<template name="download">
+				<div exportgroup="readme">
 
-				<h1 id="installation-guide">Installation Guide</h1>
-<p>Subscript can be used both on the server and in the browser.</p>
-<h2 id="on-this-page">On this Page</h2>
-<ul>
-<li><a href="#embed-as-script">Embed As Script</a></li>
-<li><a href="#install-via-npm">Install Via NPM</a></li>
-<li><a href="#next-steps">Next Steps</a></li>
-</ul>
-<h2 id="embed-as-script">Embed as script</h2>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/subscript/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-comment">// The above tag loads JSEN into a global &quot;WQ&quot; object.</span>
-<span class="hljs-keyword">const</span> Subscript = <span class="hljs-built_in">window</span>.WQ.Subscript;
+					<h1 id="download-options">Download Options</h1>
+<p>Subscript can be used either from a CDN or as an npm package.</p>
+<h2 id="option-1-from-a-cdn">Option 1: From a CDN</h2>
+<p>Add the following script tag to your page to include the all-in-one Subscript module:</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/subscript/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p>The above tag loads Subscript into a global "WebQit" object.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">const</span> Subscript = <span class="hljs-built_in">window</span>.WebQit.Subscript;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<h2 id="install-via-npm">Install via npm</h2>
-<pre><code class="hljs text language-text">$ npm i -g npm
-$ npm i --save @webqit/subscript</code></pre>
-<p>Import the library.</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Node-style import</span>
-<span class="hljs-keyword">import</span> Subscript <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/subscript&#x27;</span>;
-
-<span class="hljs-comment">// parse() an expression</span>
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.toString());</code></pre>
+<h2 id="option-2-as-an-npm-package">Option 2: As an npm Package</h2>
+<p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install Subscript:</p>
+<pre><code class="hljs text language-text">$ npm i @webqit/subscript</code></pre>
+<p>Import the installed package:</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Import the initializer</span>
+<span class="hljs-keyword">import</span> Subscript <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/subscript&#x27;</span>;</code></pre>
 <h2 id="next-steps">Next Steps</h2>
-<p>Be sure to check the <a href="/tooling/subscript/docs">usage examples</a>.</p>
+<p>Continue to <a href="/tooling/subscript/docs/reference">learning the API</a>.</p>
 
-			</div>
+				</div>
+			</template>
+
+			<template name="overview">
+				<div exportgroup="readme">
+
+					<h1 id="overview">Overview</h1>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() an expression</span>
+<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// get result with eval()</span>
+<span class="hljs-built_in">console</span>.log(exprObj.eval());</code></pre>
+<h2 id="small-fast">Small! Fast!</h2>
+<h2 id="traversable-ast">Traversable AST</h2>
+<h2 id="a-pseudo-runtime">A Pseudo Runtime!</h2>
+<h2 id="runtime-traps-and-hooks">Runtime Traps and Hooks</h2>
+
+				</div>
+			</template>
 		</template>
 
-		<template name="language">
+		<template name="reference">
 			<div exportgroup="readme">
 
-				<h1 id="the-language">The Language</h1>
+				<h1 id="reference">Reference</h1>
+
+			</div>
+
+			<template name="language">
+				<div exportgroup="readme">
+
+					<h1 id="the-language">The Language</h1>
 <p>Here are just some of the many aspects of the JavaScript language currently implemented. We are working to make this page more comprehensive.</p>
 <h2 id="math-expression">Math expression</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a Math expression</span>
@@ -237,10 +246,11 @@ delete prop1; delete /*comment anywhere*/prop3;
 <span class="hljs-comment">// Convert to string without the comments</span>
 <span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
 
-			</div>
+				</div>
+			</template>
 		</template>
 	</template>
 
-	<img src="/logo.fw.png" / exportgroup="logo.fw">
+	<img src="/assets-tooling/subscript/logo.fw.png"  exportgroup="logo.fw" />
 
 	

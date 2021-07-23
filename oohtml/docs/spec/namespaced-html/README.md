@@ -157,7 +157,7 @@ Other possibilities can be found in the Observer API documentation.
 
 ## Polyfill Support
 
-The current [OOHTML polyfill implementation](../../intro/polyfill) has good support for the Namespaced HTML Specification. With the exception of [Namespaced Selectors](#namespaced-selectors), all aspects of the specification are supported. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../usage/meta-tag):
+The current [OOHTML polyfill implementation](../../getting-started/polyfill) has good support for the Namespaced HTML Specification. With the exception of [Namespaced Selectors](#namespaced-selectors), all aspects of the specification are supported. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../../resources/meta-tag):
 
 + **[attr.namespace](#convention)** - The *namespace keyword* attribute. The standard *namespace keyword* attribute is `namespace`, but you may use a custom attribute name, where necessary.
         

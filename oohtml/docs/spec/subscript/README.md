@@ -20,7 +20,7 @@ Subscript lets us write `<script>` elements that are scoped to their host elemen
 </div>
 ```
 
-The `this` variable within subscript is a reference to the script's host element. In addition, variables declared within the script are available only within the script, while global variables are always available across all scripts.
+The `this` variable within subscript is a reference to the script's host element. In addition, variables declared within the script are available only within the script, and global variables are always available across all scripts.
 
 ```html
 <script>
@@ -358,7 +358,7 @@ Individual script tags may also be given an `errors` directive, to override the 
 
 ## Polyfill Support
 
-The current [OOHTML polyfill implementation](../../intro/polyfill) has good support for Subscript. The polyfill additionally makes it possible to customise the follwoing areas of its implementation of the syntax using the [OOHTML META tag](../../usage/meta-tag):
+The current [OOHTML polyfill implementation](../../getting-started/polyfill) has good support for Subscript. The polyfill additionally makes it possible to customise the follwoing areas of its implementation of the syntax using the [OOHTML META tag](../../resources/meta-tag):
 
 + **[selector.script](#convention)** - The CSS selector for matching the script element. The default selector is `script[type="subscript"]`. You may use a custom selector, like `script[is="my-script"][type="subscript"]`, where necessary.
         
@@ -376,4 +376,4 @@ The current [OOHTML polyfill implementation](../../intro/polyfill) has good supp
     </body>
     ```
 
-Learn more about customization and the OOHTML meta tag [here](../../usage/meta-tag).
+Learn more about customization and the OOHTML meta tag [here](../../resources/meta-tag).

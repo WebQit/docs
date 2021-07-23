@@ -5,7 +5,7 @@ desc: Set or get an element's HTML/XML content.
 
 This method is used to set or get an element's HTML/XML content. It is the programmatic alternative to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). Additionally, when this function receives `undefined` for a *set* operation, it is converted to an empty string.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`.htmlAsync()`](../htmlasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`.htmlAsync()`](../htmlasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 + [Set HTML Content](#a-set-html-content)
 + [Get HTML Content](#b-get-html-content)

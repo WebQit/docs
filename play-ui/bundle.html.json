@@ -40,9 +40,16 @@
                     "outline": [
                         {
                             "level": 1,
-                            "title": "Play UI",
-                            "uri": "play-ui",
-                            "subtree": []
+                            "title": "The Play UI Docs",
+                            "uri": "the-play-ui-docs",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Explore the Docs",
+                                    "uri": "explore-the-docs",
+                                    "subtree": []
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1165,81 +1172,6 @@
                                                 }
                                             }
                                         },
-                                        "constructor": {
-                                            "meta": {
-                                                "readme": {
-                                                    "title": "<code>¨D()</code>",
-                                                    "desc": "The Play UI Constructor.",
-                                                    "_index": "first",
-                                                    "outline": [
-                                                        {
-                                                            "level": 1,
-                                                            "title": "The Play UI Constructor",
-                                                            "uri": "the-play-ui-constructor",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "a. Derive Elements By Query",
-                                                                    "uri": "a-derive-elements-by-query",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "b. Derive Elements By Markup",
-                                                                    "uri": "b-derive-elements-by-markup",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-1",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-1",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "level": 2,
-                                                                    "title": "c. Accept Actual Element Instances",
-                                                                    "uri": "c-accept-actual-element-instances",
-                                                                    "subtree": [
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Syntax",
-                                                                            "uri": "syntax-2",
-                                                                            "subtree": []
-                                                                        },
-                                                                        {
-                                                                            "level": 3,
-                                                                            "title": "Usage",
-                                                                            "uri": "usage-2",
-                                                                            "subtree": []
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        },
                                         "gettextnodes": {
                                             "meta": {
                                                 "readme": {
@@ -1458,6 +1390,81 @@
                                                                             "level": 3,
                                                                             "title": "Syntax",
                                                                             "uri": "syntax-2",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "instantiation": {
+                                            "meta": {
+                                                "readme": {
+                                                    "title": "<code>¨D()</code>",
+                                                    "desc": "The Play UI Constructor.",
+                                                    "_index": "first",
+                                                    "outline": [
+                                                        {
+                                                            "level": 1,
+                                                            "title": "The Play UI Constructor",
+                                                            "uri": "the-play-ui-constructor",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "a. Derive Elements By Query",
+                                                                    "uri": "a-derive-elements-by-query",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "b. Derive Elements By Markup",
+                                                                    "uri": "b-derive-elements-by-markup",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-1",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage-1",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "level": 2,
+                                                                    "title": "c. Accept Actual Element Instances",
+                                                                    "uri": "c-accept-actual-element-instances",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Syntax",
+                                                                            "uri": "syntax-2",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 3,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage-2",
                                                                             "subtree": []
                                                                         }
                                                                     ]
@@ -3457,41 +3464,6 @@
                                 }
                             }
                         },
-                        "concepts": {
-                            "meta": {
-                                "readme": {
-                                    "desc": "Play UI's design and architectural concepts",
-                                    "_index": "first",
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "Concepts",
-                                            "uri": "concepts",
-                                            "subtree": [
-                                                {
-                                                    "level": 2,
-                                                    "title": "Succinct API Design",
-                                                    "uri": "succinct-api-design",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Async UI",
-                                                    "uri": "async-ui",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Web-Native",
-                                                    "uri": "web-native",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        },
                         "download": {
                             "meta": {
                                 "readme": {
@@ -3555,6 +3527,12 @@
                                                     "level": 2,
                                                     "title": "Use as Descrete Utilities",
                                                     "uri": "use-as-descrete-utilities",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Meet Async UI",
+                                                    "uri": "meet-async-ui",
                                                     "subtree": []
                                                 },
                                                 {

@@ -5,7 +5,7 @@ desc: Modify or match an element's class list.
 
 This method is used to modify or match an element's class list. It provides convenience over using the [`attrSync()`](../attrsync) method to modify an element's class attribute.
 
-The suffix *Sync* differentiates this method from its *Async* counterpart - [`classAsync()`](../classasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../concepts#async-ui).
+The suffix *Sync* differentiates this method from its *Async* counterpart - [`classAsync()`](../classasync). Unlike the *Async* counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See [Async UI](../../overview#meet-async-ui).
 
 + [Modify Class List](#a-modify-class-list)
 + [Match Class List](#b-match-class-list)

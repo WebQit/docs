@@ -1,44 +1,73 @@
-# `Observer.init()`
+---
+desc: Restore an object's accessorized properties to their original state.
+---
+# `.unaccessorize()`
 
-This function is used to initialize property *setters* and *getters* that use `Observer.set()` and `Observer.get()` respectively behind the scene. This gives us the benefit of using JavaScript's assignment and accessor syntax while still driving [*observers*](../observe) and [*interceptors*](../intercept).
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
+This function is used to restore an object's accessorized properties to their original state.
 
 ## Syntax
 
 ```js
-// Init a single property
-Observer.init(obj, propertyName);
+// Unaccessorize a single property
+let successFlag = Observer.unaccessorize(obj, propertyname[, params = {}]);
 
-// Init multiple properties
-Observer.init(obj, propertyNames);
+// Unaccessorize multiple properties
+let successFlags = Observer.unaccessorize(obj, [propertyname, ...][, params = {}]);
+
+// Unaccessorize all previously accessorized properties
+let successFlags = Observer.unaccessorize(obj[, params = {}]);
 ```
 
 **Parameters**
 
-+ `obj:             Object|Array` - an object or array.
-+ `propertyName:    String` - the property to *initialize*.
-+ `propertyNames:   Array` - a list of properties to *initialize*.
++ **`obj:             Object|Array`** - an object or array.
++ **`propertyName:    String`** - the property to *unaccessorize*.
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.responseObject` parameter cannot be used with `Observer.unaccessorize()`.*
 
 **Return Value**
 
-*undefined*
++ **`successFlag:     Boolean`** - A flag that tells whether or not the given property was successfully unaccessorized.
++ **`successFlags:     Array`** - A list of flags for each property that tells whether or not the property was successfully unaccessorized.
 
 ## Usage
 
+Unaccessorizing an initially accessorized property.
+
+*An observer:*
+
 ```js
-// The object
 let obj = {};
-
-// We observe the 'preferences' property
-Observer.observe(obj, 'preferences', changes => {
-    console.log(changes);
+Observer.observe(obj, 'preferences', deltas => {
+    deltas.forEach(delta => {
+        console.log(delta.type, delta.name, delta.path, delta.value, delta.oldValue);
+    });
 });
+```
 
-// Now we virtualize this property
-Observer.init(obj, 'preferences');
+*Accessorizing the property:*
 
-// We use the property and watch our console.
+```js
+Observer.accessorize(obj, 'preferences');
+```
+
+*Assigning something to the property with reactivity:*
+
+```js
 obj.preferences = {};
 ```
+
+*Unaccessorizing the property:*
+
+```js
+Observer.unaccessorize(obj, 'preferences');
+```
+
+*Now, zero reactivity on further assignments:*
+
+```js
+obj.preferences = {};
+```
+
+## Related Methods
+
++ [`Observer.accessorize()`](../accessorize)

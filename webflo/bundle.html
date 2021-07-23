@@ -1,8 +1,30 @@
 
+	<div exportgroup="readme">
+
+		<!-- BADGES/ -->
+<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/webflo.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/webflo.svg" alt="NPM downloads" /></a></span></p>
+<!-- /BADGES -->
+<h2 id="for-a-full-development-story">For a Full Development Story!</h2>
+<p>Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to a rich web and mobile experience.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p><a href="/tooling/webflo/docs">Visit the docs</a> for an overview, the commands and usage guides.</p>
+<p><html-import data-id="quickstart" template="@layout/quickstart"></html-import></p>
+<p>Also, <a href="https://github.com/webqit/webflo/discussions">join the Github Discussions</a> for OOHTML.</p>
+<h2 id="contributing-to-the-project">Contributing to the Project</h2>
+<p>Help report bugs, or request features; or join in the development.</p>
+<ul>
+<li><a href="https://github.com/webqit/webflo">Visit this project on github</a>.</li>
+<li><a href="https://github.com/webqit/webqit-tooling.docs/edit/master/webflo/docs">Contribute to the docs on github</a>.</li>
+</ul>
+<h2 id="license">License</h2>
+<p>The MIT license.</p>
+
+	</div>
+
 	
 
 	<template name="docs">
-		<div exportgroup="readme">
+		<div exportgroup="readme-1">
 
 			<h1 id="webflo">Webflo</h1>
 <!-- BADGES/ -->
@@ -262,6 +284,122 @@
 <h3 id="http-requests-and-responses">HTTP Requests and Responses</h3>
 
 		</div>
+
+		<div exportgroup="readme">
+
+			<h1 id="the-webflo-docs">The Webflo Docs</h1>
+<p>Welcome to the Webflo documentation. We hope you find it easy to understand and navigate.</p>
+<p>If you have questions about anything related to the Webflo, you're always welcome to ask on our <a href="https://github.com/webqit/webflo/discussions">GitHub Discussions</a>.</p>
+<h2 id="explore-the-docs">Explore the Docs</h2>
+
+		</div>
+
+		<template name="getting-started">
+			<div exportgroup="readme">
+
+				<h1 id="getting-started">Getting Started</h1>
+
+			</div>
+
+			<template name="download">
+				<div exportgroup="readme">
+
+					<h1 id="download-options">Download Options</h1>
+<p>Observer can be used either from a CDN or as an npm package.</p>
+<h2 id="option-1-from-a-cdn">Option 1: From a CDN</h2>
+<p>Add the following script tag to your page to include the all-in-one Observer module:</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/observer/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p>The above tag loads Observer into a global "WebQit" object.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">const</span> Observer = <span class="hljs-built_in">window</span>.WebQit.Observer;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<h2 id="option-2-as-an-npm-package">Option 2: As an npm Package</h2>
+<p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install Observer:</p>
+<pre><code class="hljs text language-text">$ npm i @webqit/observer</code></pre>
+<p>Import the installed package:</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Import the initializer</span>
+<span class="hljs-keyword">import</span> Observer <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/observer&#x27;</span>;</code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<p>Continue to <a href="/tooling/webflo/docs/learn">learning the API</a>.</p>
+
+				</div>
+			</template>
+
+			<template name="overview">
+				<div exportgroup="readme">
+
+					<h1 id="overview">Overview</h1>
+<p>Take a one-minute rundown of the Observer API.</p>
+<h2 id="observe">Observe</h2>
+<p>Observe operations on any object or array…</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> obj = {};</code></pre>
+<p>…using the <a href="/tooling/webflo/docs/getting-started/api/subscribers/observe"><code>Observer.observe()</code></a> method.</p>
+<pre><code class="hljs js language-js">Observer.observe(obj, <span class="hljs-function"><span class="hljs-params">changes</span> =&gt;</span> {
+    changes.forEach(<span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(c.type, c.name, c.path, c.value, c.oldValue);
+    });
+});</code></pre>
+<p>Now changes will be delivered <em>synchronously</em> - as they happen.</p>
+<h2 id="mutate">Mutate</h2>
+<p>Programmatically make <em>reactive</em> changes using the <em><a href="/tooling/webflo/docs/getting-started/concepts#with-javascripts-reflection-apis">native-like</a></em> <a href="/tooling/webflo/docs/getting-started/api/operators">set of operators</a>…</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// A single set operation</span>
+Observer.set(obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-string">&#x27;value1&#x27;</span>);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// A batch set operation</span>
+Observer.set(obj, {
+    <span class="hljs-attr">prop2</span>: <span class="hljs-string">&#x27;value2&#x27;</span>,
+    <span class="hljs-attr">prop3</span>: <span class="hljs-string">&#x27;value3&#x27;</span>,
+});</code></pre>
+<p>…or switch to using <em>object accessors</em> - using the <a href="/tooling/webflo/docs/getting-started/api/operators/accessorize"><code>Observer.accessorize()</code></a> method…</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Accessorize all (existing) properties</span>
+Observer.accessorize(obj);
+<span class="hljs-comment">// Accessorize specific properties (existing or new)</span>
+Observer.accessorize(obj, [<span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-string">&#x27;prop5&#x27;</span>, <span class="hljs-string">&#x27;prop9&#x27;</span>]);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Make reactive operations</span>
+obj.prop1 = <span class="hljs-string">&#x27;value1&#x27;</span>;
+obj.prop5 = <span class="hljs-string">&#x27;value5&#x27;</span>;
+obj.prop9 = <span class="hljs-string">&#x27;value9&#x27;</span>;</code></pre>
+<p>…or even go with a <em>reactive Proxy</em> of your object, and imply properties on the fly.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Obtain a reactive Proxy</span>
+<span class="hljs-keyword">let</span> _obj = Observer.proxy(obj);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Make reactive operations</span>
+_obj.prop1 = <span class="hljs-string">&#x27;value1&#x27;</span>;
+_obj.prop4 = <span class="hljs-string">&#x27;value4&#x27;</span>;
+_obj.prop8 = <span class="hljs-string">&#x27;value8&#x27;</span>;</code></pre>
+<p>And no problem if you inadvertently cascade the approaches. No bizzare behaviours.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Accessorized properties are already reactive</span>
+Observer.accessorize(obj, [<span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-string">&#x27;prop6&#x27;</span>, <span class="hljs-string">&#x27;prop10&#x27;</span>]);
+
+<span class="hljs-comment">// But no problem if we still want a proxy over an accessorized object</span>
+<span class="hljs-keyword">let</span> _obj = Observer.proxy(obj);
+
+<span class="hljs-comment">// And yet no problem if we still made a programmatic call over an already reactive Proxy</span>
+Observer.set(_obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-string">&#x27;value1&#x27;</span>);</code></pre>
+<h2 id="intercept">Intercept</h2>
+<p>How about some level of indirection - the ability to hook into operators like <code>Observer.set()</code> and  <code>Observer.deleteProperty()</code> to repurpose their operation? That's all possible using the <a href="/tooling/webflo/docs/getting-started/api/subscribers/intercept"><code>Observer.intercept()</code></a> method!</p>
+<p>Below, we catch any attempt to set an HTTP URL and force it to an HTTPS URL.</p>
+<pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;set&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">event, previous, next</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (event.name === <span class="hljs-string">&#x27;url&#x27;</span> &amp;&amp; event.value.startsWith(<span class="hljs-string">&#x27;http:&#x27;</span>)) {
+        <span class="hljs-keyword">return</span> next(event.value.replace(<span class="hljs-string">&#x27;http:&#x27;</span>, <span class="hljs-string">&#x27;https:&#x27;</span>));
+    }
+    <span class="hljs-keyword">return</span> next();
+});</code></pre>
+<p>Now, only the first of the following will fly as-is.</p>
+<pre><code class="hljs js language-js">Observer.set(obj, <span class="hljs-string">&#x27;url&#x27;</span>, <span class="hljs-string">&#x27;https://webqit.io&#x27;</span>);</code></pre>
+<pre><code class="hljs js language-js">Observer.set(obj, <span class="hljs-string">&#x27;url&#x27;</span>, <span class="hljs-string">&#x27;http://webqit.io&#x27;</span>);</code></pre>
+<h2 id="cleaning-up">Cleaning Up</h2>
+<p>You'll sometimes want to clean up? There are the methods for that!</p>
+<ul>
+<li><a href="/tooling/webflo/docs/getting-started/api/subscribers/unobserve"><code>Observer.unobserve()</code></a></li>
+<li><a href="/tooling/webflo/docs/getting-started/api/subscribers/unintercept"><code>Observer.unintercept()</code></a></li>
+<li><a href="/tooling/webflo/docs/getting-started/api/operators/unproxy"><code>Observer.unproxy()</code></a></li>
+<li><a href="/tooling/webflo/docs/getting-started/api/operators/unaccessorize"><code>Observer.unaccessorize()</code></a></li>
+</ul>
+<h2 id="but-beyond-this-point-lies">But Beyond this Point Lies…</h2>
+<p>Everything from the <a href="/tooling/webflo/docs/getting-started/download">download</a> page, to the <a href="/tooling/webflo/docs/getting-started/concepts">concepts</a> page, to the <a href="/tooling/webflo/docs/getting-started/api">API Reference</a>.</p>
+
+				</div>
+			</template>
+		</template>
 	</template>
 
 	

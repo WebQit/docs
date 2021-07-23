@@ -1,13 +1,9 @@
-# `Observer.intercept()`
+---
+desc: Intercept operations performed on an object or array.
+---
+# `.intercept()`
 
-This method is used to intercept operations performed on an object or array with custom handlers. Requests like *set*, *delete*, *get* and *has* are trapped and forwarded to these custom handlers.
-
-+ [Syntax](#syntax)
-+ [Usage](#usage)
-+ [Tagging an Interceptor](#tagging-an-interceptor)
-+ [Setting Multiple Interceptors](#setting-multiple-interceptors)
-+ [The Returned Interceptor Instance](#the-returned-interceptor-instance)
-+ [Related Methods](#related-methods)
+This method is used to intercept operations performed on an object or array with custom handlers. Operations like *set*, *deleteProperty*, *get* and *has* are trapped and forwarded to these custom handlers.
 
 ## Syntax
 
@@ -21,13 +17,28 @@ Observer.intercept(obj, type, handler[, params = {}]);
 
 **Parameters**
 
-+ `obj:     Object|Array` - an object or array.
-+ `type:    String` - the operation to intercept.
-+ `handler: Function` - a function that handles the operation. This recieves:
-    + `event:       Event` - an object containing details of the operation.
-    + `recieved:    Any` - the return value of a previous trap in the list, if any.
-    + `next:        Function` - a function that calls the next trap in the list, if any.
-+ `params:  Object` - Additional parameters.
++ **`obj:     Object|Array`** - An object or array.
++ **`type:    String`** - The type of operation to intercept.
++ **`handler: Function`** - A function that handles the operation.
+
+    **Syntax**
+
+    ```js
+    function(event, previous, next) {}
+    ```
+
+    **Parameters**
+
+    + **`event:       Event`** - An object containing details of the ongoing operation.
+    + **`previous:    Any`** - The value passed by a previous handler in the list, if any. `undefined` if none.
+    + **`next:        Function`** - A function that calls the next handler in the list, if any.
+
+    **Return Value**
+
+    *See [Handler Return Value](#handler-return-value) below.*
+
++ **`params:  Object`** - Additional parameters for the method.
+    + **`tags:    Array`** - *See [Tagging an Interceptor](#tagging-an-interceptor)*.
 
 **Return Value**
 
@@ -35,21 +46,22 @@ An [*Interceptor* instance](#the-returned-interceptor-instance).
 
 ## Usage
 
+*Case 1 - An imaginary product, with a computed `likes` property - a record of "user likes" -  calculated ondemand.*
+
 ```js
-let obj = {name: 'reflex',};
-let getVersionNumberRemotely = () => '1.0.0';
+let product = { name: 'Product Name', likes: null };
 ```
 
-Below, we're intercepting the "get" request and skipping all other requests using the `next()` function we receive in our handler. This trap will "lazy-load" the object's version value.
+Below, we're intercepting the *get* operation that accesses this property and doing the computation on the first access.
 
 ```js
-Observer.intercept(obj, (event, recieved, next) => {
+Observer.intercept(product, (event, previous, next) => {
     if (event.type === 'get') {
-        let requestedKey = event.name;
-        if (requestedKey === 'version' && !(requestedKey in obj)) {
-            obj[requestedKey]; =  getVersionNumberRemotely();
+        let propertyName = event.name;
+        if (propertyName === 'likes' && product[propertyName] === null) {
+            product[propertyName] =  getProductLikes(); // 50
         }
-        return obj[requestedKey];
+        return product[propertyName];
     }
     return next();
 });
@@ -58,87 +70,87 @@ Observer.intercept(obj, (event, recieved, next) => {
 Now, let's see what we get for each property we access.
 
 ```js
-console.log(Observer.get(obj, 'name')); // 'reflex'
-console.log(Observer.get(obj, 'version')); // '1.0.0'
+console.log(Observer.get(product, 'name')); // 'Product Name'
+console.log(Observer.get(product, 'likes')); // 50
 ```
 
-In another case, we're intercepting a "set" operation to validate the incoming value for a specific property. We're using the `type` parameter to constrain the trap to just the "set" type.
+*Case 2 - Transforming an incoming value for a specific property.* We'd intercept the "set" operation, this time, explicitly using the `type` parameter to specify that.
 
 ```js
-Observer.intercept(obj, 'set', (event, recieved, next) => {
-    let requestedKey = event.name;
-    let requestedValue = event.value;
-    if (requestedKey === 'url' && !requestedValue.startsWith('http')) {
-        throw new Error('The url property only accepts a valid URL!');
+Observer.intercept(obj, 'set', (event, previous, next) => {
+    if (event.name === 'url' && event.value.startsWith('http:')) {
+        // Continue with the flow until the set operation completes
+        // The next interceptor, if any, will recieve the transformed URL
+        // if none, the default handler for "set" operations will recieve the transformed URL
+        return next(event.value.replace('http:', 'https:'));
     }
-    obj[requestedKey] = requestedValue;
-    // We return true here
-    // and it's always good to still call next() with a return a value
-    return next(true);
+    // Forward all other operation to their default handlers
+    return next();
 });
 ```
 
-Now, let's attempt setting different URLs on our object. Remember that `Observer.set()` will also trigger observers that may be bound to the object.
+Now, let's attempt setting different URLs on our object.
 
 ```js
-console.log(Observer.set(obj, 'url', 'https://example.com')); // true
-console.log(Observer.set(obj, 'url', 'example.com')); // Fatal Error
+console.log(Observer.set(obj, 'url', 'https://example.com')); // Set as-is
+console.log(Observer.set(obj, 'url', 'http://example.com')); // Transformed before being set
 ```
+
+## Handler Return Value
+
+The return value expected of a handler function depends on the operation being intercepted. For mutation operations - `set`, `defineProperty`, `deleteProperty` - a *Boolean* `true/false` is what is expected as a return value to indicate the outcome of the operation. For all other operations - `keys`, `has`, `get`, etc - the return value must correspond to the result defined for the operation. For example, the return value must be an array for `keys`, a Boolean for `has`, any value for `get`, and so on.
 
 ## Tagging an Interceptor
 
-The `params.tags` parameter can be used to tag a trap. Tags are an *array* of values (*strings*, *numbers*, *objects*, etc) that can be used to identify the trap for later use.
+The `params.tags` parameter can be used to tag an interceptor. Tags are an *array* of values (*strings*, *numbers*, *objects*, etc) that can be used to uniquely identify the interceptor for later retrieval. *See [`Observer.unintercept()`](../unintercept).*
 
 ```js
-Observer.intercept(obj, handler, {tags:['#tag']});
+Observer.intercept(obj, handler, { tags: [ '#tag' ] });
 ```
 
-## Setting Multiple Interceptors
+## Cascading Multiple Interceptors
 
-Multiple traps can rightly be set on an object. Each trap called will have the decision to call the next. A trap is called with the return value of the previous trap \(or *undefined* where there is no previous trap\) and a reference to the next trap \(or a reference to the default handler where there is no next trap\).
+Multiple interceptors can be applied to an object. Each interceptor will forward events to the next.
 
-Below, we set an additional trap to handle setting the url property. But this time, we wouldn't bother if the previous trap has handled this.
+An interceptor is called with `previous` - whatever value is passed from the *previous* interceptor \(or *undefined* where there is no previous interceptor\), and `next` - a function that calls the *next* interceptor \(or the default handler where there is no next interceptor\). This `next` function can be used to pass a value to the next handler.
+
+Below, we set an additional interceptor to handle setting the `url` property. But this time, we wouldn't bother if the previous interceptor has handled the URL transformation.
 
 ```js
-Observer.intercept(obj, 'set', (event, recieved, next) => {
-    If (received === true) {
-        console.log('A previous handler has handled this!');
-        return next(true);
+Observer.intercept(obj, 'set', (event, previous, next) => {
+    If (previous) {
+        // A previous handler has handled this!
+        return next(previous);
     }
-    // We could do the work here
-    // or simply leave it to the default property setter
     return next();
 });
 ```
 
 ## The Returned Interceptor Instance
 
-The `Observer.intercept()` method returns an *Interceptor* instance that gives us per-instance control.
+The `Observer.intercept()` method returns an *Interceptor* instance with certain useful methods.
+
+*Obtain the Interceptor instance:*
 
 ```js
-// Obtain the Interceptor instance
 let instance = Observer.intercept(obj, handler);
+```
 
-// Synthetically fire the handler
+*Synthetically fire the interceptor handler:*
+
+```js
 instance.fire({
     type:'set',
     name: 'propertyName'
     value:'...',
 });
+```
+*Disconnect the interceptor:*
 
-// Disconnect the trap
+```js
 instance.disconnect();
 ```
 
 ## Related Methods
 
 + [`Observer.unintercept()`](../unintercept)
-+ [`Observer.set()`](../set)
-+ [`Observer.get()`](../get)
-+ [`Observer.has()`](../has)
-+ [`Observer.deleteProperty()`](../deleteproperty)
-+ [`Observer.del()`](../deleteproperty)
-+ [`Observer.defineProperty()`](../defineproperty)
-+ [`Observer.def()`](../defineproperty)
-+ [`Observer.keys()`](../keys)
-+ [`Observer.ownKeys()`](../ownkeys)
