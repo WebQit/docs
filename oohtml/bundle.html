@@ -974,14 +974,14 @@ OOHTML.call(JSDOM.window);
 <h3 id="dynamic-module-references">Dynamic Module References</h3>
 <p>HTML Imports supports certain conventions that let us dynamically match modules.</p>
 <ul>
-<li><p><strong>The <code>template-specificity</code> attribute:</strong> <code>&lt;import&gt;</code> elements that reference nested modules may define a fallback directive using the <code>template-specificity</code> attribute. A fallback directive allows the import resolution to fall back to ancestor modules to find the specified <em>export</em>.</p>
-<p>The directive below is to fall back up to 2 steps from the right to find <code>export-2</code>.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>import name=&quot;export-2&quot; template=&quot;module1/nonexistent/nonexistent&quot; template-specificity=&quot;-2&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/import<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<li><p><strong>The <code>exportsearch</code> attribute:</strong> <code>&lt;import&gt;</code> elements that reference nested modules may define a search expression using the <code>exportsearch</code> attribute. A search expression allows the import resolution to look into ancestor modules to find the specified <em>export</em>.</p>
+<p>The expression below is to go up to 2 steps from the right to find <code>export-2</code>.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>import name=&quot;export-2&quot; template=&quot;module1/nonexistent/nonexistent&quot; exportsearch=&quot;-2&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/import<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 <blockquote>
   <p>Above, the path <code>module1/nonexistent/nonexistent</code> is tried first, then, the parent path <code>module1/nonexistent</code>, then, the parent's parent path <code>module1</code>; whichever level produces <code>export-2</code> first.</p>
 </blockquote>
-<p>In the same way, the directive below is to fall back up to 2 steps from the right, to at most 1 step from the left, to find <code>export-2</code>.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>import name=&quot;export-2&quot; template=&quot;module1/nonexistent/nonexistent/nonexistent&quot; template-specificity=&quot;1-2&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/import<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p>In the same way, the expression below is to go up to 2 steps from the right, to at most 1 step from the left, to find <code>export-2</code>.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>import name=&quot;export-2&quot; template=&quot;module1/nonexistent/nonexistent/nonexistent&quot; exportsearch=&quot;1-2&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/import<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 <blockquote>
   <p>Above, the resolution stops at <code>module1/nonexistent</code> which is still <em>nonexisitent</em>. The <code>&lt;import&gt;</code> element is left unresolved.</p>
 </blockquote></li>
@@ -1042,7 +1042,7 @@ module1.content.append(nestedModule);</code></pre>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 <p>An <code>&lt;import&gt;</code> element's attributes and default content may also be inheritted by slotted elements to persist the semantics of the slot.</p>
 <ul>
-<li><p><strong>Attributes</strong> - All attributes of an <code>&lt;import&gt;</code> element (other than the <code>name</code>, <code>template</code> and <code>template-specificity</code> attributes) are inheritted by slotted elements.</p>
+<li><p><strong>Attributes</strong> - All attributes of an <code>&lt;import&gt;</code> element (other than the <code>name</code>, <code>template</code> and <code>exportsearch</code> attributes) are inheritted by slotted elements.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-symbol">&amp;lt;</span>div template=&quot;module1&quot;<span class="hljs-symbol">&amp;gt;</span>
     <span class="hljs-symbol">&amp;lt;</span>!-- The slotted element now inherits the style attribute  --<span class="hljs-symbol">&amp;gt;</span>
     <span class="hljs-symbol">&amp;lt;</span>img exportgroup=&quot;export-1&quot; src=&quot;logo.png&quot; style=&quot;max-width:50px&quot; /<span class="hljs-symbol">&amp;gt;</span>
@@ -1181,7 +1181,7 @@ module1.content.append(nestedModule);</code></pre>
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">data-name</span>=<span class="hljs-string">&quot;export-1&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li>
-<li><p><strong><a href="#module-reference-specificity">attr.templatespec</a></strong> - The <em>module specificity</em> attribute. The standard attribute is <code>template-specificity</code>, but you may use a custom attribute name, where necessary.</p>
+<li><p><strong><a href="#module-reference-specificity">attr.templatespec</a></strong> - The <em>module specificity</em> attribute. The standard attribute is <code>exportsearch</code>, but you may use a custom attribute name, where necessary.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;attr.templatespec=module-specificity;&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
@@ -1244,6 +1244,10 @@ module1.content.append(nestedModule);</code></pre>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre>
 <p>Contents not associated with an export identifier are regarded as <em>default exports</em>. They implicitly have 'default' as their export identifier.</p>
+<h3 id="module-naming-guide">Module-Naming Guide</h3>
+<ul>
+<li>A module ID must not contain any special characters (e.g <code>~</code>, <code>#</code>, <code>/</code>, <code>&amp;</code>, <code>!</code>, <code>^</code>, <code>%</code>, <code>+</code>, <code>.</code>, etc) except the following: <code>@</code>, <code>-</code>, <code>_</code>.</li>
+</ul>
 <h3 id="module-nesting">Module Nesting</h3>
 <p>For organizational purposes, modules may be nested.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -1253,7 +1257,7 @@ module1.content.append(nestedModule);</code></pre>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is snippet 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is snippet 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module-nested&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is snippet 3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is snippet 4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
@@ -1261,7 +1265,7 @@ module1.content.append(nestedModule);</code></pre>
     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre>
-<p>The full <em>module ID</em> of a nested module would be a path expression, e.g <code>module1/module-nested</code>.</p>
+<p>The full <em>module ID</em> of a nested module would be a path expression, e.g <code>module1/module_nested</code>.</p>
 <p>Unnested modules are called <em>top-level modules</em>.</p>
 <h3 id="module-referencing">Module Referencing</h3>
 <p>Modules can be referenced by their module ID from anywhere in a page using the <code>template</code> attribute. Think Custom Elements that often depend on templates for their Shadow DOM's source markup. These dependencies would be simply declared using the <code>template</code> attribute.</p>
@@ -1273,16 +1277,15 @@ module1.content.append(nestedModule);</code></pre>
 <p>Or in the case of a nested module.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">my-prompt</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1/module-nested&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-prompt</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">my-prompt</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1/module_nested&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-prompt</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 <p>The internal JavaScript code for <code>&lt;my-prompt&gt;</code> would simply get a copy of the referenced module delivered via the <a href="#api">modules API</a>.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> myPrompt = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;my-prompt&#x27;</span>);
 <span class="hljs-built_in">console</span>.log(myPrompt.template); <span class="hljs-comment">// HTMLTemplateElement {}</span></code></pre>
-<p>Now, a few rules apply to module IDs:</p>
-<ul>
-<li>A module ID must not contain any special characters (e.g <code>~</code>, <code>#</code>, <code>/</code>, <code>&amp;</code>, <code>!</code>, <code>^</code>, <code>%</code>, <code>+</code>, <code>.</code>, etc) except the following: <code>@</code>, <code>-</code>, <code>_</code>.</li>
-</ul>
+<blockquote>
+  <p>The <code>template</code> attribute supports all of <a href="#module-reference-expressions">Module Reference Expressions</a>.</p>
+</blockquote>
 <h2 id="remote-content">Remote Content</h2>
 <p>Template elements may reference remote content using the <code>src</code> attribute.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -1291,14 +1294,15 @@ module1.content.append(nestedModule);</code></pre>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export5&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export6&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module-remote&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_remote&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre>
 <p><strong>Remote file: /bundle.html</strong></p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module-loaded&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_loaded&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export4&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
@@ -1309,22 +1313,31 @@ module1.content.append(nestedModule);</code></pre>
 <h2 id="api">API</h2>
 <p><em>HTML Modules</em> offers a set of APIs that lets us access modules, imports and exports as JavaScript objects and properties. One advantage this gives us is that it minimizes selector-based queries.</p>
 <ul>
+<li><p><strong>document.templatesQuery(query): HTMLTemplateElement</strong> - This is a method on the <code>document</code> objec for querying the document's module tree using a query expression. </p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module1 = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1&#x27;</span>);
+<span class="hljs-comment">// module1 = &quot;copy&quot; of document.templates.module1</span>
+<span class="hljs-comment">// console.log(module1 === document.templates.module1); // false</span></code></pre>
+<blockquote>
+  <p>This method supports all of <a href="#module-reference-expressions">Module Reference Expressions</a>.</p>
+</blockquote></li>
 <li><p><strong>document.templates: Object</strong> - This is a <em>readonly</em> property on the <code>document</code> object that gives the document's top-level templates as an object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module1 = <span class="hljs-built_in">document</span>.templates.module1; <span class="hljs-comment">// Returns the &quot;module1&quot; element in the markup somewhere above</span></code></pre></li>
 <li><p><strong>HTMLTemplateElement.prototype.templates: Object</strong> - This is a <em>readonly</em> property on the <code>&lt;template&gt;</code> element that gives the template's own nested templates as an object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module1 = <span class="hljs-built_in">document</span>.templates.module1;
-<span class="hljs-keyword">let</span> nestedModule = module1.templates[<span class="hljs-string">&#x27;module-nested&#x27;</span>]; <span class="hljs-comment">// Returns the nested &quot;module-nested&quot; element in the markup somewhere above</span></code></pre></li>
+<span class="hljs-keyword">let</span> module_nested = module1.templates.module_nested; <span class="hljs-comment">// Returns the nested &quot;module_nested&quot; element above</span></code></pre></li>
 <li><p><strong>HTMLTemplateElement.prototype.exports: Object</strong> - This is a <em>readonly</em> property on the <code>&lt;template&gt;</code> element that gives the template's <em>exports</em> as an object. Each export is given as an <em>array</em> of elements.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module1 = <span class="hljs-built_in">document</span>.templates.module1;
 
 <span class="hljs-comment">// Named exports</span>
-<span class="hljs-keyword">let</span> questionExport = module1.exports.question; <span class="hljs-comment">// Returns the &quot;label&quot; and &quot;input&quot; elements in the markup somewhere above</span>
+<span class="hljs-keyword">let</span> questionExport = module1.exports.question; <span class="hljs-comment">// Returns the &quot;label&quot; and &quot;input&quot; elements above</span>
 <span class="hljs-built_in">console</span>.log(questionExport.length); <span class="hljs-comment">// 2</span>
 
 <span class="hljs-keyword">let</span> defaultExport = module1.exports.default; <span class="hljs-comment">// Returns the &quot;default&quot; export in the markup somewhere above</span>
 <span class="hljs-built_in">console</span>.log(defaultExport.length); <span class="hljs-comment">// 1</span></code></pre></li>
-<li><p><strong>Element.prototype.template: HTMLTemplateElement</strong> - This is a <em>readonly</em> property of any element that returns the element's referenced module - the <code>&lt;template&gt;</code> element that is referenced in its <code>template</code> attribute.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> templateDependency = myPrompt.template;</code></pre>
+<li><p><strong>Element.prototype.template: HTMLTemplateElement</strong> - This is a <em>readonly</em> property of any element that returns <em>a copy</em> of the element's referenced module - the <code>&lt;template&gt;</code> element that is referenced in its <code>template</code> attribute.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-prompt</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-prompt</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> templateDependency = myPrompt.template;
+<span class="hljs-comment">// A copy of module1</span></code></pre>
 <p>Here's how this could be used in the internal JavaScript code of the <code>&lt;my-prompt&gt;</code> custom element.</p>
 <pre><code class="hljs js language-js">customElements.define(<span class="hljs-string">&#x27;my-prompt&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
     <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> {
@@ -1346,7 +1359,7 @@ module1.content.append(nestedModule);</code></pre>
     <span class="hljs-tag">&lt;<span class="hljs-name">my-prompt</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-prompt</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li>
 </ul>
-<h2 id="module-events">Module Events</h2>
+<h3 id="module-events">Module Events</h3>
 <p>The following events are fired on <code>&lt;template&gt;</code> elements that load remote content.</p>
 <ul>
 <li><strong>load: Event</strong> - This event is fired on the <code>&lt;template&gt;</code> element on loading its remote content.</li>
@@ -1377,16 +1390,16 @@ module1.content.append(nestedModule);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> template = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;template&#x27;</span>);
 template.setAttribute(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;module2&#x27;</span>);
 <span class="hljs-built_in">document</span>.body.append(template);</code></pre>
-<p>With the code below, when the nested module is done loading its contents, its exports are given in a <code>templatemutation</code> event on its <code>.detail.addedExports</code> property. If loaded contents include template elements themselves, they will be given in the event's <code>.detail.addedTemplates</code> property. The event's <code>.detail.path</code> property itself will be <code>module2/module-remote</code>.</p>
+<p>With the code below, when the nested module is done loading its contents, its exports are given in a <code>templatemutation</code> event on its <code>.detail.addedExports</code> property. If loaded contents include template elements themselves, they will be given in the event's <code>.detail.addedTemplates</code> property. The event's <code>.detail.path</code> property itself will be <code>module2/module_remote</code>.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module2&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>    <span class="hljs-symbol">&amp;lt;</span>div exportgroup=&quot;export5&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span>
     <span class="hljs-symbol">&amp;lt;</span>div exportgroup=&quot;export6&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span>
 
-    <span class="hljs-symbol">&amp;lt;</span>template name=&quot;module-remote&quot; src=&quot;/bundle.html&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span>
+    <span class="hljs-symbol">&amp;lt;</span>template name=&quot;module_remote&quot; src=&quot;/bundle.html&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span>
 
 <span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre></li>
 <li><p><strong>templatecontentloaded: Event</strong> - This event is fired on the <code>document</code> object when a template completes loading its remote content. The event object has a <code>.detail</code> property that gives the template element and its path.</p>
-<p>With the code below, when the nested template is done loading its contents, a report is logged to the console with path being <code>module2/module-remote</code>.</p>
+<p>With the code below, when the nested template is done loading its contents, a report is logged to the console with path being <code>module2/module_remote</code>.</p>
 <pre><code class="hljs js language-js"><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;templatecontentloaded&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(event.detail.path, event.detail.template);
 });</code></pre>
@@ -1394,10 +1407,75 @@ template.setAttribute(<span class="hljs-string">&#x27;name&#x27;</span>, <span c
     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module2&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>    <span class="hljs-symbol">&amp;lt;</span>div exportgroup=&quot;export5&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span>
     <span class="hljs-symbol">&amp;lt;</span>div exportgroup=&quot;export6&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span>
 
-    <span class="hljs-symbol">&amp;lt;</span>template name=&quot;module-remote&quot; src=&quot;/bundle.html&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span>
+    <span class="hljs-symbol">&amp;lt;</span>template name=&quot;module_remote&quot; src=&quot;/bundle.html&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span>
 
 <span class="hljs-symbol">&amp;lt;</span>/template<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre></li>
 <li><p><strong>templatecontentloaderror: Event</strong> - This event is fired on the <code>document</code> object when a template fails loading its remote content. The event object has a <code>.detail</code> property that gives the template element and its path.</p></li>
+</ul>
+<h3 id="module-reference-expressions">Module Reference Expressions</h3>
+<p>OOHTML supports expressions that make it easier to get to modules and their exports.</p>
+<ul>
+<li><p>Path expressions supported: <strong>/</strong>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1/module_nested&#x27;</span>);
+<span class="hljs-comment">// module_nested = &quot;copy&quot; of document.templates.module1.templates.module_nested</span>
+<span class="hljs-comment">// console.log(module_nested === document.templates.module1.templates.module_nested); // false</span></code></pre></li>
+<li><p>Filters supported: <strong>:having()</strong>, <strong>:not-having()</strong>.</p>
+<p><em>Assert that a module has an export.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1:having(:export5)/module_nested&#x27;</span>);</code></pre>
+<p><em>Assert that a module has a nested module.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> moduleRemote = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1:having(module_nested)/module_remote&#x27;</span>);</code></pre></li>
+<li><p>Logical and mathematical operators supported: <strong>|</strong>, <strong>+</strong>, <strong>*</strong>.</p>
+<p><em>Return the first module if exists, otherwise, second module.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> moduleRemote = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1/module_nonexistent|module_remote&#x27;</span>);</code></pre>
+<p><em>Return the joint contents of first module and second module. (Contents = both modules and exports.)</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> moduleJoint = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1/module_nonexistent+module_remote&#x27;</span>);</code></pre>
+<p><em>Return the joint contents of all modules at given level. (Contents = both modules and exports.)</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> moduleJoint = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module1/*&#x27;</span>);</code></pre></li>
+<li><p>Find a module deeply: <strong>:deep()</strong>, <strong>:deepest()</strong>.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested_middle&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre>
+<p><em>Return the deeply-first <code>module_nested</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_Deep = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_nested:deep()&#x27;</span>);</code></pre>
+<p><em>Return the deeply-last <code>module_nested</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_Deepest = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_remote:deepest()&#x27;</span>);</code></pre></li>
+<li><p>Optional chaining supported. <strong>?/</strong>.</p>
+<p><em>Return the deeply-last module. (Expects: <code>module_nested_middle</code>)</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_middle = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;root?/module_nested?/module_nested_middle?/module_nonexistent?/module_nonexistent&#x27;</span>);</code></pre>
+<p><em>(Equivalent accessor syntax)</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_middle = documents.templates.root?.templates.module_nested?.templates.module_nested_middle?.templates.module_nonexistent?.templates.module_nonexistent;</code></pre></li>
+<li><p>Complex expression supported.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested_middle&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_nested&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_near_leaf_a&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_leaf_a&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_near_leaf_b&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module_leaf_b&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></code></pre>
+<p><em>Return the deeply-last <code>module_nested:having(module_nested_middle)</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_Deep = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_remote:having(module_nested_middle):deepest()&#x27;</span>);</code></pre>
+<p><em>Return the deeply-last <code>module_nested</code> if <code>:having(module_nested_middle)</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> not_found = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_remote:deepest():having(module_nested_middle)&#x27;</span>);
+<span class="hljs-comment">// Not found. The order of the assertions matters</span></code></pre>
+<p><em>Return <code>module_nested_middle</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_middle = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_remote:having(module_nested_middle):deep()/module_nested_middle&#x27;</span>);</code></pre>
+<p><em>Skip and skip until the level: <code>module_near_leaf_</code>, join their contents and return <code>module_leaf_a</code>.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_leaf_a = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;module_nested_middle:deep()/module_near_leaf_a:deep()+module_near_leaf_b:deep()/module_leaf_a&#x27;</span>);</code></pre></li>
 </ul>
 <h2 id="polyfill-support">Polyfill Support</h2>
 <p>The current <a href="/tooling/oohtml/docs/getting-started/polyfill">OOHTML polyfill implementation</a> has full support for the HTML Modules specification. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the <a href="/tooling/oohtml/docs/resources/meta-tag">OOHTML META tag</a>:</p>

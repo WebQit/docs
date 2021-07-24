@@ -155,26 +155,26 @@ Now, these arbitrary contents are also imported without an identifier.
 
 HTML Imports supports certain conventions that let us dynamically match modules.
 
-+ **The `template-specificity` attribute:** `<import>` elements that reference nested modules may define a fallback directive using the `template-specificity` attribute. A fallback directive allows the import resolution to fall back to ancestor modules to find the specified *export*.
++ **The `exportsearch` attribute:** `<import>` elements that reference nested modules may define a search expression using the `exportsearch` attribute. A search expression allows the import resolution to look into ancestor modules to find the specified *export*.
 
-    The directive below is to fall back up to 2 steps from the right to find `export-2`.
+    The expression below is to go up to 2 steps from the right to find `export-2`.
 
     ```html
     <body>
 
-        <import name="export-2" template="module1/nonexistent/nonexistent" template-specificity="-2"></import>
+        <import name="export-2" template="module1/nonexistent/nonexistent" exportsearch="-2"></import>
 
     </body>
     ```
 
     > Above, the path `module1/nonexistent/nonexistent` is tried first, then, the parent path `module1/nonexistent`, then, the parent's parent path `module1`; whichever level produces `export-2` first.
 
-    In the same way, the directive below is to fall back up to 2 steps from the right, to at most 1 step from the left, to find `export-2`.
+    In the same way, the expression below is to go up to 2 steps from the right, to at most 1 step from the left, to find `export-2`.
 
     ```html
     <body>
 
-        <import name="export-2" template="module1/nonexistent/nonexistent/nonexistent" template-specificity="1-2"></import>
+        <import name="export-2" template="module1/nonexistent/nonexistent/nonexistent" exportsearch="1-2"></import>
 
     </body>
     ```
@@ -286,7 +286,7 @@ An `<import>` element is rendered as a regular element until it is resolved, tha
 
 An `<import>` element's attributes and default content may also be inheritted by slotted elements to persist the semantics of the slot.
 
-+ **Attributes** - All attributes of an `<import>` element (other than the `name`, `template` and `template-specificity` attributes) are inheritted by slotted elements.
++ **Attributes** - All attributes of an `<import>` element (other than the `name`, `template` and `exportsearch` attributes) are inheritted by slotted elements.
         
     ```html
     <body>
@@ -482,7 +482,7 @@ The current [OOHTML polyfill implementation](../../getting-started/polyfill) has
     </body>
     ```
 
-+ **[attr.templatespec](#module-reference-specificity)** - The *module specificity* attribute. The standard attribute is `template-specificity`, but you may use a custom attribute name, where necessary.
++ **[attr.templatespec](#module-reference-specificity)** - The *module specificity* attribute. The standard attribute is `exportsearch`, but you may use a custom attribute name, where necessary.
         
     ```html
     <head>

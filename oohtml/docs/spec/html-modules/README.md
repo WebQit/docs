@@ -65,6 +65,10 @@ Or they may be individually *tagged* to an export identifier using the `exportgr
 
 Contents not associated with an export identifier are regarded as *default exports*. They implicitly have 'default' as their export identifier.
 
+### Module-Naming Guide
+
++ A module ID must not contain any special characters (e.g `~`, `#`, `/`, `&`, `!`, `^`, `%`, `+`, `.`, etc) except the following: `@`, `-`, `_`.
+
 ### Module Nesting
 
 For organizational purposes, modules may be nested.
@@ -77,7 +81,7 @@ For organizational purposes, modules may be nested.
         <div>This is snippet 1</div>
         <div>This is snippet 2</div>
 
-        <template name="module-nested">
+        <template name="module_nested">
             <div>This is snippet 3</div>
             <div>This is snippet 4</div>
         </template>
@@ -87,7 +91,7 @@ For organizational purposes, modules may be nested.
 </head>
 ```
 
-The full *module ID* of a nested module would be a path expression, e.g `module1/module-nested`.
+The full *module ID* of a nested module would be a path expression, e.g `module1/module_nested`.
 
 Unnested modules are called *top-level modules*.
 
@@ -108,7 +112,7 @@ Or in the case of a nested module.
 ```html
 <body>
 
-    <my-prompt template="module1/module-nested"></my-prompt>
+    <my-prompt template="module1/module_nested"></my-prompt>
 
 </body>
 ```
@@ -120,9 +124,7 @@ const myPrompt = document.querySelector('my-prompt');
 console.log(myPrompt.template); // HTMLTemplateElement {}
 ```
 
-Now, a few rules apply to module IDs:
-
-+ A module ID must not contain any special characters (e.g `~`, `#`, `/`, `&`, `!`, `^`, `%`, `+`, `.`, etc) except the following: `@`, `-`, `_`.
+> The `template` attribute supports all of [Module Reference Expressions](#module-reference-expressions).
 
 ## Remote Content
 
@@ -135,7 +137,8 @@ Template elements may reference remote content using the `src` attribute.
         <div exportgroup="export5"></div>
         <div exportgroup="export6"></div>
 
-        <template name="module-remote" src="/bundle.html"></template>
+        <template name="module_nested">...</template>
+        <template name="module_remote" src="/bundle.html"></template>
 
     </template>
 </head>
@@ -147,7 +150,7 @@ Template elements may reference remote content using the `src` attribute.
 
 <div exportgroup="export1"></div>
 <div exportgroup="export2"></div>
-<template name="module-loaded">
+<template name="module_loaded">
     <div exportgroup="export3"></div>
     <div exportgroup="export4"></div>
 </template>
@@ -162,6 +165,15 @@ Remote contents automatically become the template's content on load.
 
 *HTML Modules* offers a set of APIs that lets us access modules, imports and exports as JavaScript objects and properties. One advantage this gives us is that it minimizes selector-based queries.
 
++ **document.templatesQuery(query): HTMLTemplateElement** - This is a method on the `document` objec for querying the document's module tree using a query expression. 
+
+    ```js
+    let module1 = document.templatesQuery('module1');
+    // module1 = "copy" of document.templates.module1
+    // console.log(module1 === document.templates.module1); // false
+    ```
+    > This method supports all of [Module Reference Expressions](#module-reference-expressions).
+
 + **document.templates: Object** - This is a *readonly* property on the `document` object that gives the document's top-level templates as an object.
 
     ```js
@@ -172,7 +184,7 @@ Remote contents automatically become the template's content on load.
 
     ```js
     let module1 = document.templates.module1;
-    let nestedModule = module1.templates['module-nested']; // Returns the nested "module-nested" element in the markup somewhere above
+    let module_nested = module1.templates.module_nested; // Returns the nested "module_nested" element above
     ```
 
 + **HTMLTemplateElement.prototype.exports: Object** - This is a *readonly* property on the `<template>` element that gives the template's *exports* as an object. Each export is given as an *array* of elements.
@@ -181,17 +193,22 @@ Remote contents automatically become the template's content on load.
     let module1 = document.templates.module1;
 
     // Named exports
-    let questionExport = module1.exports.question; // Returns the "label" and "input" elements in the markup somewhere above
+    let questionExport = module1.exports.question; // Returns the "label" and "input" elements above
     console.log(questionExport.length); // 2
 
     let defaultExport = module1.exports.default; // Returns the "default" export in the markup somewhere above
     console.log(defaultExport.length); // 1
     ```
 
-+ **Element.prototype.template: HTMLTemplateElement** - This is a *readonly* property of any element that returns the element's referenced module - the `<template>` element that is referenced in its `template` attribute.
++ **Element.prototype.template: HTMLTemplateElement** - This is a *readonly* property of any element that returns *a copy* of the element's referenced module - the `<template>` element that is referenced in its `template` attribute.
+
+    ```html
+    <my-prompt template="module1"></my-prompt>
+    ```
 
     ```js
     let templateDependency = myPrompt.template;
+    // A copy of module1
     ```
 
     Here's how this could be used in the internal JavaScript code of the `<my-prompt>` custom element.
@@ -222,7 +239,7 @@ Remote contents automatically become the template's content on load.
     </body>
     ```
 
-## Module Events
+### Module Events
 
 The following events are fired on `<template>` elements that load remote content.
 
@@ -263,7 +280,7 @@ The following events are fired on the document object when the document's module
     document.body.append(template);
     ```
 
-    With the code below, when the nested module is done loading its contents, its exports are given in a `templatemutation` event on its `.detail.addedExports` property. If loaded contents include template elements themselves, they will be given in the event's `.detail.addedTemplates` property. The event's `.detail.path` property itself will be `module2/module-remote`.
+    With the code below, when the nested module is done loading its contents, its exports are given in a `templatemutation` event on its `.detail.addedExports` property. If loaded contents include template elements themselves, they will be given in the event's `.detail.addedTemplates` property. The event's `.detail.path` property itself will be `module2/module_remote`.
         
     ```html
     <head>
@@ -272,7 +289,7 @@ The following events are fired on the document object when the document's module
             <div exportgroup="export5"></div>
             <div exportgroup="export6"></div>
 
-            <template name="module-remote" src="/bundle.html"></template>
+            <template name="module_remote" src="/bundle.html"></template>
 
         </template>
     </head>
@@ -280,7 +297,7 @@ The following events are fired on the document object when the document's module
 
 + **templatecontentloaded: Event** - This event is fired on the `document` object when a template completes loading its remote content. The event object has a `.detail` property that gives the template element and its path.
 
-    With the code below, when the nested template is done loading its contents, a report is logged to the console with path being `module2/module-remote`.
+    With the code below, when the nested template is done loading its contents, a report is logged to the console with path being `module2/module_remote`.
 
     ```js
     document.addEventListener('templatecontentloaded', event => {
@@ -295,13 +312,145 @@ The following events are fired on the document object when the document's module
             <div exportgroup="export5"></div>
             <div exportgroup="export6"></div>
 
-            <template name="module-remote" src="/bundle.html"></template>
+            <template name="module_remote" src="/bundle.html"></template>
 
         </template>
     </head>
     ```
 
 + **templatecontentloaderror: Event** - This event is fired on the `document` object when a template fails loading its remote content. The event object has a `.detail` property that gives the template element and its path.
+
+### Module Reference Expressions
+
+OOHTML supports expressions that make it easier to get to modules and their exports.
+
++ Path expressions supported: **/**.
+
+    ```js
+    let module_nested = document.templatesQuery('module1/module_nested');
+    // module_nested = "copy" of document.templates.module1.templates.module_nested
+    // console.log(module_nested === document.templates.module1.templates.module_nested); // false
+    ```
+
++ Filters supported: **:having()**, **:not-having()**.
+
+    *Assert that a module has an export.*
+
+    ```js
+    let module_nested = document.templatesQuery('module1:having(:export5)/module_nested');
+    ```
+
+    *Assert that a module has a nested module.*
+
+    ```js
+    let moduleRemote = document.templatesQuery('module1:having(module_nested)/module_remote');
+    ```
+
++ Logical and mathematical operators supported: **|**, **+**, **\***.
+
+    *Return the first module if exists, otherwise, second module.*
+
+    ```js
+    let moduleRemote = document.templatesQuery('module1/module_nonexistent|module_remote');
+    ```
+
+    *Return the joint contents of first module and second module. (Contents = both modules and exports.)*
+
+    ```js
+    let moduleJoint = document.templatesQuery('module1/module_nonexistent+module_remote');
+    ```
+
+    *Return the joint contents of all modules at given level. (Contents = both modules and exports.)*
+
+    ```js
+    let moduleJoint = document.templatesQuery('module1/*');
+    ```
+
++ Find a module deeply: **:deep()**, **:deepest()**.
+
+    ```html
+    <head>
+        <template name="root">
+            <template name="module_nested">
+                <template name="module_nested_middle">
+                    <template name="module_nested"></template>
+                </template>
+            </template>
+        </template>
+    </head>
+    ```
+
+    *Return the deeply-first `module_nested`.*
+
+    ```js
+    let module_nested_Deep = document.templatesQuery('module_nested:deep()');
+    ```
+
+    *Return the deeply-last `module_nested`.*
+
+    ```js
+    let module_nested_Deepest = document.templatesQuery('module_remote:deepest()');
+    ```
+
++ Optional chaining supported. **?/**.
+
+    *Return the deeply-last module. (Expects: `module_nested_middle`)*
+
+    ```js
+    let module_nested_middle = document.templatesQuery('root?/module_nested?/module_nested_middle?/module_nonexistent?/module_nonexistent');
+    ```
+
+    *(Equivalent accessor syntax)*
+
+    ```js
+    let module_nested_middle = documents.templates.root?.templates.module_nested?.templates.module_nested_middle?.templates.module_nonexistent?.templates.module_nonexistent;
+    ```
+
++ Complex expression supported.
+
+    ```html
+    <head>
+        <template name="root">
+            <template name="module_nested">
+                <template name="module_nested_middle">
+                    <template name="module_nested">
+                        <template name="module_near_leaf_a">
+                            <template name="module_leaf_a"></template>
+                        </template>
+                        <template name="module_near_leaf_b">
+                            <template name="module_leaf_b"></template>
+                        </template>
+                    </template>
+                </template>
+            </template>
+        </template>
+    </head>
+    ```
+
+    *Return the deeply-last `module_nested:having(module_nested_middle)`.*
+
+    ```js
+    let module_nested_Deep = document.templatesQuery('module_remote:having(module_nested_middle):deepest()');
+    ```
+
+    *Return the deeply-last `module_nested` if `:having(module_nested_middle)`.*
+
+    ```js
+    let not_found = document.templatesQuery('module_remote:deepest():having(module_nested_middle)');
+    // Not found. The order of the assertions matters
+    ```
+
+    *Return `module_nested_middle`.*
+
+    ```js
+    let module_nested_middle = document.templatesQuery('module_remote:having(module_nested_middle):deep()/module_nested_middle');
+    ```
+
+    *Skip and skip until the level: `module_near_leaf_`, join their contents and return `module_leaf_a`.*
+
+    ```js
+    let module_leaf_a = document.templatesQuery('module_nested_middle:deep()/module_near_leaf_a:deep()+module_near_leaf_b:deep()/module_leaf_a');
+    ```
 
 ## Polyfill Support
 

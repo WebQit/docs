@@ -445,6 +445,12 @@
                                                     "subtree": [
                                                         {
                                                             "level": 3,
+                                                            "title": "Module-Naming Guide",
+                                                            "uri": "module-naming-guide",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
                                                             "title": "Module Nesting",
                                                             "uri": "module-nesting",
                                                             "subtree": []
@@ -467,13 +473,20 @@
                                                     "level": 2,
                                                     "title": "API",
                                                     "uri": "api",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Module Events",
-                                                    "uri": "module-events",
-                                                    "subtree": []
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Module Events",
+                                                            "uri": "module-events",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Module Reference Expressions",
+                                                            "uri": "module-reference-expressions",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "level": 2,
