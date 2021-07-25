@@ -1,3 +1,0 @@
-# Play Sequence
-
-*(Documentation underway.)*

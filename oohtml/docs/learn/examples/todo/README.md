@@ -1,5 +1,6 @@
 # A TODO List In OOHTML
-Below is a TODO list application we made out of a plain JavaScript array bound to `document.state`.
+
+Below is a TODO list application we made out of a plain JavaScript array bound to [`document.state`](../../../spec/the-state-api#document-level-state).
 
 It features the ability to add items and toggle the active state of each item.
 + **For the *add* feature** - When the *add* button in the TODO container is clicked, an item is added to the array - effectively becoming a new item in the UI.
@@ -15,8 +16,8 @@ It features the ability to add items and toggle the active state of each item.
         <title>A TODO List in OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
 
-        <script src="https://unpkg.com/@webqit/play-ui/dist/main.js"></script>
-        <script src="https://unpkg.com/@webqit/oohtml/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
         <script>
             // Make PlayUI available globally
             window.$ = window.WebQit.$;
@@ -81,4 +82,4 @@ It features the ability to add items and toggle the active state of each item.
 </html>
 ```
  
-<a href="/html/tooling/examples/todo.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.
+<a href="/html/tooling/oohtml/docs/learn/examples/todo.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.

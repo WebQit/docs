@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The Subscript Docs
+# Subscript Documentation
 
 Welcome to the Subscript documentation. We hope you find it easy to understand and navigate. 
 

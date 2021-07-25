@@ -11,7 +11,7 @@ Turns out that this is naturally possible!
         <title>Tooling In OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
         
-        <script src="https://unpkg.com/@webqit/oohtml/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
         
@@ -40,7 +40,7 @@ Turns out that this is naturally possible!
 
 Tooling can also help us acheive more efficient DOM manipulation. Generally, surgically updating the DOM may have performance implications on the UI, as arising from layout thrashing (see [this article](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing) on Web Fundamentals). But we also don't need as much as a *Virtual DOM* for this. A technique like that of [fast DOM](https://github.com/wilsonpage/fastdom) could just suffice.
 
-This technique is natively implemented by the [PlayUI](https://webqit.io/tooling/play-ui) library which has a jQuery-like API. We will now use PlayUI as a drop-in replacement for jQuery in the code above.
+This technique is natively implemented by the [Play UI](/tooling/play-ui) library which has a jQuery-like API. We will now use Play UI as a drop-in replacement for jQuery in the code above.
  
 ```html
 <html>
@@ -49,8 +49,8 @@ This technique is natively implemented by the [PlayUI](https://webqit.io/tooling
         <title>Tooling In OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
         
-        <script src="https://unpkg.com/@webqit/oohtml/dist/main.js"></script>
-        <script src="https://unpkg.com/@webqit/play-ui/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
     </head>
             
     <body>
@@ -67,7 +67,7 @@ This technique is natively implemented by the [PlayUI](https://webqit.io/tooling
         </div>
 
         <script>
-            // Make PlayUI available globally
+            // Make Play UI available globally
             window.$ = window.WebQit.$;
 
             // The alert
@@ -83,4 +83,4 @@ This technique is natively implemented by the [PlayUI](https://webqit.io/tooling
 </html>
 ```
 
-<a href="/html/tooling/examples/tooling.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.
+<a href="/html/tooling/oohtml/docs/learn/examples/tooling.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.

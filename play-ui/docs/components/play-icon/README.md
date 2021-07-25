@@ -1,3 +1,0 @@
-# Play Icon
-
-*(Documentation underway.)*

@@ -1,3 +1,0 @@
-# Play Collapsible
-
-*(Documentation underway.)*

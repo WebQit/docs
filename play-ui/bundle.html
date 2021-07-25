@@ -26,120 +26,40 @@
 	<template name="docs">
 		<div exportgroup="readme">
 
-			<h1 id="the-play-ui-docs">The Play UI Docs</h1>
+			<h1 id="play-ui-documentation">Play UI Documentation</h1>
 <p>Welcome to the Play UI documentation. We hope you find it easy to understand and navigate. </p>
 <p>If you have questions about anything related to the Play UI, you're always welcome to ask on our <a href="https://github.com/webqit/play-ui/discussions">GitHub Discussions</a>.</p>
 <h2 id="explore-the-docs">Explore the Docs</h2>
 
 		</div>
 
-		<template name="components">
+		<template name="api">
 			<div exportgroup="readme">
 
-				<h1 id="play-ui-components">Play UI Components</h1>
-<p>Explore Play UI's Web Components library.</p>
-
-			</div>
-
-			<template name="play-collapsible">
-				<div exportgroup="readme">
-
-					<h1 id="play-collapsible">Play Collapsible</h1>
-<p><em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-
-			<template name="play-icon">
-				<div exportgroup="readme">
-
-					<h1 id="play-icon">Play Icon</h1>
-<p><em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-
-			<template name="play-sequence">
-				<div exportgroup="readme">
-
-					<h1 id="play-sequence">Play Sequence</h1>
-<p><em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-		</template>
-
-		<template name="css">
-			<div exportgroup="readme">
-
-				<h1 id="play-ui-css">Play UI CSS</h1>
-<p>Explore Play UI CSS frameworks.</p>
-
-			</div>
-
-			<template name="play-css">
-				<div exportgroup="readme">
-
-					<h1 id="play-css">Play CSS</h1>
-<p>Utility classes for CSS animations and transitions. <em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-
-			<template name="plot-css">
-				<div exportgroup="readme">
-
-					<h1 id="plot-css">Plot CSS</h1>
-<p>Utility classes for CSS layouts. <em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-
-			<template name="vivid-css">
-				<div exportgroup="readme">
-
-					<h1 id="vivid-css">Vivid CSS</h1>
-<p>Utility classes for CSS colors. <em>(Documentation underway.)</em></p>
-
-				</div>
-			</template>
-		</template>
-
-		<template name="js">
-			<div exportgroup="readme">
-
-				<h1 id="play-ui-javascript">Play UI JavaScript</h1>
-<p>The Play UI JavaScript library offers a succinct API for working with the DOM and UI. </p>
-
-			</div>
-
-			<template name="api">
-				<div exportgroup="readme">
-
-					<h1 id="api-reference">API Reference</h1>
+				<h1 id="api-reference">API Reference</h1>
 <p>Explore the API Reference.</p>
 
+			</div>
+
+			<template name="css">
+				<div exportgroup="readme">
+
+					<h1 id="api-category-css">API Category: CSS</h1>
+
 				</div>
 
-				<template name="css">
+				<template name="classes">
 					<div exportgroup="readme">
 
-						<h1 id="api-category-css">API Category: CSS</h1>
+						<h1 id="classes">Classes</h1>
+<p>Classes in this category.</p>
 
 					</div>
 
-					<template name="classes">
+					<template name="TransformRule">
 						<div exportgroup="readme">
 
-							<h1 id="classes">Classes</h1>
-<p>Classes in this category.</p>
-
-						</div>
-
-						<template name="TransformRule">
-							<div exportgroup="readme">
-
-								<h1 id="class-transformrule-"><code>class TransformRule {}</code></h1>
+							<h1 id="class-transformrule-"><code>class TransformRule {}</code></h1>
 <p>This class is an object model of the CSS transform rule.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <h3 id="syntax">Syntax</h3>
@@ -231,15 +151,15 @@
 <span class="hljs-built_in">console</span>.log(transformRuleObject.toString());
 <span class="hljs-comment">// translate(30, 40) scale(3)</span></code></pre>
 
-							</div>
-						</template>
+						</div>
 					</template>
+				</template>
 
-					<template name="css">
-						<div exportgroup="readme">
+				<template name="css">
+					<div exportgroup="readme">
 
-							<h1 id="css"><code>.css()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>.cssSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>.cssSync()</code></a> for documentation.</p>
+						<h1 id="css"><code>.css()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/css/cssSync"><code>.cssSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/css/cssSync"><code>.cssSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.css()</code> instance method is internally based on the standalone <code>css/cssSync()</code> function which may be used statically.</p>
@@ -247,17 +167,17 @@
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">cssSync</span>: css } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssSync <span class="hljs-keyword">as</span> css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="cssasync">
-						<div exportgroup="readme">
+				<template name="cssAsync">
+					<div exportgroup="readme">
 
-							<h1 id="cssasync"><code>.cssAsync()</code></h1>
+						<h1 id="cssasync"><code>.cssAsync()</code></h1>
 <p>This method is used to asynchronously set or get one or more style properties for the given element. It is a convenient alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style"><code>ElementCSSInlineStyle.style</code></a>. It also has special support for vendor-prefixed properties.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>.cssSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/css/cssSync"><code>.cssSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-css-properties">Set CSS Properties</a></li>
 <li><a href="#b-get-css-properties">Get CSS Properties</a></li>
@@ -329,17 +249,17 @@
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssAsync } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="csssync">
-						<div exportgroup="readme">
+				<template name="cssSync">
+					<div exportgroup="readme">
 
-							<h1 id="csssync"><code>.cssSync()</code></h1>
+						<h1 id="csssync"><code>.cssSync()</code></h1>
 <p>This method is used to set or get one or more style properties for the given element. It is a convenient alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style"><code>ElementCSSInlineStyle.style</code></a>. It also has special support for vendor-prefixed properties.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>.cssAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/css/cssAsync"><code>.cssAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <ul>
 <li><a href="#a-set-css-properties">Set CSS Properties</a></li>
 <li><a href="#b-get-css-properties">Get CSS Properties</a></li>
@@ -410,26 +330,26 @@ $(el).cssSync({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssSync } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="csstransaction">
-						<div exportgroup="readme">
+				<template name="cssTransaction">
+					<div exportgroup="readme">
 
-							<h1 id="csstransaction"><code>.cssTransaction()</code></h1>
-<p>This method is used to start a transaction on an element for CSS operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/js/api/css/classes/transaction">Transaction</a> class.</p>
+						<h1 id="csstransaction"><code>.cssTransaction()</code></h1>
+<p>This method is used to start a transaction on an element for CSS operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/api/css/classes/transaction">Transaction</a> class.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = $(el).cssTransaction(props, asyncWrites = <span class="hljs-literal">false</span>);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>props</code></strong>: <strong><code>String|Array</code></strong> - A property or list of properties that describes the operation on the element.</li>
-<li><strong><code>asyncWrites</code></strong>: <strong><code>Boolean</code></strong> - Specifies whether to use the asynchronous mode for writes by using <a href="/tooling/play-ui/docs/js/api/css/cssasync"><code>cssAsync</code></a> instead of <a href="/tooling/play-ui/docs/js/api/css/csssync"><code>cssSync</code></a>.</li>
+<li><strong><code>asyncWrites</code></strong>: <strong><code>Boolean</code></strong> - Specifies whether to use the asynchronous mode for writes by using <a href="/tooling/play-ui/docs/api/css/cssAsync"><code>cssAsync</code></a> instead of <a href="/tooling/play-ui/docs/api/css/cssSync"><code>cssSync</code></a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>Transaction</code></strong> - The <a href="/tooling/play-ui/docs/js/api/css/classes/transaction">Transaction</a> instance.</li>
+<li><strong><code>Transaction</code></strong> - The <a href="/tooling/play-ui/docs/api/css/classes/transaction">Transaction</a> instance.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Below, we modify an element's CSS properties and later roll back the element to its initial state.</p>
@@ -479,7 +399,7 @@ transaction.savepoint();</code></pre>
     <span class="hljs-comment">// And color should be back to red</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
 <p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign changes</em> to restore the element to the specified <em>savepoint</em>.</p>
-<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/css/classes/transaction/rollback"><code>rollback()</code></a> method to <code>true</code>.</p>
+<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/api/css/classes/transaction/rollback"><code>rollback()</code></a> method to <code>true</code>.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
 el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 
@@ -496,24 +416,24 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssTransaction } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssTransaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-				</template>
-
-				<template name="dom">
-					<div exportgroup="readme">
-
-						<h1 id="api-category-dom">API Category: DOM</h1>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
+				</template>
+			</template>
 
-					<template name="append">
-						<div exportgroup="readme">
+			<template name="dom">
+				<div exportgroup="readme">
 
-							<h1 id="append"><code>.append()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>.appendSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>.appendSync()</code></a> for documentation.</p>
+					<h1 id="api-category-dom">API Category: DOM</h1>
+
+				</div>
+
+				<template name="append">
+					<div exportgroup="readme">
+
+						<h1 id="append"><code>.append()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/appendSync"><code>.appendSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/appendSync"><code>.appendSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.append()</code> instance method is internally based on the standalone <code>dom/appendSync()</code> function which may be used statically.</p>
@@ -521,17 +441,17 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">appendSync</span>: append } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendSync <span class="hljs-keyword">as</span> append } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="appendasync">
-						<div exportgroup="readme">
+				<template name="appendAsync">
+					<div exportgroup="readme">
 
-							<h1 id="appendasync"><code>.appendAsync()</code></h1>
+						<h1 id="appendasync"><code>.appendAsync()</code></h1>
 <p>This method is used to asynchronously append content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append"><code>ParentNode.append()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/appendsync"><code>.appendSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/appendSync"><code>.appendSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Append content(s) to an element</span>
 <span class="hljs-keyword">await</span> $(el).appendAsync(content[, ...content]);</code></pre>
@@ -554,17 +474,17 @@ $(el).appendAsync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="appendsync">
-						<div exportgroup="readme">
+				<template name="appendSync">
+					<div exportgroup="readme">
 
-							<h1 id="appendsync"><code>.appendSync()</code></h1>
+						<h1 id="appendsync"><code>.appendSync()</code></h1>
 <p>This method is used to append content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append"><code>ParentNode.append()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/appendasync"><code>.appendAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/appendAsync"><code>.appendAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Append content(s) to an element</span>
 $(el).appendSync(content[, ...content]);</code></pre>
@@ -587,17 +507,17 @@ $(el).appendSync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <spa
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="appendtosync">
-						<div exportgroup="readme">
+				<template name="appendToSync">
+					<div exportgroup="readme">
 
-							<h1 id="appendtosync"><code>.appendToSync()</code></h1>
+						<h1 id="appendtosync"><code>.appendToSync()</code></h1>
 <p>This method is used to append matched elements to target elements.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/appendtoasync"><code>.appendToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/appendToAsync"><code>.appendToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">$(el).appendToSync(target);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -621,16 +541,16 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendToSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="attr">
-						<div exportgroup="readme">
+				<template name="attr">
+					<div exportgroup="readme">
 
-							<h1 id="attr"><code>.attr()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>.attrSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>.attrSync()</code></a> for documentation.</p>
+						<h1 id="attr"><code>.attr()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>.attrSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>.attrSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.attr()</code> instance method is internally based on the standalone <code>dom/attrSync()</code> function which may be used statically.</p>
@@ -638,17 +558,17 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">attrSync</span>: attr } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrSync <span class="hljs-keyword">as</span> attr } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="attrasync">
-						<div exportgroup="readme">
+				<template name="attrAsync">
+					<div exportgroup="readme">
 
-							<h1 id="attrasync"><code>.attrAsync()</code></h1>
+						<h1 id="attrasync"><code>.attrAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's attribute. It is a shorter alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"><code>Element.setAttribute()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute"><code>Element.getAttribute()</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute"><code>Element.removeAttribute()</code></a>. It also has special support for list-based attributes like <code>class</code>.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>attrSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>attrSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-attributes">Set Attributes</a></li>
 <li><a href="#b-get-attributes">Get Attributes</a></li>
@@ -766,17 +686,17 @@ $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class=
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { attrAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-4">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="attrsync">
-						<div exportgroup="readme">
+				<template name="attrSync">
+					<div exportgroup="readme">
 
-							<h1 id="attrsync"><code>.attrSync()</code></h1>
+						<h1 id="attrsync"><code>.attrSync()</code></h1>
 <p>This method is used to set or get an element's attribute. It is a shorter alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"><code>Element.setAttribute()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute"><code>Element.getAttribute()</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute"><code>Element.removeAttribute()</code></a>. It also has special support for list-based attributes like <code>class</code>.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>attrAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/attrAsync"><code>attrAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <ul>
 <li><a href="#a-set-attributes">Set Attributes</a></li>
 <li><a href="#b-get-attributes">Get Attributes</a></li>
@@ -892,16 +812,16 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { attrSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-4">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="class">
-						<div exportgroup="readme">
+				<template name="class">
+					<div exportgroup="readme">
 
-							<h1 id="class"><code>.class()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>.classSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>.classSync()</code></a> for documentation.</p>
+						<h1 id="class"><code>.class()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/classSync"><code>.classSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/classSync"><code>.classSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.class()</code> instance method is internally based on the standalone <code>dom/classSync()</code> function which may be used statically.</p>
@@ -909,17 +829,17 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">classSync</span>: _class } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync <span class="hljs-keyword">as</span> _class } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="classasync">
-						<div exportgroup="readme">
+				<template name="classAsync">
+					<div exportgroup="readme">
 
-							<h1 id="classasync"><code>.classAsync()</code></h1>
-<p>This method is used to asynchronously modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrasync"><code>attrAsync()</code></a> method to modify an element's class attribute.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/classsync"><code>classSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+						<h1 id="classasync"><code>.classAsync()</code></h1>
+<p>This method is used to asynchronously modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/api/dom/attrAsync"><code>attrAsync()</code></a> method to modify an element's class attribute.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/classSync"><code>classSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-modify-class-list">Modify Class List</a></li>
 <li><a href="#b-match-class-list">Match Class List</a></li>
@@ -981,17 +901,17 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="classsync">
-						<div exportgroup="readme">
+				<template name="classSync">
+					<div exportgroup="readme">
 
-							<h1 id="classsync"><code>.classSync()</code></h1>
-<p>This method is used to modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/js/api/dom/attrsync"><code>attrSync()</code></a> method to modify an element's class attribute.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/classasync"><code>classAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+						<h1 id="classsync"><code>.classSync()</code></h1>
+<p>This method is used to modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>attrSync()</code></a> method to modify an element's class attribute.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/classAsync"><code>classAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <ul>
 <li><a href="#a-modify-class-list">Modify Class List</a></li>
 <li><a href="#b-match-class-list">Match Class List</a></li>
@@ -1052,15 +972,15 @@ $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <spa
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="gettextnodes">
-						<div exportgroup="readme">
+				<template name="getTextNodes">
+					<div exportgroup="readme">
 
-							<h1 id="gettextnodes"><code>.getTextNodes()</code></h1>
+						<h1 id="gettextnodes"><code>.getTextNodes()</code></h1>
 <p>This method is used to get all text nodes within an element.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> textNodes = $(el).getTextNodes();</code></pre>
@@ -1084,16 +1004,16 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { getTextNodes } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { getTextNodes } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="html">
-						<div exportgroup="readme">
+				<template name="html">
+					<div exportgroup="readme">
 
-							<h1 id="html"><code>.html()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>.htmlSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>.htmlSync()</code></a> for documentation.</p>
+						<h1 id="html"><code>.html()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/htmlSync"><code>.htmlSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/htmlSync"><code>.htmlSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.html()</code> instance method is internally based on the standalone <code>dom/htmlSync()</code> function which may be used statically.</p>
@@ -1101,17 +1021,17 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">htmlSync</span>: html } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlSync <span class="hljs-keyword">as</span> html } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="htmlasync">
-						<div exportgroup="readme">
+				<template name="htmlAsync">
+					<div exportgroup="readme">
 
-							<h1 id="htmlasync"><code>.htmlAsync()</code></h1>
+						<h1 id="htmlasync"><code>.htmlAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's HTML/XML content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>Element.innerHTML</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/htmlsync"><code>.htmlSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/htmlSync"><code>.htmlSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-html-content">Set HTML Content</a></li>
 <li><a href="#b-get-html-content">Get HTML Content</a></li>
@@ -1151,17 +1071,17 @@ $(el).htmlAsync(div);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { htmlAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="htmlsync">
-						<div exportgroup="readme">
+				<template name="htmlSync">
+					<div exportgroup="readme">
 
-							<h1 id="htmlsync"><code>.htmlSync()</code></h1>
+						<h1 id="htmlsync"><code>.htmlSync()</code></h1>
 <p>This method is used to set or get an element's HTML/XML content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>Element.innerHTML</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>.htmlAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/htmlAsync"><code>.htmlAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <ul>
 <li><a href="#a-set-html-content">Set HTML Content</a></li>
 <li><a href="#b-get-html-content">Get HTML Content</a></li>
@@ -1201,15 +1121,15 @@ $(el).htmlSync(div);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { htmlSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="instantiation">
-						<div exportgroup="readme">
+				<template name="initialization">
+					<div exportgroup="readme">
 
-							<h1 id="the-play-ui-constructor">The Play UI Constructor</h1>
+						<h1 id="the-play-ui-constructor">The Play UI Constructor</h1>
 <p>The main Play UI <em>constructor</em> is used to derive elements from a number of input formats and return a Play UI instance for them. It is a <em>constructable function</em> that can be instantiated either with the <code>new</code> keyword (<code>new $()</code>) or via a static call (<code>$()</code>).</p>
 <ul>
 <li><a href="#a-derive-elements-by-query">Derive Elements By Query</a></li>
@@ -1278,13 +1198,13 @@ $(nodeList);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;div&#x27;</span>);
 <span class="hljs-keyword">let</span> $divs = $(result).toArray(); <span class="hljs-comment">// .length: 2</span></code></pre>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="itemize">
-						<div exportgroup="readme">
+				<template name="itemize">
+					<div exportgroup="readme">
 
-							<h1 id="itemize"><code>.itemize()</code></h1>
+						<h1 id="itemize"><code>.itemize()</code></h1>
 <p>This method is used to create a live list within an element in an <a href="/tooling/oohtml">OOHTML</a>-based document. (It requires the OHHTML polyfill to be available in the document.)</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">$(el).itemize(items[, params]);</code></pre>
@@ -1394,16 +1314,16 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { itemize } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { itemize } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="prepend">
-						<div exportgroup="readme">
+				<template name="prepend">
+					<div exportgroup="readme">
 
-							<h1 id="prepend"><code>.prepend()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>.prependSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>.prependSync()</code></a> for documentation.</p>
+						<h1 id="prepend"><code>.prepend()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/prependsync"><code>.prependSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/prependsync"><code>.prependSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.prepend()</code> instance method is internally based on the standalone <code>dom/prependSync()</code> function which may be used statically.</p>
@@ -1411,17 +1331,17 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">prependSync</span>: prepend } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependSync <span class="hljs-keyword">as</span> prepend } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="prependasync">
-						<div exportgroup="readme">
+				<template name="prependAsync">
+					<div exportgroup="readme">
 
-							<h1 id="prependasync"><code>.prependAsync()</code></h1>
+						<h1 id="prependasync"><code>.prependAsync()</code></h1>
 <p>This method is used to asynchronously prepend content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend"><code>ParentNode.prepend()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/prependsync"><code>.prependSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependsync"><code>.prependSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Prepend content(s) to an element</span>
 <span class="hljs-keyword">await</span> $(el).prependAsync(content[, ...content]);</code></pre>
@@ -1444,17 +1364,17 @@ $(el).prependAsync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="prependsync">
-						<div exportgroup="readme">
+				<template name="prependSync">
+					<div exportgroup="readme">
 
-							<h1 id="prependsync"><code>.prependSync()</code></h1>
+						<h1 id="prependsync"><code>.prependSync()</code></h1>
 <p>This method is used to prepend content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend"><code>ParentNode.prepend()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/prependasync"><code>.prependAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependasync"><code>.prependAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Prepend content(s) to an element</span>
 $(el).prependSync(content[, ...content]);</code></pre>
@@ -1477,17 +1397,17 @@ $(el).prependSync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="h
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="prependtoasync">
-						<div exportgroup="readme">
+				<template name="prependToAsync">
+					<div exportgroup="readme">
 
-							<h1 id="prependtoasync"><code>.prependToAsync()</code></h1>
+						<h1 id="prependtoasync"><code>.prependToAsync()</code></h1>
 <p>This method is used to asynchronously prepend matched elements to target elements.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/prependtosync"><code>.prependToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependtosync"><code>.prependToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).prependToAsync(target);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -1511,17 +1431,17 @@ $(div).prependToAsync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="prependtosync">
-						<div exportgroup="readme">
+				<template name="prependToSync">
+					<div exportgroup="readme">
 
-							<h1 id="prependtosync"><code>.prependToSync()</code></h1>
+						<h1 id="prependtosync"><code>.prependToSync()</code></h1>
 <p>This method is used to prepend matched elements to target elements.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/prependtoasync"><code>.prependToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependtoasync"><code>.prependToAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">$(el).prependToSync(target);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -1545,16 +1465,16 @@ $(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</c
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="text">
-						<div exportgroup="readme">
+				<template name="text">
+					<div exportgroup="readme">
 
-							<h1 id="text"><code>.text()</code></h1>
-<p>This method is an alias of the <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>.textSync()</code></a> method. See <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>.textSync()</code></a> for documentation.</p>
+						<h1 id="text"><code>.text()</code></h1>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/dom/textSync"><code>.textSync()</code></a> method. See <a href="/tooling/play-ui/docs/api/dom/textSync"><code>.textSync()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.text()</code> instance method is internally based on the standalone <code>dom/textSync()</code> function which may be used statically.</p>
@@ -1562,17 +1482,17 @@ $(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</c
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">textSync</span>: text } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textSync <span class="hljs-keyword">as</span> text } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="textasync">
-						<div exportgroup="readme">
+				<template name="textAsync">
+					<div exportgroup="readme">
 
-							<h1 id="textasync"><code>.textAsync()</code></h1>
+						<h1 id="textasync"><code>.textAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's text content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText"><code>Element.innerText</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/textsync"><code>.textSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/textSync"><code>.textSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-text-content">Set Text Content</a></li>
 <li><a href="#b-get-text-content">Get Text Content</a></li>
@@ -1612,17 +1532,17 @@ $(el).textAsync(text);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { textAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="textsync">
-						<div exportgroup="readme">
+				<template name="textSync">
+					<div exportgroup="readme">
 
-							<h1 id="textsync"><code>.textSync()</code></h1>
+						<h1 id="textsync"><code>.textSync()</code></h1>
 <p>This method is used to set or get an element's text content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText"><code>Element.innerText</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/js/api/dom/textasync"><code>.textAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is promised-based and works in sync with the UI's reflow cycle. See <a href="/tooling/play-ui/docs/js/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Sync</em> differentiates this method from its <em>Async</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/textAsync"><code>.textAsync()</code></a>. Unlike the <em>Async</em> counterpart, this method is not promised-based.</p>
 <ul>
 <li><a href="#a-set-text-content">Set Text Content</a></li>
 <li><a href="#b-get-text-content">Get Text Content</a></li>
@@ -1662,31 +1582,31 @@ $(el).textSync(text);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { textSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
 				</template>
+			</template>
 
-				<template name="misc">
+			<template name="misc">
+				<div exportgroup="readme">
+
+					<h1 id="api-category-miscellaneous">API Category: Miscellaneous</h1>
+
+				</div>
+
+				<template name="classes">
 					<div exportgroup="readme">
 
-						<h1 id="api-category-miscellaneous">API Category: Miscellaneous</h1>
+						<h1 id="classes">Classes</h1>
+<p>Classes in this category.</p>
 
 					</div>
 
-					<template name="classes">
+					<template name="Transaction">
 						<div exportgroup="readme">
 
-							<h1 id="classes">Classes</h1>
-<p>Classes in this category.</p>
-
-						</div>
-
-						<template name="Transaction">
-							<div exportgroup="readme">
-
-								<h1 id="class-transaction-"><code>class Transaction {}</code></h1>
+							<h1 id="class-transaction-"><code>class Transaction {}</code></h1>
 <p>This class lets us create rollback points while manipulating an element.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = <span class="hljs-keyword">new</span> Transaction(el, props, readCallback, writeCallback);</code></pre>
@@ -1703,7 +1623,7 @@ $(el).textSync(text);</code></pre>
 <ul>
 <li><p><strong><code>Object</code></strong> - A key/value hash for the listed properties.</p></li>
 <li><p><strong><code>Promise</code></strong> - A promise that should resolve to the object above.</p>
-<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/classes/transaction/savepoint"><code>savepoint()</code></a> instance method returns when called.</p></li></ul></li>
+<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/classes/transaction/savepoint"><code>savepoint()</code></a> instance method returns when called.</p></li></ul></li>
 <li><p><strong><code>writeCallback</code></strong>: <strong><code>function(el, record)</code></strong> - A function that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function.</p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -1713,7 +1633,7 @@ $(el).textSync(text);</code></pre>
 <ul>
 <li><p><strong><code>Any</code></strong> - Any value may be returned and will not be used.</p></li>
 <li><p><strong><code>Promise</code></strong> - A promise that may resolve to anything.</p>
-<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> and <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/apply"><code>apply()</code></a> instance methods return when called.</p></li></ul></li>
+<p>This return value is what the transaction's <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> and <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/apply"><code>apply()</code></a> instance methods return when called.</p></li></ul></li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -1774,7 +1694,7 @@ transaction.savepoint();</code></pre>
     <span class="hljs-comment">// And color should be back to red</span>
 }, <span class="hljs-number">2000</span>);</code></pre>
 <p>In the code above, if another part of the app had changed one of those properties after the last <em>savepoint</em> we made, then the call to <code>rollback()</code> would have overridden those <em>foreign changes</em> to restore the element to the specified <em>savepoint</em>.</p>
-<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
+<p>To automatically detect <em>foreign changes</em> and leave them untouched, we would set the <code>preserveCurrentState</code> parameter of the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/rollback"><code>rollback()</code></a> method to <code>true</code>. (The <code>readCallback</code> function will be called again to take the element's current state for comparison.)</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// The following changes were made after our last savepoint</span>
 el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 
@@ -1791,40 +1711,40 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <h2 id="methods">Methods</h2>
 <p>Check out <em>Transaction's</em> methods.</p>
 
-							</div>
+						</div>
 
-							<template name="apply">
-								<div exportgroup="readme">
+						<template name="apply">
+							<div exportgroup="readme">
 
-									<h1 id="apply"><code>.apply()</code></h1>
+								<h1 id="apply"><code>.apply()</code></h1>
 <blockquote>
   <p>The <code>transaction.apply()</code> method.</p>
 </blockquote>
-<p>This method is used to apply a new state to the element in a transaction. It is just another way to call the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance.</p>
+<p>This method is used to apply a new state to the element in a transaction. It is just another way to call the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">transaction.apply(state);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>state</code></strong>: <strong><code>Object</code></strong> - A new state object that is passed to the instance's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a>.</li>
+<li><strong><code>state</code></strong>: <strong><code>Object</code></strong> - A new state object that is passed to the instance's <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
 <li><strong><code>Any</code></strong> - The return value of the transaction's <code>writeCallback</code> function.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>Obtain an instance of an ongoing transaction and call <code>.apply()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.apply()</code> method to apply the CSS properties in that example.</p>
+<p>Obtain an instance of an ongoing transaction and call <code>.apply()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.apply()</code> method to apply the CSS properties in that example.</p>
 <pre><code class="hljs js language-js">ananimationi.apply({
     <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;brown&#x27;</span>,
     <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;teal&#x27;</span>,
 });</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="commit">
-								<div exportgroup="readme">
+						<template name="commit">
+							<div exportgroup="readme">
 
-									<h1 id="commit"><code>.commit()</code></h1>
+								<h1 id="commit"><code>.commit()</code></h1>
 <blockquote>
   <p>The <code>transaction.commit()</code> method.</p>
 </blockquote>
@@ -1832,32 +1752,32 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">transaction.commit(savepoint = <span class="hljs-number">0</span>);</code></pre>
 <ul>
-<li><strong><code>savepoint</code></strong>: <strong><code>Int</code></strong> - The savepoint to commit up to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
+<li><strong><code>savepoint</code></strong>: <strong><code>Int</code></strong> - The savepoint to commit up to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>this</code></strong> - The <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/">Transaction</a> instance.</li>
+<li><strong><code>this</code></strong> - The <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/">Transaction</a> instance.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>Obtain an instance of an ongoing transaction and call <code>.commit()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.commit()</code> method to commit all savepoints. Calling the transaction's <code>.rollback()</code> method after this point will have no effect.</p>
+<p>Obtain an instance of an ongoing transaction and call <code>.commit()</code>. Below, we build on the usage example on the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#usage">Transaction</a> page. Here we use the <code>.commit()</code> method to commit all savepoints. Calling the transaction's <code>.rollback()</code> method after this point will have no effect.</p>
 <pre><code class="hljs js language-js">ananimationi.commit(<span class="hljs-number">0</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="rollback">
-								<div exportgroup="readme">
+						<template name="rollback">
+							<div exportgroup="readme">
 
-									<h1 id="rollback"><code>.rollback()</code></h1>
+								<h1 id="rollback"><code>.rollback()</code></h1>
 <blockquote>
   <p>The <code>transaction.rollback()</code> method.</p>
 </blockquote>
-<p>This method is used to roll back up to a savepoint in a transaction. It re-applies the previously recorded state of the element by calling the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance. The complementary <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function will also be involved if the <code>preserveCurrentState</code> parameter is set to <code>true</code>.</p>
+<p>This method is used to roll back up to a savepoint in a transaction. It re-applies the previously recorded state of the element by calling the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#constructor"><code>writeCallback</code></a> function that was used to create the instance. The complementary <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function will also be involved if the <code>preserveCurrentState</code> parameter is set to <code>true</code>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">transaction.rollback(savepoint = <span class="hljs-number">0</span>, preserveCurrentState = <span class="hljs-literal">false</span>);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>savepoint</code></strong>: <strong><code>Int</code></strong> - The savepoint to roll back to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
+<li><strong><code>savepoint</code></strong>: <strong><code>Int</code></strong> - The savepoint to roll back to. <code>0</code> refers to the record of the first call to <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/savepoint"><code>.savepoint()</code></a>; <code>1</code> to the second call; and so on.</li>
 <li><strong><code>preserveCurrentState</code></strong>: <strong><code>Boolean</code></strong> - Specifies whether or not to detect and preserve any additional changes made after the last call to <code>savepoint()</code>.</li>
 </ul>
 <p><strong>Return</strong></p>
@@ -1865,19 +1785,19 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <li><strong><code>Any</code></strong> - The return value of the <code>writeCallback</code> function.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
+<p>See the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="savepoint">
-								<div exportgroup="readme">
+						<template name="savepoint">
+							<div exportgroup="readme">
 
-									<h1 id="savepoint"><code>.savepoint()</code></h1>
+								<h1 id="savepoint"><code>.savepoint()</code></h1>
 <blockquote>
   <p>The <code>transaction.savepoint()</code> method.</p>
 </blockquote>
-<p>This method is used to create a savepoint from the current state of an element in a transaction. It takes records by calling the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function that was used to create the instance.</p>
+<p>This method is used to create a savepoint from the current state of an element in a transaction. It takes records by calling the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#constructor"><code>readCallback</code></a> function that was used to create the instance.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">transaction.savepoint();</code></pre>
 <p><strong>Return</strong></p>
@@ -1885,17 +1805,17 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <li><strong><code>Any</code></strong> - The return value of the <code>readCallback</code> function.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
+<p>See the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction/#usage">Transaction</a> class.</p>
 
-								</div>
-							</template>
+							</div>
 						</template>
 					</template>
+				</template>
 
-					<template name="data">
-						<div exportgroup="readme">
+				<template name="data">
+					<div exportgroup="readme">
 
-							<h1 id="data">.data()</h1>
+						<h1 id="data">.data()</h1>
 <p>This method is used to store and manage arbitrary data with a data store internally associated with an element.</p>
 <ul>
 <li><a href="#a-set-data">Set Data</a></li>
@@ -1979,30 +1899,30 @@ $(el).data({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.misc;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/misc/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-3">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="transaction">
-						<div exportgroup="readme">
+				<template name="transaction">
+					<div exportgroup="readme">
 
-							<h1 id="transaction"><code>.transaction()</code></h1>
-<p>This method is used to start a transaction on an element for operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction">Transaction</a> class.</p>
+						<h1 id="transaction"><code>.transaction()</code></h1>
+<p>This method is used to start a transaction on an element for operations that eventually might need to be rolled back. It is a convenient way to use the Play UI's <a href="/tooling/play-ui/docs/api/misc/classes/Transaction">Transaction</a> class.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> transaction = $(el).transaction(props, readCallback, writeCallback);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>props</code></strong>: <strong><code>String|Array</code></strong> - A property or list of properties that describes the operation on the element.</li>
-<li><strong><code>readCallback</code></strong>: <strong><code>function(el, props)</code></strong> - A function that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
-<li><strong><code>writeCallback</code></strong>: <strong><code>function(el, record)</code></strong> - A function that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+<li><strong><code>readCallback</code></strong>: <strong><code>function(el, props)</code></strong> - A function that is called to capture the state of the element using the listed <em>props</em>. See the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
+<li><strong><code>writeCallback</code></strong>: <strong><code>function(el, record)</code></strong> - A function that is called to re-apply the recorded state of the element as previously derived by the <code>readCallback</code> function. See the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction#constructor">Transaction</a> class.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>Transaction</code></strong> - The <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction">Transaction</a> instance.</li>
+<li><strong><code>Transaction</code></strong> - The <a href="/tooling/play-ui/docs/api/misc/classes/Transaction">Transaction</a> instance.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>See the <a href="/tooling/play-ui/docs/js/api/misc/classes/Transaction#constructor">Transaction</a> class.</p>
+<p>See the <a href="/tooling/play-ui/docs/api/misc/classes/Transaction#constructor">Transaction</a> class.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.transaction()</code> instance method is internally based on the standalone <code>misc/transaction()</code> function which may be used statically.</p>
@@ -2010,24 +1930,24 @@ $(el).data({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { transaction } = $.misc;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/misc/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-						</div>
-					</template>
-				</template>
-
-				<template name="ui">
-					<div exportgroup="readme">
-
-						<h1 id="api-category-ui">API Category: UI</h1>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
+				</template>
+			</template>
 
-					<template name="classes">
-						<template name="Animation">
-							<div exportgroup="readme">
+			<template name="ui">
+				<div exportgroup="readme">
 
-								<h1 id="class-animation-"><code>class Animation {}</code></h1>
+					<h1 id="api-category-ui">API Category: UI</h1>
+
+				</div>
+
+				<template name="classes">
+					<template name="Animation">
+						<div exportgroup="readme">
+
+							<h1 id="class-animation-"><code>class Animation {}</code></h1>
 <p>This class provides an intuitive way to use the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API (WAAPI)</a>.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> animation = <span class="hljs-keyword">new</span> Animation(element, effect[, timing = {}]);</code></pre>
@@ -2100,16 +2020,16 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">el</
 <h2 id="methods">Methods</h2>
 <p>Explore the instance methods of this class.</p>
 
-							</div>
+						</div>
 
-							<template name="cancel">
-								<div exportgroup="readme">
+						<template name="cancel">
+							<div exportgroup="readme">
 
-									<h1 id="cancel"><code>.cancel()</code></h1>
+								<h1 id="cancel"><code>.cancel()</code></h1>
 <blockquote>
   <p>The <code>animation.cancel()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to cancel an animation. If there are <em>oncancel</em> handlers, they are called.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to cancel an animation. If there are <em>oncancel</em> handlers, they are called.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.cancel();</code></pre>
 <p><strong>Return</strong></p>
@@ -2120,17 +2040,17 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">el</
 <p>Obtain an instance of an ongoing animation and call <code>.cancel()</code>.</p>
 <pre><code class="hljs js language-js">animation.cancel();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="finish">
-								<div exportgroup="readme">
+						<template name="finish">
+							<div exportgroup="readme">
 
-									<h1 id="finish"><code>.finish()</code></h1>
+								<h1 id="finish"><code>.finish()</code></h1>
 <blockquote>
   <p>The <code>animation.finish()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to force an animation to the finished state. If there are <em>onfinish</em> handlers, they are called.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to force an animation to the finished state. If there are <em>onfinish</em> handlers, they are called.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.finish();</code></pre>
 <p><strong>Return</strong></p>
@@ -2141,17 +2061,17 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">el</
 <p>Obtain an instance of an ongoing animation and call <code>.finish()</code>.</p>
 <pre><code class="hljs js language-js">animation.finish();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="oncancel">
-								<div exportgroup="readme">
+						<template name="oncancel">
+							<div exportgroup="readme">
 
-									<h1 id="oncancel"><code>.oncancel()</code></h1>
+								<h1 id="oncancel"><code>.oncancel()</code></h1>
 <blockquote>
   <p>The <code>animation.oncancel()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'cancelled' state of an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'cancelled' state of an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.oncancel(callback);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2180,17 +2100,17 @@ animation.oncancel(<span class="hljs-function"><span class="hljs-params">el</spa
     <span class="hljs-comment">// Do something else</span>
 });</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="onfinish">
-								<div exportgroup="readme">
+						<template name="onfinish">
+							<div exportgroup="readme">
 
-									<h1 id="onfinish"><code>.onfinish()</code></h1>
+								<h1 id="onfinish"><code>.onfinish()</code></h1>
 <blockquote>
   <p>The <code>animation.onfinish()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'finished' state of an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'finished' state of an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.onfinish(callback);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2219,17 +2139,17 @@ animation.onfinish(<span class="hljs-function"><span class="hljs-params">el</spa
     <span class="hljs-comment">// Do something else</span>
 });</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="pause">
-								<div exportgroup="readme">
+						<template name="pause">
+							<div exportgroup="readme">
 
-									<h1 id="pause"><code>.pause()</code></h1>
+								<h1 id="pause"><code>.pause()</code></h1>
 <blockquote>
   <p>The <code>animation.pause()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to pause an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to pause an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.pause();</code></pre>
 <p><strong>Return</strong></p>
@@ -2240,17 +2160,17 @@ animation.onfinish(<span class="hljs-function"><span class="hljs-params">el</spa
 <p>Obtain an instance of an ongoing animation and call <code>.pause()</code>.</p>
 <pre><code class="hljs js language-js">animation.pause();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="play">
-								<div exportgroup="readme">
+						<template name="play">
+							<div exportgroup="readme">
 
-									<h1 id="play"><code>.play()</code></h1>
+								<h1 id="play"><code>.play()</code></h1>
 <blockquote>
   <p>The <code>animation.play()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to play an animation. This method is promised-based.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to play an animation. This method is promised-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> animation.play();</code></pre>
 <p><strong>Return</strong></p>
@@ -2274,17 +2194,17 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">anim
     animation.reverse();
 });</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="progress">
-								<div exportgroup="readme">
+						<template name="progress">
+							<div exportgroup="readme">
 
-									<h1 id="progress"><code>.progress()</code></h1>
+								<h1 id="progress"><code>.progress()</code></h1>
 <blockquote>
   <p>The <code>animation.progress()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to get the percentage progress of an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to get the percentage progress of an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> progress = animation.progress();</code></pre>
 <p><strong>Return</strong></p>
@@ -2306,17 +2226,17 @@ animation.play().then(<span class="hljs-function"><span class="hljs-params">anim
     <span class="hljs-built_in">console</span>.log(animation.progress()); <span class="hljs-comment">// About 0.5</span>
 }, <span class="hljs-number">350</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="ready">
-								<div exportgroup="readme">
+						<template name="ready">
+							<div exportgroup="readme">
 
-									<h1 id="ready"><code>.ready()</code></h1>
+								<h1 id="ready"><code>.ready()</code></h1>
 <blockquote>
   <p>The <code>animation.ready()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'ready' state of an animation. This is useful as there are cases where the animation is created asynchronously.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to bind a handler to the 'ready' state of an animation. This is useful as there are cases where the animation is created asynchronously.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.ready(readyCallback[, failureCallback = <span class="hljs-literal">null</span>]);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2349,17 +2269,17 @@ aanimationni.ready(<span class="hljs-function">(<span class="hljs-params">waapi,
     <span class="hljs-built_in">console</span>.log(firstFrame, lastFrame);
 });</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="reverse">
-								<div exportgroup="readme">
+						<template name="reverse">
+							<div exportgroup="readme">
 
-									<h1 id="reverse"><code>.reverse()</code></h1>
+								<h1 id="reverse"><code>.reverse()</code></h1>
 <blockquote>
   <p>The <code>animation.reverse()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to reverse an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to reverse an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.reverse();</code></pre>
 <p><strong>Return</strong></p>
@@ -2370,17 +2290,17 @@ aanimationni.ready(<span class="hljs-function">(<span class="hljs-params">waapi,
 <p>Obtain an instance of an ongoing animation and call <code>.reverse()</code>.</p>
 <pre><code class="hljs js language-js">animation.reverse();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="seek">
-								<div exportgroup="readme">
+						<template name="seek">
+							<div exportgroup="readme">
 
-									<h1 id="seek"><code>.seek()</code></h1>
+								<h1 id="seek"><code>.seek()</code></h1>
 <blockquote>
   <p>The <code>animation.seek()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instance method is used to seek to a percentage point in an animation.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instance method is used to seek to a percentage point in an animation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">animation.seek(point);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2405,14 +2325,14 @@ aanimationni.ready(<span class="hljs-function">(<span class="hljs-params">waapi,
 <span class="hljs-comment">// Seek the animation to 350ms</span>
 animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
 						</template>
+					</template>
 
-						<template name="Event">
-							<div exportgroup="readme">
+					<template name="Event">
+						<div exportgroup="readme">
 
-								<h1 id="class-event-"><code>class Event {}</code></h1>
+							<h1 id="class-event-"><code>class Event {}</code></h1>
 <p>Instances of this class represent a DOM event or user gesture event.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event(target, e);</code></pre>
@@ -2436,13 +2356,13 @@ animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <h3 id="eventpromise"><code>event.promise()</code></h3>
 <h3 id="eventresponse"><code>event.response()</code></h3>
 
-							</div>
-						</template>
+						</div>
+					</template>
 
-						<template name="Listener">
-							<div exportgroup="readme">
+					<template name="Listener">
+						<div exportgroup="readme">
 
-								<h1 id="class-listener-"><code>class Listener {}</code></h1>
+							<h1 id="class-listener-"><code>class Listener {}</code></h1>
 <p>Instances of this class represent an event listener.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <p><em>Instances are created internally.</em></p>
@@ -2450,26 +2370,26 @@ animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <h3 id="listenerdisconnect"><code>listener.disconnect()</code></h3>
 <h3 id="listenerfire"><code>listener.fire()</code></h3>
 
-							</div>
-						</template>
+						</div>
+					</template>
 
-						<div exportgroup="readme">
+					<div exportgroup="readme">
 
-							<h1 id="classes">Classes</h1>
+						<h1 id="classes">Classes</h1>
 <p>Classes in this category.</p>
 
-						</div>
+					</div>
 
-						<template name="Timeline">
-							<div exportgroup="readme">
+					<template name="Timeline">
+						<div exportgroup="readme">
 
-								<h1 id="timeline">Timeline</h1>
-<p>This class provides a convenient way to control multiple <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instances.</p>
+							<h1 id="timeline">Timeline</h1>
+<p>This class provides a convenient way to control multiple <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instances.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> timeline = <span class="hljs-keyword">new</span> Timeline(animations[, params = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>animations</code></strong>: <strong><code>Array</code></strong> - Zero or more <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation">Animation</a> instances.</li>
+<li><strong><code>animations</code></strong>: <strong><code>Array</code></strong> - Zero or more <a href="/tooling/play-ui/docs/api/ui/classes/Animation">Animation</a> instances.</li>
 <li><strong><code>params</code></strong>: <strong><code>Object</code></strong> - A few parameters for the timeline. (Currently none).</li>
 </ul>
 <h2 id="usage">Usage</h2>
@@ -2503,16 +2423,16 @@ timeline.remove(ani1);
 <h2 id="methods">Methods</h2>
 <p>Explore the instance methods of this class.</p>
 
-							</div>
+						</div>
 
-							<template name="add">
-								<div exportgroup="readme">
+						<template name="add">
+							<div exportgroup="readme">
 
-									<h1 id="add"><code>.add()</code></h1>
+								<h1 id="add"><code>.add()</code></h1>
 <blockquote>
   <p>The <code>timeline.add()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to add an <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> to the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to add an <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> to the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.add(animation);</code></pre>
 <p><strong>Return</strong></p>
@@ -2529,22 +2449,22 @@ timeline.remove(ani1);
 <span class="hljs-comment">// Add</span>
 timeline.add(animation);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="cancel">
-								<div exportgroup="readme">
+						<template name="cancel">
+							<div exportgroup="readme">
 
-									<h1 id="cancel"><code>.cancel()</code></h1>
+								<h1 id="cancel"><code>.cancel()</code></h1>
 <blockquote>
   <p>The <code>timeline.cancel()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to cancel all animations in the timeline. If there are <em>oncancel</em> handlers, they are called. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are canclled immediately.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to cancel all animations in the timeline. If there are <em>oncancel</em> handlers, they are called. <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are canclled immediately.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.cancel(except = []);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2554,22 +2474,22 @@ timeline.add(animation);</code></pre>
 <p>Obtain an instance of an ongoing animation and call <code>.cancel()</code>.</p>
 <pre><code class="hljs js language-js">timeline.cancel();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="clear">
-								<div exportgroup="readme">
+						<template name="clear">
+							<div exportgroup="readme">
 
-									<h1 id="clear"><code>.clear()</code></h1>
+								<h1 id="clear"><code>.clear()</code></h1>
 <blockquote>
   <p>The <code>timeline.clear()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to clear all animations from off the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to clear all animations from off the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.clear(except = []);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2579,22 +2499,22 @@ timeline.add(animation);</code></pre>
 <p>Obtain an instance of an ongoing animation and call <code>.clear()</code>.</p>
 <pre><code class="hljs js language-js">timeline.clear();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="finish">
-								<div exportgroup="readme">
+						<template name="finish">
+							<div exportgroup="readme">
 
-									<h1 id="finish"><code>.finish()</code></h1>
+								<h1 id="finish"><code>.finish()</code></h1>
 <blockquote>
   <p>The <code>timeline.finish()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to finish all animations in the timeline. If there are <em>onfinish</em> handlers, they are called. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are finished immediately.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to finish all animations in the timeline. If there are <em>onfinish</em> handlers, they are called. <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are finished immediately.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.finish(except = []);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2604,17 +2524,17 @@ timeline.add(animation);</code></pre>
 <p>Obtain an instance of an ongoing animation and call <code>.finish()</code>.</p>
 <pre><code class="hljs js language-js">timeline.finish();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="oncancel">
-								<div exportgroup="readme">
+						<template name="oncancel">
+							<div exportgroup="readme">
 
-									<h1 id="oncancel"><code>.oncancel()</code></h1>
+								<h1 id="oncancel"><code>.oncancel()</code></h1>
 <blockquote>
   <p>The <code>timeline.oncancel()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'cancelled' state of all animations in the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'cancelled' state of all animations in the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.oncancel(callback);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2651,17 +2571,17 @@ timeline.oncancel(<span class="hljs-function"><span class="hljs-params">el</span
 <span class="hljs-comment">// Try cancel an animation</span>
 animation.cancel();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="onfinish">
-								<div exportgroup="readme">
+						<template name="onfinish">
+							<div exportgroup="readme">
 
-									<h1 id="onfinish"><code>.onfinish()</code></h1>
+								<h1 id="onfinish"><code>.onfinish()</code></h1>
 <blockquote>
   <p>The <code>timeline.onfinish()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'finished' state of all animations in the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to bind a handler to the 'finished' state of all animations in the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.onfinish(callback);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -2698,22 +2618,22 @@ timeline.onfinish(<span class="hljs-function"><span class="hljs-params">el</span
 <span class="hljs-comment">// Try finish an animation</span>
 animation.finish();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="pause">
-								<div exportgroup="readme">
+						<template name="pause">
+							<div exportgroup="readme">
 
-									<h1 id="pause"><code>.pause()</code></h1>
+								<h1 id="pause"><code>.pause()</code></h1>
 <blockquote>
   <p>The <code>timeline.pause()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to pause all animations in the timeline. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are paused immediately.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to pause all animations in the timeline. <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are paused immediately.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.pause(except = []);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2723,17 +2643,17 @@ animation.finish();</code></pre>
 <p>Obtain an instance of an ongoing animation and call <code>.pause()</code>.</p>
 <pre><code class="hljs js language-js">timeline.pause();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="play">
-								<div exportgroup="readme">
+						<template name="play">
+							<div exportgroup="readme">
 
-									<h1 id="play"><code>.play()</code></h1>
+								<h1 id="play"><code>.play()</code></h1>
 <blockquote>
   <p>The <code>timeline.play()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to play all animations in the timeline. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are played immediately. This method is promise-based. The promise resolves at the time the animation with the highest timing completes. An animation's total timing withing the timeline could, in addition to its <em>delay</em>, <em>duration</em>, <em>endDelay</em> parameters, be affected by a direct play/play call, or its relative time of entering the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to play all animations in the timeline. <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are played immediately. This method is promise-based. The promise resolves at the time the animation with the highest timing completes. An animation's total timing withing the timeline could, in addition to its <em>delay</em>, <em>duration</em>, <em>endDelay</em> parameters, be affected by a direct play/play call, or its relative time of entering the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> timeline.play();</code></pre>
 <p><strong>Return</strong></p>
@@ -2754,17 +2674,17 @@ timeline.add(<span class="hljs-keyword">new</span> Animation(el1, {<span class="
     timeline.add(<span class="hljs-keyword">new</span> Animation(el2, {<span class="hljs-attr">opacity</span>:<span class="hljs-number">0</span>}, {<span class="hljs-attr">duration</span>: <span class="hljs-number">600</span>}));
 }, <span class="hljs-number">300</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="progress">
-								<div exportgroup="readme">
+						<template name="progress">
+							<div exportgroup="readme">
 
-									<h1 id="progress"><code>.progress()</code></h1>
+								<h1 id="progress"><code>.progress()</code></h1>
 <blockquote>
   <p>The <code>timeline.progress()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Animation</a> instance method is used to get the average percentage progress of all animations in the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Animation</a> instance method is used to get the average percentage progress of all animations in the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> progress = timeline.progress();</code></pre>
 <p><strong>Return</strong></p>
@@ -2791,17 +2711,17 @@ timeline.add(<span class="hljs-keyword">new</span> Animation(el1, {<span class="
     <span class="hljs-built_in">console</span>.log(timeline.progress()); <span class="hljs-comment">// About 0.5</span>
 }, <span class="hljs-number">450</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="remove">
-								<div exportgroup="readme">
+						<template name="remove">
+							<div exportgroup="readme">
 
-									<h1 id="remove"><code>.remove()</code></h1>
+								<h1 id="remove"><code>.remove()</code></h1>
 <blockquote>
   <p>The <code>timeline.remove()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to remove an <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> from the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to remove an <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> from the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.remove(animation);</code></pre>
 <p><strong>Return</strong></p>
@@ -2821,22 +2741,22 @@ timeline.add(animation);
 <span class="hljs-comment">// Then remove</span>
 timeline.remove(animation);</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="reverse">
-								<div exportgroup="readme">
+						<template name="reverse">
+							<div exportgroup="readme">
 
-									<h1 id="reverse"><code>.reverse()</code></h1>
+								<h1 id="reverse"><code>.reverse()</code></h1>
 <blockquote>
   <p>The <code>timeline.reverse()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to reverse all animations in the timeline. <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are reversed immediately. But where the last call to <code>timeline.reverse()</code> restores the timeline to its original direction, <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances added are left as-is.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to reverse all animations in the timeline. <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added after this call are reversed immediately. But where the last call to <code>timeline.reverse()</code> restores the timeline to its original direction, <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances added are left as-is.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.reverse(except = []);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2846,23 +2766,23 @@ timeline.remove(animation);</code></pre>
 <p>Obtain an instance of an ongoing animation and call <code>.reverse()</code>.</p>
 <pre><code class="hljs js language-js">timeline.reverse();</code></pre>
 
-								</div>
-							</template>
+							</div>
+						</template>
 
-							<template name="seek">
-								<div exportgroup="readme">
+						<template name="seek">
+							<div exportgroup="readme">
 
-									<h1 id="seek"><code>.seek()</code></h1>
+								<h1 id="seek"><code>.seek()</code></h1>
 <blockquote>
   <p>The <code>timeline.seek()</code> method.</p>
 </blockquote>
-<p>This <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline">Timeline</a> instance method is used to seek to a percentage point in all animations in the timeline.</p>
+<p>This <a href="/tooling/play-ui/docs/api/ui/classes/Timeline">Timeline</a> instance method is used to seek to a percentage point in all animations in the timeline.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js">timeline.seek(point[, except = []]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>point</code></strong>: <strong><code>Number</code></strong> - A number between <code>0</code> and <code>1</code>, representing 0% and 100% respectively, of an animation's total timing. Here the total timing is calculated as <code>delay + duration + endDelay</code>.</li>
-<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/js/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
+<li><strong><code>except</code></strong>: <strong><code>Array</code></strong> - An optional list of <a href="/tooling/play-ui/docs/api/ui/classes/Timeline/Animation">Animation</a> instances to excempt.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -2881,14 +2801,14 @@ timeline.add(animation);
 <span class="hljs-comment">// Seek the timeline to half its total duration</span>
 timeline.seek(<span class="hljs-number">0.5</span>);</code></pre>
 
-								</div>
-							</template>
+							</div>
 						</template>
+					</template>
 
-						<template name="UIRect">
-							<div exportgroup="readme">
+					<template name="UIRect">
+						<div exportgroup="readme">
 
-								<h1 id="class-uirect-"><code>class UIRect {}</code></h1>
+							<h1 id="class-uirect-"><code>class UIRect {}</code></h1>
 <p>Instances of this class represent the rendered rectangle of an element in the UI. And a good amount of transformation to this <em>rect</em> is possible.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> rect = <span class="hljs-keyword">new</span> UIRectect(props[, params = {}]);</code></pre>
@@ -2926,14 +2846,14 @@ timeline.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <h3 id="rectscaleto"><code>rect.scaleTo()</code></h3>
 <h3 id="recttranslationto"><code>rect.translationTo()</code></h3>
 
-							</div>
-						</template>
+						</div>
 					</template>
+				</template>
 
-					<template name="custom-events">
-						<div exportgroup="readme">
+				<template name="custom-events">
+					<div exportgroup="readme">
 
-							<h1 id="custom-events">Custom Events</h1>
+						<h1 id="custom-events">Custom Events</h1>
 <p>Play UI's event system can be hooked into to provide custom event implementations. For example, its <em>tripletap</em>, <em>doubletap</em>, and <em>singletap</em> gestures are custom implementations/variations of the <em>tap</em> gesture. But, a custom event can be as simple as an alias for another event. Play UI makes everything easy!</p>
 <p>To create a custom event, import the <code>CustomEvents</code> object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { CustomEvents } = $.ui;</code></pre>
@@ -2971,14 +2891,14 @@ $(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string"
     <span class="hljs-built_in">console</span>.log(event.type);
 });</code></pre>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="off">
-						<div exportgroup="readme">
+				<template name="off">
+					<div exportgroup="readme">
 
-							<h1 id="off"><code>.off()</code></h1>
-<p>This method is used to unbind event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</p>
+						<h1 id="off"><code>.off()</code></h1>
+<p>This method is used to unbind event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/api/ui/on"><code>.on()</code></a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Unbind all listeners bound to the following event name</span>
 <span class="hljs-comment">// regardless of the event handler</span>
@@ -2996,7 +2916,7 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>eventName</code></strong>: <strong><code>String</code></strong> - The event or gesture name.</li>
-<li><strong><code>originalHandler</code></strong>: <strong><code>Function</code></strong> - The handler function originally used with <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</li>
+<li><strong><code>originalHandler</code></strong>: <strong><code>Function</code></strong> - The handler function originally used with <a href="/tooling/play-ui/docs/api/ui/on"><code>.on()</code></a>.</li>
 <li><strong><code>params</code></strong>: <strong><code>Object</code></strong> - Additional parameters.</li>
 </ul>
 <p><strong>Return</strong></p>
@@ -3010,7 +2930,7 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).off(<span class="hljs-string">&#x27;doubletap&#x27;</span>);</code></pre>
 <hr />
 <h2 id="matching-by-tags">Matching By Tags</h2>
-<p>The <code>params.tags</code> parameter can be used to match listeners that were <a href="/tooling/play-ui/docs/js/api/ui/on#tagging-a-listener">tagged</a> by the <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a> method.</p>
+<p>The <code>params.tags</code> parameter can be used to match listeners that were <a href="/tooling/play-ui/docs/api/ui/on#tagging-a-listener">tagged</a> by the <a href="/tooling/play-ui/docs/api/ui/on"><code>.on()</code></a> method.</p>
 <pre><code class="hljs js language-js">$(el).off(eventName, originalHandler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
@@ -3019,15 +2939,15 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { off } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { off } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="on">
-						<div exportgroup="readme">
+				<template name="on">
+					<div exportgroup="readme">
 
-							<h1 id="on"><code>.on()</code></h1>
+						<h1 id="on"><code>.on()</code></h1>
 <p>This method is used to bind event or gesture handlers to an element. This works like the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>EventTarget.addEventListener()</code></a> function but adds support for user gestures and custom event implementation.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler[, params = {}]);</code></pre>
@@ -3037,26 +2957,26 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <li><p><strong><code>handler</code></strong>: <strong><code>function(event)</code></strong> - The handler function.</p>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>event</code></strong>: <strong><code>Object</code></strong> - An <a href="/tooling/play-ui/docs/js/api/ui/classes/Event">Event</a> object.</li></ul></li>
+<li><strong><code>event</code></strong>: <strong><code>Object</code></strong> - An <a href="/tooling/play-ui/docs/api/ui/classes/Event">Event</a> object.</li></ul></li>
 <li><p><strong><code>params</code></strong>: <strong><code>Object</code></strong> - Additional parameters.</p></li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>listener</code></strong>: <strong><code>Listener</code></strong> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/Listener">Listener</a>.</li>
+<li><strong><code>listener</code></strong>: <strong><code>Listener</code></strong> - An instance of <a href="/tooling/play-ui/docs/api/ui/classes/Listener">Listener</a>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Handle gesture events.</p>
 <pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).on(<span class="hljs-string">&#x27;doubletap&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;You doubletapped me!&#x27;</span>, event.details);
 });</code></pre>
-<p>Try using the <a href="/tooling/play-ui/docs/js/api/ui/trigger"><code>trigger()</code></a> method to fire the event.</p>
+<p>Try using the <a href="/tooling/play-ui/docs/api/ui/trigger"><code>trigger()</code></a> method to fire the event.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Trigger</span>
 $(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>);
 <span class="hljs-comment">// And we can add details</span>
 $(<span class="hljs-built_in">document</span>.body).trigger(<span class="hljs-string">&#x27;doubletap&#x27;</span>, {<span class="hljs-attr">time</span>:<span class="hljs-number">0</span>});</code></pre>
 <hr />
 <h2 id="tagging-a-listener">Tagging a Listener</h2>
-<p>The <code>params.tags</code> parameter can be used to tag a listener. Tags are an <em>array</em> of values (<em>strings</em>, <em>numbers</em>, <em>objects</em>, etc) that can be associated with the <em>listener</em> for later use. See tags in action using the <a href="/tooling/play-ui/docs/js/api/ui/off#matching-by-tags"><code>.off()</code></a> method.</p>
+<p>The <code>params.tags</code> parameter can be used to tag a listener. Tags are an <em>array</em> of values (<em>strings</em>, <em>numbers</em>, <em>objects</em>, etc) that can be associated with the <em>listener</em> for later use. See tags in action using the <a href="/tooling/play-ui/docs/api/ui/off#matching-by-tags"><code>.off()</code></a> method.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> listener = $(el).on(eventName, handler, {<span class="hljs-attr">tags</span>:[<span class="hljs-string">&#x27;#tag&#x27;</span>]});</code></pre>
 <p>Programmatically manipulate the returned <em>listener</em> object.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Synthetically trigger the listener</span>
@@ -3084,22 +3004,22 @@ listener.disconnect();</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { on } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { on } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="play">
-						<div exportgroup="readme">
+				<template name="play">
+					<div exportgroup="readme">
 
-							<h1 id="play"><code>.play()</code></h1>
+						<h1 id="play"><code>.play()</code></h1>
 <p>This method is used to create and play an animation. This method is promise-based.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).play(effect[, timing = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>effect</code></strong>: <strong><code>Array|Object|String</code></strong> - The effect to play. See <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation#parameters">Animation</a>.</li>
-<li><strong><code>timing</code></strong>: <strong><code>Object</code></strong> - Options for the animation. See <a href="/tooling/play-ui/docs/js/api/ui/classes/Animation#parameters">Animation</a>.</li>
+<li><strong><code>effect</code></strong>: <strong><code>Array|Object|String</code></strong> - The effect to play. See <a href="/tooling/play-ui/docs/api/ui/classes/Animation#parameters">Animation</a>.</li>
+<li><strong><code>timing</code></strong>: <strong><code>Object</code></strong> - Options for the animation. See <a href="/tooling/play-ui/docs/api/ui/classes/Animation#parameters">Animation</a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
@@ -3134,25 +3054,25 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { play } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { play } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="rect">
-						<div exportgroup="readme">
+				<template name="rect">
+					<div exportgroup="readme">
 
-							<h1 id="rect"><code>.rect()</code></h1>
-<p>This method is used to obtain the rendered rectangle of an element in the UI for manipualtion. It is an alias of the <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect#uirectcalculateelement-params--">UIRect.calculate()</a> function.</p>
+						<h1 id="rect"><code>.rect()</code></h1>
+<p>This method is used to obtain the rendered rectangle of an element in the UI for manipualtion. It is an alias of the <a href="/tooling/play-ui/docs/api/ui/classes/UIRect#uirectcalculateelement-params--">UIRect.calculate()</a> function.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> rect = $(el).rect(params = {});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>params</code></strong>: <strong><code>Object</code></strong> - Directives for the method. See <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect#">UIRect.calculate()</a>.</li>
+<li><strong><code>params</code></strong>: <strong><code>Object</code></strong> - Directives for the method. See <a href="/tooling/play-ui/docs/api/ui/classes/UIRect#">UIRect.calculate()</a>.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>rect</code></strong>: <strong><code>UIRect</code></strong> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/UIRect">UIRect</a>.</li>
+<li><strong><code>rect</code></strong>: <strong><code>UIRect</code></strong> - An instance of <a href="/tooling/play-ui/docs/api/ui/classes/UIRect">UIRect</a>.</li>
 </ul>
 <h3 id="usage">Usage</h3>
 <p>Get the <em>rect</em> of a button element.</p>
@@ -3166,16 +3086,16 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { rect } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { rect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
+				</template>
 
-					<template name="trigger">
-						<div exportgroup="readme">
+				<template name="trigger">
+					<div exportgroup="readme">
 
-							<h1 id="trigger"><code>.trigger()</code></h1>
-<p>This method is used to trigger event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>.</p>
+						<h1 id="trigger"><code>.trigger()</code></h1>
+<p>This method is used to trigger event or gesture handlers previously bound to an element using <a href="/tooling/play-ui/docs/api/ui/on"><code>.on()</code></a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = $(el).trigger(eventName[, details = {}]);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -3185,7 +3105,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 </ul>
 <p><strong>Return</strong></p>
 <ul>
-<li><strong><code>event</code></strong>: <strong><code>Event</code></strong> - An instance of <a href="/tooling/play-ui/docs/js/api/ui/classes/Event">Event</a>.</li>
+<li><strong><code>event</code></strong>: <strong><code>Event</code></strong> - An instance of <a href="/tooling/play-ui/docs/api/ui/classes/Event">Event</a>.</li>
 </ul>
 <h3 id="usage">Usage</h3>
 <p>Programmatically fire gesture handlers.</p>
@@ -3213,26 +3133,34 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { trigger } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { trigger } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
-						</div>
-					</template>
+					</div>
 				</template>
 			</template>
+		</template>
+
+		<template name="getting-started">
+			<div exportgroup="readme">
+
+				<h1 id="play-ui-javascript">Play UI JavaScript</h1>
+<p>The Play UI JavaScript library offers a succinct API for working with the DOM and UI. </p>
+
+			</div>
 
 			<template name="download">
 				<div exportgroup="readme">
 
 					<h1 id="download-options">Download Options</h1>
-<p>Play UI can be used via a script tag or as an npm package.</p>
-<h2 id="option-1-embed-as-script">Option 1: Embed as script</h2>
+<p>Play UI can be used either from a CDN or as an npm package.</p>
+<h2 id="option-1-from-a-cdn">Option 1: From a CDN</h2>
 <p>Add the following script tag to your page to include the all-in-one Play UI module:</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/play-ui/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>The above tag loads Play UI into a global "WebQit" object.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-keyword">const</span> $ = <span class="hljs-built_in">window</span>.WebQit.$;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<h2 id="option-2-install-via-npm">Option 2: Install via NPM</h2>
+<h2 id="option-2-as-an-npm-package">Option 2: As an npm Package</h2>
 <p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install Play UI:</p>
 <pre><code class="hljs text language-text">$ npm i @webqit/play-ui</code></pre>
 <p>Import and initialize the installed package:</p>
@@ -3240,15 +3168,15 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <span class="hljs-keyword">import</span> PlayUI <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui&#x27;</span>;
 <span class="hljs-comment">// Initialize</span>
 <span class="hljs-keyword">const</span> $ = PlayUI();</code></pre>
-<p>And you can selectively import Play UI's descrete parts to streamline your imports to your needs. The <a href="/tooling/play-ui/docs/js/api">API reference</a> has the <em>import</em> syntax for each of Play UI's functions. For example:</p>
+<p>And you can selectively import Play UI's descrete parts to streamline your imports to your needs. The <a href="/tooling/play-ui/docs/getting-started/api">API reference</a> has the <em>import</em> syntax for each of Play UI's functions. For example:</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Import a function...</span>
 <span class="hljs-keyword">import</span> { htmlSync <span class="hljs-keyword">as</span> html } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/dom/index.js&#x27;</span>;
 
 <span class="hljs-comment">// Supply an element as first argument...</span>
 html(selector, <span class="hljs-string">&#x27;Play away!&#x27;</span>);</code></pre>
-<p>Details are in the <a href="/tooling/play-ui/docs/js/overview#use-as-descrete-utilities">Quick Start</a> guide.</p>
+<p>Details are in the <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">Quick Start</a> guide.</p>
 <h2 id="next-steps">Next Steps</h2>
-<p>Go to the <a href="/tooling/play-ui/docs/js/api">API Reference</a>.</p>
+<p>The <a href="/tooling/play-ui/docs/getting-started/api">API Reference</a>.</p>
 
 				</div>
 			</template>
@@ -3259,7 +3187,7 @@ html(selector, <span class="hljs-string">&#x27;Play away!&#x27;</span>);</code><
 					<h1 id="overview">Overview</h1>
 <p>Play UI JavaScript is a UI library designed to meet a wide range of usage scenarios.</p>
 <h2 id="use-as-you-would-jqueryhttpsjquerycom">Use as You Would <a href="https://jquery.com">jQuery</a></h2>
-<p><a href="/tooling/play-ui/docs/js/download">Include Play UI</a> on any page and use as you would jQuery. Play UI looks and feels just like it!</p>
+<p><a href="/tooling/play-ui/docs/getting-started/download">Include Play UI</a> on any page and use as you would jQuery. Play UI looks and feels just like it!</p>
 <p>Simply obtain the <em>constructable Play UI function</em> (<code>$</code>).</p>
 <p><em>If Play UI was loaded via a script tag:</em></p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// The constructable function would be available in a global WebQit object</span>
@@ -3273,7 +3201,7 @@ html(selector, <span class="hljs-string">&#x27;Play away!&#x27;</span>);</code><
 <pre><code class="hljs js language-js">(<span class="hljs-keyword">new</span> $(selector)).html(<span class="hljs-string">&#x27;Play away!&#x27;</span>);</code></pre>
 <p><em>Statically:</em></p>
 <pre><code class="hljs js language-js">$(selector).html(<span class="hljs-string">&#x27;Play away!&#x27;</span>);</code></pre>
-<p>Now, while a 100% parity with jQuery isn't the goal, Play UI comes helpfully close, covering most day to day use cases. Examples: <a href="/tooling/play-ui/docs/js/api/dom/html"><code>.html()</code></a>, <a href="/tooling/play-ui/docs/js/api/dom/append"><code>.append()</code></a>, <a href="/tooling/play-ui/docs/js/api/dom/prepend"><code>.prepend()</code></a>, <a href="/tooling/play-ui/docs/js/api/dom/attr"><code>.attr()</code></a>, <a href="/tooling/play-ui/docs/js/api/css/css"><code>.css()</code></a>, <a href="/tooling/play-ui/docs/js/api/app/data"><code>.data()</code></a>, <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a>, <a href="/tooling/play-ui/docs/js/api/ui/off"><code>.off()</code></a>, <a href="/tooling/play-ui/docs/js/api/ui/trigger"><code>.trigger()</code></a>.</p>
+<p>Now, while a 100% parity with jQuery isn't the goal, Play UI comes helpfully close, covering most day to day use cases. Examples: <a href="/tooling/play-ui/docs/getting-started/api/dom/html"><code>.html()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/dom/append"><code>.append()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/dom/prepend"><code>.prepend()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/dom/attr"><code>.attr()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/css/css"><code>.css()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/app/data"><code>.data()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/ui/on"><code>.on()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/ui/off"><code>.off()</code></a>, <a href="/tooling/play-ui/docs/getting-started/api/ui/trigger"><code>.trigger()</code></a>.</p>
 <h2 id="use-with-server-side-dom-instances">Use With Server-Side DOM Instances</h2>
 <p>Use Play UI with server-side <em>window</em> objects such as the type provided by the <a href="https://github.com/jsdom/jsdom">jsdom</a> library. (Think server-side rendering, web crawling, or just server-side DOM manipulation.) Here is how that could look.</p>
 <p><em>Create a <code>window</code> object:</em></p>
@@ -3301,7 +3229,7 @@ $(selector).append(<span class="hljs-string">&#x27;Ready!&#x27;</span>);</code><
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> $$ = PlayUI.call(window_2);
 $$(selector).append(<span class="hljs-string">&#x27;Ready!&#x27;</span>);</code></pre>
 <h2 id="use-as-descrete-utilities">Use as Descrete Utilities</h2>
-<p>Play UI's instance methods are internally based on it's core standalone functions which may be imported and used individually. The <a href="/tooling/play-ui/docs/js/api/ui/on"><code>.on()</code></a> instance method, for example, is based on the standalone <a href="/tooling/play-ui/docs/js/api/ui/on#static-usage"><code>ui/on()</code></a> function.</p>
+<p>Play UI's instance methods are internally based on it's core standalone functions which may be imported and used individually. The <a href="/tooling/play-ui/docs/getting-started/api/ui/on"><code>.on()</code></a> instance method, for example, is based on the standalone <a href="/tooling/play-ui/docs/getting-started/api/ui/on#static-usage"><code>ui/on()</code></a> function.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> ( on ) = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> ( on ) <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/play-ui/src/ui/index.js&#x27;</span>;</code></pre>
 <p><em>Standalone functions have their import syntax documented alongside their instance counterpart.</em></p>
@@ -3330,7 +3258,7 @@ $.ui.on(selector, <span class="hljs-string">&#x27;swipeleft&#x27;</span>, <span 
 <p>Now, build bigger things, like web components, with Play UI kicking under the hood. Selectively import just the functions you need into your projects.</p>
 <h2 id="meet-async-ui">Meet Async UI</h2>
 <p>Surgically updating the UI is generally a costly operation for browsers. It happens when we write to the DOM and read from it in quick succession in a rendering cycle - causing document reflows, or better put, forced synchronous layout. (But a common word is <em>layout thrashing</em>.) This is covered in detail in <a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing">this article on Web Fundamentals</a>.</p>
-<p>Play UI meets this challenge with a simple timing strategy that keeps UI manipulation in sync with the browser's rendering cycle. To do this, DOM operations are internally held in read/write queues, then executed in read/write batches within each rendering cycle, eliminating the forced synchronous layout problem. This is what happens under the hood with all of the Play UI functions that have the <em>Async</em> suffix; e.g <a href="/tooling/play-ui/docs/js/api/dom/htmlasync"><code>htmlAsync()</code></a>. The asynchronous nature of these functions bring them under the term <em>Async UI</em>.</p>
+<p>Play UI meets this challenge with a simple timing strategy that keeps UI manipulation in sync with the browser's rendering cycle. To do this, DOM operations are internally held in read/write queues, then executed in read/write batches within each rendering cycle, eliminating the forced synchronous layout problem. This is what happens under the hood with all of the Play UI functions that have the <em>Async</em> suffix; e.g <a href="/tooling/play-ui/docs/getting-started/api/dom/htmlAsync"><code>htmlAsync()</code></a>. The asynchronous nature of these functions bring them under the term <em>Async UI</em>.</p>
 <p>The order of execution of the code below demonstrates the asynchronous nature of these functions.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set content</span>
 $(<span class="hljs-built_in">document</span>.body).htmlAsync(<span class="hljs-string">&#x27;Hi&#x27;</span>).then(<span class="hljs-function">() =&gt;</span> {
@@ -3392,7 +3320,7 @@ Completed: write operation <span class="hljs-number">1</span>
 <pre><code class="hljs js language-js">$(<span class="hljs-built_in">document</span>.body).html(<span class="hljs-string">&#x27;Hi&#x27;</span>);
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Completed: write operation 1&#x27;</span>);</code></pre>
 <h2 id="next-steps">Next Steps</h2>
-<p>Explore further: <a href="/tooling/play-ui/docs/js/api">The API Reference</a>.</p>
+<p>Explore further: <a href="/tooling/play-ui/docs/getting-started/api">The API Reference</a>.</p>
 
 				</div>
 			</template>

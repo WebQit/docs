@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The Play UI Docs
+# Play UI Documentation
 
 Welcome to the Play UI documentation. We hope you find it easy to understand and navigate. 
 

@@ -16,7 +16,7 @@
     }, {
         "icon": "lightning-charge",
         "title": "Reactive HTML",
-        "desc": "Get the plain old HTML kicking in sync with your application data, entirely within markup.",
+        "desc": "Get the plain old HTML kicking in sync with your application state, entirely within markup.",
         "cta": {
             "href": "/tooling/oohtml/docs/getting-started/overview#subscript",
             "text": "Learn more"
@@ -32,7 +32,7 @@
     }, {
         "icon": "soundwave",
         "title": "All On the Fly!",
-        "desc": "Forget the compile step! Just code and preview. Even edit from your browser console.",
+        "desc": "Ditch the compile step! Just code and preview. Even edit from your browser console.",
         "cta": {
             "href": "/tooling/oohtml/docs/getting-started/overview",
             "text": "Learn more"

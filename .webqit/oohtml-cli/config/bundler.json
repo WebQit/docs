@@ -1,8 +1,8 @@
 {
     "ENTRY_DIR": "./[name]",
     "OUTPUT_FILE": "./bundle.html",
-    "ASSETS_STORAGE_BASE": "../../../../public/assets-tooling/[name]",
-    "ASSETS_PUBLIC_BASE": "/assets-tooling/[name]",
+    "ASSETS_STORAGE_BASE": "../../../../public/html/tooling/[name]",
+    "ASSETS_PUBLIC_BASE": "/html/tooling/[name]",
     "MAX_DATA_URL_SIZE": 1024,
     "LOADERS": [
         {

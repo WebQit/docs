@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The Observer API Docs
+# Observer API Documentation
 
 Welcome to the Observer API documentation. We hope you find it easy to understand and navigate.
 

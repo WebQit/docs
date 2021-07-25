@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The Webflo Docs
+# Webflo Documentation
 
 Welcome to the Webflo documentation. We hope you find it easy to understand and navigate.
 

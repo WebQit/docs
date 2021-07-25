@@ -515,7 +515,7 @@ OOHTML.call(JSDOM.window);
 					<div exportgroup="readme">
 
 						<h1 id="an-spa-in-oohtml">An SPA In OOHTML</h1>
-<p>This example makes a Single Page Application (SPA) out of <a href="/tooling/oohtml/docs/learn/examples/html-imports"><em>HTML Imports</em></a>.</p>
+<p>This example makes a Single Page Application (SPA) out of <a href="/tooling/oohtml/docs/spec/html-modules">HTML Modules</a> and <a href="/tooling/oohtml/docs/spec/html-imports">HTML Imports</a>.</p>
 <p>Below, we're using the two <code>&lt;template&gt;</code> elements to each represent a route - a page. Then we point the <code>&lt;body&gt;</code>'s template attribute to either of the <code>&lt;template&gt;</code>s, depending on the current URL.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
@@ -524,7 +524,7 @@ OOHTML.call(JSDOM.window);
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>An SPA In OOHTML<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;element.import=html-import&quot;</span> /&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;pages&quot;</span>&gt;</span>
 
@@ -577,7 +577,7 @@ OOHTML.call(JSDOM.window);
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 <p>Navigate to a route that does not begin with <code>#/home</code> or <code>#/about</code>, you should see the default content showing <em>404</em>.</p>
-<p><a href="/html/tooling/examples/spa.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
+<p><a href="/html/tooling/oohtml/docs/learn/examples/spa.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
 
 					</div>
 				</template>
@@ -586,7 +586,7 @@ OOHTML.call(JSDOM.window);
 					<div exportgroup="readme">
 
 						<h1 id="a-todo-list-in-oohtml">A TODO List In OOHTML</h1>
-<p>Below is a TODO list application we made out of a plain JavaScript array bound to <code>document.state</code>.</p>
+<p>Below is a TODO list application we made out of a plain JavaScript array bound to <a href="/tooling/oohtml/docs/spec/the-state-api#document-level-state"><code>document.state</code></a>.</p>
 <p>It features the ability to add items and toggle the active state of each item.</p>
 <ul>
 <li><strong>For the <em>add</em> feature</strong> - When the <em>add</em> button in the TODO container is clicked, an item is added to the array - effectively becoming a new item in the UI.</li>
@@ -602,8 +602,8 @@ OOHTML.call(JSDOM.window);
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>A TODO List in OOHTML<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;attr.id=data-id&quot;</span> /&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/play-ui/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
             <span class="hljs-comment">// Make PlayUI available globally</span>
             <span class="hljs-built_in">window</span>.$ = <span class="hljs-built_in">window</span>.WebQit.$;
@@ -666,7 +666,7 @@ OOHTML.call(JSDOM.window);
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
-<p><a href="/html/tooling/examples/todo.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
+<p><a href="/html/tooling/oohtml/docs/learn/examples/todo.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
 
 					</div>
 				</template>
@@ -683,7 +683,7 @@ OOHTML.call(JSDOM.window);
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Tooling In OOHTML<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;attr.id=data-id&quot;</span> /&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
@@ -709,15 +709,15 @@ OOHTML.call(JSDOM.window);
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 <p>Tooling can also help us acheive more efficient DOM manipulation. Generally, surgically updating the DOM may have performance implications on the UI, as arising from layout thrashing (see <a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing">this article</a> on Web Fundamentals). But we also don't need as much as a <em>Virtual DOM</em> for this. A technique like that of <a href="https://github.com/wilsonpage/fastdom">fast DOM</a> could just suffice.</p>
-<p>This technique is natively implemented by the <a href="https://webqit.io/tooling/play-ui">PlayUI</a> library which has a jQuery-like API. We will now use PlayUI as a drop-in replacement for jQuery in the code above.</p>
+<p>This technique is natively implemented by the <a href="/tooling/play-ui">Play UI</a> library which has a jQuery-like API. We will now use Play UI as a drop-in replacement for jQuery in the code above.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Tooling In OOHTML<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;attr.id=data-id&quot;</span> /&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/play-ui/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -734,7 +734,7 @@ OOHTML.call(JSDOM.window);
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-            <span class="hljs-comment">// Make PlayUI available globally</span>
+            <span class="hljs-comment">// Make Play UI available globally</span>
             <span class="hljs-built_in">window</span>.$ = <span class="hljs-built_in">window</span>.WebQit.$;
 
             <span class="hljs-comment">// The alert</span>
@@ -748,7 +748,7 @@ OOHTML.call(JSDOM.window);
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
-<p><a href="/html/tooling/examples/tooling.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
+<p><a href="/html/tooling/oohtml/docs/learn/examples/tooling.html" target="_blank">Check the live demo here</a> or copy and paste the code in a blank HTML page and view in your browser.</p>
 
 					</div>
 				</template>

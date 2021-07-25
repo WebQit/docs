@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The Objective-SQL Docs
+# Objective-SQL Documentation
 
 Welcome to the Objective-SQL documentation. We hope you find it easy to understand and navigate.
 
