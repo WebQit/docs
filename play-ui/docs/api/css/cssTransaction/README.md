@@ -113,7 +113,7 @@ The `.cssTransaction()` instance method is internally based on the standalone `c
 const { cssTransaction } = $.css;
 ```
 ```js
-import { cssTransaction } from '@webqit/play-ui/src/css/index.js';
+import { cssTransaction } from '@webqit/playui-js/src/css/index.js';
 ```
 
 ### Syntax

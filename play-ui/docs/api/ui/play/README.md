@@ -70,7 +70,7 @@ The `.play()` instance method is internally based on the standalone `ui/play()` 
 const { play } = $.ui;
 ```
 ```js
-import { play } from '@webqit/play-ui/src/ui/index.js';
+import { play } from '@webqit/playui-js/src/ui/index.js';
 ```
 
 ### Syntax

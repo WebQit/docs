@@ -70,7 +70,7 @@ The `.textAsync()` instance method is internally based on the standalone `dom/te
 const { textAsync } = $.dom;
 ```
 ```js
-import { textAsync } from '@webqit/play-ui/src/dom/index.js';
+import { textAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

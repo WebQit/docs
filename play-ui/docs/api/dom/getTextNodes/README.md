@@ -42,7 +42,7 @@ The `.getTextNodes()` instance method is internally based on the standalone `dom
 const { getTextNodes } = $.dom;
 ```
 ```js
-import { getTextNodes } from '@webqit/play-ui/src/dom/index.js';
+import { getTextNodes } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

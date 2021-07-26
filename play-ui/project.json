@@ -1,7 +1,7 @@
 {
     "title": "Play UI",
     "icon": "play",
-    "desc": "The resilient, jQuery-inspired, DOM and UI abstraction library, plus a futuristic CSS framework and a Web Components library for the modern UI.",
+    "desc": "A family of tools that brings a utility-based approach to UI development along with a full development story. Try an empowering way to build modern UIs",
     "categories": ["Featured", "UI Development"],
     "tags": ["Async-DOM", "Animations", "Events", "Gestures", "UI Geometry", "CSS framework"],
     "quickstart": {"cdn": true},

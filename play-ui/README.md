@@ -1,13 +1,13 @@
 
 <!-- BADGES/ -->
 
-<span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/play-ui" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/play-ui.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/play-ui" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/play-ui.svg" alt="NPM downloads" /></a></span>
+<span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/playui-js" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/playui-js.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/playui-js" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/playui-js.svg" alt="NPM downloads" /></a></span>
 
 <!-- /BADGES -->
 
 ## Why Play UI
 
-Play UI provides a fast and delightful way to render modern user interfaces. There is [the JavaScript library](docs/js/overview) that lets you work with the DOM and UI in syntactic sugar. There is [the set of CSS libraries](docs/css) that lets you do all the layout and styling that characterizes the modern UI. Notice the conscious goal of not trading standard JavaScript and CSS the usual way for some proprietary syntax!
+Play UI is a family of tools that brings a utility-based approach and wholistic experience to UI development. This gives you full UI authoring capabilities in the liberty and combinational power of standalone utilities!
 
 ## Getting Started
 

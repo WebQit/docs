@@ -70,7 +70,7 @@ The `.htmlAsync()` instance method is internally based on the standalone `dom/ht
 const { htmlAsync } = $.dom;
 ```
 ```js
-import { htmlAsync } from '@webqit/play-ui/src/dom/index.js';
+import { htmlAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

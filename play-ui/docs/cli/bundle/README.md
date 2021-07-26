@@ -1,9 +1,9 @@
 ---
 desc: Automatically bundle static HTML files from the filesystem into HTML Modules.
 ---
-# OOHTML `bundle`
+# Play UI `bundle`
 
-The **`oohtml bundle`** command is used to automatically bundle static HTML files from the filesystem into *[HTML Modules](/tooling/oohtml/docs/getting-started/overview#html-modules)*.
+The **`playui bundle`** command is used to automatically bundle static HTML files from the filesystem into *[HTML Modules](/tooling/oohtml/docs/getting-started/overview#html-modules)*.
 
 ## Overview
 
@@ -64,19 +64,19 @@ That said, lets go on to bundle.
 
 ## Usage
 
-> Syntax: **`oohtml bundle`**
+> Syntax: **`playui bundle`**
 
-Navigate to `project-root` and run **`oohtml bundle`**. Two files should be reported bundled. 
+Navigate to `project-root` and run **`playui bundle`**. Two files should be reported bundled. 
 
-<html-import name="oohtml-bundle-1" template="page/tooling/oohtml-cli/assets/img"></html-import>
+<html-import name="playui-bundle-1" template="page/tooling/play-ui/docs/cli/bundle"></html-import>
 
 Remote content is now ready at `./bundle.html`!
 
 Now, beyond this point are so many other things we can do! And here is where a few configurations come in!
 
-Run **`oohtml config bundler`** to walk down the options.
+Run **`playui config bundler`** to walk down the options.
 
-> On completing the options below, the **[`oohtml config`](../config)** command will save the configurations to a JSON file at `./.webqit/oohtml-cli/config/bundler.json`. Subsequent calls to **`oohtml bundle`** will be based on the saved configurations. And subsequent calls to **`oohtml config bundler`** will pull up the saved configurations for update.
+> On completing the options below, the **[`playui config`](../config)** command will save the configurations to a JSON file at `./.webqit/playui-cli/config/bundler.json`. Subsequent calls to **`playui bundle`** will be based on the saved configurations. And subsequent calls to **`playui config bundler`** will pull up the saved configurations for update.
 
 ### Options
 
@@ -86,7 +86,7 @@ This specifies the entry point into the filesystem - the *source directory*. The
 
 This is good for pointing the bundler to the actual *views (or equivalent)* folder in the project directory. E.g. `./views`. (An absolute path may also be used.)
 
-To specify multiple entry directories, slot in the exact string `[name]` as a placeholder on a segment in the path. Bundler will loop through all folders at that level in the directory to resolve the placeholder and obtain a final path. Specifying `./views/[name]` as the entry directory, for example, will equate to running **`oohtml bundle`** on both `./views/about` and `./views/home`.
+To specify multiple entry directories, slot in the exact string `[name]` as a placeholder on a segment in the path. Bundler will loop through all folders at that level in the directory to resolve the placeholder and obtain a final path. Specifying `./views/[name]` as the entry directory, for example, will equate to running **`playui bundle`** on both `./views/about` and `./views/home`.
 
 #### `[OUTPUT_FILE]`
 
@@ -124,7 +124,7 @@ This is good for extending the capabilities of the bundler to custom-load certai
 
 Skip where not apply. Or follow the prompt to interactively specify loaders, optionally along with their arguments or flags. The following options are presented recursively:
 
-+ **`[name]`** - The path to a function, or the name of an installed npm package, that is an [OOHTML CLI loader](loaders). (The bundler imports loaders using the ES6 `import()` syntax.)
++ **`[name]`** - The path to a function, or the name of an installed npm package, that is a [Play UI loader](loaders). (The bundler imports loaders using the ES6 `import()` syntax.)
 
   To refer to the bundler's [built-in loaders](loaders#built-ins), like the markdown-to-HTML loader ([`md-loader`](loaders#md-loader)), simply add the prefix `default:` to the loader's bare name. E.g. `default:md-loader`.
 
@@ -211,7 +211,7 @@ project-root
       ├-- index.html <div class="page-container">Home Page</div>
 ```
 
-On running the **`oohtml bundle`** command, our final directory structure will be...
+On running the **`playui bundle`** command, our final directory structure will be...
 
 
 ```html

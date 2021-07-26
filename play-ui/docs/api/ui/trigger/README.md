@@ -60,7 +60,7 @@ The `.trigger()` instance method is internally based on the standalone `ui/trigg
 const { trigger } = $.ui;
 ```
 ```js
-import { trigger } from '@webqit/play-ui/src/ui/index.js';
+import { trigger } from '@webqit/playui-js/src/ui/index.js';
 ```
 
 ### Syntax

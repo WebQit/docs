@@ -17,7 +17,7 @@ The `.append()` instance method is internally based on the standalone `dom/appen
 const { appendSync: append } = $.dom;
 ```
 ```js
-import { appendSync as append } from '@webqit/play-ui/src/dom/index.js';
+import { appendSync as append } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

@@ -101,7 +101,7 @@ The `.cssSync()` instance method is internally based on the standalone `css/cssS
 const { cssSync } = $.css;
 ```
 ```js
-import { cssSync } from '@webqit/play-ui/src/css/index.js';
+import { cssSync } from '@webqit/playui-js/src/css/index.js';
 ```
 
 ### Syntax

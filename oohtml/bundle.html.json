@@ -302,16 +302,16 @@
                         }
                     },
                     "subtree": {
-                        "devtools": {
+                        "ecosystem": {
                             "meta": {
                                 "readme": {
-                                    "desc": "Available Dev Tools for developing OOHTML-based UIs.",
+                                    "desc": "Available Tools for developing OOHTML-based UIs.",
                                     "_index": "last",
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Dev Tools",
-                                            "uri": "dev-tools",
+                                            "title": "Ecosystem",
+                                            "uri": "ecosystem",
                                             "subtree": []
                                         }
                                     ]

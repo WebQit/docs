@@ -12,7 +12,7 @@ To create a custom event, import the `CustomEvents` object.
 const { CustomEvents } = $.ui;
 ```
 ```js
-import { CustomEvents } from '@webqit/play-ui/src/ui/index.js';
+import { CustomEvents } from '@webqit/playui-js/src/ui/index.js';
 ```
 
 To create an alias of an existing event:

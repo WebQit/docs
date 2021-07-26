@@ -97,7 +97,7 @@ The `.classSync()` instance method is internally based on the standalone `dom/cl
 const { classSync } = $.dom;
 ```
 ```js
-import { classSync } from '@webqit/play-ui/src/dom/index.js';
+import { classSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

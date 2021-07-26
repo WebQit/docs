@@ -17,7 +17,7 @@ The `.text()` instance method is internally based on the standalone `dom/textSyn
 const { textSync: text } = $.dom;
 ```
 ```js
-import { textSync as text } from '@webqit/play-ui/src/dom/index.js';
+import { textSync as text } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

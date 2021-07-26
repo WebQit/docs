@@ -69,7 +69,7 @@ The `.off()` instance method is internally based on the standalone `ui/off()` fu
 const { off } = $.ui;
 ```
 ```js
-import { off } from '@webqit/play-ui/src/ui/index.js';
+import { off } from '@webqit/playui-js/src/ui/index.js';
 ```
 
 ### Syntax

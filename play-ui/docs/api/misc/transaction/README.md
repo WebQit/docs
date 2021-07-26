@@ -37,7 +37,7 @@ The `.transaction()` instance method is internally based on the standalone `misc
 const { transaction } = $.misc;
 ```
 ```js
-import { transaction } from '@webqit/play-ui/src/misc/index.js';
+import { transaction } from '@webqit/playui-js/src/misc/index.js';
 ```
 
 ### Syntax

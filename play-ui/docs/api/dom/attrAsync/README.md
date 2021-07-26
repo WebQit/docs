@@ -171,7 +171,7 @@ The `.attrAsync()` instance method is internally based on the standalone `dom/at
 const { attrAsync } = $.dom;
 ```
 ```js
-import { attrAsync } from '@webqit/play-ui/src/dom/index.js';
+import { attrAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

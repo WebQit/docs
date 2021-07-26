@@ -47,7 +47,7 @@ The `.prependToAsync()` instance method is internally based on the standalone `d
 const { prependToAsync } = $.dom;
 ```
 ```js
-import { prependToAsync } from '@webqit/play-ui/src/dom/index.js';
+import { prependToAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

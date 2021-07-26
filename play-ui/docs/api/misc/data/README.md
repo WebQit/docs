@@ -121,7 +121,7 @@ The `.data()` instance method is internally based on the standalone `misc/data()
 const { data } = $.misc;
 ```
 ```js
-import { data } from '@webqit/play-ui/src/misc/index.js';
+import { data } from '@webqit/playui-js/src/misc/index.js';
 ```
 
 ### Syntax

@@ -43,7 +43,7 @@ The `.appendSync()` instance method is internally based on the standalone `dom/a
 const { appendSync } = $.dom;
 ```
 ```js
-import { appendSync } from '@webqit/play-ui/src/dom/index.js';
+import { appendSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

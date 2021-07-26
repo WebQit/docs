@@ -48,7 +48,7 @@ The `.appendToSync()` instance method is internally based on the standalone `dom
 const { appendToSync } = $.dom;
 ```
 ```js
-import { appendToSync } from '@webqit/play-ui/src/dom/index.js';
+import { appendToSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

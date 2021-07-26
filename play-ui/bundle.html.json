@@ -59,6 +59,7 @@
                     "meta": {
                         "readme": {
                             "desc": "The API Reference",
+                            "_index": "1",
                             "_subtreeType": "category",
                             "outline": [
                                 {
@@ -3333,6 +3334,311 @@
                         }
                     }
                 },
+                "cli": {
+                    "meta": {
+                        "readme": {
+                            "_index": "2",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Command Line",
+                                    "uri": "command-line",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "bundle": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "Automatically bundle static HTML files from the filesystem into HTML Modules.",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Play UI bundle",
+                                            "uri": "play-ui-bundle",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Overview",
+                                                    "uri": "overview",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Usage",
+                                                    "uri": "usage",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Options",
+                                                            "uri": "options",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[ENTRY_DIR]",
+                                                                    "uri": "entry_dir",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[OUTPUT_FILE]",
+                                                                    "uri": "output_file",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[ASSETS_STORAGE_BASE]",
+                                                                    "uri": "assets_storage_base",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[ASSETS_PUBLIC_BASE]",
+                                                                    "uri": "assets_public_base",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[MAX_DATA_URL_SIZE]",
+                                                                    "uri": "max_data_url_size",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[LOADERS]",
+                                                                    "uri": "loaders",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Advanced Options",
+                                                            "uri": "advanced-options",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[IGNORE_FOLDERS_BY_PREFIX]",
+                                                                    "uri": "ignore_folders_by_prefix",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[CREATE_OUTLINE_FILE]",
+                                                                    "uri": "create_outline_file",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "OOHTML-Related Options",
+                                                            "uri": "oohtml-related-options",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[MODULE_EXT]",
+                                                                    "uri": "module_ext",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[MODULE_ID_ATTR]",
+                                                                    "uri": "module_id_attr",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[EXPORT_MODE]",
+                                                                    "uri": "export_mode",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[EXPORT_GROUP_ATTR]",
+                                                                    "uri": "export_group_attr",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[EXPORT_ELEMENT]",
+                                                                    "uri": "export_element",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "[EXPORT_ID_ATTR]",
+                                                                    "uri": "export_id_attr",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Bundling Assets",
+                                                    "uri": "bundling-assets",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Further Reading",
+                                                    "uri": "further-reading",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "playui-bundle-1": {}
+                            },
+                            "subtree": {
+                                "loaders": {
+                                    "meta": {
+                                        "readme": {
+                                            "title": "Loaders",
+                                            "desc": "Packages that extend the capabilities of the OOHTML Bundler.",
+                                            "outline": [
+                                                {
+                                                    "level": 1,
+                                                    "title": "Loaders",
+                                                    "uri": "loaders",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Overview",
+                                                            "uri": "overview",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Built-Ins",
+                                                            "uri": "built-ins",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "md-loader",
+                                                                    "uri": "md-loader",
+                                                                    "subtree": [
+                                                                        {
+                                                                            "level": 4,
+                                                                            "title": "Arguments/Flags",
+                                                                            "uri": "argumentsflags",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 4,
+                                                                            "title": "Other",
+                                                                            "uri": "other",
+                                                                            "subtree": []
+                                                                        },
+                                                                        {
+                                                                            "level": 4,
+                                                                            "title": "Usage",
+                                                                            "uri": "usage",
+                                                                            "subtree": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Custom Loaders",
+                                                            "uri": "custom-loaders",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Error Handling",
+                                                                    "uri": "error-handling",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage-1",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "config": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "Configure an Play UI command or feature.",
+                                    "_index": "1001",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Play UI config",
+                                            "uri": "play-ui-config",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Overview",
+                                                    "uri": "overview",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Usage",
+                                                    "uri": "usage",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "help": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "Show available Play UI commands.",
+                                    "_index": "last",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Play UI help",
+                                            "uri": "play-ui-help",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Overview",
+                                                    "uri": "overview",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Usage",
+                                                    "uri": "usage",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "playui-help": {}
+                            }
+                        }
+                    }
+                },
                 "getting-started": {
                     "meta": {
                         "readme": {
@@ -3340,8 +3646,8 @@
                             "outline": [
                                 {
                                     "level": 1,
-                                    "title": "Play UI JavaScript",
-                                    "uri": "play-ui-javascript",
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
                                     "subtree": []
                                 }
                             ]
@@ -3362,14 +3668,27 @@
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Option 1: From a CDN",
-                                                    "uri": "option-1-from-a-cdn",
-                                                    "subtree": []
+                                                    "title": "Play UI JavaScript",
+                                                    "uri": "play-ui-javascript",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Option 1: From a CDN",
+                                                            "uri": "option-1-from-a-cdn",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Option 2: As an npm Package",
+                                                            "uri": "option-2-as-an-npm-package",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Option 2: As an npm Package",
-                                                    "uri": "option-2-as-an-npm-package",
+                                                    "title": "Play UI Command Line",
+                                                    "uri": "play-ui-command-line",
                                                     "subtree": []
                                                 },
                                                 {
@@ -3387,7 +3706,7 @@
                         "overview": {
                             "meta": {
                                 "readme": {
-                                    "desc": "Play UI overview.",
+                                    "desc": "An overview of Play UI.",
                                     "_index": "first",
                                     "outline": [
                                         {
@@ -3397,27 +3716,59 @@
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Use as You Would jQuery",
-                                                    "uri": "use-as-you-would-jqueryhttpsjquerycom",
-                                                    "subtree": []
+                                                    "title": "Play UI JavaScript",
+                                                    "uri": "play-ui-javascript",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use as You Would jQuery",
+                                                            "uri": "use-as-you-would-jqueryhttpsjquerycom",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use With Server-Side DOM Instances",
+                                                            "uri": "use-with-server-side-dom-instances",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use as Descrete Utilities",
+                                                            "uri": "use-as-descrete-utilities",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Meet Async UI",
+                                                            "uri": "meet-async-ui",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Use With Server-Side DOM Instances",
-                                                    "uri": "use-with-server-side-dom-instances",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Use as Descrete Utilities",
-                                                    "uri": "use-as-descrete-utilities",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Meet Async UI",
-                                                    "uri": "meet-async-ui",
-                                                    "subtree": []
+                                                    "title": "Play UI Command Line",
+                                                    "uri": "play-ui-command-line",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "HTML Modules Bundling",
+                                                            "uri": "html-modules-bundling",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Subscript-to-WC Compilation",
+                                                            "uri": "subscript-to-wc-compilation",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "HTML-to-CSS Aggregation",
+                                                            "uri": "html-to-css-aggregation",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "level": 2,

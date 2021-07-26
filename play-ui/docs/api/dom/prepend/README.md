@@ -17,7 +17,7 @@ The `.prepend()` instance method is internally based on the standalone `dom/prep
 const { prependSync: prepend } = $.dom;
 ```
 ```js
-import { prependSync as prepend } from '@webqit/play-ui/src/dom/index.js';
+import { prependSync as prepend } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

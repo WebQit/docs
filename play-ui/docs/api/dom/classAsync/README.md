@@ -98,7 +98,7 @@ The `.classAsync()` instance method is internally based on the standalone `dom/c
 const { classAsync } = $.dom;
 ```
 ```js
-import { classAsync } from '@webqit/play-ui/src/dom/index.js';
+import { classAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

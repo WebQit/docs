@@ -70,7 +70,7 @@ The `.htmlSync()` instance method is internally based on the standalone `dom/htm
 const { htmlSync } = $.dom;
 ```
 ```js
-import { htmlSync } from '@webqit/play-ui/src/dom/index.js';
+import { htmlSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

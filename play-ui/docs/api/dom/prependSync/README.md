@@ -43,7 +43,7 @@ The `.prependSync()` instance method is internally based on the standalone `dom/
 const { prependSync } = $.dom;
 ```
 ```js
-import { prependSync } from '@webqit/play-ui/src/dom/index.js';
+import { prependSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

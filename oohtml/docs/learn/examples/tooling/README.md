@@ -11,8 +11,8 @@ Turns out that this is naturally possible!
         <title>Tooling In OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
         
-        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.12/dist/main.js"></script>
     </head>
         
     <body>
@@ -49,8 +49,8 @@ This technique is natively implemented by the [Play UI](/tooling/play-ui) librar
         <title>Tooling In OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
         
-        <script src="https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js"></script>
-        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/playui-js@0.3.10/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.12/dist/main.js"></script>
     </head>
             
     <body>

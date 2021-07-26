@@ -92,7 +92,7 @@ The `.on()` instance method is internally based on the standalone `ui/on()` func
 const { on } = $.ui;
 ```
 ```js
-import { on } from '@webqit/play-ui/src/ui/index.js';
+import { on } from '@webqit/playui-js/src/ui/index.js';
 ```
 
 ### Syntax

@@ -17,7 +17,7 @@ The `.css()` instance method is internally based on the standalone `css/cssSync(
 const { cssSync: css } = $.css;
 ```
 ```js
-import { cssSync as css } from '@webqit/play-ui/src/css/index.js';
+import { cssSync as css } from '@webqit/playui-js/src/css/index.js';
 ```
 
 ### Syntax

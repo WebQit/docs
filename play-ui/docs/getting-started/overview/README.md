@@ -1,16 +1,27 @@
 ---
-desc: Play UI overview.
+desc: An overview of Play UI.
 _index: first
 ---
 # Overview
 
-Play UI JavaScript is a UI library designed to meet a wide range of usage scenarios.
+Play UI is a family of tools that brings a *utility-based* approach and wholistic experience to UI development. This means: full UI authoring capabilities in the liberty and combinational power of standalone functionalities! Take an overview.
 
-## Use as You Would [jQuery](https://jquery.com)
++ [Play UI JavaScript](#play-ui-javascript)
++ [Play UI Command Line](#play-ui-command-line)
 
-[Include Play UI](../download) on any page and use as you would jQuery. Play UI looks and feels just like it!
+> Although they share a family name, these are really independent libraries.
 
-Simply obtain the *constructable Play UI function* (`$`).
+## Play UI JavaScript
+
+Play UI JavaScript is a resilient, jQuery-inspired, DOM and UI abstraction library. It offers simple, but powerful, JavaScript functions that do a good job at interacting with the DOM and UI, following the most-performant way. And it's a succint API surface you'll love! ([`.html()`](../../api/dom/html), [`.play()`](../../api/ui/play), [`.on()`](../../api/ui/on), [`.off()`](../../api/ui/off), etc.)
+
+Play UI JavaScript is designed to meet a wide range of usage styles.
+
+### Use as You Would [jQuery](https://jquery.com)
+
+[Include Play UI](../download#play-ui-javascript) on any page and use as you would jQuery. Play UI looks and feels just like it!
+
+Simply obtain the *constructable Play UI function* (`$`) as shown below.
 
 *If Play UI was loaded via a script tag:*
 
@@ -23,7 +34,7 @@ const $ = window.WebQit.$;
 
 ```js
 // We would first call the initializer to obtain the constructable function
-import PlayUI from '@webqit/play-ui';
+import PlayUI from '@webqit/playui-js';
 const $ = PlayUI();
 ```
 
@@ -32,20 +43,20 @@ Construct instances with the `new` operator or by calling the function staticall
 *With the new operator:*
 
 ```js
-(new $(selector)).html('Play away!');
+(new $(selector)).html('Some fun!');
 ```
 
 *Statically:*
 
 ```js
-$(selector).html('Play away!');
+$(selector).html('Some fun!');
 ```
 
-Now, while a 100% parity with jQuery isn't the goal, Play UI comes helpfully close, covering most day to day use cases. Examples: [`.html()`](../api/dom/html), [`.append()`](../api/dom/append), [`.prepend()`](../api/dom/prepend), [`.attr()`](../api/dom/attr), [`.css()`](../api/css/css), [`.data()`](../api/app/data), [`.on()`](../api/ui/on), [`.off()`](../api/ui/off), [`.trigger()`](../api/ui/trigger).
+Now, while total parity with jQuery's design isn't the goal, there exists good similarity: [`.html()`](../../api/dom/html), [`.append()`](../../api/dom/append), [`.prepend()`](../../api/dom/prepend), [`.attr()`](../../api/dom/attr), [`.css()`](../../api/css/css), [`.data()`](../../api/app/data), [`.on()`](../../api/ui/on), [`.off()`](../../api/ui/off), [`.trigger()`](../../api/ui/trigger).
 
-## Use With Server-Side DOM Instances
+### Use With Server-Side DOM Instances
 
-Use Play UI with server-side *window* objects such as the type provided by the [jsdom](https://github.com/jsdom/jsdom) library. (Think server-side rendering, web crawling, or just server-side DOM manipulation.) Here is how that could look.
+Use Play UI on the server with server-side *DOM* instances, such as the type provided by the [jsdom](https://github.com/jsdom/jsdom) library. (Think cases like server-side rendering, web crawling, or just server-side DOM manipulation.) Here is how that could look.
 
 *Create a `window` object:*
 
@@ -68,37 +79,42 @@ const window = JSDOM.window;
 
 ```js
 // Import Play UI
-import PlayUI from '@webqit/play-ui';
+import PlayUI from '@webqit/playui-js';
 // Initialize
 const $ = PlayUI.call(window);
 // Query...
 $(selector).append('Ready!');
 ```
 
-Now, the per-window initialization approach lets us have multiple *window* instances running simulteneously, if we need to, without getting weird behaviours as you would with the idea of a global window.
+The per-window initialization approach makes it possible to have Play UI running in multiple *window* instances, if we need to, without getting weird behaviours.
 
-*Initialize another Play UI object on another window instance:*
+*Tie Play UI to multiple window instances:*
 
 ```js
+const $ = PlayUI.call(window_1);
+$('.some-element-in-document-1').append('This is for you!');
+```
+```js
 const $$ = PlayUI.call(window_2);
-$$(selector).append('Ready!');
+$$('.some-element-in-document-2').append('This is for you!');
 ```
 
-## Use as Descrete Utilities
+### Use as Descrete Utilities
 
-Play UI's instance methods are internally based on it's core standalone functions which may be imported and used individually. The [`.on()`](../api/ui/on) instance method, for example, is based on the standalone [`ui/on()`](../api/ui/on#static-usage) function.
+Play UI's instance methods are internally based on certain core standalone functions which may be imported and used individually. The [`.on()`](../../api/ui/on) instance method, for example, is based on the standalone [`$.ui.on()`](../../api/ui/on#static-usage) function.
 
 ```js
 const ( on ) = $.ui;
 ```
 ```js
-import ( on ) from '@webqit/play-ui/src/ui/index.js';
+import ( on ) from '@webqit/playui-js/src/ui/index.js';
 ```
 
 *Standalone functions have their import syntax documented alongside their instance counterpart.*
 
-Generally, these standalone functions work the same way as their instance counterpart, except that they initially take an *element selector* as their first argument - where *element selector* is any of the input types accepted by the `$()` function.
+Generally, these standalone functions work the same way as their instance counterpart, except that they initially take an *element selector* as their first argument - where *element selector* is any of the input types accepted by the initializer `$()` function.
 
+*Compare:*
 
 ```js
 $(selector).on('swipeleft', e => {
@@ -111,7 +127,7 @@ on(selector, 'swipeleft', e => {
 });
 ```
 
-If you were to run your code against a *window* context other than the global browser window, you could use the `Function.call()` syntax to pass in the *window* object as the `this` context for the function.
+If you were to run your code in a *window* context other than the global browser window, you could use the `<Function>.call()` syntax to pass in the *window* object as the `this` context for the function.
 
 ```js
 on.call(window, selector, 'swipeleft', e => {
@@ -123,7 +139,7 @@ However, functions obtained from the already initialized Play UI object `$` auto
 
 ```js
 // Import Play UI
-import PlayUI from '@webqit/play-ui';
+import PlayUI from '@webqit/playui-js';
 // Initialize
 const $ = PlayUI.call(window);
 
@@ -133,15 +149,13 @@ $.ui.on(selector, 'swipeleft', e => {
 });
 ```
 
-*Note that functions that are chainable as instance methods are not chainable when used statically as these always return the `this` context passed in.*
+*Note that functions that are normally chainable as instance methods are not chainable when used statically. But these functions will return whatever was the `this` context passed in using `<Function>.call()`.*
 
-Now, build bigger things, like web components, with Play UI kicking under the hood. Selectively import just the functions you need into your projects.
-
-## Meet Async UI
+### Meet Async UI
 
 Surgically updating the UI is generally a costly operation for browsers. It happens when we write to the DOM and read from it in quick succession in a rendering cycle - causing document reflows, or better put, forced synchronous layout. (But a common word is *layout thrashing*.) This is covered in detail in [this article on Web Fundamentals](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing).
 
-Play UI meets this challenge with a simple timing strategy that keeps UI manipulation in sync with the browser's rendering cycle. To do this, DOM operations are internally held in read/write queues, then executed in read/write batches within each rendering cycle, eliminating the forced synchronous layout problem. This is what happens under the hood with all of the Play UI functions that have the *Async* suffix; e.g [`htmlAsync()`](../api/dom/htmlAsync). The asynchronous nature of these functions bring them under the term *Async UI*.
+Play UI meets this challenge with a simple timing strategy that keeps UI manipulation in sync with the browser's rendering cycle. To do this, DOM operations are internally held in read/write queues, then executed in read/write batches within each rendering cycle, eliminating the forced synchronous layout problem. This is what happens under the hood with all of the Play UI functions that have the *Async* suffix; e.g [`htmlAsync()`](../../api/dom/htmlAsync). The asynchronous nature of these functions bring them under the term *Async UI*.
 
 The order of execution of the code below demonstrates the asynchronous nature of these functions.
 
@@ -220,6 +234,30 @@ $(document.body).html('Hi');
 console.log('Completed: write operation 1');
 ```
 
+## Play UI Command Line
+
+Play UI Command Line is a utility that lets you move certain aspects of UI authoring to a *build process*. It offers the automation that allows you to hand-author your UI in absolute free-form mode and then have everything automatically come to shape. And it's an experience at the command line you'll love!
+
+Follow the [installation guide](../download#play-ui-command-line) to install the Play UI CLI.
+
+### HTML Modules Bundling
+
+Supercharge your UI templating! Author your HTML templates as standalone HTML files and automatically bundle them from the filesystem into shippable [HTML modules](/tooling/oohtml/docs/getting-started/overview#html-modules).
+
+Command: [`playui bundle`](../../cli/bundle).
+
+### Subscript-to-WC Compilation
+
+Taking the liberty with [Subscript](/tooling/oohtml/docs/getting-started/overview#subscript)? There's a way to have *Subscript* come off as Web Components - to give you the best of both worlds, without the difficulty of the latter!
+
+Command: *comming soon.*
+
+### HTML-to-CSS Aggregation
+
+Take the process out of writing CSS! Instead of having to have every class already defined in CSS before using in HTML, try a process that automatically writes your CSS classes to file from looking in your HTML!
+
+Command: *comming soon.*
+
 ## Next Steps
 
-Explore further: [The API Reference](../api).
+The [download options](../download).

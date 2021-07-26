@@ -17,7 +17,7 @@ The `.attr()` instance method is internally based on the standalone `dom/attrSyn
 const { attrSync: attr } = $.dom;
 ```
 ```js
-import { attrSync as attr } from '@webqit/play-ui/src/dom/index.js';
+import { attrSync as attr } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

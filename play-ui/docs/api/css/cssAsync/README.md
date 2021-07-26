@@ -102,7 +102,7 @@ The `.cssAsync()` instance method is internally based on the standalone `css/css
 const { cssAsync } = $.css;
 ```
 ```js
-import { cssAsync } from '@webqit/play-ui/src/css/index.js';
+import { cssAsync } from '@webqit/playui-js/src/css/index.js';
 ```
 
 ### Syntax

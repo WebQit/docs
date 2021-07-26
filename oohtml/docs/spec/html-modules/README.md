@@ -165,7 +165,7 @@ Remote contents automatically become the template's content on load.
 
 *HTML Modules* offers a set of APIs that lets us access modules, imports and exports as JavaScript objects and properties. One advantage this gives us is that it minimizes selector-based queries.
 
-+ **document.templatesQuery(query): HTMLTemplateElement** - This is a method on the `document` objec for querying the document's module tree using a query expression. 
++ **document.templatesQuery(query): HTMLTemplateElement** - This is a method on the `document` object for querying the document's module tree using a query expression. 
 
     ```js
     let module1 = document.templatesQuery('module1');

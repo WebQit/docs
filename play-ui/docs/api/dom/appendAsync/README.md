@@ -43,7 +43,7 @@ The `.appendAsync()` instance method is internally based on the standalone `dom/
 const { appendAsync } = $.dom;
 ```
 ```js
-import { appendAsync } from '@webqit/play-ui/src/dom/index.js';
+import { appendAsync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

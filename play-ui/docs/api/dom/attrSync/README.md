@@ -170,7 +170,7 @@ The `.attrSync()` instance method is internally based on the standalone `dom/att
 const { attrSync } = $.dom;
 ```
 ```js
-import { attrSync } from '@webqit/play-ui/src/dom/index.js';
+import { attrSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

@@ -4,19 +4,19 @@ desc: Packages that extend the capabilities of the OOHTML Bundler.
 ---
 # Loaders
 
-OOHTML CLI loaders are packages that extend the capabilities of the OOHTML Bundler. OOHTML CLI comes with certain loaders built-in and also makes it possible to provide custom loaders.
+Play UI loaders are packages that extend the capabilities of the OOHTML Bundler. Play UI comes with certain loaders built-in and also makes it possible to provide custom loaders.
 
 ## Overview
 
 Loaders are functions that are called with each file during the bundling process. Multiple loaders are made cascaded and a loader will be expected to call the next. This makes for an awesome processing pipeline for each file being bundled. But it also requires thoughtfulness in the order in which these loaders are specified.
 
-By default, the main OOHTML CLI bundler only handles `.html` files and images (`.ico`, `.png`, `.jpg`, `.jpeg`, `.svg`). Then it features built-in loaders that extend the list.
+By default, the main Play UI bundler only handles `.html` files and images (`.ico`, `.png`, `.jpg`, `.jpeg`, `.svg`). Then it features built-in loaders that extend the list.
 
 ## Built-Ins
 
 ### `md-loader`
 
-The `md-loader` loader is used to load `.md` (markdown) files into HTML exports just the way regular HTML files are. It takes an initial step of converting the markdown content into HTML using the [Showdown](https://github.com/showdownjs/showdown) library, then goes ahead to add it to the bundle as a *module export*. Markdown links are automatically resolved to better work as HTML links. A few other transformations are supported through arguments/flags. (Learn more about specifying arguments/flags [here](../#loaders).)
+The `md-loader` loader is used to load `.md` (markdown) files into HTML exports just the way regular HTML files are. It takes an initial step of converting the markdown content into HTML using the [Showdown](https://github.com/showdownjs/showdown) library, then goes ahead to add it to the bundle as a *module export*. Markdown links are automatically resolved to better work as HTML links. A few other transformations are supported through arguments/flags. (Learn more about specifying arguments/flags for a loader [here](../#loaders).)
 
 #### Arguments/Flags
 
@@ -48,7 +48,7 @@ The `md-loader` loader is used to load `.md` (markdown) files into HTML exports 
 
 #### Usage
 
-The `md-loader` loader is used by specifying `default:md-loader` in the [[`[LOADERS]`]](../#loaders) config option.
+The `md-loader` loader is used by specifying `default:md-loader` in the [`[LOADERS]`](../#loaders) config option.
 
 ## Custom Loaders
 
@@ -86,4 +86,4 @@ Loaders may throw exceptions, they will be gracefully handled, that is, formatte
 
 ### Usage
 
-Custom loaders are used by specifying their filename in the [[`[LOADERS]`]](../#loaders) config option. Loaders installed as an npm package are used by specifying their package name.
+Custom loaders are used by specifying their filename in the [`[LOADERS]`](../#loaders) config option. Loaders installed as an npm package are used by specifying their package name.

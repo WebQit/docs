@@ -17,7 +17,7 @@ The `.html()` instance method is internally based on the standalone `dom/htmlSyn
 const { htmlSync: html } = $.dom;
 ```
 ```js
-import { htmlSync as html } from '@webqit/play-ui/src/dom/index.js';
+import { htmlSync as html } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

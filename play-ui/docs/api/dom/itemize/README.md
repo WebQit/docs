@@ -156,7 +156,7 @@ The `.itemize()` instance method is internally based on the standalone `dom/item
 const { itemize } = $.dom;
 ```
 ```js
-import { itemize } from '@webqit/play-ui/src/dom/index.js';
+import { itemize } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

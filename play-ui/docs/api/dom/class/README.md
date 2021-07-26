@@ -17,7 +17,7 @@ The `.class()` instance method is internally based on the standalone `dom/classS
 const { classSync: _class } = $.dom;
 ```
 ```js
-import { classSync as _class } from '@webqit/play-ui/src/dom/index.js';
+import { classSync as _class } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax

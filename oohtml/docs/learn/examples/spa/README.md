@@ -12,7 +12,7 @@ Below, we're using the two `<template>` elements to each represent a route - a p
         <title>An SPA In OOHTML</title>
         <meta name="oohtml" content="element.import=html-import" />
         
-        <script src="https://unpkg.com/@webqit/oohtml@1.8.10/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/oohtml@1.8.12/dist/main.js"></script>
 
         <template name="pages">
 

@@ -70,7 +70,7 @@ The `.textSync()` instance method is internally based on the standalone `dom/tex
 const { textSync } = $.dom;
 ```
 ```js
-import { textSync } from '@webqit/play-ui/src/dom/index.js';
+import { textSync } from '@webqit/playui-js/src/dom/index.js';
 ```
 
 ### Syntax
