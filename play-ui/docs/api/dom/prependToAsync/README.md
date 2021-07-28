@@ -5,7 +5,7 @@ desc: Asynchronously prepend matched elements to target elements.
 
 This method is used to asynchronously prepend matched elements to target elements.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.prependToSync()`](../prependtosync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.prependToSync()`](../prependtosync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 ## Syntax
 
 ```js
@@ -52,4 +52,4 @@ import { prependToAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

@@ -65,4 +65,4 @@ import { trigger } from '@webqit/playui-js/src/ui/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

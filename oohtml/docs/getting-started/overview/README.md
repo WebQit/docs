@@ -381,4 +381,4 @@ Leveraging this reactivity, we could implement the `<my-collapsible>` component 
 
 You definitely want to visit the documentation for each of OOHTML's features and try everything out by pasting the code examples and running them right in your browser. Simply include the [OOHTML polyfill](../polyfill) on your page and get away with writing modular, reusable, reactive HTML without a tool! 
 
-> We're putting together a collection of examples in the [examples](../../usage/examples) section.
+> We're putting together a collection of examples in the [examples](../../learn/examples) section.

@@ -4,7 +4,7 @@ _index: first
 ---
 # Overview
 
-Play UI is a family of tools that brings a *utility-based* approach and wholistic experience to UI development. This means: full UI authoring capabilities in the liberty and combinational power of standalone functionalities! Take an overview.
+Play UI is a family of tools that brings a *utility-based* approach and a wholistic experience to UI development. This means: full UI authoring capabilities in the liberty and combinational power of standalone functionalities! Take an overview.
 
 + [Play UI JavaScript](#play-ui-javascript)
 + [Play UI Command Line](#play-ui-command-line)

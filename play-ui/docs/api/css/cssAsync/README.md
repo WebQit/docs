@@ -5,7 +5,7 @@ desc: Asynchronously set or get one or more style properties for the given eleme
 
 This method is used to asynchronously set or get one or more style properties for the given element. It is a convenient alternative to the native [`window.getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) and [`ElementCSSInlineStyle.style`](https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style). It also has special support for vendor-prefixed properties.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.cssSync()`](../cssSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.cssSync()`](../cssSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 + [Set CSS Properties](#a-set-css-properties)
 + [Get CSS Properties](#b-get-css-properties)
@@ -107,4 +107,4 @@ import { cssAsync } from '@webqit/playui-js/src/css/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

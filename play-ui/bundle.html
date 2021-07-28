@@ -167,7 +167,7 @@
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">cssSync</span>: css } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssSync <span class="hljs-keyword">as</span> css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -177,7 +177,7 @@
 
 						<h1 id="cssasync"><code>.cssAsync()</code></h1>
 <p>This method is used to asynchronously set or get one or more style properties for the given element. It is a convenient alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style"><code>ElementCSSInlineStyle.style</code></a>. It also has special support for vendor-prefixed properties.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/css/cssSync"><code>.cssSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/css/cssSync"><code>.cssSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-css-properties">Set CSS Properties</a></li>
 <li><a href="#b-get-css-properties">Get CSS Properties</a></li>
@@ -249,7 +249,7 @@
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssAsync } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -330,7 +330,7 @@ $(el).cssSync({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssSync } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -416,7 +416,7 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { cssTransaction } = $.css;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { cssTransaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/css/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -441,7 +441,7 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">appendSync</span>: append } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendSync <span class="hljs-keyword">as</span> append } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -451,7 +451,7 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 
 						<h1 id="appendasync"><code>.appendAsync()</code></h1>
 <p>This method is used to asynchronously append content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append"><code>ParentNode.append()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/appendSync"><code>.appendSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/appendSync"><code>.appendSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Append content(s) to an element</span>
 <span class="hljs-keyword">await</span> $(el).appendAsync(content[, ...content]);</code></pre>
@@ -474,7 +474,7 @@ $(el).appendAsync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -507,7 +507,7 @@ $(el).appendSync(div, <span class="hljs-string">&#x27;Playful&#x27;</span>, <spa
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -541,7 +541,7 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { appendToSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { appendToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -558,7 +558,7 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">attrSync</span>: attr } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrSync <span class="hljs-keyword">as</span> attr } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -568,7 +568,7 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 
 						<h1 id="attrasync"><code>.attrAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's attribute. It is a shorter alternative to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute"><code>Element.setAttribute()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute"><code>Element.getAttribute()</code></a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute"><code>Element.removeAttribute()</code></a>. It also has special support for list-based attributes like <code>class</code>.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>attrSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/attrSync"><code>attrSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-attributes">Set Attributes</a></li>
 <li><a href="#b-get-attributes">Get Attributes</a></li>
@@ -686,7 +686,7 @@ $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class=
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { attrAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-4">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -812,7 +812,7 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { attrSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { attrSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-4">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -829,7 +829,7 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">classSync</span>: _class } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync <span class="hljs-keyword">as</span> _class } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -839,7 +839,7 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 
 						<h1 id="classasync"><code>.classAsync()</code></h1>
 <p>This method is used to asynchronously modify or match an element's class list. It provides convenience over using the <a href="/tooling/play-ui/docs/api/dom/attrAsync"><code>attrAsync()</code></a> method to modify an element's class attribute.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/classSync"><code>classSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/classSync"><code>classSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-modify-class-list">Modify Class List</a></li>
 <li><a href="#b-match-class-list">Match Class List</a></li>
@@ -901,7 +901,7 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -972,7 +972,7 @@ $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <spa
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { classSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { classSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1004,7 +1004,7 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { getTextNodes } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { getTextNodes } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1021,7 +1021,7 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">htmlSync</span>: html } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlSync <span class="hljs-keyword">as</span> html } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1031,7 +1031,7 @@ textNodes.forEach(<span class="hljs-function"><span class="hljs-params">node</sp
 
 						<h1 id="htmlasync"><code>.htmlAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's HTML/XML content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>Element.innerHTML</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/htmlSync"><code>.htmlSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/htmlSync"><code>.htmlSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-html-content">Set HTML Content</a></li>
 <li><a href="#b-get-html-content">Get HTML Content</a></li>
@@ -1071,7 +1071,7 @@ $(el).htmlAsync(div);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { htmlAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1121,7 +1121,7 @@ $(el).htmlSync(div);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { htmlSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { htmlSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1314,7 +1314,7 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { itemize } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { itemize } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1331,7 +1331,7 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">prependSync</span>: prepend } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependSync <span class="hljs-keyword">as</span> prepend } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1341,7 +1341,7 @@ $(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
 
 						<h1 id="prependasync"><code>.prependAsync()</code></h1>
 <p>This method is used to asynchronously prepend content to an element. It works exactly the same as the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend"><code>ParentNode.prepend()</code></a> except that when the implied content is undefined, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependsync"><code>.prependSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependsync"><code>.prependSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Prepend content(s) to an element</span>
 <span class="hljs-keyword">await</span> $(el).prependAsync(content[, ...content]);</code></pre>
@@ -1364,7 +1364,7 @@ $(el).prependAsync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1397,7 +1397,7 @@ $(el).prependSync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="h
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1407,7 +1407,7 @@ $(el).prependSync(<span class="hljs-string">&#x27;!&#x27;</span>, <span class="h
 
 						<h1 id="prependtoasync"><code>.prependToAsync()</code></h1>
 <p>This method is used to asynchronously prepend matched elements to target elements.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependtosync"><code>.prependToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/prependtosync"><code>.prependToSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <h2 id="syntax">Syntax</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">await</span> $(el).prependToAsync(target);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -1431,7 +1431,7 @@ $(div).prependToAsync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1465,7 +1465,7 @@ $(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</c
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { prependToSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { prependToSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1482,7 +1482,7 @@ $(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</c
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { <span class="hljs-attr">textSync</span>: text } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textSync <span class="hljs-keyword">as</span> text } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1492,7 +1492,7 @@ $(div).prependToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</c
 
 						<h1 id="textasync"><code>.textAsync()</code></h1>
 <p>This method is used to asynchronously set or get an element's text content. It is the programmatic alternative to <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText"><code>Element.innerText</code></a>. Additionally, when this function receives <code>undefined</code> for a <em>set</em> operation, it is converted to an empty string.</p>
-<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/textSync"><code>.textSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/api/overview#meet-async-ui">Async UI</a>.</p>
+<p>The suffix <em>Async</em> differentiates this method from its <em>Sync</em> counterpart - <a href="/tooling/play-ui/docs/api/dom/textSync"><code>.textSync()</code></a>. Unlike the <em>Sync</em> counterpart, this method is promised-based. See <a href="/tooling/play-ui/docs/getting-started/overview#meet-async-ui">Async UI</a>.</p>
 <ul>
 <li><a href="#a-set-text-content">Set Text Content</a></li>
 <li><a href="#b-get-text-content">Get Text Content</a></li>
@@ -1532,7 +1532,7 @@ $(el).textAsync(text);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { textAsync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textAsync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1582,7 +1582,7 @@ $(el).textSync(text);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { textSync } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { textSync } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-2">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1899,7 +1899,7 @@ $(el).data({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.misc;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/misc/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-3">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -1930,7 +1930,7 @@ $(el).data({
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { transaction } = $.misc;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { transaction } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/misc/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -2939,7 +2939,7 @@ $(el).off(eventName, <span class="hljs-literal">null</span>, {<span class="hljs-
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { off } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { off } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -3004,7 +3004,7 @@ listener.disconnect();</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { on } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { on } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -3054,7 +3054,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { play } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { play } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -3086,7 +3086,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { rect } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { rect } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -3133,7 +3133,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { trigger } = $.ui;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { trigger } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/ui/index.js&#x27;</span>;</code></pre>
 <h3 id="syntax-1">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
 				</template>
@@ -3451,6 +3451,11 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 				<div exportgroup="readme">
 
 					<h1 id="download-options">Download Options</h1>
+<p>In the Play UI family:</p>
+<ul>
+<li><a href="#play-ui-javascript">Play UI JavaScript</a></li>
+<li><a href="#play-ui-command-line">Play UI Command Line</a></li>
+</ul>
 <h2 id="play-ui-javascript">Play UI JavaScript</h2>
 <p>The Play UI JavaScript library can be used either from a CDN or as an npm package.</p>
 <h3 id="option-1-from-a-cdn">Option 1: From a CDN</h3>

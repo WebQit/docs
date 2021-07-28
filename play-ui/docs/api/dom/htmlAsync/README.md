@@ -5,7 +5,7 @@ desc: Asynchronously set or get an element's HTML/XML content.
 
 This method is used to asynchronously set or get an element's HTML/XML content. It is the programmatic alternative to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML). Additionally, when this function receives `undefined` for a *set* operation, it is converted to an empty string.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.htmlSync()`](../htmlSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.htmlSync()`](../htmlSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 + [Set HTML Content](#a-set-html-content)
 + [Get HTML Content](#b-get-html-content)
@@ -75,4 +75,4 @@ import { htmlAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

@@ -5,7 +5,7 @@ desc: Asynchronously append content to an element.
 
 This method is used to asynchronously append content to an element. It works exactly the same as the native [`ParentNode.append()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.appendSync()`](../appendSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.appendSync()`](../appendSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 ## Syntax
 
@@ -48,4 +48,4 @@ import { appendAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

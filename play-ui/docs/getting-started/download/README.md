@@ -5,6 +5,11 @@ _index: 1
 ---
 # Download Options
 
+In the Play UI family:
+
++ [Play UI JavaScript](#play-ui-javascript)
++ [Play UI Command Line](#play-ui-command-line)
+
 ## Play UI JavaScript
 
 The Play UI JavaScript library can be used either from a CDN or as an npm package.

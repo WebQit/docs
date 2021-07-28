@@ -5,7 +5,7 @@ desc: Asynchronously set or get an element's attribute.
 
 This method is used to asynchronously set or get an element's attribute. It is a shorter alternative to the native [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute), [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute), and [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute). It also has special support for list-based attributes like `class`.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`attrSync()`](../attrSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`attrSync()`](../attrSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 + [Set Attributes](#a-set-attributes)
 + [Get Attributes](#b-get-attributes)
@@ -176,4 +176,4 @@ import { attrAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

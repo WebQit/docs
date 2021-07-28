@@ -5,7 +5,7 @@ desc: Asynchronously prepend content to an element.
 
 This method is used to asynchronously prepend content to an element. It works exactly the same as the native [`ParentNode.prepend()`](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/prepend) except that when the implied content is undefined, it is converted to an empty string.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`.prependSync()`](../prependsync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`.prependSync()`](../prependsync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 ## Syntax
 
@@ -48,4 +48,4 @@ import { prependAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)

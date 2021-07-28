@@ -5,7 +5,7 @@ desc: Asynchronously modify or match an element's class list.
 
 This method is used to asynchronously modify or match an element's class list. It provides convenience over using the [`attrAsync()`](../attrAsync) method to modify an element's class attribute.
 
-The suffix *Async* differentiates this method from its *Sync* counterpart - [`classSync()`](../classSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../overview#meet-async-ui).
+The suffix *Async* differentiates this method from its *Sync* counterpart - [`classSync()`](../classSync). Unlike the *Sync* counterpart, this method is promised-based. See [Async UI](../../../getting-started/overview#meet-async-ui).
 
 + [Modify Class List](#a-modify-class-list)
 + [Match Class List](#b-match-class-list)
@@ -103,4 +103,4 @@ import { classAsync } from '@webqit/playui-js/src/dom/index.js';
 
 ### Syntax
 
-See [the general way to use Play UI's standalone functions](../../../overview#use-as-descrete-utilities)
+See [the general way to use Play UI's standalone functions](../../../getting-started/overview#use-as-descrete-utilities)
