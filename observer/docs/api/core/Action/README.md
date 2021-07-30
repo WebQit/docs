@@ -4,7 +4,7 @@ desc: The Action class.
 ---
 # `class Action {}`
 
-Instances of this class represent an action record. They are internally created by [actions](../../actions) and passed to [interceptors](../../reactions/intercept).
+Instances of this class represent an action record. They are internally created by [actions](../../actions) (e.g. [`Observer.set()`](../../actions/set), [`Observer.get()`](../../actions/get), and [`Observer.ownKeys()`](../../actions/ownKeys), etc) and passed to [interceptors](../../reactions/intercept).
 
 ## Constructor
 

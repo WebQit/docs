@@ -145,7 +145,7 @@ Also, multiple `<import>` elements within a block can be scoped to just one *mod
 </body>
 ```
 
-Now, on resolution, an `<import>` elements will stand by somewhere with a view to returning to its slot on any event that gets the slot empty. In fact, `<import>` elements maintain a *live* relationship with the modules they point to and with the contents that go into their slot.
+On resolution, an `<import>` element will stand by somewhere with a view to returning to its slot on any event that gets the slot empty. In fact, `<import>` elements maintain a *live* relationship with the modules they point to and with the contents that go into their slot.
 
 So, if we dynamically changed the module ID declaration above to point to another module, *imports* will be resolved again, this time, from the new module.
 
@@ -177,7 +177,7 @@ The following modular markup implements its IDs in namespaces:
 </article>
 ```
 
-The above gives us a conceptual model of repeating objects, each encapsulating its IDs:
+The above gives us a conceptual model of repeating objects; each encapsulating its IDs:
 
 ```html
 continents
@@ -271,7 +271,7 @@ customElements.define('my-collapsible', class extends HTMLElement {
 });
 ```
 
-Now, other parts of the application are able to work in sync with the state of this element.
+Other parts of the application are also able to access the state of this element.
 
 ```js
 let collapsible = document.querySelector('my-collapsible');
@@ -351,7 +351,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-Leveraging this reactivity, we could implement the `<my-collapsible>` component we created in the *State API* section above - this time, without a JavaScript class.
+Leveraging this reactivity, we could reimplement the `<my-collapsible>` component we created in the *State API* section above - this time, without a JavaScript class.
 
 ```html
 <div id="collapsible" namespace>
@@ -377,8 +377,8 @@ Leveraging this reactivity, we could implement the `<my-collapsible>` component 
 
 **Details are in the [Subscript](../../spec/subscript) specification. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.**
 
-## Going Further
+## Getting Started
 
 You definitely want to visit the documentation for each of OOHTML's features and try everything out by pasting the code examples and running them right in your browser. Simply include the [OOHTML polyfill](../polyfill) on your page and get away with writing modular, reusable, reactive HTML without a tool! 
 
-> We're putting together a collection of examples in the [examples](../../learn/examples) section.
+We're putting together a collection of examples in the [examples](../../learn/examples) section.

@@ -23,7 +23,7 @@ let successFlags = Observer.unaccessorize(obj[, params = {}]);
 
 + **`obj:             Object|Array`** - an object or array.
 + **`propertyName:    String`** - the property to *unaccessorize*.
-+ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventReturnType` parameter cannot be used with `Observer.unaccessorize()`.*
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventTypeReturn` parameter cannot be used with `Observer.unaccessorize()`.*
 
 **Return Value**
 

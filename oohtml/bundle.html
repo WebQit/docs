@@ -29,7 +29,7 @@
 	<template name="docs">
 		<div exportgroup="readme">
 
-			<h1 id="the-oohtml-docs">The OOHTML Docs</h1>
+			<h1 id="oohtml-documentation">OOHTML Documentation</h1>
 <p>Welcome to the OOHTML documentation. We hope you find it easy to understand and navigate.</p>
 <p>If you have questions about anything related to OOHTML, you're always welcome to ask on our <a href="https://github.com/webqit/oohtml/discussions">GitHub Discussions</a>.</p>
 <h2 id="explore-the-docs">Explore the Docs</h2>
@@ -264,7 +264,7 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p>Now, on resolution, an <code>&lt;import&gt;</code> elements will stand by somewhere with a view to returning to its slot on any event that gets the slot empty. In fact, <code>&lt;import&gt;</code> elements maintain a <em>live</em> relationship with the modules they point to and with the contents that go into their slot.</p>
+<p>On resolution, an <code>&lt;import&gt;</code> element will stand by somewhere with a view to returning to its slot on any event that gets the slot empty. In fact, <code>&lt;import&gt;</code> elements maintain a <em>live</em> relationship with the modules they point to and with the contents that go into their slot.</p>
 <p>So, if we dynamically changed the module ID declaration above to point to another module, <em>imports</em> will be resolved again, this time, from the new module.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Changing the module ID on the DIV container above will see all associated imports resolved again</span>
 <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div[template=&quot;module1&quot;]&#x27;</span>).setAttribute(<span class="hljs-string">&#x27;template&#x27;</span>, <span class="hljs-string">&#x27;module2&#x27;</span>);</code></pre>
@@ -283,7 +283,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;countries&quot;</span>&gt;</span>Countries in Asia<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
-<p>The above gives us a conceptual model of repeating objects, each encapsulating its IDs:</p>
+<p>The above gives us a conceptual model of repeating objects; each encapsulating its IDs:</p>
 <pre><code class="hljs html language-html">continents
  ├⏤europe
  │   ├⏤about
@@ -350,7 +350,7 @@ element.state.collapsed = <span class="hljs-literal">true</span>;
     }
 
 });</code></pre>
-<p>Now, other parts of the application are able to work in sync with the state of this element.</p>
+<p>Other parts of the application are also able to access the state of this element.</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> collapsible = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;my-collapsible&#x27;</span>);
 Observer.observe(collapsible.state, <span class="hljs-string">&#x27;collapsed&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(e.value ? <span class="hljs-string">&#x27;element collapsed&#x27;</span> : <span class="hljs-string">&#x27;element expanded&#x27;</span>);
@@ -404,7 +404,7 @@ alertElement.state.message = <span class="hljs-string">&#x27;Task started!&#x27;
 <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
     alertElement.state.message = <span class="hljs-string">&#x27;Task complete!&#x27;</span>;
 }, <span class="hljs-number">1000</span>);</code></pre>
-<p>Leveraging this reactivity, we could implement the <code>&lt;my-collapsible&gt;</code> component we created in the <em>State API</em> section above - this time, without a JavaScript class.</p>
+<p>Leveraging this reactivity, we could reimplement the <code>&lt;my-collapsible&gt;</code> component we created in the <em>State API</em> section above - this time, without a JavaScript class.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;collapsible&quot;</span> <span class="hljs-attr">namespace</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;control&quot;</span>&gt;</span>Toggle Me<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -425,11 +425,9 @@ alertElement.state.message = <span class="hljs-string">&#x27;Task started!&#x27;
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p><strong>Details are in the <a href="/tooling/oohtml/docs/spec/subscript">Subscript</a> specification. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.</strong></p>
-<h2 id="going-further">Going Further</h2>
+<h2 id="getting-started">Getting Started</h2>
 <p>You definitely want to visit the documentation for each of OOHTML's features and try everything out by pasting the code examples and running them right in your browser. Simply include the <a href="/tooling/oohtml/docs/getting-started/polyfill">OOHTML polyfill</a> on your page and get away with writing modular, reusable, reactive HTML without a tool! </p>
-<blockquote>
-  <p>We're putting together a collection of examples in the <a href="/tooling/oohtml/docs/learn/examples">examples</a> section.</p>
-</blockquote>
+<p>We're putting together a collection of examples in the <a href="/tooling/oohtml/docs/learn/examples">examples</a> section.</p>
 
 				</div>
 			</template>
@@ -438,8 +436,8 @@ alertElement.state.message = <span class="hljs-string">&#x27;Task started!&#x27;
 				<div exportgroup="readme">
 
 					<h1 id="the-oohtml-polyfill">The OOHTML Polyfill</h1>
-<p>This library is the official polyfill for OOHTML. It can be used via a script tag or as an npm package.</p>
-<h2 id="option-1-embed-as-script">Option 1: Embed as Script</h2>
+<p>This library is the official polyfill for OOHTML. It can be used either from a CDN or as an npm package.</p>
+<h2 id="option-1-from-a-cdn">Option 1: From a CDN</h2>
 <p>Add the following script tag to your page to include the all-in-one OOHTML build:</p>
 <pre><code class="hljs html language-html">  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/oohtml/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Or embed individual OOHTML features via their respective build:</p>
@@ -450,7 +448,7 @@ alertElement.state.message = <span class="hljs-string">&#x27;Task started!&#x27;
 <li><strong><a href="/tooling/oohtml/docs/spec/the-state-api">The State API</a></strong> - <code>&lt;script src="https://unpkg.com/@webqit/oohtml/dist/state-api.js"&gt;&lt;/script&gt;</code></li>
 <li><strong><a href="/tooling/oohtml/docs/spec/subscript">Subscript</a></strong> - <code>&lt;script src="https://unpkg.com/@webqit/oohtml/dist/subscript.js"&gt;&lt;/script&gt;</code></li>
 </ul>
-<h2 id="option-2-install-via-npm">Option 2: Install via NPM</h2>
+<h2 id="option-2-as-an-npm-package">Option 2: As an npm Package</h2>
 <p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install OOHTML:</p>
 <pre><code class="hljs text language-text">$ npm i -g npm
 $ npm i --save @webqit/oohtml</code></pre>

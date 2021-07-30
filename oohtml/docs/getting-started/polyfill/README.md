@@ -5,9 +5,9 @@ _index: last
 ---
 # The OOHTML Polyfill
 
-This library is the official polyfill for OOHTML. It can be used via a script tag or as an npm package.
+This library is the official polyfill for OOHTML. It can be used either from a CDN or as an npm package.
 
-## Option 1: Embed as Script 
+## Option 1: From a CDN
 
 Add the following script tag to your page to include the all-in-one OOHTML build:
 
@@ -23,7 +23,7 @@ Or embed individual OOHTML features via their respective build:
   + **[The State API](../../spec/the-state-api)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/state-api.js"></script>`
   + **[Subscript](../../spec/subscript)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/subscript.js"></script>`
 
-## Option 2: Install via NPM
+## Option 2: As an npm Package
 
 With [npm available on your terminal](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), run the following command to install OOHTML:
 

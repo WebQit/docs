@@ -40,8 +40,8 @@
                     "outline": [
                         {
                             "level": 1,
-                            "title": "The OOHTML Docs",
-                            "uri": "the-oohtml-docs",
+                            "title": "OOHTML Documentation",
+                            "uri": "oohtml-documentation",
                             "subtree": [
                                 {
                                     "level": 2,
@@ -161,8 +161,8 @@
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Going Further",
-                                                    "uri": "going-further",
+                                                    "title": "Getting Started",
+                                                    "uri": "getting-started",
                                                     "subtree": []
                                                 }
                                             ]
@@ -185,14 +185,14 @@
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Option 1: Embed as Script",
-                                                    "uri": "option-1-embed-as-script",
+                                                    "title": "Option 1: From a CDN",
+                                                    "uri": "option-1-from-a-cdn",
                                                     "subtree": []
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Option 2: Install via NPM",
-                                                    "uri": "option-2-install-via-npm",
+                                                    "title": "Option 2: As an npm Package",
+                                                    "uri": "option-2-as-an-npm-package",
                                                     "subtree": [
                                                         {
                                                             "level": 3,

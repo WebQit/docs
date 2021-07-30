@@ -70,7 +70,7 @@ Observer.defineProperty(obj, [ propertyName, ... ], propertyDescriptor[, params 
 <p><strong>Return Value</strong></p>
 <ul>
 <li><strong>Boolean</strong> - This is either <code>true</code> or <code>false</code> on the outcome of the operation.</li>
-<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventReturnType</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
+<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventTypeReturn</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p><em>Case 1 - Define a specific property:</em></p>
@@ -147,7 +147,7 @@ Observer.deleteProperty(obj, [ propertyName, ... ][, params = {}]);</code></pre>
 <p><strong>Return Value</strong></p>
 <ul>
 <li><strong>Boolean</strong> - This is either <code>true</code> or <code>false</code> on the outcome of the operation.</li>
-<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventReturnType</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
+<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventTypeReturn</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p><em>Case 1 - Delete a specific property:</em></p>
@@ -221,7 +221,7 @@ Observer.deleteProperty(obj, [ propertyName, ... ][, params = {}]);</code></pre>
 <ul>
 <li><strong><code>obj:             Object|Array</code></strong> - An object or array.</li>
 <li><strong><code>propertyName:    String</code></strong> - The property to read.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.get()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.get()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -301,7 +301,7 @@ Observer.accessorize(obj, [<span class="hljs-string">&#x27;fruit&#x27;</span>, <
 <ul>
 <li><strong><code>obj:             Object|Array</code></strong> - An object or array.</li>
 <li><strong><code>propertyName:    String</code></strong> - The property to assert.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.has()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.has()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -353,7 +353,7 @@ Observer.accessorize(obj, [<span class="hljs-string">&#x27;fruit&#x27;</span>, <
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>obj:             Object|Array</code></strong> - an object or array.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.ownKeys()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.ownKeys()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -415,7 +415,7 @@ Observer.set(obj, keyValueMap[, = {}]);</code></pre>
 <p><strong>Return Value</strong></p>
 <ul>
 <li><strong>Boolean</strong> - This is either <code>true</code> or <code>false</code> on the outcome of the operation.</li>
-<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventReturnType</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
+<li><strong>Event</strong> - The returned <a href="/tooling/observer/docs/core/Event">Event</a> object for the operation when the <code>params.eventTypeReturn</code> is set to <code>true</code>. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p><em>Case 1 - Setting a specific property:</em></p>
@@ -573,7 +573,7 @@ Observer.accessorize(obj);</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>obj:             Object|Array</code></strong> - an object or array.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.proxy()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.proxy()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -617,7 +617,7 @@ Observer.proxy(arr).push(<span class="hljs-string">&#x27;one&#x27;</span>, <span
 <ul>
 <li><strong><code>obj:             Object|Array</code></strong> - an object or array.</li>
 <li><strong><code>propertyName:    String</code></strong> - the property to <em>unaccessorize</em>.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.unaccessorize()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.unaccessorize()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -660,7 +660,7 @@ Observer.observe(obj, <span class="hljs-string">&#x27;preferences&#x27;</span>, 
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>_obj: Proxy</code></strong> - a Proxy object generated by <a href="/tooling/observer/docs/api/actors/proxy"><code>Observer.proxy()</code></a>.</li>
-<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventReturnType</code> parameter cannot be used with <code>Observer.unproxy()</code>.</em></li>
+<li><strong><code>params:          OperatorParams</code></strong> - Additional parameters for the operation. <em>See <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>. Note that the <code>params.eventTypeReturn</code> parameter cannot be used with <code>Observer.unproxy()</code>.</em></li>
 </ul>
 <p><strong>Return Value</strong></p>
 <ul>
@@ -834,7 +834,7 @@ Observer.set(parent, <span class="hljs-string">&#x27;prop1&#x27;</span>, {});</c
 					<div exportgroup="readme">
 
 						<h1 id="class-action-"><code>class Action {}</code></h1>
-<p>Instances of this class represent an action record. They are internally created by <a href="/tooling/observer/docs/api/actions">actions</a> and passed to <a href="/tooling/observer/docs/api/reactions/intercept">interceptors</a>.</p>
+<p>Instances of this class represent an action record. They are internally created by <a href="/tooling/observer/docs/api/actions">actions</a> (e.g. <a href="/tooling/observer/docs/api/actions/set"><code>Observer.set()</code></a>, <a href="/tooling/observer/docs/api/actions/get"><code>Observer.get()</code></a>, and <a href="/tooling/observer/docs/api/actions/ownKeys"><code>Observer.ownKeys()</code></a>, etc) and passed to <a href="/tooling/observer/docs/api/reactions/intercept">interceptors</a>.</p>
 <h2 id="constructor-NaN">Constructor</h2>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> action = <span class="hljs-keyword">new</span> Action(target, details);</code></pre>
 <p><strong>Parameters</strong></p>
@@ -893,10 +893,10 @@ Observer.set(parent, <span class="hljs-string">&#x27;prop1&#x27;</span>, {});</c
 <pre><code class="hljs js language-js">Observer.deleteProperty(obj, propertyName, {
     <span class="hljs-attr">cancellable</span>: <span class="hljs-literal">true</span>,
 });</code></pre>
-<p>The initiator may also obtain the <code>Event</code> object to determine the state of the event. Notice the <code>params.eventReturnType</code> parameter below that tells <code>Observer.deleteProperty()</code> to return the <code>Event</code> object for use. (Learn more about <code>params.eventReturnType</code> at <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>.)</p>
+<p>The initiator may also obtain the <code>Event</code> object to determine the state of the event. Notice the <code>params.eventTypeReturn</code> parameter below that tells <code>Observer.deleteProperty()</code> to return the <code>Event</code> object for use. (Learn more about <code>params.eventTypeReturn</code> at <a href="/tooling/observer/docs/api/core/OperatorParams">OperatorParams</a>.)</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> event = Observer.deleteProperty(obj, propertyName, {
     <span class="hljs-attr">cancellable</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">eventReturnType</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">eventTypeReturn</span>: <span class="hljs-literal">true</span>,
 });</code></pre>
 <p><em>Now, it determines the state of the event:</em></p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Determine event state...</span>
@@ -969,7 +969,7 @@ Observer.set(parent, <span class="hljs-string">&#x27;prop1&#x27;</span>, {});</c
 <p><em>Properties that can be passed by mutators (<a href="/tooling/observer/docs/api/actions/set"><code>Observer.set()</code></a>, <a href="/tooling/observer/docs/api/actions/defineProperty"><code>Observer.defineProperty()</code></a>, and <a href="/tooling/observer/docs/api/actions/deleteProperty"><code>Observer.deleteProperty()</code></a>)</em></p>
 <ul>
 <li><strong><code>detail:   Any</code></strong> - An optional value to pass to observers. <em>See <a href="#passing-a-value-to-observers">Passing a Value to Observers</a> below.</em></li>
-<li><strong><code>eventReturnType:   Boolean</code></strong> - Whether to return the <em>Event Object</em> for the operation. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
+<li><strong><code>eventTypeReturn:   Boolean</code></strong> - Whether to return the <em>Event Object</em> for the operation. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
 <li><strong><code>cancellable:      Boolean</code></strong> - Whether the default taken after this operation is cancellable by observers. <em>Learn more at <a href="/tooling/observer/docs/api/core/Event#negotiating-with-operators">Negotiating With Operators</a>.</em></li>
 </ul>
 <h2 id="passing-a-value-to-observers">Passing a Value to Observers</h2>
@@ -1846,9 +1846,9 @@ Learn more about what's possible with the following methods:
 <p>Observe operations on any object or array…</p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> obj = {};</code></pre>
 <p>…using the <a href="/tooling/observer/docs/api/reactions/observe"><code>Observer.observe()</code></a> method.</p>
-<pre><code class="hljs js language-js">Observer.observe(obj, <span class="hljs-function"><span class="hljs-params">changes</span> =&gt;</span> {
-    changes.forEach(<span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> {
-        <span class="hljs-built_in">console</span>.log(c.type, c.name, c.path, c.value, c.oldValue);
+<pre><code class="hljs js language-js">Observer.observe(obj, <span class="hljs-function"><span class="hljs-params">mutations</span> =&gt;</span> {
+    mutations.forEach(<span class="hljs-function"><span class="hljs-params">mutation</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(mutation.type, mutation.name, mutation.path, mutation.value, mutation.oldValue);
     });
 });</code></pre>
 <p>Now changes will be delivered <em>synchronously</em> - as they happen.</p>
@@ -1905,36 +1905,36 @@ Observer.set(obj, {
     <span class="hljs-attr">prop2</span>: <span class="hljs-string">&#x27;value2&#x27;</span>,
     <span class="hljs-attr">prop3</span>: <span class="hljs-string">&#x27;value3&#x27;</span>,
 }, { <span class="hljs-attr">detail</span>: <span class="hljs-string">&#x27;Certain detail&#x27;</span> });</code></pre>
-<p>Observers will recieve this value in a <code>delta.detail</code> property.</p>
+<p>Observers will recieve this value in a <code>mutation.detail</code> property.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// An observer with detail</span>
-Observer.observe(obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-function"><span class="hljs-params">delta</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;An operation has been made with detail:&#x27;</span> + delta.detail);
+Observer.observe(obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-function"><span class="hljs-params">mutation</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;An operation has been made with detail:&#x27;</span> + mutation.detail);
 });</code></pre>
 <h2 id="negotiate-with-observers">Negotiate with Observers</h2>
-<p>Observers can access and <em>act</em> on a special object called the <em>Response Object</em>.</p>
+<p>Observers can access and <em>act</em> on a special object called the <em>Event Object</em>.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// An observer and the response object</span>
-Observer.observe(obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">delta, response</span>) =&gt;</span> {
+Observer.observe(obj, <span class="hljs-string">&#x27;prop1&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">mutation, event</span>) =&gt;</span> {
     <span class="hljs-keyword">if</span> (<span class="hljs-number">1</span>) {
-        response.preventDefault(); <span class="hljs-comment">// Or return false</span>
+        event.preventDefault(); <span class="hljs-comment">// Or return false</span>
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-number">2</span>) {
-        response.stopPropagation(); <span class="hljs-comment">// Or return false</span>
+        event.stopPropagation(); <span class="hljs-comment">// Or return false</span>
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-number">3</span>) {
-        response.waitUntil(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>); <span class="hljs-comment">// Or return new Promise</span>
+        event.waitUntil(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>); <span class="hljs-comment">// Or return new Promise</span>
     }
 });</code></pre>
-<p>Operators can access and honour the response.</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// A set operation that returns the responseObject</span>
-<span class="hljs-keyword">let</span> response = Observer.set(obj, {
+<p>Operators can access and honour the event's state.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// A set operation that returns the eventTypeReturn</span>
+<span class="hljs-keyword">let</span> event = Observer.set(obj, {
     <span class="hljs-attr">prop2</span>: <span class="hljs-string">&#x27;value2&#x27;</span>,
     <span class="hljs-attr">prop3</span>: <span class="hljs-string">&#x27;value3&#x27;</span>,
-}, { <span class="hljs-attr">responseObject</span>: <span class="hljs-literal">true</span> });</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> (response.defaultPrevented) {
-    <span class="hljs-comment">// response.preventDefault() was called</span>
-} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (response.propagationStopped) {
-    <span class="hljs-comment">// response.stopPropagation() was called</span>
-} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (response.promises) {
-    <span class="hljs-comment">// response.waitUntil() was called</span>
-    response.promises.then(<span class="hljs-function">() =&gt;</span> {
+}, { <span class="hljs-attr">eventTypeReturn</span>: <span class="hljs-literal">true</span> });</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> (event.defaultPrevented) {
+    <span class="hljs-comment">// event.preventDefault() was called</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (event.propagationStopped) {
+    <span class="hljs-comment">// event.stopPropagation() was called</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (event.promises) {
+    <span class="hljs-comment">// event.waitUntil() was called</span>
+    event.promises.then(<span class="hljs-function">() =&gt;</span> {
 
     });
 }</code></pre>

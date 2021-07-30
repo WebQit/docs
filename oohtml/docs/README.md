@@ -1,7 +1,7 @@
 ---
 _subtreeType: category
 ---
-# The OOHTML Docs
+# OOHTML Documentation
 
 Welcome to the OOHTML documentation. We hope you find it easy to understand and navigate.
 

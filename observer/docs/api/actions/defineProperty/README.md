@@ -28,7 +28,7 @@ Observer.defineProperty(obj, [ propertyName, ... ], propertyDescriptor[, params 
 **Return Value**
 
 + **Boolean** - This is either `true` or `false` on the outcome of the operation.
-+ **Event** - The returned [Event](../../../core/Event) object for the operation when the `params.eventReturnType` is set to `true`. *Learn more at [Negotiating With Operators](../../core/Event#negotiating-with-operators).*
++ **Event** - The returned [Event](../../../core/Event) object for the operation when the `params.eventTypeReturn` is set to `true`. *Learn more at [Negotiating With Operators](../../core/Event#negotiating-with-operators).*
 
 ## Usage
 

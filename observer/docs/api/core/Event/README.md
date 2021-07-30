@@ -58,12 +58,12 @@ Observer.deleteProperty(obj, propertyName, {
 });
 ```
 
-The initiator may also obtain the `Event` object to determine the state of the event. Notice the `params.eventReturnType` parameter below that tells `Observer.deleteProperty()` to return the `Event` object for use. (Learn more about `params.eventReturnType` at [OperatorParams](../OperatorParams).)
+The initiator may also obtain the `Event` object to determine the state of the event. Notice the `params.eventTypeReturn` parameter below that tells `Observer.deleteProperty()` to return the `Event` object for use. (Learn more about `params.eventTypeReturn` at [OperatorParams](../OperatorParams).)
 
 ```js
 let event = Observer.deleteProperty(obj, propertyName, {
     cancellable: true,
-    eventReturnType: true,
+    eventTypeReturn: true,
 });
 ```
 

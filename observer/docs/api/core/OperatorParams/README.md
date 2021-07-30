@@ -15,7 +15,7 @@ This is an object of additional parameters that may be passed with any [action](
 *Properties that can be passed by mutators ([`Observer.set()`](../../actions/set), [`Observer.defineProperty()`](../../actions/defineProperty), and [`Observer.deleteProperty()`](../../actions/deleteProperty))*
 
 + **`detail:   Any`** - An optional value to pass to observers. *See [Passing a Value to Observers](#passing-a-value-to-observers) below.*
-+ **`eventReturnType:   Boolean`** - Whether to return the *Event Object* for the operation. *Learn more at [Negotiating With Operators](../Event#negotiating-with-operators).*
++ **`eventTypeReturn:   Boolean`** - Whether to return the *Event Object* for the operation. *Learn more at [Negotiating With Operators](../Event#negotiating-with-operators).*
 + **`cancellable:      Boolean`** - Whether the default taken after this operation is cancellable by observers. *Learn more at [Negotiating With Operators](../Event#negotiating-with-operators).*
 
 ## Passing a Value to Observers

@@ -16,7 +16,7 @@ let _obj = Observer.proxy(obj[, params = {}]);
 **Parameters**
 
 + **`obj:             Object|Array`** - an object or array.
-+ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventReturnType` parameter cannot be used with `Observer.proxy()`.*
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventTypeReturn` parameter cannot be used with `Observer.proxy()`.*
 
 **Return Value**
 

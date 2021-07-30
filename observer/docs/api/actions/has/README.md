@@ -17,7 +17,7 @@ let exists = Observer.has(obj, propertyName[, params = {}]);
 
 + **`obj:             Object|Array`** - An object or array.
 + **`propertyName:    String`** - The property to assert.
-+ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventReturnType` parameter cannot be used with `Observer.has()`.*
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventTypeReturn` parameter cannot be used with `Observer.has()`.*
 
 **Return Value**
 

@@ -22,7 +22,7 @@ var values = Observer.get(obj, [ propertyName, ... ][, params = {}]);
 
 + **`obj:             Object|Array`** - An object or array.
 + **`propertyName:    String`** - The property to read.
-+ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventReturnType` parameter cannot be used with `Observer.get()`.*
++ **`params:          OperatorParams`** - Additional parameters for the operation. *See [OperatorParams](../../core/OperatorParams). Note that the `params.eventTypeReturn` parameter cannot be used with `Observer.get()`.*
 
 **Return Value**
 
