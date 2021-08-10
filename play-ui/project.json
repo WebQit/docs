@@ -10,7 +10,7 @@
         "title": "Succinct API",
         "desc": "Love the succintness of the jQuery library? Play UI looks and feels just like it.",
         "cta": {
-            "href": "/tooling/play-ui/docs/js/quickstart#use-as-you-would-jqueryhttpsjquerycom",
+            "href": "/tooling/play-ui/docs/getting-started/overview#use-as-you-would-jqueryhttpsjquerycom",
             "text": "Learn more"
         }
     }, {
@@ -18,7 +18,7 @@
         "title": "Async UI",
         "desc": "Build automatically resilient UIs even without knowing it with Play UI's <i>Async UI</i> strategy.",
         "cta": {
-            "href": "/tooling/play-ui/docs/js/concepts#async-ui",
+            "href": "/tooling/play-ui/docs/getting-started/overview#meet-async-ui",
             "text": "Learn more"
         }
     }, {
@@ -26,7 +26,7 @@
         "title": "Descrete",
         "desc": "Use as all-in-one (<code>$(el).xyz()</code>) or via descrete modules (<code>import { xyz } from '...'</code>).",
         "cta": {
-            "href": "/tooling/play-ui/docs/js/quickstart#use-as-descrete-utilities",
+            "href": "/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities",
             "text": "Learn more"
         }
     }, {
@@ -34,7 +34,7 @@
         "title": "Universal",
         "desc": "Use in the browser and in node.js, and alongside the UI technologies of your choice.",
         "cta": {
-            "href": "/tooling/play-ui/docs/js/quickstart#use-with-server-side-dom-instances",
+            "href": "/tooling/play-ui/docs/getting-started/overview#use-with-server-side-dom-instances",
             "text": "Learn more"
         }
     }]

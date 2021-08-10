@@ -82,7 +82,7 @@ Using [`Observer.intercept()`](../../reactions/intercept), it is possible to int
 ```js
 Observer.intercept(obj, 'deleteProperty', (action, previous, next) => {
     
-    // What we recieved...
+    // What we received...
     console.log(action.name);
 
     // We can actually prevent the deletion of the property
@@ -101,9 +101,9 @@ The interceptor is expected to return *true* if the custom operation was success
 When the "deleteProperty" operation is of multiple properties, the interceptor gets fired for each property while also recieving the total list of properties as a hint - via `action.related`.
 
 ```js
-Observer.intercept(obj, 'deleteProperty', (action, recieved, next) => {
+Observer.intercept(obj, 'deleteProperty', (action, received, next) => {
     
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.related);
 
     // The delete operation

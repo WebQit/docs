@@ -46,8 +46,8 @@
                             "subtree": [
                                 {
                                     "level": 2,
-                                    "title": "Explore the Docs (Unstable)",
-                                    "uri": "explore-the-docs-unstable",
+                                    "title": "Explore the Docs",
+                                    "uri": "explore-the-docs",
                                     "subtree": []
                                 }
                             ]
@@ -94,12 +94,6 @@
                                                     "title": "Option 2: As an npm Package",
                                                     "uri": "option-2-as-an-npm-package",
                                                     "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Next Steps",
-                                                    "uri": "next-steps",
-                                                    "subtree": []
                                                 }
                                             ]
                                         }
@@ -110,6 +104,7 @@
                         "overview": {
                             "meta": {
                                 "readme": {
+                                    "desc": "An overview of Subscript.",
                                     "_index": "first",
                                     "outline": [
                                         {
@@ -119,119 +114,65 @@
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Small! Fast!",
-                                                    "uri": "small-fast",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Traversable AST",
-                                                    "uri": "traversable-ast",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "A Pseudo Runtime!",
-                                                    "uri": "a-pseudo-runtime",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Runtime Traps and Hooks",
-                                                    "uri": "runtime-traps-and-hooks",
-                                                    "subtree": []
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                },
-                "reference": {
-                    "meta": {
-                        "readme": {
-                            "outline": [
-                                {
-                                    "level": 1,
-                                    "title": "Reference",
-                                    "uri": "reference",
-                                    "subtree": []
-                                }
-                            ]
-                        }
-                    },
-                    "subtree": {
-                        "language": {
-                            "meta": {
-                                "readme": {
-                                    "outline": [
-                                        {
-                                            "level": 1,
-                                            "title": "The Language",
-                                            "uri": "the-language",
-                                            "subtree": [
-                                                {
-                                                    "level": 2,
-                                                    "title": "Math expression",
-                                                    "uri": "math-expression",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Primitives and object notations",
-                                                    "uri": "primitives-and-object-notations",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Conditional Expressions",
-                                                    "uri": "conditional-expressions",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Eval() with a context object",
-                                                    "uri": "eval-with-a-context-object",
+                                                    "title": "Features",
+                                                    "uri": "features",
                                                     "subtree": [
                                                         {
                                                             "level": 3,
-                                                            "title": "eval() with traps",
-                                                            "uri": "eval-with-traps",
+                                                            "title": "Small! Fast!",
+                                                            "uri": "small-fast",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Transformable AST",
+                                                            "uri": "transformable-ast",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "A Pseudo Runtime!",
+                                                            "uri": "a-pseudo-runtime",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Runtime Traps and Hooks",
+                                                            "uri": "runtime-traps-and-hooks",
                                                             "subtree": []
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Call a method",
-                                                    "uri": "call-a-method",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "ES6-style function declaration supported",
-                                                    "uri": "es6-style-function-declaration-supported",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Assignment operation supported",
-                                                    "uri": "assignment-operation-supported",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Delete operation supported",
-                                                    "uri": "delete-operation-supported",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Multiple expressions and Comments supported",
-                                                    "uri": "multiple-expressions-and-comments-supported",
-                                                    "subtree": []
+                                                    "title": "Examples",
+                                                    "uri": "examples",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Evaluate a JavaScript expression",
+                                                            "uri": "evaluate-a-javascript-expression",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use conditionals, call a function in scope",
+                                                            "uri": "use-conditionals-call-a-function-in-scope",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Write multiple expressions and Comments, plus a top-level return",
+                                                            "uri": "write-multiple-expressions-and-comments-plus-a-top-level-return",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use traps",
+                                                            "uri": "use-traps",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         }

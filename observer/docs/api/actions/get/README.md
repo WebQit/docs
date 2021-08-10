@@ -100,7 +100,7 @@ Using [`Observer.intercept()`](../../reactions/intercept), it is possible to int
 ```js
 Observer.intercept(obj, 'get', (action, previous, next) => {
 
-    // What we recieved...
+    // What we received...
     console.log(action.name);
 
     // The read operation
@@ -117,7 +117,7 @@ When the "get" operation is of multiple properties, the interceptor gets fired f
 ```js
 Observer.intercept(obj, 'get', (action, previous, next) => {
 
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.related);
 
     // The read operation

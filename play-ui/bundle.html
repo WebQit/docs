@@ -594,7 +594,7 @@ $(div).appendToSync(<span class="hljs-string">&#x27;.multiple&#x27;</span>);</co
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>Set the ID attribute on an <code>&lt;input /&gt;</code> element. Then set other attributes.</p>
+<p><strong>Set the ID attribute on an <code>&lt;input /&gt;</code> element.</strong> Then set other attributes.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single attribute</span>
 $(el).attrAsync(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;email-input&#x27;</span>).then($el =&gt; {
     $el.attrAsync({
@@ -619,7 +619,7 @@ $(el).attrAsync(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hl
 <li><strong><code>values</code></strong>: <strong><code>Object</code></strong> - A key/value hash of the listed attributes.</li>
 </ul>
 <h3 id="usage-1">Usage</h3>
-<p>Get the attribute on an <code>&lt;input /&gt;</code> element.</p>
+<p><strong>Get the attribute on an <code>&lt;input /&gt;</code> element.</strong></p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single attribute</span>
 <span class="hljs-keyword">let</span> value = <span class="hljs-keyword">await</span> $(el).attrAsync(<span class="hljs-string">&#x27;id&#x27;</span>);
 <span class="hljs-comment">// email-input</span></code></pre>
@@ -641,43 +641,55 @@ $(el).attrAsync(name, <span class="hljs-literal">false</span>);
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage-2">Usage</h3>
-<p>Unset an element's ID attribute.</p>
+<p><strong>Unset an element's ID attribute.</strong></p>
 <pre><code class="hljs js language-js">$(el).attrAsync(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-literal">false</span>);</code></pre>
 <h2 id="d-modyfying-delimited-attributes">d. Modyfying Delimited Attributes</h2>
 <h3 id="syntax-3">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Add a member to a single delimited attribute</span>
-$(el).attrAsync(name, member, mutation === <span class="hljs-literal">true</span>);
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Add a single token to an attribute</span>
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, token, mutation === <span class="hljs-literal">true</span>);
 
-<span class="hljs-comment">// Add a member to multiple delimited attributes</span>
-$(el).attrAsync({
-    [name]: member,
-}, mutation === <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// Add multiple tokens to an attributes</span>
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, [ token, ... ] mutation === <span class="hljs-literal">true</span>);
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, {
+    [token]: mutation === <span class="hljs-literal">true</span>,
+});
 
-<span class="hljs-comment">// Remove a member from a single delimited attribute</span>
-$(el).attrAsync(name, member, mutation === <span class="hljs-literal">false</span>);
+<span class="hljs-comment">// Remove a token from a single delimited attribute</span>
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, token, mutation === <span class="hljs-literal">false</span>);
 
-<span class="hljs-comment">// Remove a member from multiple delimited attributes</span>
-<span class="hljs-keyword">await</span> $(el).attrAsync({
-    [name]: member,
-}, mutation === <span class="hljs-literal">false</span>);</code></pre>
+<span class="hljs-comment">// Remove multiple tokens to an attributes</span>
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, [ token, ... ] mutation === <span class="hljs-literal">false</span>);
+<span class="hljs-keyword">await</span> $(el).attrAsync(name, {
+    [token]: mutation === <span class="hljs-literal">false</span>,
+});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>name</code></strong>: <strong><code>String</code></strong> - The attribute name to modify.</li>
-<li><strong><code>member</code></strong>: <strong><code>String</code></strong> - The attribute member to add or remove.</li>
-<li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given string is added to the attribute's value list. When <code>false</code>, the given string is removed from the attribute's value list.</li>
+<li><strong><code>token</code></strong>: <strong><code>String</code></strong> - The attribute token to add or remove.</li>
+<li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given token is added to the attribute's value. When <code>false</code>, the given token is removed from the attribute's value.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage-3">Usage</h3>
-<p>Modify an element's <em>class</em> attribute, then confirm the operation.</p>
+<p><strong>Modify an element's <em>class</em> attribute,</strong> then confirm the operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;article&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 <span class="hljs-comment">// Insert a class entry</span>
-$(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="hljs-string">&#x27;class3&#x27;</span>, <span class="hljs-literal">true</span>).then($el =&gt; {
-    <span class="hljs-comment">// Confirm the operation</span>
-    <span class="hljs-built_in">console</span>.log($el.attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3</span>
+<span class="hljs-keyword">await</span> $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="hljs-string">&#x27;class3&#x27;</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// Confirm the operation</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3</span></code></pre>
+<p><strong>Toggle <em>icon</em> classes on an element.</strong></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;volume-icon bi bi-volume-up&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> volumeIconElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.volume-icon&#x27;</span>);
+<span class="hljs-keyword">let</span> isMute = <span class="hljs-literal">false</span>;
+$(volumeIconElement).on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">async</span> e =&gt; {
+    <span class="hljs-keyword">await</span> $(el).attrAsync(<span class="hljs-string">&#x27;class&#x27;</span>, {
+        <span class="hljs-string">&#x27;bi-volume-mute&#x27;</span>: isMute,
+        <span class="hljs-string">&#x27;bi-volume-up&#x27;</span>: !isMute,
+    });
+    isMute = !isMute;
 });</code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
@@ -722,7 +734,7 @@ $(el).attrSync({
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>Set the ID attribute on an <code>&lt;input /&gt;</code> element. Then set other attributes.</p>
+<p><strong>Set the ID attribute on an <code>&lt;input /&gt;</code> element.</strong> Then set other attributes.</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single attribute</span>
 $(el).attrSync(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;email-input&#x27;</span>);
 $(el).attrSync({
@@ -746,7 +758,7 @@ $(el).attrSync({
 <li><strong><code>values</code></strong>: <strong><code>Object</code></strong> - A key/value hash of the listed attributes.</li>
 </ul>
 <h3 id="usage-1">Usage</h3>
-<p>Get the attribute on an <code>&lt;input /&gt;</code> element.</p>
+<p><strong>Get the attribute on an <code>&lt;input /&gt;</code> element.</strong></p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single attribute</span>
 <span class="hljs-keyword">let</span> value = $(el).attrSync(<span class="hljs-string">&#x27;id&#x27;</span>);
 <span class="hljs-comment">// email-input</span></code></pre>
@@ -768,43 +780,56 @@ $(el).attrSync({
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage-2">Usage</h3>
-<p>Unset an element's ID attribute.</p>
+<p><strong>Unset an element's ID attribute.</strong></p>
 <pre><code class="hljs js language-js">$(el).attrSync(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-literal">false</span>);</code></pre>
 <h2 id="d-modyfying-delimited-attributes">d. Modyfying Delimited Attributes</h2>
 <h3 id="syntax-3">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Add a member to a single delimited attribute</span>
-$(el).attrSync(name, member, mutation === <span class="hljs-literal">true</span>);
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Add a single token to an attribute</span>
+$(el).attrSync(name, token, mutation === <span class="hljs-literal">true</span>);
 
-<span class="hljs-comment">// Add a member to multiple delimited attributes</span>
-$(el).attrSync({
-    [name]: member,
-}, mutation === <span class="hljs-literal">true</span>);
+<span class="hljs-comment">// Add multiple tokens to an attributes</span>
+$(el).attrSync(name, [ token, ... ] mutation === <span class="hljs-literal">true</span>);
+$(el).attrSync(name, {
+    [token]: mutation === <span class="hljs-literal">true</span>,
+});
 
-<span class="hljs-comment">// Remove a member from a single delimited attribute</span>
-$(el).attrSync(name, member, mutation === <span class="hljs-literal">false</span>);
+<span class="hljs-comment">// Remove a token from a single delimited attribute</span>
+$(el).attrSync(name, token, mutation === <span class="hljs-literal">false</span>);
 
-<span class="hljs-comment">// Remove a member from multiple delimited attributes</span>
-$(el).attrSync({
-    [name]: member,
-}, mutation === <span class="hljs-literal">false</span>);</code></pre>
+<span class="hljs-comment">// Remove multiple tokens to an attributes</span>
+$(el).attrSync(name, [ token, ... ] mutation === <span class="hljs-literal">false</span>);
+$(el).attrSync(name, {
+    [token]: mutation === <span class="hljs-literal">false</span>,
+});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>name</code></strong>: <strong><code>String</code></strong> - The attribute name to modify.</li>
-<li><strong><code>member</code></strong>: <strong><code>String</code></strong> - The attribute member to add or remove.</li>
-<li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given string is added to the attribute's value list. When <code>false</code>, the given string is removed from the attribute's value list.</li>
+<li><strong><code>token</code></strong>: <strong><code>String</code></strong> - The attribute token to add or remove.</li>
+<li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given token is added to the attribute's value. When <code>false</code>, the given token is removed from the attribute's value.</li>
 </ul>
 <p><strong>Return</strong></p>
 <ul>
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage-3">Usage</h3>
-<p>Modify an element's <em>class</em> attribute, then confirm the operation.</p>
+<p><strong>Modify an element's <em>class</em> attribute,</strong> then confirm the operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;article&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 <span class="hljs-comment">// Insert a class entry</span>
 $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="hljs-string">&#x27;class3&#x27;</span>, <span class="hljs-literal">true</span>);
 <span class="hljs-comment">// Confirm the operation</span>
 <span class="hljs-built_in">console</span>.log($(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3</span></code></pre>
+<p><strong>Toggle <em>icon</em> classes on an element.</strong></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;volume-icon bi bi-volume-up&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> volumeIconElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.volume-icon&#x27;</span>);
+<span class="hljs-keyword">let</span> isMute = <span class="hljs-literal">false</span>;
+$(volumeIconElement).on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, {
+        <span class="hljs-string">&#x27;bi-volume-mute&#x27;</span>: isMute,
+        <span class="hljs-string">&#x27;bi-volume-up&#x27;</span>: !isMute,
+    });
+    isMute = !isMute;
+});</code></pre>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.attrSync()</code> instance method is internally based on the standalone <code>dom/attrSync()</code> function which may be used statically.</p>
@@ -846,14 +871,22 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 </ul>
 <h2 id="a-modify-class-list">a. Modify Class List</h2>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Add member classes</span>
-<span class="hljs-keyword">await</span> $(el).classAsync(classList, mutation === <span class="hljs-literal">true</span>);
+<pre><code class="hljs js language-js">// Add member classes
+await $(el).classAsync(class, mutation === true);
+await $(el).classAsync([ class, ... ], mutation === true);
+await $(el).classAsync({
+    [class]: mutation === true,
+});
 
-<span class="hljs-comment">// Remove member classes</span>
-<span class="hljs-keyword">await</span> $(el).classAsync(classList, mutation === <span class="hljs-literal">false</span>);</code></pre>
+// Remove member classes
+await $(el).classAsync(class, mutation === false);
+await $(el).classAsync([ class, ... ], mutation === false);
+await $(el).classAsync({
+    [class]: mutation === false,
+});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>classList</code></strong>: <strong><code>String</code></strong> - The class list to add or remove.</li>
+<li><strong><code>class</code></strong>: <strong><code>String</code></strong> - The class to add or remove.</li>
 <li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given string is added to the class list. When <code>false</code>, the given string is removed from the class list.</li>
 </ul>
 <p><strong>Return</strong></p>
@@ -861,12 +894,23 @@ $(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>, <span class="
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>Add member classes to an element, then confirm operation.</p>
+<p><strong>Add member classes to an element,</strong> then confirm operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <span class="hljs-literal">true</span>).then(<span class="hljs-function"><span class="hljs-params">Sel</span> =&gt;</span> {
     <span class="hljs-comment">// Confirm operation</span>
     <span class="hljs-built_in">console</span>.log($el.attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3 class4</span>
+});</code></pre>
+<p><strong>Toggle <em>icon</em> classes on an element.</strong></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;volume-icon bi bi-volume-up&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> volumeIconElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.volume-icon&#x27;</span>);
+<span class="hljs-keyword">let</span> isMute = <span class="hljs-literal">false</span>;
+$(volumeIconElement).on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    $(el).classAsync({
+        <span class="hljs-string">&#x27;bi-volume-mute&#x27;</span>: isMute,
+        <span class="hljs-string">&#x27;bi-volume-up&#x27;</span>: !isMute,
+    });
+    isMute = !isMute;
 });</code></pre>
 <h2 id="b-match-class-list">b. Match Class List</h2>
 <h3 id="syntax-1">Syntax</h3>
@@ -881,7 +925,7 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
 <li><strong><code>exists</code></strong>: <strong><code>Boolean</code></strong> - This is <code>true</code> if <em>all</em> listed classes exist.</li>
 </ul>
 <h3 id="usage-1">Usage</h3>
-<p>Assert that the given class names exist.</p>
+<p><strong>Assert that the given class names exist.</strong></p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2 class3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 <span class="hljs-comment">// Match classes</span>
@@ -918,14 +962,22 @@ $(el).classAsync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <sp
 </ul>
 <h2 id="a-modify-class-list">a. Modify Class List</h2>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Add member classes</span>
-$(el).classSync(classList, mutation === <span class="hljs-literal">true</span>);
+<pre><code class="hljs js language-js">// Add member classes
+$(el).classSync(class, mutation === true);
+$(el).classSync([ class, ... ], mutation === true);
+$(el).classSync({
+    [class]: mutation === true,
+});
 
-<span class="hljs-comment">// Remove member classes</span>
-$(el).classSync(classList, mutation === <span class="hljs-literal">false</span>);</code></pre>
+// Remove member classes
+$(el).classSync(class, mutation === false);
+$(el).classSync([ class, ... ], mutation === false);
+$(el).classSync({
+    [class]: mutation === false,
+});</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>classList</code></strong>: <strong><code>String|Array</code></strong> - The class list to add or remove.</li>
+<li><strong><code>class</code></strong>: <strong><code>String</code></strong> - The class to add or remove.</li>
 <li><strong><code>mutation</code></strong>: <strong><code>Boolean</code></strong> - The <em>add/remove</em> directive. When <code>true</code>, the given string is added to the class list. When <code>false</code>, the given string is removed from the class list.</li>
 </ul>
 <p><strong>Return</strong></p>
@@ -933,12 +985,23 @@ $(el).classSync(classList, mutation === <span class="hljs-literal">false</span>)
 <li><strong><code>this</code></strong> - The Play UI instance.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>Add member classes to an element, then confirm operation.</p>
+<p><strong>Add member classes to an element,</strong> then confirm operation.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <span class="hljs-literal">true</span>);
 <span class="hljs-comment">// Confirm operation</span>
 <span class="hljs-built_in">console</span>.log($(el).attrSync(<span class="hljs-string">&#x27;class&#x27;</span>)); <span class="hljs-comment">// class1 class2 class3 class4</span></code></pre>
+<p><strong>Toggle <em>icon</em> classes on an element.</strong></p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;volume-icon bi bi-volume-up&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> volumeIconElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.volume-icon&#x27;</span>);
+<span class="hljs-keyword">let</span> isMute = <span class="hljs-literal">false</span>;
+$(volumeIconElement).on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+    $(el).classSync({
+        <span class="hljs-string">&#x27;bi-volume-mute&#x27;</span>: isMute,
+        <span class="hljs-string">&#x27;bi-volume-up&#x27;</span>: !isMute,
+    });
+    isMute = !isMute;
+});</code></pre>
 <h2 id="b-match-class-list">b. Match Class List</h2>
 <h3 id="syntax-1">Syntax</h3>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// See if one pr more class exists</span>
@@ -952,7 +1015,7 @@ $(el).classSync(<span class="hljs-string">&#x27;class3 class4&#x27;</span>, <spa
 <li><strong><code>exists</code></strong>: <strong><code>Boolean</code></strong> - This is <code>true</code> if <em>all</em> listed classes exist.</li>
 </ul>
 <h3 id="usage-1">Usage</h3>
-<p>Assert that the given class names exist.</p>
+<p><strong>Assert that the given class names exist.</strong></p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;class1 class2 class3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.class1&#x27;</span>);
 <span class="hljs-comment">// Match classes</span>
@@ -2347,7 +2410,7 @@ animation.seek(<span class="hljs-number">0.5</span>);</code></pre>
 <li><strong><code>event.target</code></strong>: <strong><code>Element</code></strong> - (Readonly) Returns the target element passed to the constructor.</li>
 <li><strong><code>event.defaultPrevented</code></strong>: <strong><code>Boolean</code></strong> - (Readonly) Tells if the instance's <code>.preventDefault()</code> method has been called.</li>
 <li><strong><code>event.propagationStopped</code></strong>: <strong><code>Boolean</code></strong> - (Readonly) Tells if the instance's <code>.stopPropagation()</code> method has been called.</li>
-<li><strong><code>event.promises</code></strong>: <strong><code>null|Promise</code></strong> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.promise()</code> method. Returns <code>null</code> if no Promise has been recieved.</li>
+<li><strong><code>event.promises</code></strong>: <strong><code>null|Promise</code></strong> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.promise()</code> method. Returns <code>null</code> if no Promise has been received.</li>
 <li><strong><code>event.e</code></strong>: <strong><code>Event</code></strong> - (Readonly) Returns the origin event object passed to the constructor.</li>
 </ul>
 <h2 id="instance-methods">Instance Methods</h2>
@@ -3151,7 +3214,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 			<template name="bundle">
 				<div exportgroup="readme">
 
-					<h1 id="play-ui-bundle">Play UI <code>bundle</code></h1>
+					<h1 id="-playui-bundle"><code>$ playui bundle</code></h1>
 <p>The <strong><code>playui bundle</code></strong> command is used to automatically bundle static HTML files from the filesystem into <em><a href="/tooling/oohtml/docs/getting-started/overview#html-modules">HTML Modules</a></em>.</p>
 <h2 id="overview">Overview</h2>
 <p>Here, each directory will represent a <em>module</em> element and the files within it will be the module's exports. We will take the following directory structure as an example:</p>
@@ -3372,10 +3435,10 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <h2 id="custom-loaders">Custom Loaders</h2>
 <p>Custom Loaders are easy to develop. They are basic functions that recieve the current file being processed along with a few paramters, to return a fully-formed <em>module export</em> markup.</p>
 <h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadsCSS</span>(<span class="hljs-params">resource, params, args, recieved, meta, next</span>) </span>{
-  <span class="hljs-keyword">if</span> (recieved || !resource.endsWith(<span class="hljs-string">&#x27;.css&#x27;</span>)) {
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadsCSS</span>(<span class="hljs-params">resource, params, args, received, meta, next</span>) </span>{
+  <span class="hljs-keyword">if</span> (received || !resource.endsWith(<span class="hljs-string">&#x27;.css&#x27;</span>)) {
       <span class="hljs-comment">// Or let the flow continue</span>
-      <span class="hljs-keyword">return</span> next(recieved);
+      <span class="hljs-keyword">return</span> next(received);
   }
   <span class="hljs-comment">// Return a module export format</span>
   <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;style exportgroup=&quot;&quot;&gt;...&lt;/style&gt;&#x27;</span>;
@@ -3385,9 +3448,9 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 <li><strong><code>resource: String</code></strong> - The filename of the resource being processed - relative to the current working directory (CWD).</li>
 <li><strong><code>params: Object</code></strong> - The <a href="/tooling/play-ui/docs/cli/bundle/#options"><code>options</code> object</a> that the Bundler was initialized with. It also has an additional property <code>indentation</code> - a number which represents how deep in the source directory the given resource is. This number is <code>0</code> at the root of the source directory.</li>
 <li><strong><code>args: Object</code></strong> - The <a href="/tooling/play-ui/docs/cli/bundle/#loaders"><code>args</code> object</a> defined specifically for the loader.</li>
-<li><strong><code>recieved: String</code></strong> - The output forwarded (that is, <code>next()</code>ed) by the previous loader in the list, if any.</li>
+<li><strong><code>received: String</code></strong> - The output forwarded (that is, <code>next()</code>ed) by the previous loader in the list, if any.</li>
 <li><strong><code>meta: Object</code></strong> - The <em>meta</em> object for the given resource. Properties can be added and they will show up in the meta data for the file in the bundle's overall <a href="/tooling/play-ui/docs/cli/bundle/#create_outline_file">JSON outline</a>.</li>
-<li><strong><code>next: Function</code></strong> - A function that forwards control to the next loader in the list, if any, and if none, to the default internal loader. It accpets only one parameter, which is recieved by the next loader on its <code>recieved</code> parameter. (When any value passed this way reaches the internal loader, it is added to the bundle as-is without any further processing of the resource.)</li>
+<li><strong><code>next: Function</code></strong> - A function that forwards control to the next loader in the list, if any, and if none, to the default internal loader. It accpets only one parameter, which is received by the next loader on its <code>received</code> parameter. (When any value passed this way reaches the internal loader, it is added to the bundle as-is without any further processing of the resource.)</li>
 </ul>
 <p><strong>Return Value</strong></p>
 <p>Loaders are expected to return a valid markup string as the <em>module export</em> for the resource.</p>
@@ -3405,7 +3468,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 			<template name="config">
 				<div exportgroup="readme">
 
-					<h1 id="play-ui-config">Play UI <code>config</code></h1>
+					<h1 id="-playui-config"><code>$ playui config</code></h1>
 <p>The <strong><code>playui config</code></strong> command is used to configure other Play UI commands or a feature.</p>
 <h2 id="overview">Overview</h2>
 <p>The <strong><code>playui config</code></strong> command is part of thoughtful strategies to make the developer experience on the command line great. Its sole purpose is to provide an interactive way to configure flags for other commands and to persist such configurations. It is indeed painstaking and error-prone to write commands with a long list of flags each time. The <strong><code>playui config</code></strong> command will eliminate this for you.</p>
@@ -3422,7 +3485,7 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 			<template name="help">
 				<div exportgroup="readme">
 
-					<h1 id="play-ui-help">Play UI <code>help</code></h1>
+					<h1 id="-playui-help"><code>$ playui help</code></h1>
 <p>The <strong><code>playui help</code></strong> command is used to show available Play UI commands.</p>
 <h2 id="overview">Overview</h2>
 <p>Remembering things is hard. Run the <strong><code>playui help</code></strong> command anytime to show a list of available commands.</p>
@@ -3481,8 +3544,11 @@ $(el).play([{<span class="hljs-attr">opacity</span>:<span class="hljs-number">1<
 html(selector, <span class="hljs-string">&#x27;Play away!&#x27;</span>);</code></pre>
 <p>Details are in the <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">Quick Start</a> guide.</p>
 <h2 id="play-ui-command-line">Play UI Command Line</h2>
-<p>The Play UI Command Line Interface is available as an npm package.</p>
+<p>The Play UI Command Line Interface is installable as an npm package.</p>
 <p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install Play UI CLI as a <em>dev dependency</em> to your project:</p>
+<blockquote>
+  <p>System Requirements: Node.js 12.0 or later</p>
+</blockquote>
 <pre><code class="hljs text language-text">$ npm i -g @webqit/playui-cli --save-dev</code></pre>
 <p>The <code>-g</code> flag makes it a global installation. It makes the <code>playui</code> command available from any location on your terminal. Omit this flag to install Play UI CLI to just your project directory.</p>
 <p>To test, run <a href="/tooling/play-ui/docs/cli/help"><code>playui help</code></a>; an overview of available commands will be shown.</p>

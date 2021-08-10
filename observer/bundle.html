@@ -89,7 +89,7 @@ Observer.defineProperty(obj, [ <span class="hljs-string">&#x27;fruit&#x27;</span
 <p>Using <a href="/tooling/observer/docs/api/reactions/intercept"><code>Observer.intercept()</code></a>, it is possible to intercept calls to <code>Observer.defineProperty()</code>. During a "defineProperty" operation, interceptors will receive an event object containing the property name being defined and the descriptor object.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;defineProperty&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.descriptor);
 
     <span class="hljs-comment">// Reconfigure the descriptor that the next</span>
@@ -109,7 +109,7 @@ Observer.defineProperty(obj, [ <span class="hljs-string">&#x27;fruit&#x27;</span
 <p>When the "defineProperty" operation is of multiple properties, the interceptor gets fired for each property while also recieving the total list of properties as a hint - via <code>action.related</code>.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;defineProperty&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.related);
 
     <span class="hljs-comment">// Just forward the operation</span>
@@ -171,7 +171,7 @@ Observer.deleteProperty(obj, [ propertyName, ... ][, params = {}]);</code></pre>
 <p>Using <a href="/tooling/observer/docs/api/reactions/intercept"><code>Observer.intercept()</code></a>, it is possible to intercept calls to <code>Observer.deleteProperty()</code>. During a "deleteProperty" operation, interceptors will receive an event object containing the property name being deleted.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;deleteProperty&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name);
 
     <span class="hljs-comment">// We can actually prevent the deletion of the property</span>
@@ -182,9 +182,9 @@ Observer.deleteProperty(obj, [ propertyName, ... ][, params = {}]);</code></pre>
 <pre><code class="hljs js language-js">Observer.deleteProperty(obj, <span class="hljs-string">&#x27;fruit&#x27;</span>);</code></pre>
 <p>The interceptor is expected to return <em>true</em> if the custom operation was successful; <em>false</em> otherwise.</p>
 <p>When the "deleteProperty" operation is of multiple properties, the interceptor gets fired for each property while also recieving the total list of properties as a hint - via <code>action.related</code>.</p>
-<pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;deleteProperty&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, recieved, next</span>) =&gt;</span> {
+<pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;deleteProperty&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, received, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.related);
 
     <span class="hljs-comment">// The delete operation</span>
@@ -262,7 +262,7 @@ Observer.accessorize(obj, [<span class="hljs-string">&#x27;fruit&#x27;</span>, <
 <p>Using <a href="/tooling/observer/docs/api/reactions/intercept"><code>Observer.intercept()</code></a>, it is possible to intercept calls to <code>Observer.get()</code>. During a "deleteProperty" operation, interceptors will receive an event object containing the property name being accessed.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;get&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name);
 
     <span class="hljs-comment">// The read operation</span>
@@ -272,7 +272,7 @@ Observer.accessorize(obj, [<span class="hljs-string">&#x27;fruit&#x27;</span>, <
 <p>When the "get" operation is of multiple properties, the interceptor gets fired for each property while also recieving the total list of properties as a hint - via <code>action.related</code>.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;get&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.related);
 
     <span class="hljs-comment">// The read operation</span>
@@ -326,7 +326,7 @@ Observer.accessorize(obj, [<span class="hljs-string">&#x27;fruit&#x27;</span>, <
 <p>Using <a href="/tooling/observer/docs/api/reactions/intercept"><code>Observer.intercept()</code></a>, it is possible to intercept calls to <code>Observer.has()</code>. During a "has" operation, interceptors will receive an event object containing the property name being asserted.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;has&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name);
 
     <span class="hljs-comment">// The read operation</span>
@@ -461,7 +461,7 @@ obj.brand = <span class="hljs-string">&#x27;apple&#x27;</span>;</code></pre>
 <p>Using <a href="/tooling/observer/docs/api/reactions/intercept"><code>Observer.intercept()</code></a>, it is possible to intercept calls to <code>Observer.set()</code>. During a "set" operation, interceptors will receive an event object containing the property name being set and the assignable value.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;set&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.value);
 
     <span class="hljs-comment">// The assignment operation</span>
@@ -475,7 +475,7 @@ obj.brand = <span class="hljs-string">&#x27;apple&#x27;</span>;</code></pre>
 <p>When the "set" operation is of multiple key/value assignments, an interceptor will get fired for each pair while also recieving the total list of properties as a hint - via <code>action.related</code>.</p>
 <pre><code class="hljs js language-js">Observer.intercept(obj, <span class="hljs-string">&#x27;set&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">action, previous, next</span>) =&gt;</span> {
 
-    <span class="hljs-comment">// What we recieved...</span>
+    <span class="hljs-comment">// What we received...</span>
     <span class="hljs-built_in">console</span>.log(action.name, action.value, action.related);
 
     <span class="hljs-comment">// The assignment operation</span>
@@ -870,7 +870,7 @@ Observer.set(parent, <span class="hljs-string">&#x27;prop1&#x27;</span>, {});</c
 <li><strong><code>event.cancellable</code></strong>: <strong><code>Boolean</code></strong> - (Readonly) Returns the original <code>details.cancellable</code> flag passed to the constructor.</li>
 <li><strong><code>event.defaultPrevented</code></strong>: <strong><code>Boolean</code></strong> - (Readonly) Tells if the instance's <code>.preventDefault()</code> method has been called.</li>
 <li><strong><code>event.propagationStopped</code></strong>: <strong><code>Boolean</code></strong> - (Readonly) Tells if the instance's <code>.stopPropagation()</code> method has been called.</li>
-<li><strong><code>event.promises</code></strong>: <strong><code>null|Promise</code></strong> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.waitUntil()</code> method. Returns <code>null</code> if no Promises have been recieved.</li>
+<li><strong><code>event.promises</code></strong>: <strong><code>null|Promise</code></strong> - (Readonly) Returns a <em>Promise</em> that consolidates all promises assigned by the event handlers using the instance's <code>.waitUntil()</code> method. Returns <code>null</code> if no Promises have been received.</li>
 </ul>
 <p><em>The above instance properties are designed to be used by operators to honour <a href="#negotiating-with-operators">Negotiating With Operators</a>.</em></p>
 <h2 id="instance-methods">Instance Methods</h2>
@@ -1014,7 +1014,7 @@ Observer.closure(callback, object[, object[, … ]]);</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...objects</span>) </span>{}</code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>...objects:    Array</code></strong> - The objects originally given in the call to <code>Observer.closure()</code>, passed in in the order they were recieved.</li></ul>
+<li><strong><code>...objects:    Array</code></strong> - The objects originally given in the call to <code>Observer.closure()</code>, passed in in the order they were received.</li></ul>
 <p><strong>Return Value</strong></p>
 <p>Any value may be returned by this callback, and it will, in turn, be the return value of the call to <code>Observer.closure()</code>. If this turns out to be a <em>Promise</em>, <code>Observer.closure()</code> will wait until it is resolved before going further to evaluate the objects for changes and firing events.</p></li>
 <li><p><strong><code>...objects:    Array</code></strong> - A list of objects to observe for the operation in the closure.</p></li>
@@ -1646,13 +1646,13 @@ But, with the Observer API:
     });
 
     // Any number of interceptors
-    Observer.intercept(obj, 'get', (action, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, received, next) => {
         console.log('"get" operation', event.name);
         return next('some value');
     });
-    Observer.intercept(obj, 'get', (action, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, received, next) => {
         console.log('"get" operation', event.name);
-        return next(recieved/*from any preceding interceptor*/ || 'some different value');
+        return next(received/*from any preceding interceptor*/ || 'some different value');
     });
 
     // -------------------------

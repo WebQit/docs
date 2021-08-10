@@ -63,7 +63,7 @@ Using [`Observer.intercept()`](../../reactions/intercept), it is possible to int
 ```js
 Observer.intercept(obj, 'has', (action, previous, next) => {
 
-    // What we recieved...
+    // What we received...
     console.log(action.name);
 
     // The read operation

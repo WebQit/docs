@@ -1,7 +1,7 @@
 {
     "title": "Subscript",
     "icon": "terminal",
-    "desc": "A light-weight JavaScript parser and interpreter written in JavaScript; a completely-interceptable JavaScript runtime for ambitious usecases.",
+    "desc": "A light-weight JavaScript parser and interpreter written in JavaScript; Subscript provides a completely-bendable JavaScript runtime for ambitious usecases.",
     "categories": ["JS Development"],
     "tags": ["OOHTML", "UI", "Build Tool"],
     "quickstart": {"cdn": true},
@@ -15,10 +15,10 @@
         }
     }, {
         "icon": "diagram-2",
-        "title": "AST Plus Tree-Walking",
-        "desc": "Parse your JavaScript into a traversable AST, and back again into JavaScript rewritten!",
+        "title": "Transformable AST",
+        "desc": "Parse your JavaScript code into an AST, and back again into code! Transform in-between.",
         "cta": {
-            "href": "/tooling/subscript/docs/getting-started/overview#traversable-ast",
+            "href": "/tooling/subscript/docs/getting-started/overview#transformable-ast",
             "text": "Learn more"
         }
     }, {

@@ -23,7 +23,7 @@ let event = new Event(target[, cancellable = false]);
 + **`event.cancellable`**: **`Boolean`** - (Readonly) Returns the original `details.cancellable` flag passed to the constructor.
 + **`event.defaultPrevented`**: **`Boolean`** - (Readonly) Tells if the instance's `.preventDefault()` method has been called.
 + **`event.propagationStopped`**: **`Boolean`** - (Readonly) Tells if the instance's `.stopPropagation()` method has been called.
-+ **`event.promises`**: **`null|Promise`** - (Readonly) Returns a *Promise* that consolidates all promises assigned by the event handlers using the instance's `.waitUntil()` method. Returns `null` if no Promises have been recieved.
++ **`event.promises`**: **`null|Promise`** - (Readonly) Returns a *Promise* that consolidates all promises assigned by the event handlers using the instance's `.waitUntil()` method. Returns `null` if no Promises have been received.
 
 *The above instance properties are designed to be used by operators to honour [Negotiating With Operators](#negotiating-with-operators).*
 

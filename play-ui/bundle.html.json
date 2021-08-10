@@ -3356,8 +3356,8 @@
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Play UI bundle",
-                                            "uri": "play-ui-bundle",
+                                            "title": "$ playui bundle",
+                                            "uri": "-playui-bundle",
                                             "subtree": [
                                                 {
                                                     "level": 2,
@@ -3586,8 +3586,8 @@
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Play UI config",
-                                            "uri": "play-ui-config",
+                                            "title": "$ playui config",
+                                            "uri": "-playui-config",
                                             "subtree": [
                                                 {
                                                     "level": 2,
@@ -3615,8 +3615,8 @@
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Play UI help",
-                                            "uri": "play-ui-help",
+                                            "title": "$ playui help",
+                                            "uri": "-playui-help",
                                             "subtree": [
                                                 {
                                                     "level": 2,

@@ -37,7 +37,7 @@ await $(el).attrAsync({
 
 ### Usage
 
-Set the ID attribute on an `<input />` element. Then set other attributes.
+**Set the ID attribute on an `<input />` element.** Then set other attributes.
 
 ```js
 // Set a single attribute
@@ -72,7 +72,7 @@ let attributes = await $(el).attrAsync([...name]);
 
 ### Usage
 
-Get the attribute on an `<input />` element.
+**Get the attribute on an `<input />` element.**
 
 ```js
 // Set a single attribute
@@ -104,7 +104,7 @@ await $(el).attrAsync({
 
 ### Usage
 
-Unset an element's ID attribute.
+**Unset an element's ID attribute.**
 
 ```js
 $(el).attrAsync('id', false);
@@ -115,28 +115,30 @@ $(el).attrAsync('id', false);
 ### Syntax
 
 ```js
-// Add a member to a single delimited attribute
-$(el).attrAsync(name, member, mutation === true);
+// Add a single token to an attribute
+await $(el).attrAsync(name, token, mutation === true);
 
-// Add a member to multiple delimited attributes
-$(el).attrAsync({
-    [name]: member,
-}, mutation === true);
+// Add multiple tokens to an attributes
+await $(el).attrAsync(name, [ token, ... ] mutation === true);
+await $(el).attrAsync(name, {
+    [token]: mutation === true,
+});
 
-// Remove a member from a single delimited attribute
-$(el).attrAsync(name, member, mutation === false);
+// Remove a token from a single delimited attribute
+await $(el).attrAsync(name, token, mutation === false);
 
-// Remove a member from multiple delimited attributes
-await $(el).attrAsync({
-    [name]: member,
-}, mutation === false);
+// Remove multiple tokens to an attributes
+await $(el).attrAsync(name, [ token, ... ] mutation === false);
+await $(el).attrAsync(name, {
+    [token]: mutation === false,
+});
 ```
 
 **Parameters**
 
 + **`name`**: **`String`** - The attribute name to modify.
-+ **`member`**: **`String`** - The attribute member to add or remove.
-+ **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given string is added to the attribute's value list. When `false`, the given string is removed from the attribute's value list.
++ **`token`**: **`String`** - The attribute token to add or remove.
++ **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given token is added to the attribute's value. When `false`, the given token is removed from the attribute's value.
 
 **Return**
 
@@ -144,7 +146,7 @@ await $(el).attrAsync({
 
 ### Usage
 
-Modify an element's *class* attribute, then confirm the operation.
+**Modify an element's *class* attribute,** then confirm the operation.
 
 ```html
 <div class="class1 class2" role="article"></div>
@@ -153,9 +155,26 @@ Modify an element's *class* attribute, then confirm the operation.
 ```js
 let el = document.querySelector('.class1');
 // Insert a class entry
-$(el).attrAsync('class', 'class3', true).then($el => {
-    // Confirm the operation
-    console.log($el.attrSync('class')); // class1 class2 class3
+await $(el).attrAsync('class', 'class3', true);
+// Confirm the operation
+console.log(await $(el).attrAsync('class')); // class1 class2 class3
+```
+
+**Toggle *icon* classes on an element.**
+
+```html
+<i class="volume-icon bi bi-volume-up"></i>
+```
+
+```js
+let volumeIconElement = document.querySelector('.volume-icon');
+let isMute = false;
+$(volumeIconElement).on('click', async e => {
+    await $(el).attrAsync('class', {
+        'bi-volume-mute': isMute,
+        'bi-volume-up': !isMute,
+    });
+    isMute = !isMute;
 });
 ```
 

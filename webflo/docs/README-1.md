@@ -1,56 +1,14 @@
----
-icon: app-indicator
-desc: The universal JavaScript framework for Web, Mobile, and API Backends; one tool for every step of the way - from development, to deployment, to continous delivery.
-desc2: Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to a rich web and mobile experience.
-categories: Featured, Frameworks
-tags: Web, Mobile, API Backends, Dev Server, Production Server, GIT Workflow
-_after: oohtml
----
-# Webflo
 
-<!-- BADGES/ -->
 
-<span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/webflo.svg" alt="NPM version" /></a></span>
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/webflo.svg" alt="NPM downloads" /></a></span>
 
-<!-- /BADGES -->
 
-[Webflo](https://github.com/webqit/webflo) is the universal JavaScript framework for Web, Mobile, and API Backends; one tool for every step of the way - from development, to deployment, to continous delivery.
 
-*Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple `'Hello World!'` to a rich web and mobile experience.*
 
-> [Visit project repo](https://github.com/webqit/webflo).
 
-## Prerequisites
 
-Webflo is a command-line tool for developing and running your application. It is recommended you install it globally on your machine.
 
-```bash
-npm install -g @webqit/webflo
-```
 
-We can now use the `webflo` command from any location in the terminal. To test, run `webflo help`; an overview of available commands will be shown.
-
-Webflo is so simple to use that you do not need any starter tool like `create-webflo-app`. It's strengths actually lie in letting you hand-craft your app!
-
-## Concepts
-
-Every project starts on an empty directory that you can create anywhere on your machine. And every file you will create here is going to be all about your application; Webflo doesn't even own a footprint on your project.
-
-Just for the examples below, create a directory named `webflo-app` and navigate there from your terminal:
-
-```bash
-mkdir webflo-app
-cd webflo-app
-```
-
-We should now learn the following concepts on which Webflo is built:
-
-+ [Project Layout](#project-layout)
-+ [Routing](#routing)
-+ [HTTP Requests and Responses](#http-requests-and-responses)
-
-### Project Layout
+# Project Layout
 It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):
 
 + [`/public`](#the-public-directory)
@@ -60,7 +18,7 @@ It's a good practice to locate certain project files in conventional places. Web
 
 Let's now see what goes into each directory, and how they're all related.
 
-#### The `/public` Directory
+### The `/public` Directory
 If you intend to have static files (like images or CSS files) that should be served automatically, place them in this directory.
 
 Your application's start page - `index.html` - should also be here.
@@ -80,7 +38,7 @@ webflo start
 
 Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` (or `/index.html`) would be mapped to the file `/public/index.html`, and the request URL `/products` (or `/products/index.html`) would be mapped to the file `/public/products/index.html`, and so on.
 
-#### The `/server` Directory
+### The `/server` Directory
 If you intend to have JavaScript files that handle dynamic routing on the server, place them in this directory.
 
 + `/server`
@@ -98,7 +56,7 @@ So far, with just two files - `/public/index.html` and `/server/index.js` - we c
 
 > Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Routing is covered in [the next section](#routing). And [here](learn/server-side-routing) are server-side routing examples.
 
-#### The `/client` Directory
+### The `/client` Directory
 If you intend to have JavaScript files that handle routing (e.g navigation requests) in the browser, place them in this directory.
 
 + `/client`
@@ -126,7 +84,7 @@ At this point, with just three files - `/public/index.html`, `/server/index.js` 
 
 > Okay, if all you're creating is a client-side application, your work ends in this directory! Routing is covered in [the next section](#routing). And [here](learn/client-side-routing) are client-side routing examples.
 
-#### The `/worker` Directory
+### The `/worker` Directory
 What happens here is quite advanced and you can ignore this until you really need it. But if you already know about application Service Workers and intend to enhance your app's client-side experience with Service Workers, Webflo lets you implement routing at the service-worker level, and you place your route handlers in this directory.
 
 + `/worker`
@@ -154,8 +112,18 @@ Woohoo! With a combition of just four files - `/public/index.html`, `/server/ind
 
 > It is even just possible to build an entire app out of the `/worker` directory alone, if all you're building is a client-side, offline-capable app! Routing is covered in [the next section](#routing). And [here](learn/worker-level-routing) are worker-level routing examples. Service Workers are covered in detail in [the Progressive Web Apps (PWA) tutorial](learn/progressive-web-apps).
 
-### Routing
-As seen, Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and what happens along the path it takes*. Webflo's *skillfulness with flows* is probabbly the best thing about its name.
+
+
+
+
+
+
+
+
+
+
+
+Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and what happens along the path it takes*. Webflo's *skillfulness with flows* is probabbly the best thing about its name.
 
 If we've grasped the concept of [project layout](#project-layout) above, we've done routing in Webflo, basically. What we will now cover is orchestrating routes along the request/response flow.
 
@@ -165,7 +133,7 @@ In Webflo, we can implement routing at *vertical layers* between the client and 
 + [Horizontal Routing Steps](#horizontal-routing-steps)
 + [Route Handlers](#route-handlers)
 
-#### Vertical Routing Layers
+## Vertical Routing Layers
 Each directory discussed in the [Project Layout](#project-layout) section above lives at a point on a vertical path between the client and the server. Here's that layout now in the order of request/response flow.
 
 + -> enter `/client` if exists; continue?
@@ -175,7 +143,7 @@ Each directory discussed in the [Project Layout](#project-layout) section above 
 
 As seen in the [Project Layout](#project-layout) section above, the type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing or fullstack routing in any combination of it, as we will see soon.
 
-#### Horizontal Routing Steps
+## Horizontal Routing Steps
 In a routing directory, we can lay out route handlers in a way that represents the structure of the URLs that they will handle. If we chose to do routing in the `/server` directory, for a example, we would place a route handler at `/server/index.js` to handle the request URL `/`, and a route handler at `/server/products/index.js` to handle the request URL `/products`, and so on. So, each level of an URL path (e.g `/a/b/c`) is a place to implement a route handler.
 
 But in Webflo, requests are processed in steps along an URL path, that is, are made to *flow* through every handler in the route path until it hits the final handler. Here, the request URL `/products` would actually flow like this:
@@ -187,11 +155,11 @@ But in Webflo, requests are processed in steps along an URL path, that is, are m
 
 This is called *step routing*, and its the most-empowering way to orchestrate routes. 
 
-#### Route Handlers
+## Route Handlers
 Route handlers are `index.js` files that are laid out in the routing directory to handle the application's request/response flow. The most important content of these files are a simple function that is exported as the *default export* of the file.
 
 ```js
-export default function(flo, recieved, next) {
+export default function(flo, received, next) {
 }
 ```
 
@@ -199,7 +167,7 @@ This function is what is called when a request flow hits a route.
 
 Of the three parameters of a route handler, the `next` parameter is what it uses to forward a request, if it chooses to. This is the concept of flow control.
 
-##### Flow Control
+## Flow Control
 Given the following route hierarchy...
 
 + `/server`
@@ -212,7 +180,7 @@ Here is how our route handlers could look:
 `file: /server/index.js`
 
 ```js
-export default function(process, recieved, next) {
+export default function(process, received, next) {
     if (next.pathname) {
         return next();
     }
@@ -223,7 +191,7 @@ export default function(process, recieved, next) {
 `file: /server/products/index.js`
 
 ```js
-export default function(process, recieved, next) {
+export default function(process, received, next) {
     if (next.pathname) {
         return next();
     }
@@ -292,13 +260,13 @@ As a general rule, it is good to always use `next.pathname`and `next()` to prope
 
     > A side benefit we've enjoyed with this `products/specials` URL is the convenience of having it begin life as a static route until we can make it dynamic by creating a route handler for it.
 
-##### Parameter Passing
+### Parameter Passing
 While being used to forward a request, the `next()` function can help to pass on anything to the next handler.
 
 `file: /server/index.js`
 
 ```js
-export default function(process, recieved, next) {
+export default function(process, received, next) {
     if (next.pathname) {
         return next({ userId: 1 });
     }
@@ -309,11 +277,11 @@ export default function(process, recieved, next) {
 `file: /server/products/index.js`
 
 ```js
-export default function(process, recieved, next) {
+export default function(process, received, next) {
     if (next.pathname) {
-        return next(recieved);
+        return next(received);
     }
-    if (recieved.userId) {
+    if (received.userId) {
         // Show recommended products
         return { title: 'Recommended Products For You', };
     }
@@ -321,11 +289,9 @@ export default function(process, recieved, next) {
 }
 ```
 
-In the first handler, we passed an object via the `next()` function. In the second handler, we recieved it on the `recieved` parameter.
+In the first handler, we passed an object via the `next()` function. In the second handler, we received it on the `received` parameter.
 
 Parameter passing is a great way to implement one source of truth for subsequent handlers in the route hierarchy. Think authentication, certain database or external API queries, etc. Doing these at the earliest level in the route hierarchy and passing tokens or objects down is a perfect way to avoid repeating code down the hierarchy.
 
-##### The `process` Object
+### The `process` Object
 When called, route handlers recieve very useful information about the ongoing HTTP process. This and a few other metadata are passed together as an object into the first parameter of the handler - the `process` parameter.
-
-### HTTP Requests and Responses

@@ -68,7 +68,7 @@ Using [`Observer.intercept()`](../../reactions/intercept), it is possible to int
 ```js
 Observer.intercept(obj, 'defineProperty', (action, previous, next) => {
     
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.descriptor);
 
     // Reconfigure the descriptor that the next
@@ -96,7 +96,7 @@ When the "defineProperty" operation is of multiple properties, the interceptor g
 ```js
 Observer.intercept(obj, 'defineProperty', (action, previous, next) => {
     
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.related);
 
     // Just forward the operation

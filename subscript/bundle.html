@@ -29,7 +29,7 @@
 			<h1 id="subscript-documentation">Subscript Documentation</h1>
 <p>Welcome to the Subscript documentation. We hope you find it easy to understand and navigate. </p>
 <p>If you have questions about anything related to the Subscript, you're always welcome to ask on our <a href="https://github.com/webqit/subscript/discussions">GitHub Discussions</a>.</p>
-<h2 id="explore-the-docs-unstable">Explore the Docs (Unstable)</h2>
+<h2 id="explore-the-docs">Explore the Docs</h2>
 
 		</div>
 
@@ -58,8 +58,6 @@
 <p>Import the installed package:</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Import the initializer</span>
 <span class="hljs-keyword">import</span> Subscript <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/subscript&#x27;</span>;</code></pre>
-<h2 id="next-steps">Next Steps</h2>
-<p>Continue to <a href="/tooling/subscript/docs/reference">learning the API</a>.</p>
 
 				</div>
 			</template>
@@ -68,183 +66,133 @@
 				<div exportgroup="readme">
 
 					<h1 id="overview">Overview</h1>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() an expression</span>
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());</code></pre>
-<h2 id="small-fast">Small! Fast!</h2>
-<h2 id="traversable-ast">Traversable AST</h2>
-<h2 id="a-pseudo-runtime">A Pseudo Runtime!</h2>
-<h2 id="runtime-traps-and-hooks">Runtime Traps and Hooks</h2>
+<p>Subscript is a language kit for JavaScript, written in JavaScript. It offers language-bending features for implementing ambitious JavaScript projects.</p>
+<p>You can <code>parse()</code> a JavaScript expression <code>(2 + 2) * 3</code> into a <em>Subscript AST</em>,</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> subscript = Subscript.parse(expr);</code></pre>
+<p>then, <code>stringify()</code> the <em>Subscript AST</em> back into its original JavaScript expression <code>(2 + 2) * 3</code>,</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> expr = subscript.stringify();</code></pre>
+<p>or even <code>eval()</code> the JavaScript expression.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = subscript.eval();
+<span class="hljs-comment">// 12</span></code></pre>
+<h2 id="features">Features</h2>
+<h3 id="small-fast">Small! Fast!</h3>
+<p>Being an implementation of a subset of JavaScript, as the name implies, Subscript supports the everyday JavaScript that's just enough for most use-cases. That gives us something small and fast that fits anywhere.</p>
+<h3 id="transformable-ast">Transformable AST</h3>
+<p>Make any language transformation between <code>Subscript.parse(expr)</code> and <code>subscript.stringify()</code> / <code>subscript.eval()</code>. Subscript's syntax tree transformability offers a great way to do code transpiling, static code analysis, and more.</p>
+<h3 id="a-pseudo-runtime">A Pseudo Runtime!</h3>
+<p>Subscript's <code>eval()</code> feature is a standalone JavaScript runtime that supports user-defined contexts. This provides the level of runtime encapsulation that is not available with the native JavaScript's <code>eval()</code> function. (<em>Examples ahead.</em>)</p>
+<h3 id="runtime-traps-and-hooks">Runtime Traps and Hooks</h3>
+<p>Supercharge everything with runtime traps. Subscript accepts the same <em>trap</em> object as a Proxy trap, for intercepting runtime <em>assignment</em> <code>=</code>, <code>delete</code>, and <code>in</code> operators, and object accessors. This brings a new level of depth to JavaScript code. (<em>Examples ahead.</em>)</p>
+<h2 id="examples">Examples</h2>
+<h3 id="evaluate-a-javascript-expression">Evaluate a JavaScript expression</h3>
+<p><strong><code>MathExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = <span class="hljs-string">&#x27;7 + 8&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj1 = Subscript.parse(expr1);
+<span class="hljs-comment">// MathExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result1 = exprObj1.eval();
+<span class="hljs-comment">// (Number) 15</span></code></pre>
+<p><strong><code>ArrayExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = <span class="hljs-string">&#x27;[ &quot;New York City&quot;, &quot;Lagos&quot;, &quot;Berlin&quot; ]&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj2 = Subscript.parse(expr2);
+<span class="hljs-comment">// ArrayExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result2 = exprObj2.eval();
+<span class="hljs-comment">// (Array) [ &quot;New York City&quot;, &quot;Lagos&quot;, &quot;Berlin&quot; ]</span></code></pre>
+<p><strong><code>ObjectExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr3 = <span class="hljs-string">&#x27;{ city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: cityNameFromContext }&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj3 = Subscript.parse(expr3);
+<span class="hljs-comment">// ObjectExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result3 = exprObj3.eval();
+<span class="hljs-comment">// (Object) { city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: undefined }</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">cityNameFromContext</span>: <span class="hljs-string">&#x27;London&#x27;</span> };
+<span class="hljs-keyword">var</span> result3 = exprObj3.eval(context);
+<span class="hljs-comment">// (Object) { city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: &quot;London&quot; }</span></code></pre>
+<p><strong><code>FunctionExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr4 = <span class="hljs-string">&#x27;( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj4 = Subscript.parse(expr4);
+<span class="hljs-comment">// FunctionExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result4 = exprObj4.eval();
+<span class="hljs-comment">// (Function) ( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }</span>
 
-				</div>
-			</template>
-		</template>
+result4(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>);
+<span class="hljs-comment">// (Number) 13</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">argFromContext</span>: <span class="hljs-number">20</span> };
+<span class="hljs-keyword">var</span> result4 = exprObj4.eval(context);
+<span class="hljs-comment">// (Function) ( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }</span>
 
-		<template name="reference">
-			<div exportgroup="readme">
-
-				<h1 id="reference">Reference</h1>
-
-			</div>
-
-			<template name="language">
-				<div exportgroup="readme">
-
-					<h1 id="the-language">The Language</h1>
-<p>Here are just some of the many aspects of the JavaScript language currently implemented. We are working to make this page more comprehensive.</p>
-<h2 id="math-expression">Math expression</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a Math expression</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;7 + 8&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="primitives-and-object-notations">Primitives and object notations</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a value</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;10&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());
-
-<span class="hljs-comment">// ------------</span>
-
-<span class="hljs-comment">// parse() an array expression</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;[&quot;New York City&quot;, &quot;Lagos&quot;, &quot;Berlin&quot;]&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());
-
-<span class="hljs-comment">// ------------</span>
-
-<span class="hljs-comment">// parse() an object expression</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;{city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;}&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// get result with eval()</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval());
-
-<span class="hljs-comment">// ------------</span>
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="conditional-expressions">Conditional Expressions</h2>
-<pre><code class="hljs js language-js">// &quot;if&quot; ... &quot;else&quot; constructs
-var expr = &#x27;if (2 &gt; 1) {
-    // Expression1
-} else if (3 &gt; 2) {
-    // Expression2
-} else {
-    // Expression3
-}&#x27;;
-
-// Ternary Conditional Expressions;
-var expr = &#x27;2 &gt; 1 ? expression1 : (3 &gt; 2 ? expression2 : expression3)&#x27;;</code></pre>
-<h2 id="eval-with-a-context-object">Eval() with a context object</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a logical expression with references to properties of a context object</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;age &lt; 18 ? fname + &quot; &quot; + lname + &quot; does not meet the age requirement!&quot; : fname + &quot; &quot; + lname + &quot; is old enough!&quot;&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// eval() with a context object</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">24</span>};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context));
-
-<span class="hljs-comment">// eval() same exprObj with another context object</span>
-<span class="hljs-keyword">var</span> context2 = {<span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John2&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe2&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">10</span>};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context2));
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h3 id="eval-with-traps"><code>eval()</code> with traps</h3>
-<p>The <code>eval()</code> allows us to set traps that intercept <code>set</code>, <code>get</code>, <code>delete</code>, and <code>in</code> operations. A trap works just like ES6 Proxy traps.</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// The &quot;get&quot; handler in the trap below will be called as the &quot;age&quot;, &quot;fname&quot;, &quot;lname&quot; references are being evaluated</span>
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context2, <span class="hljs-literal">null</span>, {
-    <span class="hljs-attr">get</span>:<span class="hljs-function">(<span class="hljs-params">target, propertyName</span>) =&gt;</span> {
-        <span class="hljs-keyword">return</span> target[propertyName];
-    }
-}));</code></pre>
-<h2 id="call-a-method">Call a method</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a logical expression with embedded calls</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;&quot;Today is: &quot; + date().stringify()&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// eval() with the given context</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">date</span>:<span class="hljs-function">() =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>)};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context));
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="es6-style-function-declaration-supported">ES6-style function declaration supported</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a function declaration that will materialize into a real function</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;(arg1, arg2) =&gt; {return arg1 + arg2 + argFromContext}&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// eval() to materialize the declared function</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">argFromContext</span>: <span class="hljs-number">10</span>};
-<span class="hljs-keyword">var</span> sumFunction = exprObj.eval(context);
-
-<span class="hljs-comment">// Call materialized function now</span>
-<span class="hljs-built_in">console</span>.log(sumFunction(<span class="hljs-number">30</span>, <span class="hljs-number">20</span>));
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="assignment-operation-supported">Assignment operation supported</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() an assignment expression.</span>
-<span class="hljs-comment">// Multiple expressions supported.</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;prop2 = &quot;val2&quot;; prop3 = &quot;val3&quot;&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// eval() with a context object</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;val1&quot;</span>};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context));
-
-<span class="hljs-comment">// Confirm the new properties have been set</span>
-<span class="hljs-built_in">console</span>.log(context);
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="delete-operation-supported">Delete operation supported</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// parse() a delete expression.</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">&#x27;delete prop1; delete prop1&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-
-<span class="hljs-comment">// eval() with a context object to mutate</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;val1&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;val2&quot;</span>, <span class="hljs-attr">prop3</span>: <span class="hljs-string">&quot;val3&quot;</span>};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context));
-
-<span class="hljs-comment">// Confirm the new property has been deleted</span>
-<span class="hljs-built_in">console</span>.log(context);
-
-<span class="hljs-comment">// convert to string anytime</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
-<h2 id="multiple-expressions-and-comments-supported">Multiple expressions and Comments supported</h2>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Line comments</span>
-<span class="hljs-keyword">var</span> expr = <span class="hljs-string">`
-
+result4(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>);
+<span class="hljs-comment">// (Number) 33</span></code></pre>
+<p><strong><code>.stringify()</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = exprObj1.stringify();
+<span class="hljs-comment">// 7 + 8</span></code></pre>
+<h3 id="use-conditionals-call-a-function-in-scope">Use conditionals, call a function in scope</h3>
+<p><strong><code>ConditionalExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = <span class="hljs-string">&#x27;age &lt; 18 ? fname + &quot; &quot; + lname + &quot; does not meet the age requirement!&quot; : fname + &quot; &quot; + lname + &quot; is old enough!&quot;&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj1 = Subscript.parse(expr1);
+<span class="hljs-comment">// ConditionalExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">24</span> };
+<span class="hljs-keyword">var</span> result1 = exprObj1.eval();
+<span class="hljs-comment">// (String) John Doe is old enough!</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John2&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe2&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">10</span> };
+<span class="hljs-keyword">var</span> result1 = exprObj1.eval(context);
+<span class="hljs-comment">// (String) John Doe does not meet the age requirement!</span></code></pre>
+<p><strong><code>StringExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = <span class="hljs-string">&#x27;&quot;Today is: &quot; + date().stringify()&#x27;</span>;
+<span class="hljs-keyword">var</span> exprObj2 = Subscript.parse(expr2);
+<span class="hljs-comment">// StringExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">date</span>:<span class="hljs-function">() =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>) };
+<span class="hljs-keyword">var</span> result2 = exprObj2.eval(context);
+<span class="hljs-comment">// (String) Today is: &lt;current date&gt;</span></code></pre>
+<p><strong><code>.stringify()</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = exprObj2.stringify();
+<span class="hljs-comment">// &quot;Today is: &quot; + date().stringify()</span></code></pre>
+<h3 id="write-multiple-expressions-and-comments-plus-a-top-level-return">Write multiple expressions and Comments, plus a top-level return</h3>
+<p><strong><code>BlockExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr = <span class="hljs-string">`
 /**
  * Block comments
  */
 
 // Single line comments
-delete prop1; delete /*comment anywhere*/prop3;
+delete obj1.prop1;
+delete /*comment anywhere*/obj2.prop1;
+
+return;
+
+delete obj2.prop2;
 `</span>;
 
 <span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
+<span class="hljs-comment">// BlockExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">obj1</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;John&quot;</span> }, <span class="hljs-attr">obj2</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;Bar&quot;</span> } };
+<span class="hljs-keyword">var</span> result = exprObj.eval();
 
-<span class="hljs-comment">// eval() with a context object to mutate</span>
-<span class="hljs-keyword">var</span> context = {<span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;val1&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;val2&quot;</span>, <span class="hljs-attr">prop3</span>: <span class="hljs-string">&quot;val3&quot;</span>};
-<span class="hljs-built_in">console</span>.log(exprObj.eval(context));
+context;
+<span class="hljs-comment">// (Object) { obj1: { }, obj2: { prop2: &quot;Bar&quot; } }</span></code></pre>
+<h3 id="use-traps">Use traps</h3>
+<p><strong><code>IfExpression</code>:</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr = <span class="hljs-string">`if (&quot;prop1&quot; in obj1) {
+    console.log(&#x27;prop1 exists.&#x27;);
+} else {
+    console.log(&#x27;prop1 does not exist. Creating it now.&#x27;);
+    obj1.prop1 = &#x27;John&#x27;;
+}
+`</span>;
 
-<span class="hljs-comment">// Confirm the new properties have been deleted</span>
-<span class="hljs-built_in">console</span>.log(context);
+<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
+<span class="hljs-comment">// IfExpression</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> pseudoContext = { <span class="hljs-attr">obj1</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;John&quot;</span> }, <span class="hljs-attr">obj2</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;Bar&quot;</span> } };
+<span class="hljs-keyword">var</span> context = {};
+<span class="hljs-keyword">var</span> result = exprObj.eval(context, {
+    <span class="hljs-attr">has</span>: <span class="hljs-function">(<span class="hljs-params">target, property</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> property <span class="hljs-keyword">in</span> pseudoContext;
+    },
+    <span class="hljs-attr">set</span>: <span class="hljs-function">(<span class="hljs-params">target, property, value</span>) =&gt;</span> {
+        pseudoContext[property] = value;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    },
+});
 
-<span class="hljs-comment">// Convert to string without the comments</span>
-<span class="hljs-built_in">console</span>.log(exprObj.stringify());</code></pre>
+<span class="hljs-comment">// (String) prop1 exists.</span></code></pre>
 
 				</div>
 			</template>

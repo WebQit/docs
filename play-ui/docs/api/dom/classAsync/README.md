@@ -16,15 +16,23 @@ The suffix *Async* differentiates this method from its *Sync* counterpart - [`cl
 
 ```js
 // Add member classes
-await $(el).classAsync(classList, mutation === true);
+await $(el).classAsync(class, mutation === true);
+await $(el).classAsync([ class, ... ], mutation === true);
+await $(el).classAsync({
+    [class]: mutation === true,
+});
 
 // Remove member classes
-await $(el).classAsync(classList, mutation === false);
+await $(el).classAsync(class, mutation === false);
+await $(el).classAsync([ class, ... ], mutation === false);
+await $(el).classAsync({
+    [class]: mutation === false,
+});
 ```
 
 **Parameters**
 
-+ **`classList`**: **`String`** - The class list to add or remove.
++ **`class`**: **`String`** - The class to add or remove.
 + **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given string is added to the class list. When `false`, the given string is removed from the class list.
 
 **Return**
@@ -33,7 +41,7 @@ await $(el).classAsync(classList, mutation === false);
 
 ### Usage
 
-Add member classes to an element, then confirm operation.
+**Add member classes to an element,** then confirm operation.
 
 ```html
 <div class="class1 class2"></div>
@@ -44,6 +52,24 @@ let el = document.querySelector('.class1');
 $(el).classAsync('class3 class4', true).then(Sel => {
     // Confirm operation
     console.log($el.attrSync('class')); // class1 class2 class3 class4
+});
+```
+
+**Toggle *icon* classes on an element.**
+
+```html
+<i class="volume-icon bi bi-volume-up"></i>
+```
+
+```js
+let volumeIconElement = document.querySelector('.volume-icon');
+let isMute = false;
+$(volumeIconElement).on('click', e => {
+    $(el).classAsync({
+        'bi-volume-mute': isMute,
+        'bi-volume-up': !isMute,
+    });
+    isMute = !isMute;
 });
 ```
 
@@ -66,7 +92,7 @@ var exists = await $(el).classAsync(classList);
 
 ### Usage
 
-Assert that the given class names exist.
+**Assert that the given class names exist.**
 
 ```html
 <div class="class1 class2 class3"></div>

@@ -120,13 +120,13 @@ But, with the Observer API:
     });
 
     // Any number of interceptors
-    Observer.intercept(obj, 'get', (action, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, received, next) => {
         console.log('"get" operation', event.name);
         return next('some value');
     });
-    Observer.intercept(obj, 'get', (action, recieved, next) => {
+    Observer.intercept(obj, 'get', (action, received, next) => {
         console.log('"get" operation', event.name);
-        return next(recieved/*from any preceding interceptor*/ || 'some different value');
+        return next(received/*from any preceding interceptor*/ || 'some different value');
     });
 
     // -------------------------

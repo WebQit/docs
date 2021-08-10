@@ -24,7 +24,7 @@ Observer.closure(callback, object[, object[, … ]]);
     
     **Parameters**
     
-    + **`...objects:    Array`** - The objects originally given in the call to `Observer.closure()`, passed in in the order they were recieved.
+    + **`...objects:    Array`** - The objects originally given in the call to `Observer.closure()`, passed in in the order they were received.
 
     **Return Value**
 

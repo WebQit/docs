@@ -23,7 +23,7 @@ let event = new Event(target, e);
 + **`event.target`**: **`Element`** - (Readonly) Returns the target element passed to the constructor.
 + **`event.defaultPrevented`**: **`Boolean`** - (Readonly) Tells if the instance's `.preventDefault()` method has been called.
 + **`event.propagationStopped`**: **`Boolean`** - (Readonly) Tells if the instance's `.stopPropagation()` method has been called.
-+ **`event.promises`**: **`null|Promise`** - (Readonly) Returns a *Promise* that consolidates all promises assigned by the event handlers using the instance's `.promise()` method. Returns `null` if no Promise has been recieved.
++ **`event.promises`**: **`null|Promise`** - (Readonly) Returns a *Promise* that consolidates all promises assigned by the event handlers using the instance's `.promise()` method. Returns `null` if no Promise has been received.
 + **`event.e`**: **`Event`** - (Readonly) Returns the origin event object passed to the constructor.
 
 ## Instance Methods

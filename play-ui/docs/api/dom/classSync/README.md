@@ -16,15 +16,23 @@ The suffix *Sync* differentiates this method from its *Async* counterpart - [`cl
 
 ```js
 // Add member classes
-$(el).classSync(classList, mutation === true);
+$(el).classSync(class, mutation === true);
+$(el).classSync([ class, ... ], mutation === true);
+$(el).classSync({
+    [class]: mutation === true,
+});
 
 // Remove member classes
-$(el).classSync(classList, mutation === false);
+$(el).classSync(class, mutation === false);
+$(el).classSync([ class, ... ], mutation === false);
+$(el).classSync({
+    [class]: mutation === false,
+});
 ```
 
 **Parameters**
 
-+ **`classList`**: **`String|Array`** - The class list to add or remove.
++ **`class`**: **`String`** - The class to add or remove.
 + **`mutation`**: **`Boolean`** - The *add/remove* directive. When `true`, the given string is added to the class list. When `false`, the given string is removed from the class list.
 
 **Return**
@@ -33,7 +41,7 @@ $(el).classSync(classList, mutation === false);
 
 ### Usage
 
-Add member classes to an element, then confirm operation.
+**Add member classes to an element,** then confirm operation.
 
 ```html
 <div class="class1 class2"></div>
@@ -44,6 +52,24 @@ let el = document.querySelector('.class1');
 $(el).classSync('class3 class4', true);
 // Confirm operation
 console.log($(el).attrSync('class')); // class1 class2 class3 class4
+```
+
+**Toggle *icon* classes on an element.**
+
+```html
+<i class="volume-icon bi bi-volume-up"></i>
+```
+
+```js
+let volumeIconElement = document.querySelector('.volume-icon');
+let isMute = false;
+$(volumeIconElement).on('click', e => {
+    $(el).classSync({
+        'bi-volume-mute': isMute,
+        'bi-volume-up': !isMute,
+    });
+    isMute = !isMute;
+});
 ```
 
 ## b. Match Class List
@@ -65,7 +91,7 @@ var exists = $(el).classSync(classList);
 
 ### Usage
 
-Assert that the given class names exist.
+**Assert that the given class names exist.**
 
 ```html
 <div class="class1 class2 class3"></div>

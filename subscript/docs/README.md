@@ -7,4 +7,4 @@ Welcome to the Subscript documentation. We hope you find it easy to understand a
 
 If you have questions about anything related to the Subscript, you're always welcome to ask on our [GitHub Discussions](https://github.com/webqit/subscript/discussions).
 
-## Explore the Docs (Unstable)
+## Explore the Docs

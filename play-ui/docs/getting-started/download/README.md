@@ -61,9 +61,11 @@ Details are in the [Quick Start](../overview#use-as-descrete-utilities) guide.
 
 ## Play UI Command Line
 
-The Play UI Command Line Interface is available as an npm package.
+The Play UI Command Line Interface is installable as an npm package.
 
 With [npm available on your terminal](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), run the following command to install Play UI CLI as a *dev dependency* to your project:
+
+> System Requirements: Node.js 12.0 or later
 
 ```text
 $ npm i -g @webqit/playui-cli --save-dev

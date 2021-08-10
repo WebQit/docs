@@ -16,7 +16,7 @@ It features the ability to add items and toggle the active state of each item.
         <title>A TODO List in OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
 
-        <script src="https://unpkg.com/@webqit/play-ui@0.3.7/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/playui-js@0.3.13/dist/main.js"></script>
         <script src="https://unpkg.com/@webqit/oohtml@1.8.13/dist/main.js"></script>
         <script>
             // Make PlayUI available globally

@@ -37,7 +37,3 @@ Import the installed package:
 // Import the initializer
 import Subscript from '@webqit/subscript';
 ```
-
-## Next Steps
-
-Continue to [learning the API](../../reference).

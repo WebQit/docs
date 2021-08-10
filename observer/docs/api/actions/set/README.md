@@ -121,7 +121,7 @@ Using [`Observer.intercept()`](../../reactions/intercept), it is possible to int
 ```js
 Observer.intercept(obj, 'set', (action, previous, next) => {
     
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.value);
 
     // The assignment operation
@@ -143,7 +143,7 @@ When the "set" operation is of multiple key/value assignments, an interceptor wi
 ```js
 Observer.intercept(obj, 'set', (action, previous, next) => {
 
-    // What we recieved...
+    // What we received...
     console.log(action.name, action.value, action.related);
 
     // The assignment operation
