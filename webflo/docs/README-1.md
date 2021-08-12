@@ -6,8 +6,6 @@
 
 
 
-
-
 # Project Layout
 It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):
 
