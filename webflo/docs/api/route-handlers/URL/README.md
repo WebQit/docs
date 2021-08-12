@@ -1,11 +1,11 @@
 ---
-title: URLX
-desc: <code>class URLX {}</code>
+title: URL
+desc: <code>class URL {}</code>
 _index: 1
 ---
-# `class URLX {}`
+# `class URL {}`
 
-This is an interface that is additionally implemented by the request URL objects that route handlers receive via `event.url`. (Both client-side and server-side `event.url` objects are instances of the standard [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) interface.)
+This is an interface that is additionally implemented by the request URL objects that route handlers receive on their `event.url` parameter. (Both client-side and server-side `event.url` objects are instances of the standard [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) interface.)
 
 ## Properties
 

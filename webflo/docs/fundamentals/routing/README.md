@@ -4,7 +4,7 @@ _index: first
 ---
 # Routing
 
-In Webflo, routing is filesystem-based. Here, we simply create a file on the filesystem to automatically become available as an URL.
+In Webflo, routing is filesystem-based. Here, we simply create a file on the filesystem and it automatically becomes available as an URL.
 
 The application's root URL `/`, for example, would be implemented by creating an *index file* - `<indexFile>` - in a chosen *routing directory* - `<routingDirectory>`.
 
@@ -74,7 +74,7 @@ client
 
 #### The `/worker` Directory
 
-This is where JavaScript files for service-worker-level routing are placed. *(Implement this directory for an application that will deliver powerful offline capabilities.)*
+This is where JavaScript files for service-worker-level routing are placed. *(Implement this directory for an application that will have special offline capabilities.)*
 
 The application's root URL `/`, for example, can be handled in the browser's service-worker layer by simply placing an `index.js` file in the `/worker` directory.
 
@@ -233,67 +233,6 @@ The above also demonstrates that the URLs `/` and `/index.html` would mean two d
 + If the request to `/` was made with an `Accept` header that matches `text/html`, Webflo will know to *render* the handler's response into the `index.html` file of the URL and return a rendered HTML response. Otherwise, Webflo will know to return the handler's response as-is - a JSON response. This is detailed in [Requests and Responses](../requests-and-responses),
 
 ## Route Handlers
-
-Route handlers are simple *export* functions that are designed to intercept a request and return a response. Webflo sticks with one way to define route handlers across all routing layers.
-
-**Syntax**
-
-```js
-export default async function(event, app, next) {
-}
-```
-
-The syntax also supports naming a handler after a specific HTTP method, where that level of modularity is needed.
-
-```js
-export async function get(event, app, next) {
-}
-```
-
-```js
-export async function post(event, app, next) {
-}
-```
-
-*The default handler will always be called where no method-specific handlers exist.*
-
-**Parameters**
-
-+ **`event: NavigationEvent`** - A [`NavigationEvent`](../requests-and-responses#class-navigationevent-) instance fired for the request.
-+ **`app: Any`** - Any incoming value being passed by a parent handler. *(See [Parameter Passing](#parameter-passing) below.)*
-+ **`next: Function`** - The function to call to forward a request.
-
-    **Syntax**
-
-    ```js
-    var response = await next([app[, pathname]]);
-    ```
-
-    **Parameters**
-
-    + **`app: Any`** - An optional value to pass to child handler. *(See [Parameter Passing](#parameter-passing) below.)*
-    + **`pathname: String`** - An optional pathname specifying the direction of the flow. *(See [Route Bending](#route-bending) below.)*
-
-    **Return Value**
-
-    + **`response: Promise<Object|event.Response>`** - A promise that resolves to the return value from child handler. *(Handler return values just ahead.)*
-
-**Contextual Parameters**
-
-+ **`this.stepname: String`** - The exact name of the current step in the URL path.
-+ **`this.pathname: String`** - The pathname to the current step in the URL path.
-+ **`this.dirname: String`** - (Available only in server-side handlers.) The file name of the current handler.
-+ **`this.env: Object`** - (Available only in server-side handlers.) Any environmental variables defined in an `.env` file at project root.
-+ **`this.layout: Object`** - (Available only in server-side handlers.) An object that exposes the filesystem layout of the project as configured via `$ webflo config layout`.
-+ **`next.stepname: String`** - The exact name of the next step in the URL path.
-+ **`next.pathname: String`** - The pathname for the rest of the steps in the URL path.
-
-**Return Value**
-
-+ **`Object|Array`** - A plain JavaScript object or array (JSON-stringifiable) may be returned and will translate to the *reponse data* (stringified JSON) where the request is an [API Call](../requests-and-responses#api-calls-and-page-requests), or the *rendering data* where the request is a [Page Request](../requests-and-responses#api-calls-and-page-requests). (For example: `return { title: 'Home | Co' }`).
-+ **`<falsey>`** - A falsey value, e.g.  `undefined`, `null`, `0`, etc, will translate to a `404 - Not Found` HTTP response. (For example: `return`).
-+ **`event.Response`** - An instance of [`event.Response`](../requests-and-responses#class-event-response-) with a `.body` property being any of the above may be returned. (For example: `return new event.Response({ body: { title: 'Home | Co' }, headers: {...} })`).
-+ **`Promise`** - A promise that resolves to any of the above may be returned. (Route handlers can thus be an `async` function.)
 
 ### Parameter Passing
 

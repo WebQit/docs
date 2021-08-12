@@ -70,7 +70,7 @@ $ npm run start:dev
 
 ## Common Setup
 
-As with every project that might be heading outside its local development environment, certain files, folders or parameters for Webflo applications may need to be excluded from upstream repositories. And it is good to remember these *environmental factors*  early.
+As with every project that might be heading out of its local development environment, certain files, folders or parameters for Webflo applications may need to be excluded from upstream repositories. And it is good to remember these *environmental factors*  early.
 
 ### The `.env` File
 
@@ -101,6 +101,9 @@ node_modules
 
 *Feel free to add more rules as needed.*
 
+<!--
+Config Layout
+-->
 ## Next Steps
 
 Continue to [learning the fundamentals](../../fundamentals).

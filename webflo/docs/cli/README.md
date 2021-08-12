@@ -1,6 +1,6 @@
 ---
-_index: 2
+_index: last
 ---
-# Command Line
+# Command-Line
 
-The Play UI command-line tool.
+The Webflo Command-Line reference.

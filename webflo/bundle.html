@@ -267,11 +267,83 @@
 		</div>
 
 		<template name="api">
-			<template name="IncomingRequest">
+			<div exportgroup="readme">
+
+				<h1 id="api">API</h1>
+<p>The Webflo API reference.</p>
+
+			</div>
+
+			<template name="route-handlers">
+				<template name="NavigationEvent">
+					<div exportgroup="readme">
+
+						<h1 id="class-navigationevent-"><code>class NavigationEvent {}</code></h1>
+<p>This is the <code>NavigationEvent</code> that is fired on every request which route handlers receive on their <code>event</code> parameter.</p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><strong><code>url: URL</code></strong> - An object representing the request URL. <em>(See class <a href="/tooling/webflo/docs/api/route-handlers/URL"><code>URL</code></a>.)</em></li>
+<li><strong><code>request: Request</code></strong> - The incoming request object. <em>(See interface <a href="/tooling/webflo/docs/api/route-handlers/Request"><code>Request</code></a>.)</em> On the client side, this would be an extended instance of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request"><code>Request</code></a> interface. On the server side, this would be an extended instance of node.js's <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> class.</li>
+<li><strong><code>Response: Class</code></strong> - A <em>class</em> for instantiating a new reponse. <em>(See class <a href="/tooling/webflo/docs/api/route-handlers/Response"><code>event.Response</code></a>.)</em></li>
+</ul>
+
+					</div>
+				</template>
+
 				<div exportgroup="readme">
 
-					<h1 id="interface-incomingrequest-"><code>interface IncomingRequest {}</code></h1>
-<p>This is an interface that is additionally implemented by the incoming request instances that route handlers receive via <code>event.request</code>. (Client-side <code>event.request</code> objects are an instance of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request"><code>Request</code></a> interface. Server-side <code>event.request</code> objects are an instance of node.js's <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> class.)</p>
+					<h1 id="route-handlers">Route Handlers</h1>
+<p>Route handlers are simple <em>export</em> functions that are designed to intercept a request and return a response. Webflo sticks with one way to define route handlers across all routing layers.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
+}</code></pre>
+<p>The syntax also supports naming a handler after a specific HTTP method, where that level of modularity is needed.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span>(<span class="hljs-params">event, app, next</span>) </span>{
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post</span>(<span class="hljs-params">event, app, next</span>) </span>{
+}</code></pre>
+<p><em>The default handler will always be called where no method-specific handlers exist.</em></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong><code>event: NavigationEvent</code></strong> - A <a href="/tooling/webflo/docs/api/route-handlers/NavigationEvent"><code>NavigationEvent</code></a> instance fired for the request.</p></li>
+<li><p><strong><code>app: Any</code></strong> - Any incoming value being passed by a parent handler. <em>(See <a href="/tooling/webflo/docs/fundamentals/routing#parameter-passing">Parameter Passing</a>.)</em></p></li>
+<li><p><strong><code>next: Function</code></strong> - The function to call to forward a request.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> next([app[, pathname]]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>app: Any</code></strong> - An optional value to pass to child handler. <em>(See <a href="/tooling/webflo/docs/fundamentals/routing#parameter-passing">Parameter Passing</a>.)</em></li>
+<li><strong><code>pathname: String</code></strong> - An optional pathname specifying the direction of the flow. <em>(See <a href="/tooling/webflo/docs/fundamentals/routing#route-bending">Route Bending</a>.)</em></li></ul>
+<p><strong>Return Value</strong></p>
+<ul>
+<li><strong><code>response: Promise&lt;Object|event.Response&gt;</code></strong> - A promise that resolves to the return value from child handler. <em>(Handler return values just ahead.)</em></li></ul></li>
+</ul>
+<p><strong>Contextual Parameters</strong></p>
+<ul>
+<li><strong><code>this.stepname: String</code></strong> - The exact name of the current step in the URL path.</li>
+<li><strong><code>this.pathname: String</code></strong> - The pathname to the current step in the URL path.</li>
+<li><strong><code>this.dirname: String</code></strong> - (Available only in server-side handlers.) The file name of the current handler.</li>
+<li><strong><code>this.env: Object</code></strong> - (Available only in server-side handlers.) Any environmental variables defined in an <code>.env</code> file at project root.</li>
+<li><strong><code>this.layout: Object</code></strong> - (Available only in server-side handlers.) An object that exposes the filesystem layout of the project as configured via <code>$ webflo config layout</code>.</li>
+<li><strong><code>next.stepname: String</code></strong> - The exact name of the next step in the URL path.</li>
+<li><strong><code>next.pathname: String</code></strong> - The pathname for the rest of the steps in the URL path.</li>
+</ul>
+<p><strong>Return Value</strong></p>
+<ul>
+<li><strong><code>Any</code></strong> - A plain JavaScript object or array (JSON-stringifiable) may be returned and will translate to the <em>reponse data</em> (stringified JSON) where the request is an <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">API Call</a>, or the <em>rendering data</em> where the request is a <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">Page Request</a>. (For example: <code>return { title: 'Home | Co' }</code>). Any other value, e.g. <code>0</code>, may be returned, and Webflo will try to send it as-is.</li>
+<li><strong><code>undefined</code></strong> - An <code>undefined</code> will translate to a <code>404 - Not Found</code> HTTP response.</li>
+<li><strong><code>Response</code></strong> - An instance of <a href="/tooling/webflo/docs/api/route-handlers/Response"><code>event.Response</code></a> with a <code>.body</code> property being any of the above may be returned. (For example: <code>return new event.Response({ body: { title: 'Home | Co' }, headers: {...} })</code>).</li>
+<li><strong><code>Promise</code></strong> - A promise that resolves to any of the above may be returned. (Route handlers can thus be an <code>async</code> function.)</li>
+</ul>
+<h2 id="associated-apis">Associated APIs</h2>
+
+				</div>
+
+				<template name="Request">
+					<div exportgroup="readme">
+
+						<h1 id="interface-request-"><code>interface Request {}</code></h1>
+<p>This is an interface that is additionally implemented by the incoming request instances that route handlers receive on their <code>event.request</code> parameter. (Client-side <code>event.request</code> objects are an instance of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request"><code>Request</code></a> interface. Server-side <code>event.request</code> objects are an instance of node.js's <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> class.)</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li><strong><code>cookies: Object</code></strong> - An object representing the request <em>cookies</em>. This is an object model of the submitted cookies. Cookie names in path notation are written to their equivalent path in the object. For example, the cookie <code>q7[sublevel1]=deepvalue</code> will be accessed as <code>event.request.cookies.q7.sublevel1</code>;</li>
@@ -308,36 +380,173 @@
 <span class="hljs-keyword">let</span> profileVisibility = submits.inputs.user.profile.visibility;
 <span class="hljs-keyword">let</span> profilePics = submits.files.user.profile.pics;</code></pre>
 
-				</div>
-			</template>
+					</div>
+				</template>
 
-			<template name="NavigationEvent">
-				<div exportgroup="readme">
+				<template name="Response">
+					<div exportgroup="readme">
 
-					<h1 id="class-navigationevent-"><code>class NavigationEvent {}</code></h1>
-<p>This is the <code>NavigationEvent</code> that is fired on every request which route handlers receive on their <code>event</code> parameter.</p>
-<h2 id="properties">Properties</h2>
+						<h1 id="class-response-"><code>class Response {}</code></h1>
+<p>This class is used for returning responses from route handlers. It is available to route handlers on their <code>event.Response</code> parameter.</p>
+<p>Returning responses with this class allows a handler to include an HTTP status code and some HTTP headers.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
+    <span class="hljs-keyword">if</span> (next.stepname) {
+        <span class="hljs-keyword">return</span> next();
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> event.Response({
+        <span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,
+        <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>, },
+        <span class="hljs-attr">body</span>: { <span class="hljs-attr">prop1</span>: value1, }
+    });
+}</code></pre>
+<p>But in many cases, creating an <code>event.Response</code> instance will not be necessary as Webflo will dynamically figure out an appropriate HTTP status code along with a <code>Content-Type</code> header for the response as detailed in: <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">API Calls and Page Requests</a>. Here, returning the plain data object will just suffice.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
+    <span class="hljs-keyword">if</span> (next.stepname) {
+        <span class="hljs-keyword">return</span> next();
+    }
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">prop1</span>: value1, };
+}</code></pre>
+<blockquote>
+  <p>With the first handler above returning a <code>Content-Type</code> header, no automatic content negotiation will be made by Webflo.</p>
+</blockquote>
+<h2 id="constructor-NaN">Constructor</h2>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response(params);</code></pre>
+<p><strong>Parameters</strong></p>
 <ul>
-<li><strong><code>url: URLX</code></strong> - An object representing the request URL. <em>(See class <a href="/tooling/webflo/docs/api/URLX"><code>URLX</code></a>.)</em></li>
-<li><strong><code>request: IncomingRequest</code></strong> - The incoming request object. <em>(See interface <a href="/tooling/webflo/docs/api/IncomingRequest"><code>IncomingRequest</code></a>.)</em> On the client side, this would be an extended instance of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request"><code>Request</code></a> interface. On the server side, this would be an extended instance of node.js's <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> class.</li>
-<li><strong><code>Response: Class</code></strong> - A <em>class</em> for instantiating a new reponse. <em>(See class <a href="/tooling/webflo/docs/api/event_Response"><code>event.Response</code></a>.)</em></li>
+<li><p><strong><code>params: Object</code></strong> - The response parameters.</p>
+<ul>
+<li><p><strong>Fundamental parameters</strong></p></li>
+<li><p><strong><code>status: Number</code></strong> - An HTTP response code.</p></li>
+<li><p><strong><code>headers: Object</code></strong> - HTTP header definitions, in the format: <code>{ &lt;Header-Name&gt;: &lt;header-value&gt; }</code>. (For the <code>Set-Cookie</code> header, <code>&lt;header-value&gt;</code> must be an object - <a href="#cookies">as shown below</a>.)</p></li>
+<li><p><strong><code>body: Any</code></strong> - The respone payload.</p></li>
+<li><p><strong>Occasional parameters</strong></p></li>
+<li><p><strong><code>filename: String</code></strong> - Required where <code>body</code> is a <code>File</code> object read from the filesystem.</p></li></ul></li>
 </ul>
+<h2 id="properties">Properties</h2>
+<p><em>The constructor 's <code>params</code> automatically become instance properties. See <a href="#header-shortcuts">Header Shortcuts</a> below for predefined properties.</em></p>
+<h2 id="methods">Methods</h2>
+<h3 id="setheadername-value"><code>setHeader(name, value)</code></h3>
+<p>This method sets an HTTP header.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>name: String</code></strong> - The header name - case-insensitive.</li>
+<li><strong><code>value: Any</code></strong> - The header value. (For the <code>Set-Cookie</code> header, this must be an object - <a href="#cookies">as shown below</a>.)</li>
+</ul>
+<p><strong>Return Value</strong></p>
+<ul>
+<li><strong><code>this</code></strong> - The <code>response</code> instance.</li>
+</ul>
+<h3 id="getheadername"><code>getHeader(name)</code></h3>
+<p>This method retrieves an HTTP header.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>name: String</code></strong> - The header name - case-insensitive.</li>
+</ul>
+<p><strong>Return Value</strong></p>
+<ul>
+<li><strong><code>Any</code></strong> - The header's value.</li>
+</ul>
+<h2 id="header-shortcuts">Header Shortcuts</h2>
+<p>This class exposes certain properties that make it easier to set and access common HTTP headers. Values assigned to these properties are automatically translated to the corresponding headers under the hood; values obtained from these properties are automatically taken from those same headers.</p>
+<h3 id="content-type">Content-Type</h3>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> header may be set and accessed using the <code>contentType</code> property of the response object, and may be provided as the <code>contentType</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;Hello Webflo!&#x27;</span>,
+    <span class="hljs-attr">contentType</span>: <span class="hljs-string">&#x27;text/plain&#x27;</span>
+});
 
-				</div>
-			</template>
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Content-Type&#x27;: &#x27;text/plain&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.contentType);
+<span class="hljs-comment">// text/plain</span></code></pre>
+<h3 id="redirect">Redirect</h3>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"><code>Location</code></a> header may be set and accessed using the <code>redirect</code> property of the response object, and may be provided as the <code>redirect</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/new-location&#x27;</span>,
+    <span class="hljs-attr">status</span>: <span class="hljs-number">301</span>,
+});
 
-			<div exportgroup="readme">
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { Location: &#x27;/new-location&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.redirect);
+<span class="hljs-comment">// /new-location</span></code></pre>
+<p>Where no <code>status</code> code is given, the <code>302</code> (temporary redirect) is used.</p>
+<h3 id="download">Download</h3>
+<p>The <a href="/tooling/webflo/docs/api/route-handlers/Response/Content-Disposition"><code>Content-Disposition</code></a> header may be set and accessed using the <code>download</code> property of the response object, and may be provided as the <code>download</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">body</span>: blob,
+    <span class="hljs-attr">download</span>: <span class="hljs-literal">true</span>,
+});
 
-				<h1 id="api">API</h1>
-<p>The Webflo API reference.</p>
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;attachment&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.download);
+<span class="hljs-comment">// true</span></code></pre>
+<p>A filename may be added to the download directive.</p>
+<pre><code class="hljs js language-js">response.download = <span class="hljs-string">&#x27;filename.jpg&#x27;</span>;
 
-			</div>
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;attachment; filename=&quot;filename.jpg&quot;&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.download);
+<span class="hljs-comment">// filename.jpg</span></code></pre>
+<p>Where <code>download</code> is set to <code>false</code>, the default value <code>inline</code> for the header is used.</p>
+<pre><code class="hljs js language-js">response.download = <span class="hljs-literal">false</span>;
 
-			<template name="URLX">
-				<div exportgroup="readme">
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;inline&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.download);
+<span class="hljs-comment">// false</span></code></pre>
+<h3 id="cache-control">Cache-Control</h3>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><code>Cache-Control</code></a> header may be set and accessed using the <code>cacheControl</code> property of the response object, and may be provided as the <code>cacheControl</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
+    <span class="hljs-attr">cacheControl</span>: <span class="hljs-string">&#x27;no-store&#x27;</span>,
+});
 
-					<h1 id="class-urlx-"><code>class URLX {}</code></h1>
-<p>This is an interface that is additionally implemented by the request URL objects that route handlers receive via <code>event.url</code>. (Both client-side and server-side <code>event.url</code> objects are instances of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL"><code>URL</code></a> interface.)</p>
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Cache-Control&#x27;: &#x27;no-store&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.cacheControl);
+<span class="hljs-comment">// no-store</span></code></pre>
+<h3 id="cross-origin-requests-cors">Cross-Origin Requests (CORs)</h3>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin"><code>Access-Control-Allow-Origin</code></a> header may be set and accessed using the <code>cors</code> property of the response object, and may be provided as the <code>cors</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
+    <span class="hljs-attr">cors</span>: <span class="hljs-string">&#x27;*&#x27;</span>,
+});
+
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Access-Control-Allow-Origin&#x27;: &#x27;*&#x27; }</span>
+<span class="hljs-built_in">console</span>.log(response.cors);
+<span class="hljs-comment">// *</span></code></pre>
+<p>Where <code>cors</code> is set to <code>true</code>, the wildcard <code>*</code> is used. Where <code>false</code>, an empty string <code>''</code> is used.</p>
+<h3 id="cookies">Cookies</h3>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"><code>Set-Cookie</code></a> header may be set and accessed using the <code>cookies</code> property of the response object, and may be provided as the <code>cookies</code> field of the constructor's input.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
+    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
+    <span class="hljs-attr">cookies</span>: {
+        <span class="hljs-attr">cookie1</span>: <span class="hljs-string">&#x27;value1&#x27;</span>,
+        <span class="hljs-attr">cookie2</span>: { <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;value12&#x27;</span> },
+    },
+});
+
+<span class="hljs-built_in">console</span>.log(response.headers);
+<span class="hljs-comment">// { &#x27;Set-Cookie&#x27;: { cookie1: &#x27;value1&#x27;, cookie2: { value: &#x27;value12&#x27; } } }</span>
+<span class="hljs-built_in">console</span>.log(response.cookies);
+<span class="hljs-comment">// { cookie1: &#x27;value1&#x27;, cookie2: { value: &#x27;value12&#x27; } }</span></code></pre>
+<p>Cookie attributes may be set - in camel-case names.</p>
+<pre><code class="hljs js language-js">response.cookies.cookie2.secure = <span class="hljs-literal">true</span>;
+response.cookies.cookie2.sameSite = <span class="hljs-string">&#x27;Strict&#x27;</span>;
+response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</code></pre>
+<p>Where <code>value</code> is set to <code>false</code> and no <code>maxAge</code> attribute is set, a <code>maxAge</code> of <code>0</code> is implied, effectively expiring the cookie immediately.</p>
+
+					</div>
+				</template>
+
+				<template name="URL">
+					<div exportgroup="readme">
+
+						<h1 id="class-url-"><code>class URL {}</code></h1>
+<p>This is an interface that is additionally implemented by the request URL objects that route handlers receive on their <code>event.url</code> parameter. (Both client-side and server-side <code>event.url</code> objects are instances of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL"><code>URL</code></a> interface.)</p>
 <h2 id="properties">Properties</h2>
 <ul>
 <li><p><strong><code>query: Object</code></strong> - An object model of the URL query parameters. This maintains a live, two-way relationship between itself and the <code>.search</code> string property of its base URL object. Changes made on one end are automatically reflected on the other.</p>
@@ -377,45 +586,30 @@
 <li><em>See the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL"><code>URL</code></a> interface.</em></li>
 </ul>
 
+					</div>
+				</template>
+			</template>
+		</template>
+
+		<template name="build-system">
+			<div exportgroup="readme">
+
+				<h1 id="build-system">Build System</h1>
+
+			</div>
+
+			<template name="javascript">
+				<div exportgroup="readme">
+
+					<h1 id="javascript-bundling">JavaScript Bundling</h1>
+
 				</div>
 			</template>
 
-			<template name="event_Response">
+			<template name="static-build">
 				<div exportgroup="readme">
 
-					<h1 id="class-eventresponse-"><code>class event.Response {}</code></h1>
-<p>This class is used for returning responses from route handlers. It is available to route handlers via the <code>event.Response</code> parameter.</p>
-<p>Returning responses with this class allows a handler to include an HTTP status code and some HTTP headers.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> event.Response({
-        <span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,
-        <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>, },
-        <span class="hljs-attr">body</span>: { <span class="hljs-attr">prop1</span>: value1, }
-    });
-}</code></pre>
-<p>But in many cases, creating an <code>event.Response</code> instance will not be necessary as Webflo will dynamically figure out an appropriate HTTP status code along with a <code>Content-Type</code> header for the response as detailed in: <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">API Calls and Page Requests</a>. Here, returning the plain data object will just suffice.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">prop1</span>: value1, };
-}</code></pre>
-<blockquote>
-  <p>With the first handler above returning a <code>Content-Type</code> header, no automatic content negotiation will be made by Webflo.</p>
-</blockquote>
-<h2 id="properties">Properties</h2>
-<ul>
-<li><strong><code>query: Object</code></strong> - An object model of the URL query parameters. This maintains a live, two-way relationship between itself and the <code>.search</code> string property of its base URL object. Changes made on one end are automatically reflected on the other.</li>
-</ul>
-<h2 id="header-shortcuts">Header Shortcuts</h2>
-<h3 id="content-type">Content-Type</h3>
-<h3 id="redirect">Redirect</h3>
-<h3 id="cache-control">Cache-Control</h3>
-<h3 id="cookies">Cookies</h3>
-<h3 id="cross-origin-requests-cors">Cross-Origin Requests (CORs)</h3>
+					<h1 id="static-site-generation">Static Site Generation</h1>
 
 				</div>
 			</template>
@@ -424,278 +618,39 @@
 		<template name="cli">
 			<div exportgroup="readme">
 
-				<h1 id="command-line">Command Line</h1>
-<p>The Play UI command-line tool.</p>
+				<h1 id="command-line">Command-Line</h1>
+<p>The Webflo Command-Line reference.</p>
 
 			</div>
 
-			<template name="bundle">
+			<template name="build">
 				<div exportgroup="readme">
 
-					<h1 id="-playui-bundle"><code>$ playui bundle</code></h1>
-<p>The <strong><code>playui bundle</code></strong> command is used to automatically bundle static HTML files from the filesystem into <em><a href="/tooling/oohtml/docs/getting-started/overview#html-modules">HTML Modules</a></em>.</p>
-<h2 id="overview">Overview</h2>
-<p>Here, each directory will represent a <em>module</em> element and the files within it will be the module's exports. We will take the following directory structure as an example:</p>
-<pre><code class="hljs html language-html">project-root
-  ├-- views
-    ├-- about
-    │ ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>About Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    ├-- home
-      ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>The goal is to translate the above layout into the following <em>module</em> structure and get it written to a single file that can be linked to:</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;views&quot;</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;home&quot;</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;index&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;about&quot;</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;index&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>About Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p><em>file: <code>./bundle.html</code></em></p>
-<p>You can find a working example of <a href="/tooling/oohtml/docs/learn/examples/spa">a typical module structure</a> right at OOHTML's documentation.</p>
-<p>Now, on getting the files into a single bundle, we would next link to it as a remote content for a <code>&lt;template&gt;</code> element - the actual module element - in the main document.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-
-  <span class="hljs-comment">&lt;!--
-  Here, we link to the remote content
-  --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;main&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./bundle.html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-
-  <span class="hljs-comment">&lt;!--
-  Here our application router would be dynamically pointing to either &quot;home&quot; or &quot;about&quot;
-  --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;main/views/about&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;index&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">import</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
-<p>That said, lets go on to bundle.</p>
-<h2 id="usage">Usage</h2>
-<blockquote>
-  <p>Syntax: <strong><code>playui bundle</code></strong></p>
-</blockquote>
-<p>Navigate to <code>project-root</code> and run <strong><code>playui bundle</code></strong>. Two files should be reported bundled. </p>
-<p><html-import name="playui-bundle-1" template="page/tooling/play-ui/docs/cli/bundle"></html-import></p>
-<p>Remote content is now ready at <code>./bundle.html</code>!</p>
-<p>Now, beyond this point are so many other things we can do! And here is where a few configurations come in!</p>
-<p>Run <strong><code>playui config bundler</code></strong> to walk down the options.</p>
-<blockquote>
-  <p>On completing the options below, the <strong><a href="/tooling/webflo/docs/cli/config"><code>playui config</code></a></strong> command will save the configurations to a JSON file at <code>./.webqit/playui-cli/config/bundler.json</code>. Subsequent calls to <strong><code>playui bundle</code></strong> will be based on the saved configurations. And subsequent calls to <strong><code>playui config bundler</code></strong> will pull up the saved configurations for update.</p>
-</blockquote>
-<h3 id="options">Options</h3>
-<h4 id="entry_dir"><code>[ENTRY_DIR]</code></h4>
-<p>This specifies the entry point into the filesystem - the <em>source directory</em>. The default value is <code>./</code>, which resolves to the current working directory (CWD) on the terminal.</p>
-<p>This is good for pointing the bundler to the actual <em>views (or equivalent)</em> folder in the project directory. E.g. <code>./views</code>. (An absolute path may also be used.)</p>
-<p>To specify multiple entry directories, slot in the exact string <code>[name]</code> as a placeholder on a segment in the path. Bundler will loop through all folders at that level in the directory to resolve the placeholder and obtain a final path. Specifying <code>./views/[name]</code> as the entry directory, for example, will equate to running <strong><code>playui bundle</code></strong> on both <code>./views/about</code> and <code>./views/home</code>.</p>
-<h4 id="output_file"><code>[OUTPUT_FILE]</code></h4>
-<p>This specifies the file name of the output bundle. The default value is <code>./bundle.html</code>, which is resolved relative to <a href="#entry_dir"><code>[ENTRY_DIR]</code></a>.</p>
-<p>This is good for directing the output bundle to the actual <em>public (or equivalent)</em> folder of the application. E.g. <code>./public/bundle.html</code>. (An absolute path may also be used.)</p>
-<p>Where multiple source directories are specified in the <a href="#entry_dir"><code>[ENTRY_DIR]</code></a> option above, this option will require a <code>[name]</code> placeholder, this time, to specify a unique output file each for the source directories. Specifying <code>./public/[name].bundle.html</code> as the output file, for example, will equate to saving the output bundle of <code>./views/about</code> to <code>./public/about.bundle.html</code>, and the output bundle of <code>./views/home</code> to <code>./public/home.bundle.html</code>.</p>
-<h4 id="assets_storage_base"><code>[ASSETS_STORAGE_BASE]</code></h4>
-<p>This specifies the output directory for images or other assets bundled from the source directory. (See <a href="#bundling-assets">Bundling Assets</a> below.) The default value is <code>./</code>, which is resolved relative to <a href="#entry_dir"><code>[ENTRY_DIR]</code></a>, and which means assets will not be copied to any new location. If set to <em>empty</em>, the same directory as <a href="#output_file"><code>[OUTPUT_FILE]</code></a>'s is used.</p>
-<p>This is good for directing assets like images to the actual place in the <em>public (or equivalent)</em> folder of the application. E.g. <code>./public/assets</code>. (An absolute path may also be used.)</p>
-<p>This option supports the same <code>[name]</code> placeholder as used in the <a href="#entry_dir"><code>[ENTRY_DIR]</code></a> option, this time, to specify a unique <em>assets storage</em> directory each for the source directories. Specifying <code>./public/assets/[name]</code> as the <em>assets storage</em> path, for example, will equate to saving the assets bundled at <code>./views/about</code> to <code>./public/assets/about</code>, and the assets bundled at <code>./views/home</code> to <code>./public/assets/home</code>.</p>
-<h4 id="assets_public_base"><code>[ASSETS_PUBLIC_BASE]</code></h4>
-<p>This specifies the HTTP path that maps to <a href="#assets_storage_base"><code>[ASSETS_STORAGE_BASE]</code></a> in the filesystem. The default value is <code>/</code>, which is assumed to map to the <em>public (or equivalent)</em> folder of the application. The <em><code>src</code> (or equivalent)</em> attribute of every asset bundled will be prefixed with this path.</p>
-<p>This is good for aligning the public path for assets with the internal <a href="#assets_storage_base"><code>[ASSETS_STORAGE_BASE]</code></a> path. E.g. <code>/assets</code>, where <code>[ASSETS_STORAGE_BASE]</code> had been set to <code>./public/assets</code>.</p>
-<h4 id="max_data_url_size"><code>[MAX_DATA_URL_SIZE]</code></h4>
-<p>This specifies the upper limit of the file size under which to inline the contents of an image file or other asset as <em><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs">data URLs</a></em>. (See <a href="#bundling-assets">Bundling Assets</a> below.) The default value is <code>1024</code>, in bytes. Assets smaller than this size will be bundled with <em>data URLs</em>.</p>
-<p>This is good for having small image files embed their own content instead of having them create additional HTTP requests on the page.</p>
-<h4 id="loaders"><code>[LOADERS]</code></h4>
-<p>This specifies an optional list of loaders for the bundling operation. (See <a href="/tooling/webflo/docs/cli/bundle/loaders">Loaders</a>.) The default value is an empty object <code>{}</code>.</p>
-<p>This is good for extending the capabilities of the bundler to custom-load certain file formats that are not natively provided for.</p>
-<p>Skip where not apply. Or follow the prompt to interactively specify loaders, optionally along with their arguments or flags. The following options are presented recursively:</p>
-<ul>
-<li><p><strong><code>[name]</code></strong> - The path to a function, or the name of an installed npm package, that is a <a href="/tooling/webflo/docs/cli/bundle/loaders">Play UI loader</a>. (The bundler imports loaders using the ES6 <code>import()</code> syntax.)</p>
-<p>To refer to the bundler's <a href="/tooling/webflo/docs/cli/bundle/loaders#built-ins">built-in loaders</a>, like the markdown-to-HTML loader (<a href="/tooling/webflo/docs/cli/bundle/loaders#md-loader"><code>md-loader</code></a>), simply add the prefix <code>default:</code> to the loader's bare name. E.g. <code>default:md-loader</code>.</p></li>
-<li><p><strong><code>[args]</code></strong> - Optional list of parameters (arguments/flags) for a loader - each in name/value pair.</p>
-<p>Skip where not apply. Or follow the prompt to interactively specify parameters. The following options are presented recursively:</p>
-<ul>
-<li><strong><code>[name]</code></strong> - The name of the parameter as required by a loader. E.g. <code>flavor</code> - in the default <a href="/tooling/webflo/docs/cli/bundle/loaders#md-loader"><code>md-loader</code></a>.</li>
-<li><strong><code>[value]</code></strong> - The value of the parameter. E.g. <code>github</code> - for the <code>flavor</code> parameter above.</li></ul></li>
-</ul>
-<h3 id="advanced-options">Advanced Options</h3>
-<h4 id="ignore_folders_by_prefix"><code>[IGNORE_FOLDERS_BY_PREFIX]</code></h4>
-<p>This specifies a comma-separated list of prefixes for certain types of folders to ignore. Folders with a name that begins with any of the listed prefixes are ingnored. The default value is an array of one prefix: dot <code>.</code>.</p>
-<p>This is good for excluding certain system folders or <em>dot directories</em> like <code>.git</code>. <em>Dot directories</em> are automatically excluded by the default value.</p>
-<h4 id="create_outline_file"><code>[CREATE_OUTLINE_FILE]</code></h4>
-<p>This specifies whether or not to generate a JSON outline of the bundle. The default value is <code>create</code>. The generated file is named after <a href="#output_file"><code>[OUTPUT_FILE]</code></a>; e.g. <code>./bundle.html.json</code>. Set to <code>create_merge</code> to merge the generated JSON outline with any previously generated one. Set to <em>empty</em> to disable outline generation.</p>
-<p>This is good for programmatically traversing the module tree. Simply <code>JSON.parse()</code> the contents of <code>./bundle.html.json</code>.</p>
-<h3 id="oohtml-related-options">OOHTML-Related Options</h3>
-<h4 id="module_ext"><code>[MODULE_EXT]</code></h4>
-<p>This specifies an extended tag name for the module element. This value will be set to the <code>is</code> attribute of the <code>&lt;template&gt;</code> elements generated by the bundler. The is empty by default.</p>
-<p>This is good for automatically extending generated <code>&lt;template&gt;</code> elements. A value like <code>special-module</code> will generate <code>&lt;template is="special-module"&gt;&lt;/template&gt;</code> elements. Be sure to take into account the <code>element.template</code> setting in the <a href="/tooling/oohtml/docs/spec/html-modules#polyfill-support">OOHTML meta tag</a> of the page where the bundle will be used.</p>
-<h4 id="module_id_attr"><code>[MODULE_ID_ATTR]</code></h4>
-<p>This specifies the attribute name for designating the <em>module ID</em>. The default value is <code>name</code> which conforms to <a href="/tooling/oohtml/docs/spec/html-modules#convention">the default module ID attribute</a> in the OOHTML spec.</p>
-<p>This should generally only be changed to align with the <code>attr.moduleid</code> setting in the <a href="/tooling/oohtml/docs/spec/html-modules#polyfill-support">OOHTML meta tag</a> of the page where the bundle will be used.</p>
-<h4 id="export_mode"><code>[EXPORT_MODE]</code></h4>
-<p>This specifies the syntax for designating the <em>module exports</em> within the generated <code>&lt;template&gt;</code> elements. The default value is <code>attribute</code> which translates to using the <code>exportgroup</code> attribute (or <a href="#export_group_attr"><code>[EXPORT_GROUP_ATTR]</code></a>) to designate <em>module exports</em>. Set to <code>element</code> to use the <code>&lt;export&gt;</code> element (or <a href="#export_element"><code>[EXPORT_ELEMENT]</code></a>) instead.  (See <a href="/tooling/oohtml/docs/spec/html-modules#convention">the two standard convetions</a>.)</p>
-<h4 id="export_group_attr"><code>[EXPORT_GROUP_ATTR]</code></h4>
-<p>This specifies the attribute name for designating the <em>export ID</em> in <a href="#export_mode">attribute mode</a>. The default value is <code>exportgroup</code> which conforms to <a href="/tooling/oohtml/docs/spec/html-modules#convention">the default syntax</a> in the OOHTML spec. E.g. <code>&lt;div exportgroup="export-id"&gt;&lt;/div&gt;</code>.</p>
-<p>This should generally only be changed to align with the <code>attr.exportgroup</code> setting in the <a href="/tooling/oohtml/docs/spec/html-modules#polyfill-support">OOHTML meta tag</a> of the page where the bundle will be used.</p>
-<blockquote>
-  <p>This option is only shown when the <a href="#export_mode">export mode</a> option is set to <code>attribute</code>.</p>
-</blockquote>
-<h4 id="export_element"><code>[EXPORT_ELEMENT]</code></h4>
-<p>This specifies the tag name for designating <em>module exports</em> in <a href="#export_mode">element mode</a>. The default value is <code>export</code> which conforms to <a href="/tooling/oohtml/docs/spec/html-modules#convention">the default syntax</a> in the OOHTML spec. E.g. <code>&lt;export&gt; &lt;div&gt;&lt;/div&gt; &lt;/export&gt;</code></p>
-<p>This should generally only be changed to align with the <code>element.export</code> setting in the <a href="/tooling/oohtml/docs/spec/html-modules#polyfill-support">OOHTML meta tag</a> of the page where the bundle will be used.</p>
-<blockquote>
-  <p>This option is only shown when the <a href="#export_mode">export mode</a> option is set to <code>element</code>.</p>
-</blockquote>
-<h4 id="export_id_attr"><code>[EXPORT_ID_ATTR]</code></h4>
-<p>This specifies the attribute name for designating the <em>export ID</em> in <a href="#export_mode">element mode</a>. The default value is <code>name</code> which conforms to <a href="/tooling/oohtml/docs/spec/html-modules#convention">the default syntax</a> in the OOHTML spec. E.g. <code>&lt;export name="export-id"&gt; &lt;div&gt;&lt;/div&gt; &lt;/export&gt;</code></p>
-<p>This should generally only be changed to align with the <code>element.export</code> setting in the <a href="/tooling/oohtml/docs/spec/html-modules#polyfill-support">OOHTML meta tag</a> of the page where the bundle will be used.</p>
-<blockquote>
-  <p>This option is only shown when the <a href="#export_mode">export mode</a> option is set to <code>element</code>.</p>
-</blockquote>
-<h2 id="bundling-assets">Bundling Assets</h2>
-<p>While HTML modules are created by reading the file's contents, assets, like images, are handled differently. These files are copied from their location into the <a href="#assets_storage_base"><code>[ASSETS_STORAGE_BASE]</code></a> directory to make them accessible to HTTP requests. An appropriate HTML element that points to this new location is automatically generated as the <em>module export</em> in the bundle. This is illustrated below.</p>
-<p>We have an image file at <code>project-root/assets/img</code> and we have set the <a href="#assets_storage_base"><code>[ASSETS_STORAGE_BASE]</code></a> to <code>./public</code>, and the <a href="#output_file"><code>[OUTPUT_FILE]</code></a> option to <code>./public</code>.</p>
-<pre><code class="hljs html language-html">project-root
-  │
-  ├-- assets
-  │ ├-- img
-  │   ├-- image1.png
-  │
-  ├-- views
-    ├-- about
-    │ ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>About Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    ├-- home
-      ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>On running the <strong><code>playui bundle</code></strong> command, our final directory structure will be…</p>
-<pre><code class="hljs html language-html">project-root
-  │
-  ├-- assets
-  │ ├-- img
-  │   ├-- image1.png
-  │
-  ├-- public
-  │ ├-- assets
-  │ │ ├-- img
-  │ │   ├-- image1.png
-  │ │
-  │ ├-- bundle.html
-  │
-  ├-- views
-    ├-- about
-    │ ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>About Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    ├-- home
-      ├-- index.html <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>…and an <code>&lt;img&gt;</code> element pointing to the <em>public</em> location of <code>image1.png</code> is added as a <em>module export</em> to the bundle.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;assets&quot;</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;img&quot;</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;image1&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/assets/img/image1.png&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;views&quot;</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;home&quot;</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;index&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;about&quot;</span>&gt;</span>
-       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;index&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-container&quot;</span>&gt;</span>About Page<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Taking things further, it is possible to bundle small images (or other assets) with inline <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs">data URLs</a>. This way, the browser won't have to load them via HTTP request. Cutting down on the number of assets to load should greatly speed up the site's load time.</p>
-<p>The Bundler just needs to know under what file size to use the <em>data-URL</em> format. Set the <a href="#max_data_url_size"><code>[MAX_DATA_URL_SIZE]</code></a> option to a size measured in bytes. E.g. <code>2048</code>. Assets below this size will now be bundled in <em>data-URL</em> format.</p>
-<p>In the case of <code>image1.png</code> above, the generated <em>module export</em> would look like:</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;image1&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;data:image/png,%89PNG%0D%0A=&quot;</span> /&gt;</span></code></pre>
-<h2 id="further-reading">Further Reading</h2>
+					<h1 id="-webflo-config"><code>&gt; webflo config</code></h1>
 
 				</div>
+			</template>
 
-				<template name="loaders">
-					<div exportgroup="readme">
+			<template name="cert">
+				<div exportgroup="readme">
 
-						<h1 id="loaders">Loaders</h1>
-<p>Play UI loaders are packages that extend the capabilities of the OOHTML Bundler. Play UI comes with certain loaders built-in and also makes it possible to provide custom loaders.</p>
-<h2 id="overview">Overview</h2>
-<p>Loaders are functions that are called with each file during the bundling process. Multiple loaders are made cascaded and a loader will be expected to call the next. This makes for an awesome processing pipeline for each file being bundled. But it also requires thoughtfulness in the order in which these loaders are specified.</p>
-<p>By default, the main Play UI bundler only handles <code>.html</code> files and images (<code>.ico</code>, <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.svg</code>). Then it features built-in loaders that extend the list.</p>
-<h2 id="built-ins">Built-Ins</h2>
-<h3 id="md-loader"><code>md-loader</code></h3>
-<p>The <code>md-loader</code> loader is used to load <code>.md</code> (markdown) files into HTML exports just the way regular HTML files are. It takes an initial step of converting the markdown content into HTML using the <a href="https://github.com/showdownjs/showdown">Showdown</a> library, then goes ahead to add it to the bundle as a <em>module export</em>. Markdown links are automatically resolved to better work as HTML links. A few other transformations are supported through arguments/flags. (Learn more about specifying arguments/flags for a loader <a href="/tooling/webflo/docs/cli/bundle/#loaders">here</a>.)</p>
-<h4 id="argumentsflags">Arguments/Flags</h4>
-<p>All parameters are optional.</p>
-<ul>
-<li><strong><code>base_url</code></strong> - Set this to a value that will be used as the base URL for relative links. This is similar to how the <a href="/tooling/webflo/docs/cli/bundle/#assets_public_base"><code>[ASSETS_PUBLIC_BASE]</code></a> option works.</li>
-<li><strong><code>outline_generation</code></strong> - Set this to a <em>non-empty</em> value to generate a JSON outline of the page's content. The generated outline will show up in the meta data for the file in the bundle's overall <a href="/tooling/webflo/docs/cli/bundle/#create_outline_file">JSON outline</a>.</li>
-<li><strong><code>code_highlighting</code></strong> - Set this to a <em>non-empty</em> value to transform code blocks into stylable markup using the <a href="https://github.com/Bloggify/showdown-highlight">Showdown-Highlight</a> utility. The transformed code blocks are highlighted in the UI on adding any of the <a href="https://highlightjs.org/">Highlight.js</a> CSS to the page.</li>
-<li><strong><code>flavor</code></strong> - This equates to any of <a href="https://github.com/showdownjs/showdown#flavors">Showdown's three flavours</a>: <code>original</code>, <code>vanilla</code>, <code>github</code>.</li>
-</ul>
-<h4 id="other">Other</h4>
-<ul>
-<li><strong>Markdown Metadata</strong> - By default, <code>md-loader</code> automatically parses any found markdown metadata (defined at the top of the document between ««« and »»» or between --- and ---) into JSON and this will show up in the meta data for the file in the bundle's overall <a href="/tooling/webflo/docs/cli/bundle/#create_outline_file">JSON outline</a>. Below is an example metadata:</li>
-</ul>
-<pre><code class="hljs md language-md">  ---
-  description: Page description.
-  ---
-  # Page Title</code></pre>
-<ul>
-<li><strong>Markdown Tables</strong> - The markdown table syntax is supported by default. Below is an example table:</li>
-</ul>
-<pre><code class="hljs md language-md">  | h1    |    h2   |      h3 |
-  |:------|:-------:|--------:|
-  | 100   | [<span class="hljs-string">a</span>][<span class="hljs-symbol">1</span>]  | ![<span class="hljs-string">b</span>][<span class="hljs-symbol">2</span>] |
-  | <span class="hljs-emphasis">*foo*</span> | <span class="hljs-strong">**bar**</span> | ~~baz~~ |</code></pre>
-<h4 id="usage">Usage</h4>
-<p>The <code>md-loader</code> loader is used by specifying <code>default:md-loader</code> in the <a href="/tooling/webflo/docs/cli/bundle/#loaders"><code>[LOADERS]</code></a> config option.</p>
-<h2 id="custom-loaders">Custom Loaders</h2>
-<p>Custom Loaders are easy to develop. They are basic functions that recieve the current file being processed along with a few paramters, to return a fully-formed <em>module export</em> markup.</p>
-<h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadsCSS</span>(<span class="hljs-params">resource, params, args, received, meta, next</span>) </span>{
-  <span class="hljs-keyword">if</span> (received || !resource.endsWith(<span class="hljs-string">&#x27;.css&#x27;</span>)) {
-      <span class="hljs-comment">// Or let the flow continue</span>
-      <span class="hljs-keyword">return</span> next(received);
-  }
-  <span class="hljs-comment">// Return a module export format</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;style exportgroup=&quot;&quot;&gt;...&lt;/style&gt;&#x27;</span>;
-}</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>resource: String</code></strong> - The filename of the resource being processed - relative to the current working directory (CWD).</li>
-<li><strong><code>params: Object</code></strong> - The <a href="/tooling/webflo/docs/cli/bundle/#options"><code>options</code> object</a> that the Bundler was initialized with. It also has an additional property <code>indentation</code> - a number which represents how deep in the source directory the given resource is. This number is <code>0</code> at the root of the source directory.</li>
-<li><strong><code>args: Object</code></strong> - The <a href="/tooling/webflo/docs/cli/bundle/#loaders"><code>args</code> object</a> defined specifically for the loader.</li>
-<li><strong><code>received: String</code></strong> - The output forwarded (that is, <code>next()</code>ed) by the previous loader in the list, if any.</li>
-<li><strong><code>meta: Object</code></strong> - The <em>meta</em> object for the given resource. Properties can be added and they will show up in the meta data for the file in the bundle's overall <a href="/tooling/webflo/docs/cli/bundle/#create_outline_file">JSON outline</a>.</li>
-<li><strong><code>next: Function</code></strong> - A function that forwards control to the next loader in the list, if any, and if none, to the default internal loader. It accpets only one parameter, which is received by the next loader on its <code>received</code> parameter. (When any value passed this way reaches the internal loader, it is added to the bundle as-is without any further processing of the resource.)</li>
-</ul>
-<p><strong>Return Value</strong></p>
-<p>Loaders are expected to return a valid markup string as the <em>module export</em> for the resource.</p>
-<h3 id="error-handling">Error Handling</h3>
-<p>Loaders may throw exceptions, they will be gracefully handled, that is, formatted and printed to the console.</p>
-<h3 id="usage-1">Usage</h3>
-<p>Custom loaders are used by specifying their filename in the <a href="/tooling/webflo/docs/cli/bundle/#loaders"><code>[LOADERS]</code></a> config option. Loaders installed as an npm package are used by specifying their package name.</p>
+					<h1 id="self-hosting">Self Hosting</h1>
 
-					</div>
-				</template>
-
-				<img src="/html/tooling/webflo/docs/cli/bundle/playui-bundle-1.png"  exportgroup="playui-bundle-1" />
+				</div>
 			</template>
 
 			<template name="config">
 				<div exportgroup="readme">
 
-					<h1 id="-playui-config"><code>$ playui config</code></h1>
-<p>The <strong><code>playui config</code></strong> command is used to configure other Play UI commands or a feature.</p>
-<h2 id="overview">Overview</h2>
-<p>The <strong><code>playui config</code></strong> command is part of thoughtful strategies to make the developer experience on the command line great. Its sole purpose is to provide an interactive way to configure flags for other commands and to persist such configurations. It is indeed painstaking and error-prone to write commands with a long list of flags each time. The <strong><code>playui config</code></strong> command will eliminate this for you.</p>
-<h2 id="usage">Usage</h2>
-<blockquote>
-  <p>Syntax: <strong><code>playui config &lt;command&gt;</code></strong> - where <code>&lt;command&gt;</code> is any of the other <a href="/tooling/webflo/docs/cli">Play UI commands</a>, or the ellipsis <code>...</code>, which lets you pick from a list.</p>
-</blockquote>
-<p><em>Config</em> will walk you through the configuration options for the specified command and save your configurations for repeat use. (Configurations are generally saved to a JSON file in the project-relative directory: <code>./.webqit/playui-cli/config/</code>, except as otherwise stated in the documentation for a specific command.) Now, subsequent calls to <strong><code>playui config &lt;command&gt;</code></strong> will pull up the saved configurations for update. But, config files may also be updated, or even created, by hand.</p>
-<p>To try, run <strong><code>playui config ...</code></strong>, pick a command from the list and follow the prompt. Be sure to consult the documentation for a command to achieve good configurations.</p>
+					<h1 id="-webflo-build"><code>&gt; webflo build</code></h1>
+
+				</div>
+			</template>
+
+			<template name="deploy">
+				<div exportgroup="readme">
+
+					<h1 id="-webflo-deploy"><code>&gt; webflo deploy</code></h1>
 
 				</div>
 			</template>
@@ -703,25 +658,95 @@
 			<template name="help">
 				<div exportgroup="readme">
 
-					<h1 id="-playui-help"><code>$ playui help</code></h1>
-<p>The <strong><code>playui help</code></strong> command is used to show available Play UI commands.</p>
-<h2 id="overview">Overview</h2>
-<p>Remembering things is hard. Run the <strong><code>playui help</code></strong> command anytime to show a list of available commands.</p>
-<h2 id="usage">Usage</h2>
-<blockquote>
-  <p>Syntax: <strong><code>playui help</code></strong>.</p>
-</blockquote>
-<p><html-import name="playui-help" template="page/tooling/play-ui/docs/cli/help"></html-import></p>
-<p>Refer to the documentation of the command you want to use.</p>
+					<h1 id="-webflo-help"><code>&gt; webflo help</code></h1>
 
 				</div>
+			</template>
 
-				<img src="/html/tooling/webflo/docs/cli/help/playui-help.png"  exportgroup="playui-help" />
+			<template name="server">
+				<div exportgroup="readme">
+
+					<h1 id="-webflo-server"><code>&gt; webflo :server</code></h1>
+<!--Server lifecycle management.-->
+
+				</div>
+			</template>
+		</template>
+
+		<template name="client-runtime">
+			<div exportgroup="readme">
+
+				<h1 id="client-runtime">Client Runtime</h1>
+
+			</div>
+
+			<template name="navigation">
+				<div exportgroup="readme">
+
+					<h1 id="navigation">Navigation</h1>
+<!--
+## Links
+
++ History back and forward
++ Target links, and keypressed links are unintercepted
++ Anchor Links are unintercepted
++ Query parameters are simply reactive URLs
+
+## Forms/Submits
+
+### The Get Method and query parameters and hash, files
+
+## Indicators
++ Network: Loading/Progress, Error
++ Online/Offline
+
+
+## Scroll-to-start
+-->
+
+				</div>
+			</template>
+
+			<template name="pwa">
+				<div exportgroup="readme">
+
+					<h1 id="progressive-web-apps">Progressive Web Apps</h1>
+<!--
+Manifests
+Service Workers
+Worker-Level Routing
+Worker-Level Events
+Caching Strategies
+Push Notifications
+Installation
+-->
+
+				</div>
 			</template>
 		</template>
 
 		<template name="deployment">
-			
+			<div exportgroup="readme">
+
+				<h1 id="deployment">Deployment</h1>
+
+			</div>
+
+			<template name="managed-hosting">
+				<div exportgroup="readme">
+
+					<h1 id="managed-hosting">Managed Hosting</h1>
+
+				</div>
+			</template>
+
+			<template name="self-hosting">
+				<div exportgroup="readme">
+
+					<h1 id="self-hosting">Self Hosting</h1>
+
+				</div>
+			</template>
 		</template>
 
 		<template name="fundamentals">
@@ -884,7 +909,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 				<div exportgroup="readme">
 
 					<h1 id="routing">Routing</h1>
-<p>In Webflo, routing is filesystem-based. Here, we simply create a file on the filesystem to automatically become available as an URL.</p>
+<p>In Webflo, routing is filesystem-based. Here, we simply create a file on the filesystem and it automatically becomes available as an URL.</p>
 <p>The application's root URL <code>/</code>, for example, would be implemented by creating an <em>index file</em> - <code>&lt;indexFile&gt;</code> - in a chosen <em>routing directory</em> - <code>&lt;routingDirectory&gt;</code>.</p>
 <pre><code class="hljs text language-text">&lt;routingDirectory&gt;
   ├⏤&lt;indexFile&gt;</code></pre>
@@ -927,7 +952,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
   <p>The data returned by these handlers are <em>rendered</em> into the already running page in the browser - <em><a href="#rendering">Client-Side Rendering</a></em>.</p>
 </blockquote>
 <h4 id="the-worker-directory">The <code>/worker</code> Directory</h4>
-<p>This is where JavaScript files for service-worker-level routing are placed. <em>(Implement this directory for an application that will deliver powerful offline capabilities.)</em></p>
+<p>This is where JavaScript files for service-worker-level routing are placed. <em>(Implement this directory for an application that will have special offline capabilities.)</em></p>
 <p>The application's root URL <code>/</code>, for example, can be handled in the browser's service-worker layer by simply placing an <code>index.js</code> file in the <code>/worker</code> directory.</p>
 <pre><code class="hljs js language-js">worker
   ├⏤index.js  -  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> } }</code></pre>
@@ -1031,48 +1056,6 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <li>If the request to <code>/</code> was made with an <code>Accept</code> header that matches <code>text/html</code>, Webflo will know to <em>render</em> the handler's response into the <code>index.html</code> file of the URL and return a rendered HTML response. Otherwise, Webflo will know to return the handler's response as-is - a JSON response. This is detailed in <a href="/tooling/webflo/docs/fundamentals/requests-and-responses">Requests and Responses</a>,</li>
 </ul>
 <h2 id="route-handlers">Route Handlers</h2>
-<p>Route handlers are simple <em>export</em> functions that are designed to intercept a request and return a response. Webflo sticks with one way to define route handlers across all routing layers.</p>
-<p><strong>Syntax</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<p>The syntax also supports naming a handler after a specific HTTP method, where that level of modularity is needed.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<p><em>The default handler will always be called where no method-specific handlers exist.</em></p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><p><strong><code>event: NavigationEvent</code></strong> - A <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#class-navigationevent-"><code>NavigationEvent</code></a> instance fired for the request.</p></li>
-<li><p><strong><code>app: Any</code></strong> - Any incoming value being passed by a parent handler. <em>(See <a href="#parameter-passing">Parameter Passing</a> below.)</em></p></li>
-<li><p><strong><code>next: Function</code></strong> - The function to call to forward a request.</p>
-<p><strong>Syntax</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> next([app[, pathname]]);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>app: Any</code></strong> - An optional value to pass to child handler. <em>(See <a href="#parameter-passing">Parameter Passing</a> below.)</em></li>
-<li><strong><code>pathname: String</code></strong> - An optional pathname specifying the direction of the flow. <em>(See <a href="#route-bending">Route Bending</a> below.)</em></li></ul>
-<p><strong>Return Value</strong></p>
-<ul>
-<li><strong><code>response: Promise&lt;Object|event.Response&gt;</code></strong> - A promise that resolves to the return value from child handler. <em>(Handler return values just ahead.)</em></li></ul></li>
-</ul>
-<p><strong>Contextual Parameters</strong></p>
-<ul>
-<li><strong><code>this.stepname: String</code></strong> - The exact name of the current step in the URL path.</li>
-<li><strong><code>this.pathname: String</code></strong> - The pathname to the current step in the URL path.</li>
-<li><strong><code>this.dirname: String</code></strong> - (Available only in server-side handlers.) The file name of the current handler.</li>
-<li><strong><code>this.env: Object</code></strong> - (Available only in server-side handlers.) Any environmental variables defined in an <code>.env</code> file at project root.</li>
-<li><strong><code>this.layout: Object</code></strong> - (Available only in server-side handlers.) An object that exposes the filesystem layout of the project as configured via <code>$ webflo config layout</code>.</li>
-<li><strong><code>next.stepname: String</code></strong> - The exact name of the next step in the URL path.</li>
-<li><strong><code>next.pathname: String</code></strong> - The pathname for the rest of the steps in the URL path.</li>
-</ul>
-<p><strong>Return Value</strong></p>
-<ul>
-<li><strong><code>Object|Array</code></strong> - A plain JavaScript object or array (JSON-stringifiable) may be returned and will translate to the <em>reponse data</em> (stringified JSON) where the request is an <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">API Call</a>, or the <em>rendering data</em> where the request is a <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">Page Request</a>. (For example: <code>return { title: 'Home | Co' }</code>).</li>
-<li><strong><code>&lt;falsey&gt;</code></strong> - A falsey value, e.g.  <code>undefined</code>, <code>null</code>, <code>0</code>, etc, will translate to a <code>404 - Not Found</code> HTTP response. (For example: <code>return</code>).</li>
-<li><strong><code>event.Response</code></strong> - An instance of <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#class-event-response-"><code>event.Response</code></a> with a <code>.body</code> property being any of the above may be returned. (For example: <code>return new event.Response({ body: { title: 'Home | Co' }, headers: {...} })</code>).</li>
-<li><strong><code>Promise</code></strong> - A promise that resolves to any of the above may be returned. (Route handlers can thus be an <code>async</code> function.)</li>
-</ul>
 <h3 id="parameter-passing">Parameter Passing</h3>
 <p>While being used to forward a request, the <code>next()</code> function can help to pass on anything to the next handler.</p>
 <blockquote>
@@ -1211,7 +1194,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
   <p>Be sure to give Webflo a better "Hello!" with a more beautiful start page.</p>
 </blockquote>
 <h2 id="common-setup">Common Setup</h2>
-<p>As with every project that might be heading outside its local development environment, certain files, folders or parameters for Webflo applications may need to be excluded from upstream repositories. And it is good to remember these <em>environmental factors</em>  early.</p>
+<p>As with every project that might be heading out of its local development environment, certain files, folders or parameters for Webflo applications may need to be excluded from upstream repositories. And it is good to remember these <em>environmental factors</em>  early.</p>
 <h3 id="the-env-file">The <code>.env</code> File</h3>
 <p>An <code>.env</code> file is commonly used to maintain environment-specific varaiables for an application. Consider using this file to keep any sensitive values that your application might need, e.g. database credentials. This file would be kept local using the <code>.gitignore</code> file below. The <em>ignore rule</em> would be: <code>.env</code>.</p>
 <p>Consider paring the <code>.env</code> file with an <code>.env.example</code> file - written with no actual values, and for simply providing an example of what might be in the <code>.env</code> file. This file would be what goes to other deployment environments.</p>
@@ -1227,6 +1210,9 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 .webqit
 !.webqit/**.example.json</code></pre>
 <p><em>Feel free to add more rules as needed.</em></p>
+<!--
+Config Layout
+-->
 <h2 id="next-steps">Next Steps</h2>
 <p>Continue to <a href="/tooling/webflo/docs/fundamentals">learning the fundamentals</a>.</p>
 
@@ -1267,8 +1253,80 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 			</template>
 		</template>
 
-		<template name="runtime">
-			
+		<template name="server-runtime">
+			<div exportgroup="readme">
+
+				<h1 id="server-runtime">Server Runtime</h1>
+
+			</div>
+
+			<template name="dns">
+				<div exportgroup="readme">
+
+					<h1 id="hosts-resolution">Hosts Resolution</h1>
+<!--
+WWW
+HTTPS redirects
+Certs
+vhosts
+
+-->
+
+				</div>
+			</template>
+
+			<template name="processes">
+				<div exportgroup="readme">
+
+					<h1 id="server-processes">Server Processes</h1>
+<!--
+Starting in command line vs running in the background
+Starting, listing, terminating backgroud processes
+Log files
+process modes: fork, exec
+-->
+
+				</div>
+			</template>
+		</template>
+
+		<template name="workflow">
+			<div exportgroup="readme">
+
+				<h1 id="workflow">Workflow</h1>
+<!--
+
+Workflo
++ Build system
++ Dev mode - filesytem watch and restarts - hot reload
++ config --env flag
+-->
+
+			</div>
+
+			<template name="dev-mode">
+				<div exportgroup="readme">
+
+					<h1 id="dev-mode">Dev Mode</h1>
+
+				</div>
+			</template>
+
+			<template name="git-flow">
+				<div exportgroup="readme">
+
+					<h1 id="git-workflow">Git Workflow</h1>
+
+				</div>
+			</template>
+
+			<template name="testing">
+				<div exportgroup="readme">
+
+					<h1 id="testing-workflow">Testing Workflow</h1>
+
+				</div>
+			</template>
 		</template>
 	</template>
 

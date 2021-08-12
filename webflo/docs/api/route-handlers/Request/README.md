@@ -1,11 +1,11 @@
 ---
-title: IncomingRequest
-desc: <code>interface IncomingRequest {}</code>
+title: Request
+desc: <code>interface Request {}</code>
 _index: 2
 ---
-# `interface IncomingRequest {}`
+# `interface Request {}`
 
-This is an interface that is additionally implemented by the incoming request instances that route handlers receive via `event.request`. (Client-side `event.request` objects are an instance of the standard [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) interface. Server-side `event.request` objects are an instance of node.js's [`http.IncomingMessage`](https://nodejs.org/api/http.html#http_class_http_incomingmessage) class.)
+This is an interface that is additionally implemented by the incoming request instances that route handlers receive on their `event.request` parameter. (Client-side `event.request` objects are an instance of the standard [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) interface. Server-side `event.request` objects are an instance of node.js's [`http.IncomingMessage`](https://nodejs.org/api/http.html#http_class_http_incomingmessage) class.)
 
 ## Properties
 
