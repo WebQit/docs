@@ -1,47 +1,29 @@
----
-icon: braces
-title: Observer
-desc: Observability and Interceptability API for JavaScript Objects and Arrays.
-categories: Web-Native
-tags: observer
-_after: oohtml
----
-# The Observer API
 
 <!-- BADGES/ -->
 
-<span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/observer" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/observer.svg" alt="NPM version" /></a></span>
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/observer" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/observer.svg" alt="NPM downloads" /></a></span>
+<span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/observer" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/observer.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/observer" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/observer.svg" alt="NPM downloads" /></a></span>
 
 <!-- /BADGES -->
 
-*[Observer](https://github.com/webqit/observer)* is an API for intercepting and observing JavaScript objects and arrays.
+## A Utility-First Reactivity API
 
-> [Visit project repo](https://github.com/webqit/observer).
-> [Visit project homepage](https://webqit.io/tooling/observer).
+Observe and intercept operations on any type of JavaScript objects and arrays, using a uniquely  web-native API! The Observer API is notably lightweight, completely transparent and synchronous, but magical!
 
-```js
-let obj = {};
-Observer.observe(obj, events => {
-    events.forEach(e => {
-        console.log(e.type, e.name, e.path, e.value, e.oldValue);
-    });
-});
+## Getting Started
 
-Observer.set(obj, path, value);
-```
+[Visit the docs](docs) for an overview, the API and usage guides.
 
-Follow the [installation guide](installation) to add the Observer API to a page or project.
+<html-import data-id="quickstart" template="@layout/quickstart"></html-import>
 
-## Documentation
-+ [Examples](examples)
-+ [API](api)
+Also, [join the Github Discussions](https://github.com/webqit/observer/discussions) for Observer.
 
-## Design Goals
-See the [API explainer](explainer).
+## Contributing to the Project
 
-## Issues
-To report bugs or request features, please submit an [issue](https://github.com/webqit/observer/issues).
+Help report bugs, or request features; or join in the development.
+
++ [Visit this project on github](https://github.com/webqit/observer).
++ [Contribute to the docs on github](https://github.com/webqit/webqit-tooling.docs/edit/master/observer/docs).
 
 ## License
-MIT.
+
+The MIT license.

@@ -1,0 +1,188 @@
+{
+    "meta": {
+        "readme": {
+            "outline": [
+                {
+                    "level": 2,
+                    "title": "A Pseudo JavaScript Engine",
+                    "uri": "a-pseudo-javascript-engine",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Getting Started",
+                            "uri": "getting-started",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Contributing to the Project",
+                            "uri": "contributing-to-the-project",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        },
+        "bundle.html": {},
+        "logo.fw": {},
+        "project": {}
+    },
+    "subtree": {
+        "docs": {
+            "meta": {
+                "readme": {
+                    "_subtreeType": "category",
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Subscript Documentation",
+                            "uri": "subscript-documentation",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Explore the Docs",
+                                    "uri": "explore-the-docs",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "subtree": {
+                "getting-started": {
+                    "meta": {
+                        "readme": {
+                            "_index": "first",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Getting Started",
+                                    "uri": "getting-started",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "download": {
+                            "meta": {
+                                "readme": {
+                                    "title": "Download",
+                                    "desc": "Follow the download options to add Subscript to your project.",
+                                    "_index": "1",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Download Options",
+                                            "uri": "download-options",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 1: From a CDN",
+                                                    "uri": "option-1-from-a-cdn",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Option 2: As an npm Package",
+                                                    "uri": "option-2-as-an-npm-package",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "overview": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "An overview of Subscript.",
+                                    "_index": "first",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Overview",
+                                            "uri": "overview",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Features",
+                                                    "uri": "features",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Small! Fast!",
+                                                            "uri": "small-fast",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Transformable AST",
+                                                            "uri": "transformable-ast",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "A Pseudo Runtime!",
+                                                            "uri": "a-pseudo-runtime",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Runtime Traps and Hooks",
+                                                            "uri": "runtime-traps-and-hooks",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Examples",
+                                                    "uri": "examples",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Evaluate a JavaScript expression",
+                                                            "uri": "evaluate-a-javascript-expression",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use conditionals, call a function in scope",
+                                                            "uri": "use-conditionals-call-a-function-in-scope",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Write multiple expressions and Comments, plus a top-level return",
+                                                            "uri": "write-multiple-expressions-and-comments-plus-a-top-level-return",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Use traps",
+                                                            "uri": "use-traps",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
