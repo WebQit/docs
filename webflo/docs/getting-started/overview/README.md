@@ -19,9 +19,7 @@ cd webflo-app
 
 Next is to have Webflo installed, following the [installation guide](../installation). This makes the `webflo` command available on the terminal. And that is all the setup required!
 
-> Webflo does not need to be imported and instantiated. In fact, it keeps itself and its files outside of the project folders. This lets everything that is framework-related stay outside of your code. A zero-footprint philosophy gives us a clean slate to think and code.
-
- Everything from here will be application-specific!
+> Webflo is a command-line tool. So the installed files won't be showing up anywhere in your workspace.
 
 ## Project Layout
 
