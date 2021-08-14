@@ -11,9 +11,11 @@ This library is the official polyfill for OOHTML. It can be used either from a C
 
 Add the following script tag to your page to include the all-in-one OOHTML build:
 
-  ```html
-  <script src="https://unpkg.com/@webqit/oohtml/dist/main.js"></script>
-  ```
+```html
+<script src="https://unpkg.com/@webqit/oohtml/dist/main.js"></script>
+```
+
+> With the script above, OOHTML will take effect on the page automatically. Two other APIs - [The Observer API](../../resources/the-observer-api) and [Subscript](/tooling/subscript) - will also be exposed as `window.WebQit.Observer` and `window.WebQit.Subscript` respectively.
 
 Or embed individual OOHTML features via their respective build:
 
