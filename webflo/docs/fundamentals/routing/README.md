@@ -142,7 +142,7 @@ export default async function(event, app, next) {
 }
 ```
 
-In the first handler, we started by asking `next.stepname` if the URL has another step ahead. For an URL like `/shop`, the answer is yes, and the request is exchanged for the child's data (obviously, the ability to intercept both the request going into the child and the response returned).
+In the first handler, we started by asking `next.stepname` if the URL has another step ahead. For an URL like `/shop`, the answer is yes, and the request is exchanged for the child's data. The parent handler thus intercepts both the request going into the child and the response coming back from the child.
 
 In the second handler, we again started by asking `next.stepname` if the URL has another step ahead. This time, the answer is no, and reponse data is returned here for the request.
 
@@ -190,7 +190,7 @@ export default async function(event, app, next) {
 }
 ```
 
-Wholistically, requests fall through layers in the following flow:
+Put together, requests fall through layers in the following flow:
 
 ```text
 -> enter `/client` if exists
@@ -229,10 +229,12 @@ webflo-app
 
 The above also demonstrates that the URLs `/` and `/index.html` would mean two different things where a route handler exists.
 
-+ While the URL `/` would be intercepted by the handler, the URL `/index.html` would be served as a static file.
++ While the URL `/` would terminate on the handler, the URL `/index.html` would flow through and fall to the `/public` directory and a static file is served.
 + If the request to `/` was made with an `Accept` header that matches `text/html`, Webflo will know to *render* the handler's response into the `index.html` file of the URL and return a rendered HTML response. Otherwise, Webflo will know to return the handler's response as-is - a JSON response. This is detailed in [Requests and Responses](../requests-and-responses),
 
 ## Route Handlers
+
+Route handlers are simple functions that are designed to handle incoming requests on an URL and return response data. The standard syntax for a route handler and their contextual parameters and return values are detailed in the [Route Handlers API](../../api/route-handlers) section; and it is all simple to reason about: route handlers use the `this.pathname` and `this.stepname` to know its place in the current URL, the `next.pathname` and `next.stepname` to ask about a forward flow, and the `next()` function to forward a request.
 
 ### Parameter Passing
 
@@ -264,13 +266,13 @@ export default function(event, app, next) {
 }
 ```
 
-In the first handler, we passed an object with the `next()` function. In the second handler, we received it on the `app` parameter. (The `app` parameter is always empty for root URL handlers.)
+In the first handler, we passed an object with the `next()` function. In the second handler, we received it on the `app` parameter. (The `app` parameter is always empty for root URL handlers as they have no parent handler.)
 
-> Parameter passing is a great way to implement one source of truth for subsequent handlers in the route hierarchy. Think authentication states, certain database or external API tokens, etc.
+> Parameter passing is a great way to implement one source of truth for every handler on an URL. Think authentication states, certain database or external API tokens, etc, that would be needed at different levels in the handler hierarchy.
 
 ### Route Bending
 
-While a call to `next()` automatically takes the request to the next handler in line for the URL, a redirect to an adjacent handler can be made. The `next()` function accepts a second parameter that specifies in which direction to go.
+While a call to `next()` automatically takes the request to the next handler in line for an URL, a redirect to an adjacent handler can be made. The `next()` function accepts a second parameter that specifies in which direction to go.
 
 > *file: `/server/docs/index.js`*
 
