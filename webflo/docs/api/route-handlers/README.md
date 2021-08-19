@@ -25,6 +25,16 @@ export async function post(event, app, next) {
 }
 ```
 
+```js
+export async function del(event, app, next) {
+}
+```
+
+```js
+export async function put(event, app, next) {
+}
+```
+
 *The default handler will always be called where no method-specific handlers exist.*
 
 **Parameters**
