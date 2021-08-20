@@ -490,10 +490,8 @@ The current [OOHTML polyfill implementation](../../getting-started/polyfill) has
     </head>
     <body>
         <div>
-            
             <script is="my-script" type="subscript"></script>
             <script is="my-script" type="subscript"></script>
-            
         </div>
     </body>
     ```
