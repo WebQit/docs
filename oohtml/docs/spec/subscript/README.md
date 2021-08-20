@@ -403,7 +403,7 @@ There are two types of reactive methods:
          * Return the list of methods that
          * should be made entirely reactive by the Subscript runtime.
          */
-        static get reactiveBlocks() {
+        static get subscriptBlocks() {
             return [ 'render', ];
         }
     });
@@ -429,7 +429,7 @@ There are two types of reactive methods:
     **Implementation Guide for Statement-Level Reactive Methods:**
 
     + These methods must not have any parameters.
-    + These methods are to be listed by a static `reactiveBlocks()` getter function.
+    + These methods are to be listed by a static `subscriptBlocks()` getter function.
     + The instance's `constructor()` function cannot be listed for reactivity.
 
 + **Parameter-Bound Methods:** Subscript can manage just the parameters of an element's instance method. In this case, just the method's parameters are observed for changes and the entire method is called accordingly.
@@ -449,7 +449,7 @@ There are two types of reactive methods:
          * Return the list of methods that
          * should be bound to their paramters by the Subscript runtime.
          */
-        static get reactiveMethods() {
+        static get subscriptParameterBlocks() {
             return [ 'render', ];
         }
     });
@@ -475,7 +475,7 @@ There are two types of reactive methods:
     **Implementation Guide for Parameter-Bound Methods:**
 
     + These methods must have parameters; each with a default value being a reference to an observable property. Properties of `this` - the element instance, the `document` object, and any other object in the global scope can serve as default values for these parameters.
-    + These methods are to be listed by a static `reactiveMethods()` getter function.
+    + These methods are to be listed by a static `subscriptParameterBlocks()` getter function.
     + The instance's `constructor()` function cannot be listed for reactivity.
 
 ## Polyfill Support
