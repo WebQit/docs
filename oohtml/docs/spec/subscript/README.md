@@ -356,6 +356,132 @@ Individual script tags may also be given an `errors` directive, to override the 
 </html>
 ```
 
+
+
+
+
+
+
+## Subscript Element Mixin
+
+Subscript offers a base class that extends native elements with reactive features for building reactive custom elements. Extend this base class to define your own components.
+
+*To define custom elements.*
+
+```js
+customElements.define('my-element', class extends WebQit.SubscriptElement(HTMLElement) {
+});
+```
+
+*To define customized built-ins.*
+
+```js
+customElements.define('my-div', class extends WebQit.SubscriptElement(HTMLDivElement) {
+}, { extends: 'div' });
+```
+
+The inherited Subscript Element lets us create reactive instance methods that are managed by the Subscript runtime under the hood.
+
+There are two types of reactive methods:
+
++ **Statement-Level Reactive Methods:** Subscript can manage the statements within an element's instance method to acheive statement-level reactivity just as a `<script type="subscript"></script>` code block would have it. 
+
+    Statements in the `render()` method below will be managed by the Subscript runtime.
+
+    ```js
+    customElements.define('my-element', class extends WebQit.SubscriptElement(HTMLElement) {
+
+        /**
+         * The "this.innerHTML = ..." assignment will be re-run each time
+         * the document.state.propertyName and this.state.propertyName properties change.
+         */
+        render() {
+            if (document.state.propertyName && this.state.propertyName) {
+                this.innerHTML = document.state.propertyName + ' | ' + this.state.propertyName;
+            }
+        }
+
+        /**
+         * Return the list of methods that
+         * should be made entirely reactive by the Subscript runtime.
+         */
+        static get reactiveBlocks() {
+            return [ 'render', ];
+        }
+    });
+    ```
+
+    An element of the class above should initially be empty.
+
+    ```html
+    <my-element></my-element>
+    ```
+
+    But on setting the `document.state.propertyName` and `this.state.propertyName` properties, the element should have something for its inner HTML. These changes are automatically observed by the Subscript runtime and the relevant statements within the method block are re-run accordingly.
+
+    ```js
+    document.state.propertyName = 'Global property value';
+    querySelector('my-element').state.propertyName = 'Local property value';
+    ```
+
+    ```html
+    <my-element>Global property value | Local property value</my-element>
+    ```
+
+    **Implementation Guide for Statement-Level Reactive Methods:**
+
+    + These methods must not have any parameters.
+    + These methods are to be listed by a static `reactiveBlocks()` getter function.
+    + The instance's `constructor()` function cannot be listed for reactivity.
+
++ **Parameter-Bound Methods:** Subscript can manage just the parameters of an element's instance method. In this case, just the method's parameters are observed for changes and the entire method is called accordingly.
+
+    ```js
+    customElements.define('my-element', class extends WebQit.SubscriptElement(HTMLElement) {
+
+        /**
+         * The document.state.propertyName and this.state.propertyName will be automatically 
+         * observed for changes and the "render()" method will be re-run accordingly.
+         */
+        render(globalProp = document.state.propertyName, localProp = this.state.propertyName) {
+            if (globalProp && localProp) {
+                this.innerHTML = globalProp + ' | ' + localProp;
+            }
+        }
+
+        /**
+         * Return the list of methods that
+         * should be bound to their paramters by the Subscript runtime.
+         */
+        static get reactiveMethods() {
+            return [ 'render', ];
+        }
+    });
+    ```
+
+    An element of the class above should initially be empty.
+
+    ```html
+    <my-element></my-element>
+    ```
+
+    But on setting the `document.state.propertyName` and `this.state.propertyName` properties, the element should have something for its inner HTML. These changes are automatically observed by the Subscript runtime and the relevant statements within the method block are run again.
+
+    ```js
+    document.state.propertyName = 'Global property value';
+    querySelector('my-element').state.propertyName = 'Local property value';
+    ```
+
+    ```html
+    <my-element>Global property value | Local property value</my-element>
+    ```
+
+    **Implementation Guide for Parameter-Bound Methods:**
+
+    + These methods must have parameters; each with a default value being a reference to an observable property. Properties of `this` - the element instance, the `document` object, and any other object in the global scope can serve as default values for these parameters.
+    + These methods are to be listed by a static `reactiveMethods()` getter function.
+    + The instance's `constructor()` function cannot be listed for reactivity.
+
 ## Polyfill Support
 
 The current [OOHTML polyfill implementation](../../getting-started/polyfill) has good support for Subscript. The polyfill additionally makes it possible to customise the follwoing areas of its implementation of the syntax using the [OOHTML META tag](../../resources/meta-tag):

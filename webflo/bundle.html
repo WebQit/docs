@@ -302,6 +302,10 @@
 }</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post</span>(<span class="hljs-params">event, app, next</span>) </span>{
 }</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">del</span>(<span class="hljs-params">event, app, next</span>) </span>{
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">put</span>(<span class="hljs-params">event, app, next</span>) </span>{
+}</code></pre>
 <p><em>The default handler will always be called where no method-specific handlers exist.</em></p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -1000,7 +1004,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
         ...
     ] };
 }</code></pre>
-<p>In the first handler, we started by asking <code>next.stepname</code> if the URL has another step ahead. For an URL like <code>/shop</code>, the answer is yes, and the request is exchanged for the child's data (obviously, the ability to intercept both the request going into the child and the response returned).</p>
+<p>In the first handler, we started by asking <code>next.stepname</code> if the URL has another step ahead. For an URL like <code>/shop</code>, the answer is yes, and the request is exchanged for the child's data. The parent handler thus intercepts both the request going into the child and the response coming back from the child.</p>
 <p>In the second handler, we again started by asking <code>next.stepname</code> if the URL has another step ahead. This time, the answer is no, and reponse data is returned here for the request.</p>
 <p>As the URL <code>/shop</code> terminates on the second handler, an outright call to <code>next()</code> does not get the request to the third handler. Rather, a <em>fall-through</em> effect happens.</p>
 <h4 id="fall-through">Fall-Through</h4>
@@ -1028,7 +1032,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
     }
     <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
 }</code></pre>
-<p>Wholistically, requests fall through layers in the following flow:</p>
+<p>Put together, requests fall through layers in the following flow:</p>
 <pre><code class="hljs text language-text">-&gt; enter `/client` if exists
     -&gt; call `index.js`; return response here? or continue</code></pre>
 <pre><code class="hljs text language-text">-&gt; enter `/worker` if exists
@@ -1052,10 +1056,11 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
     ├⏤logo.png</code></pre>
 <p>The above also demonstrates that the URLs <code>/</code> and <code>/index.html</code> would mean two different things where a route handler exists.</p>
 <ul>
-<li>While the URL <code>/</code> would be intercepted by the handler, the URL <code>/index.html</code> would be served as a static file.</li>
+<li>While the URL <code>/</code> would terminate on the handler, the URL <code>/index.html</code> would flow through and fall to the <code>/public</code> directory and a static file is served.</li>
 <li>If the request to <code>/</code> was made with an <code>Accept</code> header that matches <code>text/html</code>, Webflo will know to <em>render</em> the handler's response into the <code>index.html</code> file of the URL and return a rendered HTML response. Otherwise, Webflo will know to return the handler's response as-is - a JSON response. This is detailed in <a href="/tooling/webflo/docs/fundamentals/requests-and-responses">Requests and Responses</a>,</li>
 </ul>
 <h2 id="route-handlers">Route Handlers</h2>
+<p>Route handlers are simple functions that are designed to handle incoming requests on an URL and return response data. The standard syntax for a route handler and their contextual parameters and return values are detailed in the <a href="/tooling/webflo/docs/api/route-handlers">Route Handlers API</a> section; and it is all simple to reason about: route handlers use the <code>this.pathname</code> and <code>this.stepname</code> to know its place in the current URL, the <code>next.pathname</code> and <code>next.stepname</code> to ask about a forward flow, and the <code>next()</code> function to forward a request.</p>
 <h3 id="parameter-passing">Parameter Passing</h3>
 <p>While being used to forward a request, the <code>next()</code> function can help to pass on anything to the next handler.</p>
 <blockquote>
@@ -1080,12 +1085,12 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
     }
     <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Shop&#x27;</span>, };
 }</code></pre>
-<p>In the first handler, we passed an object with the <code>next()</code> function. In the second handler, we received it on the <code>app</code> parameter. (The <code>app</code> parameter is always empty for root URL handlers.)</p>
+<p>In the first handler, we passed an object with the <code>next()</code> function. In the second handler, we received it on the <code>app</code> parameter. (The <code>app</code> parameter is always empty for root URL handlers as they have no parent handler.)</p>
 <blockquote>
-  <p>Parameter passing is a great way to implement one source of truth for subsequent handlers in the route hierarchy. Think authentication states, certain database or external API tokens, etc.</p>
+  <p>Parameter passing is a great way to implement one source of truth for every handler on an URL. Think authentication states, certain database or external API tokens, etc, that would be needed at different levels in the handler hierarchy.</p>
 </blockquote>
 <h3 id="route-bending">Route Bending</h3>
-<p>While a call to <code>next()</code> automatically takes the request to the next handler in line for the URL, a redirect to an adjacent handler can be made. The <code>next()</code> function accepts a second parameter that specifies in which direction to go.</p>
+<p>While a call to <code>next()</code> automatically takes the request to the next handler in line for an URL, a redirect to an adjacent handler can be made. The <code>next()</code> function accepts a second parameter that specifies in which direction to go.</p>
 <blockquote>
   <p><em>file: <code>/server/docs/index.js</code></em></p>
 </blockquote>
@@ -1231,9 +1236,8 @@ Config Layout
 <span class="hljs-built_in">cd</span> webflo-app</code></pre>
 <p>Next is to have Webflo installed, following the <a href="/tooling/webflo/docs/getting-started/installation">installation guide</a>. This makes the <code>webflo</code> command available on the terminal. And that is all the setup required!</p>
 <blockquote>
-  <p>Webflo does not need to be imported and instantiated. In fact, it keeps itself and its files outside of the project folders. This lets everything that is framework-related stay outside of your code. A zero-footprint philosophy gives us a clean slate to think and code.</p>
+  <p>Webflo is a command-line tool. So the installed files won't be showing up anywhere in your workspace.</p>
 </blockquote>
-<p>Everything from here will be application-specific!</p>
 <h2 id="project-layout">Project Layout</h2>
 <p>Any project will normally live in files and folders. Webflo lets us follow a layout that just defines the capabilities of the application.</p>
 <p>The following directories are used as the application's URL-handling facilities.</p>

@@ -410,6 +410,163 @@
                                 }
                             }
                         },
+                        "data": {
+                            "meta": {
+                                "readme": {
+                                    "title": "Data",
+                                    "desc": "Data manipulation utilities.",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "API Category: Data",
+                                            "uri": "api-category-data",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            },
+                            "subtree": {
+                                "data": {
+                                    "meta": {
+                                        "readme": {
+                                            "desc": "Store and manage arbitrary data with a data store internally associated with an element.",
+                                            "outline": [
+                                                {
+                                                    "level": 1,
+                                                    "title": ".data()",
+                                                    "uri": "data",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 2,
+                                                            "title": "a. Set Data",
+                                                            "uri": "a-set-data",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "b. Get Data",
+                                                            "uri": "b-get-data",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax-1",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage-1",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "c. Unset Data",
+                                                            "uri": "c-unset-data",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax-2",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage-2",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Static Usage",
+                                                            "uri": "static-usage",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Import",
+                                                                    "uri": "import",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax-3",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "list": {
+                                    "meta": {
+                                        "readme": {
+                                            "desc": "Create a live list within an element in an OOHTML-based document.",
+                                            "outline": [
+                                                {
+                                                    "level": 1,
+                                                    "title": ".list()",
+                                                    "uri": "list",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Syntax",
+                                                            "uri": "syntax",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Usage",
+                                                            "uri": "usage",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 2,
+                                                            "title": "Static Usage",
+                                                            "uri": "static-usage",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Import",
+                                                                    "uri": "import",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 3,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax-1",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         "dom": {
                             "meta": {
                                 "readme": {
@@ -1346,25 +1503,13 @@
                                 "itemize": {
                                     "meta": {
                                         "readme": {
-                                            "desc": "Create a live list within an element in an OOHTML-based document.",
+                                            "desc": "Alias of the .list() method.",
                                             "outline": [
                                                 {
                                                     "level": 1,
                                                     "title": ".itemize()",
                                                     "uri": "itemize",
                                                     "subtree": [
-                                                        {
-                                                            "level": 2,
-                                                            "title": "Syntax",
-                                                            "uri": "syntax",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 2,
-                                                            "title": "Usage",
-                                                            "uri": "usage",
-                                                            "subtree": []
-                                                        },
                                                         {
                                                             "level": 2,
                                                             "title": "Static Usage",
@@ -1379,7 +1524,7 @@
                                                                 {
                                                                     "level": 3,
                                                                     "title": "Syntax",
-                                                                    "uri": "syntax-1",
+                                                                    "uri": "syntax",
                                                                     "subtree": []
                                                                 }
                                                             ]
@@ -1983,98 +2128,6 @@
                                                     }
                                                 }
                                             }
-                                        }
-                                    }
-                                },
-                                "data": {
-                                    "meta": {
-                                        "readme": {
-                                            "desc": "Store and manage arbitrary data with a data store internally associated with an element.",
-                                            "outline": [
-                                                {
-                                                    "level": 1,
-                                                    "title": ".data()",
-                                                    "uri": "data",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 2,
-                                                            "title": "a. Set Data",
-                                                            "uri": "a-set-data",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "level": 2,
-                                                            "title": "b. Get Data",
-                                                            "uri": "b-get-data",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax-1",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage-1",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "level": 2,
-                                                            "title": "c. Unset Data",
-                                                            "uri": "c-unset-data",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax-2",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Usage",
-                                                                    "uri": "usage-2",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "level": 2,
-                                                            "title": "Static Usage",
-                                                            "uri": "static-usage",
-                                                            "subtree": [
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Import",
-                                                                    "uri": "import",
-                                                                    "subtree": []
-                                                                },
-                                                                {
-                                                                    "level": 3,
-                                                                    "title": "Syntax",
-                                                                    "uri": "syntax-3",
-                                                                    "subtree": []
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
                                         }
                                     }
                                 },

@@ -72,6 +72,9 @@
                     "subtree": {
                         "explainer": {
                             "meta": {
+                                "readme-1": {
+                                    "outline": []
+                                },
                                 "readme": {
                                     "title": "Explainer",
                                     "desc": "The OOHTML design and architectural concepts.",
@@ -594,6 +597,12 @@
                                                     "level": 2,
                                                     "title": "Error Handling",
                                                     "uri": "error-handling",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Subscript Element Mixin",
+                                                    "uri": "subscript-element-mixin",
                                                     "subtree": []
                                                 },
                                                 {
