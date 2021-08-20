@@ -399,7 +399,6 @@ There are two types of reactive methods:
                 this.innerHTML = document.state.propertyName + ' | ' + this.state.propertyName;
             }
         }
-
         /**
          * Return the list of methods that
          * should be made entirely reactive by the Subscript runtime.
@@ -446,7 +445,6 @@ There are two types of reactive methods:
                 this.innerHTML = globalProp + ' | ' + localProp;
             }
         }
-
         /**
          * Return the list of methods that
          * should be bound to their paramters by the Subscript runtime.
