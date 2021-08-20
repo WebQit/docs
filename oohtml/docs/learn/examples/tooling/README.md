@@ -49,7 +49,7 @@ This technique is natively implemented by the [Play UI](/tooling/play-ui) librar
         <title>Tooling In OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
         
-        <script src="https://unpkg.com/@webqit/playui-js@0.3.13/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/playui-js@0.3.15/dist/main.js"></script>
         <script src="https://unpkg.com/@webqit/oohtml@1.8.19/dist/main.js"></script>
     </head>
             

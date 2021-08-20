@@ -16,7 +16,7 @@ It features the ability to add items and toggle the active state of each item.
         <title>A TODO List in OOHTML</title>
         <meta name="oohtml" content="attr.id=data-id" />
 
-        <script src="https://unpkg.com/@webqit/playui-js@0.3.13/dist/main.js"></script>
+        <script src="https://unpkg.com/@webqit/playui-js@0.3.15/dist/main.js"></script>
         <script src="https://unpkg.com/@webqit/oohtml@1.8.19/dist/main.js"></script>
         <script>
             // Make PlayUI available globally
@@ -70,7 +70,7 @@ It features the ability to add items and toggle the active state of each item.
 
             <script type="subscript">
                 this.namespace.title.innerHTML = document.state.title;
-                $(this.namespace.items).itemize(document.state.todo);
+                $(this.namespace.items).list(document.state.todo);
                 this.namespace.add.addEventListener('click', () => {
                     Observer.proxy(document.state.todo).push({desc: prompt('Task description', , 'Task-' + (document.state.todo.length + 1)), active: true,});
                 });

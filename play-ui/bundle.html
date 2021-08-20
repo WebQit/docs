@@ -422,6 +422,224 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 				</template>
 			</template>
 
+			<template name="data">
+				<div exportgroup="readme">
+
+					<h1 id="api-category-data">API Category: Data</h1>
+
+				</div>
+
+				<template name="data">
+					<div exportgroup="readme">
+
+						<h1 id="data">.data()</h1>
+<p>This method is used to store and manage arbitrary data with a data store internally associated with an element.</p>
+<ul>
+<li><a href="#a-set-data">Set Data</a></li>
+<li><a href="#b-get-data">Get Data</a></li>
+<li><a href="#c-unset-data">Unset Data</a></li>
+</ul>
+<h2 id="a-set-data">a. Set Data</h2>
+<h3 id="syntax">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single value</span>
+$(el).data(key, value);
+
+<span class="hljs-comment">// Set multiple values</span>
+$(el).data({
+    [key]: value,
+});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The key to set.</li>
+<li><strong><code>value</code></strong>: <strong><code>Any</code></strong> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="#c-unset-data">see below</a>.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><strong><code>this</code></strong> - The Play UI instance.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Set several distinct values for all elements matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value 1&#x27;</span>).data({
+    <span class="hljs-attr">key2</span>: <span class="hljs-string">&#x27;value 2&#x27;</span>,
+    <span class="hljs-attr">key3</span>: <span class="hljs-string">&#x27;value 3&#x27;</span>
+});</code></pre>
+<h2 id="b-get-data">b. Get Data</h2>
+<h3 id="syntax-1">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Retrieve single value</span>
+<span class="hljs-keyword">let</span> value = $(el).data(key);
+
+<span class="hljs-comment">// Retrieve multiples values</span>
+<span class="hljs-keyword">let</span> values = $(el).data([...key]);
+
+<span class="hljs-comment">// Retrieve all values</span>
+<span class="hljs-keyword">let</span> values = $(el).data();</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The data key to read.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><strong><code>value</code></strong>: <strong><code>Any</code></strong> - The data value as initially stored, or <code>undefined</code>.</li>
+<li><strong><code>values</code></strong>: <strong><code>Object</code></strong> - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.</li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<p>Retrieve values for the first element matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> value = $(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>);
+<span class="hljs-comment">// value-1</span></code></pre>
+<h2 id="c-unset-data">c. Unset Data</h2>
+<h3 id="syntax-2">Syntax</h3>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset single property</span>
+.data(key, <span class="hljs-literal">undefined</span>);
+
+<span class="hljs-comment">// Unset multiples values</span>
+$(el).data({
+    [key]: <span class="hljs-literal">undefined</span>,
+});</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The data key to unset.</li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><strong><code>this</code></strong> - The Play UI instance.</li>
+</ul>
+<h3 id="usage-2">Usage</h3>
+<p>Unset values for all elements matched by <code>$()</code>.</p>
+<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-literal">undefined</span>).data({
+    <span class="hljs-attr">key2</span>: <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">key3</span>: <span class="hljs-literal">undefined</span>,
+});</code></pre>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.data()</code> instance method is internally based on the standalone <code>misc/data()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.misc;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/misc/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-3">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+					</div>
+				</template>
+
+				<template name="list">
+					<div exportgroup="readme">
+
+						<h1 id="list"><code>.list()</code></h1>
+<p>This method is used to create a live list within an element in an <a href="/tooling/oohtml">OOHTML</a>-based document. (It requires the OHHTML polyfill to be available in the document.)</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js">$(el).list(items[, params]);</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong><code>items</code></strong>: <strong><code>Array</code></strong> - A list of data items to populate into a list container.</p></li>
+<li><p><strong><code>params</code></strong>: <strong><code>Object</code></strong> - An optional list of additional parameters for the operation.</p>
+<ul>
+<li><p><strong><code>renderCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index[, isUpdate])</code></strong> - An optional callback that is called to handle rendering or <em>unrendering</em> of <code>itemData</code>.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>directive</code></strong>: <strong><code>String</code></strong> - This will be <code>render</code> when <code>itemData</code> is to be rendered into the given <code>itemElement</code>. It will be <code>unrender</code> when <code>itemData</code> is to be disposed off the given <code>itemElement</code>.</li>
+<li><strong><code>itemElement</code></strong>: <strong><code>Element</code></strong> - A newly created <em>list item element</em>, or an existing <em>list item element</em>, that corresponds to the current <code>itemData</code>.</li>
+<li><strong><code>itemData</code></strong>: <strong><code>Any</code></strong> - The current entry in the input <code>items</code> associated with <code>itemElement</code>.</li>
+<li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
+<li><strong><code>isUpdate</code></strong>: <strong><code>Boolean</code></strong> - A flag that indicates whether or not the given <code>itemData</code> is an update to a previous entry in the input <code>items</code>. This flag is only supplied when <code>directive</code> is <code>render</code>.</li></ul>
+<p><strong>Return</strong></p>
+<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>temize()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>temize()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'s <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
+<li><p><strong><code>overflowCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index, collapsedCount)</code></strong> - An optional callback that is called to handle overflow events. When omitted, <code>temize()</code> doesn't watch any items for overflow.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>directive</code></strong>: <strong><code>String</code></strong> - This will be <code>collapse</code> when <code>itemElement</code> is at the verge of overflowing the list container. It will be <code>restore</code> when <code>itemElement</code> can be again restored from its <em>collapsed</em> state.</li>
+<li><strong><code>itemElement</code></strong>: <strong><code>Element</code></strong> - The <em>list item element</em> to be collapsed or restored.</li>
+<li><strong><code>itemData</code></strong>: <strong><code>Any</code></strong> - The current entry in the input <code>items</code> associated with <code>itemElement</code>.</li>
+<li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
+<li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state. This will be <code>0</code> if <code>itemElement</code> is the last element in <em>collapsed</em> state.</li></ul>
+<p><strong>Return</strong></p>
+<p><code>viod|Promise</code> - A return value is not required for this function. But a <code>Promise</code> can be returned to tell <code>temize()</code> to wait while collapsing or restoring <code>itemElement</code>.</p></li>
+<li><p><strong><code>overflowContainerCallback</code></strong>: <strong><code>function(isOverflowing, containerElement, uncollapsedCount, collapsedCount)</code></strong> - An optional callback that is called both <em>at the start</em> and <em>at the end</em> of the reflow process that collapses or restores overflowing items.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong><code>isOverflowing</code></strong>: <strong><code>Boolean</code></strong> - This is <code>true</code> when the reflow process is just beginning; <code>false</code> when the process has just ended.</li>
+<li><strong><code>containerElement</code></strong>: <strong><code>Element</code></strong> - The container element undergoing a reflow.</li>
+<li><strong><code>uncollapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items in the <em>uncollapsed</em> state.</li>
+<li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state.</li></ul>
+<p><strong>Return</strong></p>
+<p><code>Boolean|Promise</code> - A return value is not required for this function. But <code>false</code> (or a <code>Promise</code> that resolves to <code>false</code>) can be returned when <code>isOverflowing</code> is <em>true</em> to tell <code>temize()</code> to skip a reflow.</p></li>
+<li><p><strong><code>collapsionPoint</code></strong>: <strong><code>String</code></strong> - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:</p>
+<ul>
+<li><strong><code>start</code></strong> - Clip overflows at the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
+<li><strong><code>center-start</code></strong> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
+<li><strong><code>center</code></strong> - Clip overflows at the center of the list container. This behaves as <code>center-start</code> when visible elements are even in number.</li>
+<li><strong><code>center-end</code></strong> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li>
+<li><strong><code>end</code></strong> - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li></ul></li>
+<li><p><strong><code>orientation</code></strong>: <strong><code>String</code></strong> - This is either <code>horizontal</code> or <code>vertical</code> to indicate the direction of the list and along which axis to watch for overflow. Default is <code>horizontal</code>.</p></li>
+<li><p><strong><code>live</code></strong>: <strong><code>String</code></strong> - Specifies whether or not for <code>temize()</code> to observe input <code>items</code> for mutations. This is <code>true</code> by default.</p></li>
+<li><p><strong><code>itemIndexAttribute</code></strong>: <strong><code>String</code></strong> - The attribute name on <code>itemElement</code> on which to set the index of the item. This defaults to <code>data-index</code>.</p></li>
+<li><p><strong><code>itemExportId</code></strong>: <strong><code>String</code></strong> - The <em>export ID</em> used for importing <em>item elements</em> for each item in the input <code>items</code>. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the <em>default</em> export of the  referenced module is used.</p></li>
+<li><p><strong><code>parentalOverflowBounds</code></strong>: <strong><code>Boolean</code></strong> - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to <code>false</code> to use the list container itself.</p></li></ul></li>
+</ul>
+<p><strong>Return</strong></p>
+<ul>
+<li><strong><code>this</code></strong> - The Play UI instance.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>The document in context. The list items <code>&lt;li&gt;</code> in the module will be used to derive the items for the list container <code>&lt;ul&gt;</code>.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-comment">&lt;!-- the default export --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fancy-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-comment">&lt;!-- a named export --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+<p>Create a list of cities.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> items = [
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;London&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Lagos&#x27;</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Berlin&#x27;</span>},
+];
+$(<span class="hljs-string">&#x27;ul&#x27;</span>).list(items);</code></pre>
+<p>A list item <code>&lt;li&gt;</code> is created for each city, and <code>list()</code>has bound the item data for each item element to the state of the element using the element's <code>.setState()</code> method. But binding the data alone doesn't get it rendered.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<p>Now, we provide a <code>renderCallback</code> function to handle rendering of item data.</p>
+<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;ul&#x27;</span>).list(items, {
+    renderCallback(directive, itemElement, itemData) =&gt; {
+        <span class="hljs-keyword">if</span> (directive === <span class="hljs-string">&#x27;render&#x27;</span>) {
+            itemElement.innerHTML = itemData.name;
+        }
+    }
+});</code></pre>
+<p>Item data are now rendered.</p>
+<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>London<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>Lagos<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>Berlin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<ul>
+<li>Automatic data rendering can be achieved intwo ways.</li>
+<li>Specifying the item export to use can be achieved intwo ways.</li>
+<li>Reactive lists.</li>
+<li>Overflow lists.</li>
+</ul>
+<hr />
+<h2 id="static-usage">Static Usage</h2>
+<p>The <code>.list()</code> instance method is internally based on the standalone <code>data/list()</code> function which may be used statically.</p>
+<h3 id="import">Import</h3>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { list } = $.data;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { list } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/data/index.js&#x27;</span>;</code></pre>
+<h3 id="syntax-1">Syntax</h3>
+<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
+
+					</div>
+				</template>
+			</template>
+
 			<template name="dom">
 				<div exportgroup="readme">
 
@@ -1268,115 +1486,14 @@ $(nodeList);</code></pre>
 					<div exportgroup="readme">
 
 						<h1 id="itemize"><code>.itemize()</code></h1>
-<p>This method is used to create a live list within an element in an <a href="/tooling/oohtml">OOHTML</a>-based document. (It requires the OHHTML polyfill to be available in the document.)</p>
-<h2 id="syntax">Syntax</h2>
-<pre><code class="hljs js language-js">$(el).itemize(items[, params]);</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><p><strong><code>items</code></strong>: <strong><code>Array</code></strong> - A list of data items to populate into a list container.</p></li>
-<li><p><strong><code>params</code></strong>: <strong><code>Object</code></strong> - An optional list of additional parameters for the operation.</p>
-<ul>
-<li><p><strong><code>renderCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index[, isUpdate])</code></strong> - An optional callback that is called to handle rendering or <em>unrendering</em> of <code>itemData</code>.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>directive</code></strong>: <strong><code>String</code></strong> - This will be <code>render</code> when <code>itemData</code> is to be rendered into the given <code>itemElement</code>. It will be <code>unrender</code> when <code>itemData</code> is to be disposed off the given <code>itemElement</code>.</li>
-<li><strong><code>itemElement</code></strong>: <strong><code>Element</code></strong> - A newly created <em>list item element</em>, or an existing <em>list item element</em>, that corresponds to the current <code>itemData</code>.</li>
-<li><strong><code>itemData</code></strong>: <strong><code>Any</code></strong> - The current entry in the input <code>items</code> associated with <code>itemElement</code>.</li>
-<li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
-<li><strong><code>isUpdate</code></strong>: <strong><code>Boolean</code></strong> - A flag that indicates whether or not the given <code>itemData</code> is an update to a previous entry in the input <code>items</code>. This flag is only supplied when <code>directive</code> is <code>render</code>.</li></ul>
-<p><strong>Return</strong></p>
-<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>temize()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>temize()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'s <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
-<li><p><strong><code>overflowCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index, collapsedCount)</code></strong> - An optional callback that is called to handle overflow events. When omitted, <code>temize()</code> doesn't watch any items for overflow.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>directive</code></strong>: <strong><code>String</code></strong> - This will be <code>collapse</code> when <code>itemElement</code> is at the verge of overflowing the list container. It will be <code>restore</code> when <code>itemElement</code> can be again restored from its <em>collapsed</em> state.</li>
-<li><strong><code>itemElement</code></strong>: <strong><code>Element</code></strong> - The <em>list item element</em> to be collapsed or restored.</li>
-<li><strong><code>itemData</code></strong>: <strong><code>Any</code></strong> - The current entry in the input <code>items</code> associated with <code>itemElement</code>.</li>
-<li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
-<li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state. This will be <code>0</code> if <code>itemElement</code> is the last element in <em>collapsed</em> state.</li></ul>
-<p><strong>Return</strong></p>
-<p><code>viod|Promise</code> - A return value is not required for this function. But a <code>Promise</code> can be returned to tell <code>temize()</code> to wait while collapsing or restoring <code>itemElement</code>.</p></li>
-<li><p><strong><code>overflowContainerCallback</code></strong>: <strong><code>function(isOverflowing, containerElement, uncollapsedCount, collapsedCount)</code></strong> - An optional callback that is called both <em>at the start</em> and <em>at the end</em> of the reflow process that collapses or restores overflowing items.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>isOverflowing</code></strong>: <strong><code>Boolean</code></strong> - This is <code>true</code> when the reflow process is just beginning; <code>false</code> when the process has just ended.</li>
-<li><strong><code>containerElement</code></strong>: <strong><code>Element</code></strong> - The container element undergoing a reflow.</li>
-<li><strong><code>uncollapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items in the <em>uncollapsed</em> state.</li>
-<li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state.</li></ul>
-<p><strong>Return</strong></p>
-<p><code>Boolean|Promise</code> - A return value is not required for this function. But <code>false</code> (or a <code>Promise</code> that resolves to <code>false</code>) can be returned when <code>isOverflowing</code> is <em>true</em> to tell <code>temize()</code> to skip a reflow.</p></li>
-<li><p><strong><code>collapsionPoint</code></strong>: <strong><code>String</code></strong> - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:</p>
-<ul>
-<li><strong><code>start</code></strong> - Clip overflows at the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
-<li><strong><code>center-start</code></strong> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
-<li><strong><code>center</code></strong> - Clip overflows at the center of the list container. This behaves as <code>center-start</code> when visible elements are even in number.</li>
-<li><strong><code>center-end</code></strong> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li>
-<li><strong><code>end</code></strong> - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li></ul></li>
-<li><p><strong><code>orientation</code></strong>: <strong><code>String</code></strong> - This is either <code>horizontal</code> or <code>vertical</code> to indicate the direction of the list and along which axis to watch for overflow. Default is <code>horizontal</code>.</p></li>
-<li><p><strong><code>live</code></strong>: <strong><code>String</code></strong> - Specifies whether or not for <code>temize()</code> to observe input <code>items</code> for mutations. This is <code>true</code> by default.</p></li>
-<li><p><strong><code>itemIndexAttribute</code></strong>: <strong><code>String</code></strong> - The attribute name on <code>itemElement</code> on which to set the index of the item. This defaults to <code>data-index</code>.</p></li>
-<li><p><strong><code>itemExportId</code></strong>: <strong><code>String</code></strong> - The <em>export ID</em> used for importing <em>item elements</em> for each item in the input <code>items</code>. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the <em>default</em> export of the  referenced module is used.</p></li>
-<li><p><strong><code>parentalOverflowBounds</code></strong>: <strong><code>Boolean</code></strong> - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to <code>false</code> to use the list container itself.</p></li></ul></li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><strong><code>this</code></strong> - The Play UI instance.</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>The document in context. The list items <code>&lt;li&gt;</code> in the module will be used to derive the items for the list container <code>&lt;ul&gt;</code>.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-comment">&lt;!-- the default export --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">exportgroup</span>=<span class="hljs-string">&quot;export1&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fancy-item&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <span class="hljs-comment">&lt;!-- a named export --&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
-<p>Create a list of cities.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> items = [
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;London&#x27;</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Lagos&#x27;</span>},
-    {<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Berlin&#x27;</span>},
-];
-$(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items);</code></pre>
-<p>A list item <code>&lt;li&gt;</code> is created for each city, and <code>itemize()</code>has bound the item data for each item element to the state of the element using the element's <code>.setState()</code> method. But binding the data alone doesn't get it rendered.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
-<p>Now, we provide a <code>renderCallback</code> function to handle rendering of item data.</p>
-<pre><code class="hljs js language-js">$(<span class="hljs-string">&#x27;ul&#x27;</span>).itemize(items, {
-    renderCallback(directive, itemElement, itemData) =&gt; {
-        <span class="hljs-keyword">if</span> (directive === <span class="hljs-string">&#x27;render&#x27;</span>) {
-            itemElement.innerHTML = itemData.name;
-        }
-    }
-});</code></pre>
-<p>Item data are now rendered.</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;list&quot;</span> <span class="hljs-attr">template</span>=<span class="hljs-string">&quot;module1&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span>London<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>Lagos<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>Berlin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
-<ul>
-<li>Automatic data rendering can be achieved intwo ways.</li>
-<li>Specifying the item export to use can be achieved intwo ways.</li>
-<li>Reactive lists.</li>
-<li>Overflow lists.</li>
-</ul>
+<p>This method is an alias of the <a href="/tooling/play-ui/docs/api/data/list"><code>.list()</code></a> method. See <a href="/tooling/play-ui/docs/api/data/list"><code>.list()</code></a> for documentation.</p>
 <hr />
 <h2 id="static-usage">Static Usage</h2>
 <p>The <code>.itemize()</code> instance method is internally based on the standalone <code>dom/itemize()</code> function which may be used statically.</p>
 <h3 id="import">Import</h3>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { itemize } = $.dom;</code></pre>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { itemize } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/dom/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-1">Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
 
 					</div>
@@ -1873,98 +1990,6 @@ el.style.color = <span class="hljs-string">&#x27;brown&#x27;</span>;
 							</div>
 						</template>
 					</template>
-				</template>
-
-				<template name="data">
-					<div exportgroup="readme">
-
-						<h1 id="data">.data()</h1>
-<p>This method is used to store and manage arbitrary data with a data store internally associated with an element.</p>
-<ul>
-<li><a href="#a-set-data">Set Data</a></li>
-<li><a href="#b-get-data">Get Data</a></li>
-<li><a href="#c-unset-data">Unset Data</a></li>
-</ul>
-<h2 id="a-set-data">a. Set Data</h2>
-<h3 id="syntax">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Set a single value</span>
-$(el).data(key, value);
-
-<span class="hljs-comment">// Set multiple values</span>
-$(el).data({
-    [key]: value,
-});</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The key to set.</li>
-<li><strong><code>value</code></strong>: <strong><code>Any</code></strong> - The data value to set. When <code>undefined</code>, the data key is unset from the data store; <a href="#c-unset-data">see below</a>.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><strong><code>this</code></strong> - The Play UI instance.</li>
-</ul>
-<h3 id="usage">Usage</h3>
-<p>Set several distinct values for all elements matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-string">&#x27;value 1&#x27;</span>).data({
-    <span class="hljs-attr">key2</span>: <span class="hljs-string">&#x27;value 2&#x27;</span>,
-    <span class="hljs-attr">key3</span>: <span class="hljs-string">&#x27;value 3&#x27;</span>
-});</code></pre>
-<h2 id="b-get-data">b. Get Data</h2>
-<h3 id="syntax-1">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Retrieve single value</span>
-<span class="hljs-keyword">let</span> value = $(el).data(key);
-
-<span class="hljs-comment">// Retrieve multiples values</span>
-<span class="hljs-keyword">let</span> values = $(el).data([...key]);
-
-<span class="hljs-comment">// Retrieve all values</span>
-<span class="hljs-keyword">let</span> values = $(el).data();</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The data key to read.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><strong><code>value</code></strong>: <strong><code>Any</code></strong> - The data value as initially stored, or <code>undefined</code>.</li>
-<li><strong><code>values</code></strong>: <strong><code>Object</code></strong> - A hash of key/value pairs for each key in the list or in the entire data store, as in the last syntax.</li>
-</ul>
-<h3 id="usage-1">Usage</h3>
-<p>Retrieve values for the first element matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> value = $(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>);
-<span class="hljs-comment">// value-1</span></code></pre>
-<h2 id="c-unset-data">c. Unset Data</h2>
-<h3 id="syntax-2">Syntax</h3>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Unset single property</span>
-.data(key, <span class="hljs-literal">undefined</span>);
-
-<span class="hljs-comment">// Unset multiples values</span>
-$(el).data({
-    [key]: <span class="hljs-literal">undefined</span>,
-});</code></pre>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong><code>key</code></strong>: <strong><code>String</code></strong> - The data key to unset.</li>
-</ul>
-<p><strong>Return</strong></p>
-<ul>
-<li><strong><code>this</code></strong> - The Play UI instance.</li>
-</ul>
-<h3 id="usage-2">Usage</h3>
-<p>Unset values for all elements matched by <code>$()</code>.</p>
-<pre><code class="hljs js language-js">$(el).data(<span class="hljs-string">&#x27;key1&#x27;</span>, <span class="hljs-literal">undefined</span>).data({
-    <span class="hljs-attr">key2</span>: <span class="hljs-literal">undefined</span>,
-    <span class="hljs-attr">key3</span>: <span class="hljs-literal">undefined</span>,
-});</code></pre>
-<hr />
-<h2 id="static-usage">Static Usage</h2>
-<p>The <code>.data()</code> instance method is internally based on the standalone <code>misc/data()</code> function which may be used statically.</p>
-<h3 id="import">Import</h3>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">const</span> { data } = $.misc;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> { data } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/playui-js/src/misc/index.js&#x27;</span>;</code></pre>
-<h3 id="syntax-3">Syntax</h3>
-<p>See <a href="/tooling/play-ui/docs/getting-started/overview#use-as-descrete-utilities">the general way to use Play UI's standalone functions</a></p>
-
-					</div>
 				</template>
 
 				<template name="transaction">
