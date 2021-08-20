@@ -390,7 +390,6 @@ There are two types of reactive methods:
 
     ```js
     customElements.define('my-element', class extends WebQit.SubscriptElement(HTMLElement) {
-
         /**
          * The "this.innerHTML = ..." assignment will be re-run each time
          * the document.state.propertyName and this.state.propertyName properties change.
@@ -438,7 +437,6 @@ There are two types of reactive methods:
 
     ```js
     customElements.define('my-element', class extends WebQit.SubscriptElement(HTMLElement) {
-
         /**
          * The document.state.propertyName and this.state.propertyName will be automatically 
          * observed for changes and the "render()" method will be re-run accordingly.
