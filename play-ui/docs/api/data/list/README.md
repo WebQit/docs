@@ -27,9 +27,9 @@ $(el).list(items[, params]);
 
         **Return**
 
-        `viod|false` - A return value is not required for this function. But `false` can be returned to tell `temize()` that `itemData` has been successfully *rendered/unrendered*. Otherwise, `temize()` will automatically *render/unrender* `itemData` using the `itemElement`'s `setState()` and `clearState()` methods respectively.
+        `viod|false` - A return value is not required for this function. But `false` can be returned to tell `list()` that `itemData` has been successfully *rendered/unrendered*. Otherwise, `list()` will automatically *render/unrender* `itemData` using the `itemElement`'s `setState()` and `clearState()` methods respectively.
 
-    + **`overflowCallback`**: **`function(directive, itemElement, itemData, index, collapsedCount)`** - An optional callback that is called to handle overflow events. When omitted, `temize()` doesn't watch any items for overflow.
+    + **`overflowCallback`**: **`function(directive, itemElement, itemData, index, collapsedCount)`** - An optional callback that is called to handle overflow events. When omitted, `list()` doesn't watch any items for overflow.
 
         **Parameters**
 
@@ -41,7 +41,7 @@ $(el).list(items[, params]);
 
         **Return**
 
-        `viod|Promise` - A return value is not required for this function. But a `Promise` can be returned to tell `temize()` to wait while collapsing or restoring `itemElement`.
+        `viod|Promise` - A return value is not required for this function. But a `Promise` can be returned to tell `list()` to wait while collapsing or restoring `itemElement`.
 
     + **`overflowContainerCallback`**: **`function(isOverflowing, containerElement, uncollapsedCount, collapsedCount)`** - An optional callback that is called both *at the start* and *at the end* of the reflow process that collapses or restores overflowing items.
 
@@ -54,7 +54,7 @@ $(el).list(items[, params]);
 
         **Return**
 
-        `Boolean|Promise` - A return value is not required for this function. But `false` (or a `Promise` that resolves to `false`) can be returned when `isOverflowing` is *true* to tell `temize()` to skip a reflow.
+        `Boolean|Promise` - A return value is not required for this function. But `false` (or a `Promise` that resolves to `false`) can be returned when `isOverflowing` is *true* to tell `list()` to skip a reflow.
 
     + **`collapsionPoint`**: **`String`** - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:
 
@@ -65,7 +65,8 @@ $(el).list(items[, params]);
         + **`end`** - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.
 
     + **`orientation`**: **`String`** - This is either `horizontal` or `vertical` to indicate the direction of the list and along which axis to watch for overflow. Default is `horizontal`.
-    + **`live`**: **`String`** - Specifies whether or not for `temize()` to observe input `items` for mutations. This is `true` by default.
+    + **`clearDOM`**: **`Boolean`** - Specifies whether or not for `list()` to clear out any existing item elements that may have been created in a previous call to `list()`. This is `false` by default; `list()` will try to update any existing item elements with new data.
+    + **`live`**: **`String`** - Specifies whether or not for `list()` to observe input `items` for mutations. This is `true` by default.
     + **`itemIndexAttribute`**: **`String`** - The attribute name on `itemElement` on which to set the index of the item. This defaults to `data-index`.
     + **`itemExportId`**: **`String`** - The *export ID* used for importing *item elements* for each item in the input `items`. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the *default* export of the  referenced module is used.
     + **`parentalOverflowBounds`**: **`Boolean`** - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to `false` to use the list container itself.
