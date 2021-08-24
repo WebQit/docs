@@ -403,7 +403,12 @@ OOHTML supports expressions that make it easier to get to modules and their expo
     *(Equivalent accessor syntax)*
 
     ```js
-    let module_nested_middle = documents.templates.root?.templates.module_nested?.templates.module_nested_middle?.templates.module_nonexistent?.templates.module_nonexistent;
+    var segement, path = ['module_nested', 'module_nested_middle', 'module_nonexistent', 'module_nonexistent'];
+    var module = documents.templates.root;
+    while((segement = path.shift()) && module.templates[segement]) {
+        module = module.templates[segement];
+    }
+    module_nested_middle = module;
     ```
 
 + Complex expression supported.
