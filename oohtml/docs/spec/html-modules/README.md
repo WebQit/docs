@@ -4,7 +4,7 @@ _index: first
 ---
 # HTML Modules
 
-*HTML Modules* are a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigm. This feature establishes the standard `<template>` element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.
+*HTML Modules* is a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigm. This feature establishes the standard `<template>` element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.
 
 > OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 

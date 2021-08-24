@@ -15,7 +15,7 @@ OOHTML offers a set of five features that make common UI development paradigms p
 
 ## HTML Modules
 
-*HTML Modules* are a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigm. This feature establishes the standard `<template>` element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.
+*HTML Modules* is a templating feature that lets us write reusable HTML markup using the *module*, *export* and  *import* paradigm. This feature establishes the standard `<template>` element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.
 
 A module is a regular `<template>` element with a `name` attribute - *the module ID* - and its contents are simply the *exports*.
 
@@ -97,7 +97,7 @@ The contents of the remote file automatically become the template's content on l
 
 ## HTML Imports
 
-*HTML Imports* are a declarative way to use the *exports* of an *HTML Module* from anywhere in the main document.
+*HTML Imports* is a declarative way to use the *exports* of an *HTML Module* from anywhere in the main document.
 
 > Note that this is different from the HTML Imports that was spec'd with an early version of Web Components.
 
