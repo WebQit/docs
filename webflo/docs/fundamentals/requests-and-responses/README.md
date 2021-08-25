@@ -183,6 +183,7 @@ The underlying JSON config file `.webqit/webflo/config/redirects.json` may be di
         {
             "from": "/old-url", // Or a glob pattern
             "to": "/api/v1",
+            "reuseQuery": true, // false by default
             "code": "302" // 301 by default
         }
     ]
