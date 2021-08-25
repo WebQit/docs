@@ -104,7 +104,7 @@ In real life, the equivalent directory structure for nested URLs creates a paren
 
 Webflo follows an approach that gets a request going from a parent handler to a child handler. This creates a *flow-through* effect that lets us take advantage of this relationship for new routing capabilities.
 
-A request for the URL `/shop`, for example, would *flow through* two route handlers.
+A request for the URL `/shop`, for example, would *flow through* two route handlers - the first two handlers below.
 
 > *`file: /server/index.js`*
 
