@@ -7,7 +7,7 @@ _index: first
 Objective SQL is a query client that wraps powerful concepts in a simple, succint API.
 
 1. It lets you query different types of databases using one consistent syntax and API.
-    1. Both SQL databases (like MySQL, PostgreSQL) and client-side, non-SQL databases (like indexedDB).
+    1. Both SQL databases (like MySQL, PostgreSQL) and client-side, non-SQL databases (like [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)).
     2. One syntax and API to rule them all!
 2. It implements a superset of the SQL language that lets you access relationships without constructing JOINS.
     1. Goodbye query complexity!
@@ -52,7 +52,7 @@ Obtain an Objective SQL query client for your target database:
     const client = new IDB;
     ```
     
-3. To work with Objective SQL's in-memory object storage, import and instantiate the *ODM* language driver.
+3. To work with Objective SQL's in-memory object storage, import and instantiate the *ODB* language driver.
 
     > This is an environment-agnostic in-memory store.
 
@@ -75,9 +75,15 @@ All `client` instances above implement the same interface:
     });
     ```
 2. Other methods give us a programmatic way to manipulate or query the database. (Docs coming soon.)
-    1. There is the `client.createDatabase()` and `client.createDatabaseIfNotExists()` methods (and the `client.dropDatabase()` and `client.dropDatabaseIfExists()` methods.) The former return a `Database` instance (`database`).
-    2. There is the `database.tables()` method - for listing tables, the `database.table(name)` method - for obtaining a `Table` instance (`table`), and the `database.createTable()`, `database.alterTable()`, and `database.dropTable()` methods.
-    3. There is the `table.getAll()` method - for listing entries, the `table.get(id)` method - for obtaining an entry, the `table.count()` method - for count, and the `table.addAll()` and `table.add()` methods, the `table.putAll()` and `table.put()` methods, and the `table.deleteAll()` and `table.delete()` methods.
+    1. The `client.createDatabase()` and `client.createDatabaseIfNotExists()` methods. (Returning a `Database` instance (`database`).)
+    2. The `client.dropDatabase()` and `client.dropDatabaseIfExists()` methods.
+    3. The `client.databases()` method - for listing databases, and the `client.database(name)` method - for obtaining a `Database` instance (`database`).
+    4. The `database.createTable()`, `database.alterTable()`, and `database.dropTable()` methods.
+    5. The `database.tables()` method - for listing tables, the `database.table(name)` method - for obtaining a `Table` instance (`table`).
+    6. The `table.getAll()` method - for listing entries, the `table.get(id)` method - for obtaining an entry, the `table.count()` method - for count.
+    7. The `table.addAll()` and `table.add()` methods.
+    8. The `table.putAll()` and `table.put()` methods.
+    9. The `table.deleteAll()` and `table.delete()` methods.
 
 [Learn more about the API](../learn/the-api). (DOCS coming soon.)
 
