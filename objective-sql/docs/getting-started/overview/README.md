@@ -4,32 +4,93 @@ _index: first
 ---
 # Overview
 
+Objective SQL is a query client that wraps powerful concepts in a simple, succint API.
+
+1. It lets you query different types of databases using one consistent syntax and API.
+    1. Both SQL databases (like MySQL, PostgreSQL) and client-side, non-SQL databases (like indexedDB).
+    2. One syntax and API to rule them all!
+2. It implements a superset of the SQL language that lets you access relationships without constructing JOINS.
+    1. Goodbye query complexity!
+    2. Goodbye ORMs!
+
 Take a one-minute overview of Objective SQL.
 
 ## Basic Usage
 
-Objective SQL works both in node.js and in the browser. Here's a node.js example:
+Obtain an Objective SQL query client for your target database:
 
-```js
-// Import the inbuilt Object Storage library as the query client
-import { ODB as Client } from '@webqit/objective-sql';
+1. For SQL databases, import and instantiate the *SQL* language driver. (You'll pass in the name of an appropriate database connection driver that works for your database.)
 
-// Run a query
-Client.query('SELECT fname, lname FROM users').then(result => {
-    console.log(result);
-});
-```
+    ```js
+    // Import SQL
+    import { SQL } from '@webqit/objective-sql';
+    
+    // Using the 'mysql2' connector (npm install mysql2)
+    const connectionDriver = 'mysql2';
+    const connectionParams = {
+	    host: '127.0.0.1',
+	    user: 'root',
+	    password: '',
+    };
 
-## The Language
+    // Create an instance by calling .connect().
+    const client = SQL.connect(connectionDriver, connectionParams);
+    
+    // Or by using the 'new' keyword.
+    const client = new SQL(connectionDriver, connectionParams);
+    ```
+    
+2. For the client-side [*IndexedDB*](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) database, import and instantiate the *IDB* language driver.
 
-Objective SQL is the same familiar, powerful SQL language you know...
+    > IndexedDB is a low-level API for client-side storage.
+    
+    ```js
+    // Import IDB
+    import { IDB } from '@webqit/objective-sql';
+    
+    // Create an instance.
+    const client = new IDB;
+    ```
+    
+3. To work with Objective SQL's in-memory object storage, import and instantiate the *ODM* language driver.
+
+    > This is an environment-agnostic in-memory store.
+
+    ```js
+    // Import IDB
+    import { ODB } from '@webqit/objective-sql';
+    
+    // Create an instance.
+    const client = new ODB;
+    ```
+
+All `client` instances above implement the same interface:
+
+1. The `client.query()` method lets you run any SQL query on your database.
+
+    ```js
+    // Run a query
+    client.query('SELECT fname, lname FROM users').then(result => {
+        console.log(result);
+    });
+    ```
+2. Other methods give us a programmatic way to manipulate or query the database. (Docs coming soon.)
+    1. There is the `client.createDatabase()` and `client.createDatabaseIfNotExists()` methods (and the `client.dropDatabase()` and `client.dropDatabaseIfExists()` methods.) The former return a `Database` instance (`database`).
+    2. There is the `database.tables()` method - for listing tables, the `database.table(name)` method - for obtaining a `Table` instance (`table`), and the `database.createTable()`, `database.alterTable()`, and `database.dropTable()` methods.
+    3. There is the `table.getAll()` method - for listing entries, the `table.get(id)` method - for obtaining an entry, the `table.count()` method - for count, and the `table.addAll()` and `table.add()` methods, the `table.putAll()` and `table.put()` methods, and the `table.deleteAll()` and `table.delete()` methods.
+
+[Learn more about the API](../learn/the-api). (DOCS coming soon.)
+
+## What About Relationships? - The Language
+
+Objective SQL is a superset of the same familiar, powerful SQL language you know...
 
 ```sql
 SELECT post_title, users.fname AS author_name FROM posts
 LEFT JOIN users ON users.id = posts.author_id;
 ```
 
-...but with an object-oriented syntax for relationships, built into the language...
+...with an object-oriented syntax for relationships, built into the language...
 
 ```sql
 SELECT post_title, author_id->fname AS author_name FROM posts;
@@ -39,73 +100,3 @@ SELECT post_title, author_id->fname AS author_name FROM posts;
 
 [Learn more about the language](../learn/the-language) and see just what's possible with the *arrow* syntax. (DOCS coming soon.)
 
-## The API
-
-Objective SQL also lets us work programmatically using a promise-based API.
-
-Here's the API version of the *[Basic Usage](#basic-usage)* query we started with:
-
-```js
-// The Client.open() method below opens the "default" database at version "0"
-// More on this in the docs
-Client.open().then(async DB => {
-
-    // We get a handle to the "users" store (or table)
-    let userStore = await DB.open('users');
-    
-    // Then we run a query
-    let result = await userStore.getAll();
-    console.log(result);
-});
-```
-
-[Learn more about the API](../learn/the-api) and see just what's possible. (DOCS coming soon.)
-
-## Storage
-
-Objective SQL lets us decide between underlying storage technologies without changing code.
-
-While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like the IndexedDB that ships with browsers, by simply swiping in the appropriate client in the `import` statement...
-
-```js
-import {
-    //ODB as Client,
-    IDB as Client,
-    //SQL as Client,
-} from '@webqit/objective-sql';
-```
-
-...and the rest of the code can go on "as is". 
-
-[Learn more about Storage](../learn/storage) and see just what's possible. (DOCS coming soon.)
-
-## Schemas
-
-Objective SQL completely embraces the schema idea of SQL, and offers one simple, universal way to write these schemas that describe your data - whatever the underlying storage engine.
-
-Schema declaration is usually the first step to working with SQL. So, the `users` table we've used in the examples above should already have been declared. Here's how easy it is to do that:
-
-```js
-(async () => {
-    const DB = await Client.create([{
-        name: 'users',
-        primaryKey: 'id',
-        autoIncrement: true,
-        fields: {id: {}, fname: {}, lname: {}, email: {}, age:{type: 'int', default:0},},
-        uniqueKeys: {email: 'email'},
-    }, {
-        name: 'posts',
-        ...
-    }]);
-
-    // Schema created. DB ready for use...
-    // So we populate with data... programmatically or via queries
-    let userStore = await DB.open('users', 'readwrite');
-    userStore.addAll([
-        {fname: 'John', lname: 'Doe', email: 'john.doe@example.com', age: 33},
-        {fname: 'James', lname: 'Smith', email: 'john.doe@example.com', age: 40},
-    ]);
-})();
-```
-
-[Learn more about Schemas](../learn/schemas) and see just what's possible. (DOCS coming soon.)
