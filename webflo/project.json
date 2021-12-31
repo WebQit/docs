@@ -2,7 +2,8 @@
     "title": "Webflo",
     "icon": "app-indicator",
     "desc": "The universal JavaScript framework for Web, Mobile, and API Backends. Webflo takes you from development, to deployment, to continous delivery.",
-    "categories": ["Featured", "Frameworks"],
+    "categories": ["Frameworks"],
+    "_index": "first",
     "tags": ["Web", "Mobile", "API Backends", "DevTool", "DevOps", "Dev Server", "Production Server", "GIT Workflow"],
     "quickstart": {"global": true},
     "features": [{

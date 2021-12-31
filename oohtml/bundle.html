@@ -311,7 +311,7 @@ customElements.define(<span class="hljs-symbol">&#x27;extended</span>-header&#x2
 <li><a href="#subscript">Subscript</a></li>
 </ul>
 <h2 id="html-modules">HTML Modules</h2>
-<p><em>HTML Modules</em> are a templating feature that lets us write reusable HTML markup using the <em>module</em>, <em>export</em> and  <em>import</em> paradigm. This feature establishes the standard <code>&lt;template&gt;</code> element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.</p>
+<p><em>HTML Modules</em> is a templating feature that lets us write reusable HTML markup using the <em>module</em>, <em>export</em> and  <em>import</em> paradigm. This feature establishes the standard <code>&lt;template&gt;</code> element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.</p>
 <p>A module is a regular <code>&lt;template&gt;</code> element with a <code>name</code> attribute - <em>the module ID</em> - and its contents are simply the <em>exports</em>.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 
@@ -369,7 +369,7 @@ customElements.define(<span class="hljs-symbol">&#x27;extended</span>-header&#x2
 <p>The contents of the remote file automatically become the template's content on load.</p>
 <p><strong>Details are in the <a href="/tooling/oohtml/docs/spec/html-modules">HTML Modules</a> specification. Learn more about the convention, API, events, and the polyfill support.</strong></p>
 <h2 id="html-imports">HTML Imports</h2>
-<p><em>HTML Imports</em> are a declarative way to use the <em>exports</em> of an <em>HTML Module</em> from anywhere in the main document.</p>
+<p><em>HTML Imports</em> is a declarative way to use the <em>exports</em> of an <em>HTML Module</em> from anywhere in the main document.</p>
 <blockquote>
   <p>Note that this is different from the HTML Imports that was spec'd with an early version of Web Components.</p>
 </blockquote>
@@ -1341,7 +1341,7 @@ module1.content.append(nestedModule);</code></pre>
 				<div exportgroup="readme">
 
 					<h1 id="html-modules">HTML Modules</h1>
-<p><em>HTML Modules</em> are a templating feature that lets us write reusable HTML markup using the <em>module</em>, <em>export</em> and  <em>import</em> paradigm. This feature establishes the standard <code>&lt;template&gt;</code> element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.</p>
+<p><em>HTML Modules</em> is a templating feature that lets us write reusable HTML markup using the <em>module</em>, <em>export</em> and  <em>import</em> paradigm. This feature establishes the standard <code>&lt;template&gt;</code> element as the foundation of a module infrastructure for HTML and introduces new attributes, properties and events that together closes the loop.</p>
 <blockquote>
   <p>OOHTML is <a href="https://discourse.wicg.io/t/proposal-chtml/4716">being proposed as a native browser technology</a> while currently available through a polyfill. Be sure to check the <a href="#polyfill-support">Polyfill Support</a> section below for the features on this page.</p>
 </blockquote>
@@ -1592,7 +1592,12 @@ template.setAttribute(<span class="hljs-string">&#x27;name&#x27;</span>, <span c
 <p><em>Return the deeply-last module. (Expects: <code>module_nested_middle</code>)</em></p>
 <pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_middle = <span class="hljs-built_in">document</span>.templatesQuery(<span class="hljs-string">&#x27;root?/module_nested?/module_nested_middle?/module_nonexistent?/module_nonexistent&#x27;</span>);</code></pre>
 <p><em>(Equivalent accessor syntax)</em></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> module_nested_middle = documents.templates.root?.templates.module_nested?.templates.module_nested_middle?.templates.module_nonexistent?.templates.module_nonexistent;</code></pre></li>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> segement, path = [<span class="hljs-string">&#x27;module_nested&#x27;</span>, <span class="hljs-string">&#x27;module_nested_middle&#x27;</span>, <span class="hljs-string">&#x27;module_nonexistent&#x27;</span>, <span class="hljs-string">&#x27;module_nonexistent&#x27;</span>];
+<span class="hljs-keyword">var</span> <span class="hljs-built_in">module</span> = documents.templates.root;
+<span class="hljs-keyword">while</span>((segement = path.shift()) &amp;&amp; <span class="hljs-built_in">module</span>.templates[segement]) {
+    <span class="hljs-built_in">module</span> = <span class="hljs-built_in">module</span>.templates[segement];
+}
+module_nested_middle = <span class="hljs-built_in">module</span>;</code></pre></li>
 <li><p>Complex expression supported.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span>
@@ -2106,23 +2111,24 @@ divElement.subscript.unbind();</code></pre></li>
 <ul>
 <li><p><strong>Statement-Level Reactive Methods:</strong> Subscript can manage the statements within an element's instance method to acheive statement-level reactivity just as a <code>&lt;script type="subscript"&gt;&lt;/script&gt;</code> code block would have it. </p>
 <p>Statements in the <code>render()</code> method below will be managed by the Subscript runtime.</p>
-<pre><code class="hljs js language-js">customElements.define(<span class="hljs-string">&#x27;my-element&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebQit</span>.<span class="hljs-title">SubscriptElement</span>(<span class="hljs-title">HTMLElement</span>) </span>{&lt;pre&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>/**
- * The &quot;this.innerHTML = ...&quot; assignment will be re-run each time
- * the document.state.propertyName and this.state.propertyName properties change.
- */
-render() {
-    if (document.state.propertyName <span class="hljs-symbol">&amp;amp;</span><span class="hljs-symbol">&amp;amp;</span> this.state.propertyName) {
-        this.innerHTML = document.state.propertyName + &#x27; | &#x27; + this.state.propertyName;
+<pre><code class="hljs js language-js">customElements.define(<span class="hljs-string">&#x27;my-element&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebQit</span>.<span class="hljs-title">SubscriptElement</span>(<span class="hljs-title">HTMLElement</span>) </span>{
+    <span class="hljs-comment">/**
+     * The &quot;this.innerHTML = ...&quot; assignment will be re-run each time
+     * the document.state.propertyName and this.state.propertyName properties change.
+     */</span>
+    <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.state.propertyName &amp;&amp; <span class="hljs-built_in">this</span>.state.propertyName) {
+            <span class="hljs-built_in">this</span>.innerHTML = <span class="hljs-built_in">document</span>.state.propertyName + <span class="hljs-string">&#x27; | &#x27;</span> + <span class="hljs-built_in">this</span>.state.propertyName;
+        }
     }
-}
-
-/**
- * Return the list of methods that
- * should be made entirely reactive by the Subscript runtime.
- */
-static get reactiveBlocks() {
-    return [ &#x27;render&#x27;, ];
-}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span></span>&lt;/pre&gt;});</code></pre>
+    <span class="hljs-comment">/**
+     * Return the list of methods that
+     * should be made entirely reactive by the Subscript runtime.
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">get</span> <span class="hljs-title">subscriptBlocks</span>() {
+        <span class="hljs-keyword">return</span> [ <span class="hljs-string">&#x27;render&#x27;</span>, ];
+    }
+});</code></pre>
 <p>An element of the class above should initially be empty.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-element</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-element</span>&gt;</span></code></pre>
 <p>But on setting the <code>document.state.propertyName</code> and <code>this.state.propertyName</code> properties, the element should have something for its inner HTML. These changes are automatically observed by the Subscript runtime and the relevant statements within the method block are re-run accordingly.</p>
@@ -2132,26 +2138,27 @@ querySelector(<span class="hljs-string">&#x27;my-element&#x27;</span>).state.pro
 <p><strong>Implementation Guide for Statement-Level Reactive Methods:</strong></p>
 <ul>
 <li>These methods must not have any parameters.</li>
-<li>These methods are to be listed by a static <code>reactiveBlocks()</code> getter function.</li>
+<li>These methods are to be listed by a static <code>subscriptBlocks()</code> getter function.</li>
 <li>The instance's <code>constructor()</code> function cannot be listed for reactivity.</li></ul></li>
 <li><p><strong>Parameter-Bound Methods:</strong> Subscript can manage just the parameters of an element's instance method. In this case, just the method's parameters are observed for changes and the entire method is called accordingly.</p>
-<pre><code class="hljs js language-js">customElements.define(<span class="hljs-string">&#x27;my-element&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebQit</span>.<span class="hljs-title">SubscriptElement</span>(<span class="hljs-title">HTMLElement</span>) </span>{&lt;pre&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>/**
- * The document.state.propertyName and this.state.propertyName will be automatically 
- * observed for changes and the &quot;render()&quot; method will be re-run accordingly.
- */
-render(globalProp = document.state.propertyName, localProp = this.state.propertyName) {
-    if (globalProp <span class="hljs-symbol">&amp;amp;</span><span class="hljs-symbol">&amp;amp;</span> localProp) {
-        this.innerHTML = globalProp + &#x27; | &#x27; + localProp;
+<pre><code class="hljs js language-js">customElements.define(<span class="hljs-string">&#x27;my-element&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebQit</span>.<span class="hljs-title">SubscriptElement</span>(<span class="hljs-title">HTMLElement</span>) </span>{
+    <span class="hljs-comment">/**
+     * The document.state.propertyName and this.state.propertyName will be automatically 
+     * observed for changes and the &quot;render()&quot; method will be re-run accordingly.
+     */</span>
+    <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params">globalProp = <span class="hljs-built_in">document</span>.state.propertyName, localProp = <span class="hljs-built_in">this</span>.state.propertyName</span>)</span> {
+        <span class="hljs-keyword">if</span> (globalProp &amp;&amp; localProp) {
+            <span class="hljs-built_in">this</span>.innerHTML = globalProp + <span class="hljs-string">&#x27; | &#x27;</span> + localProp;
+        }
     }
-}
-
-/**
- * Return the list of methods that
- * should be bound to their paramters by the Subscript runtime.
- */
-static get reactiveMethods() {
-    return [ &#x27;render&#x27;, ];
-}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span></span>&lt;/pre&gt;});</code></pre>
+    <span class="hljs-comment">/**
+     * Return the list of methods that
+     * should be bound to their paramters by the Subscript runtime.
+     */</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">get</span> <span class="hljs-title">subscriptParameterBlocks</span>() {
+        <span class="hljs-keyword">return</span> [ <span class="hljs-string">&#x27;render&#x27;</span>, ];
+    }
+});</code></pre>
 <p>An element of the class above should initially be empty.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-element</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-element</span>&gt;</span></code></pre>
 <p>But on setting the <code>document.state.propertyName</code> and <code>this.state.propertyName</code> properties, the element should have something for its inner HTML. These changes are automatically observed by the Subscript runtime and the relevant statements within the method block are run again.</p>
@@ -2161,7 +2168,7 @@ querySelector(<span class="hljs-string">&#x27;my-element&#x27;</span>).state.pro
 <p><strong>Implementation Guide for Parameter-Bound Methods:</strong></p>
 <ul>
 <li>These methods must have parameters; each with a default value being a reference to an observable property. Properties of <code>this</code> - the element instance, the <code>document</code> object, and any other object in the global scope can serve as default values for these parameters.</li>
-<li>These methods are to be listed by a static <code>reactiveMethods()</code> getter function.</li>
+<li>These methods are to be listed by a static <code>subscriptParameterBlocks()</code> getter function.</li>
 <li>The instance's <code>constructor()</code> function cannot be listed for reactivity.</li></ul></li>
 </ul>
 <h2 id="polyfill-support">Polyfill Support</h2>
@@ -2172,10 +2179,11 @@ querySelector(<span class="hljs-string">&#x27;my-element&#x27;</span>).state.pro
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;oohtml&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;selector.script=script[is=&#x27;my-script&#x27;][type=&#x27;reflex&#x27;];&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>    <span class="hljs-symbol">&amp;lt;</span>script is=&quot;my-script&quot; type=&quot;subscript&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/script<span class="hljs-symbol">&amp;gt;</span>
-    <span class="hljs-symbol">&amp;lt;</span>script is=&quot;my-script&quot; type=&quot;subscript&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/script<span class="hljs-symbol">&amp;gt;</span>
-
-<span class="hljs-symbol">&amp;lt;</span>/div<span class="hljs-symbol">&amp;gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">is</span>=<span class="hljs-string">&quot;my-script&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;subscript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">is</span>=<span class="hljs-string">&quot;my-script&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;subscript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li>
 </ul>
 <p>Learn more about customization and the OOHTML meta tag <a href="/tooling/oohtml/docs/resources/meta-tag">here</a>.</p>
 

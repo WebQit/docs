@@ -125,26 +125,8 @@
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "The Language",
-                                                    "uri": "the-language",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "The API",
-                                                    "uri": "the-api",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Storage",
-                                                    "uri": "storage",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Schemas",
-                                                    "uri": "schemas",
+                                                    "title": "What About Relationships? - The Language",
+                                                    "uri": "what-about-relationships---the-language",
                                                     "subtree": []
                                                 }
                                             ]

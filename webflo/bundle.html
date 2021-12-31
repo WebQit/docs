@@ -889,6 +889,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
         {
             <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;/old-url&quot;</span>, <span class="hljs-comment">// Or a glob pattern</span>
             <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;/api/v1&quot;</span>,
+            <span class="hljs-attr">&quot;reuseQuery&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// false by default</span>
             <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;302&quot;</span> <span class="hljs-comment">// 301 by default</span>
         }
     ]
@@ -973,7 +974,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
   │  ├⏤index.js
   ├⏤index.js</code></pre>
 <p>Webflo follows an approach that gets a request going from a parent handler to a child handler. This creates a <em>flow-through</em> effect that lets us take advantage of this relationship for new routing capabilities.</p>
-<p>A request for the URL <code>/shop</code>, for example, would <em>flow through</em> two route handlers.</p>
+<p>A request for the URL <code>/shop</code>, for example, would <em>flow through</em> two route handlers - the first two handlers below.</p>
 <blockquote>
   <p><em><code>file: /server/index.js</code></em></p>
 </blockquote>

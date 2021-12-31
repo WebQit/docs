@@ -542,8 +542,8 @@ $(el).data({
 <li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
 <li><strong><code>isUpdate</code></strong>: <strong><code>Boolean</code></strong> - A flag that indicates whether or not the given <code>itemData</code> is an update to a previous entry in the input <code>items</code>. This flag is only supplied when <code>directive</code> is <code>render</code>.</li></ul>
 <p><strong>Return</strong></p>
-<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>temize()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>temize()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'s <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
-<li><p><strong><code>overflowCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index, collapsedCount)</code></strong> - An optional callback that is called to handle overflow events. When omitted, <code>temize()</code> doesn't watch any items for overflow.</p>
+<p><code>viod|false</code> - A return value is not required for this function. But <code>false</code> can be returned to tell <code>list()</code> that <code>itemData</code> has been successfully <em>rendered/unrendered</em>. Otherwise, <code>list()</code> will automatically <em>render/unrender</em> <code>itemData</code> using the <code>itemElement</code>'s <code>setState()</code> and <code>clearState()</code> methods respectively.</p></li>
+<li><p><strong><code>overflowCallback</code></strong>: <strong><code>function(directive, itemElement, itemData, index, collapsedCount)</code></strong> - An optional callback that is called to handle overflow events. When omitted, <code>list()</code> doesn't watch any items for overflow.</p>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>directive</code></strong>: <strong><code>String</code></strong> - This will be <code>collapse</code> when <code>itemElement</code> is at the verge of overflowing the list container. It will be <code>restore</code> when <code>itemElement</code> can be again restored from its <em>collapsed</em> state.</li>
@@ -552,7 +552,7 @@ $(el).data({
 <li><strong><code>index</code></strong>: <strong><code>Int</code></strong> - The index of <code>itemData</code> in the input <code>items</code>.</li>
 <li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state. This will be <code>0</code> if <code>itemElement</code> is the last element in <em>collapsed</em> state.</li></ul>
 <p><strong>Return</strong></p>
-<p><code>viod|Promise</code> - A return value is not required for this function. But a <code>Promise</code> can be returned to tell <code>temize()</code> to wait while collapsing or restoring <code>itemElement</code>.</p></li>
+<p><code>viod|Promise</code> - A return value is not required for this function. But a <code>Promise</code> can be returned to tell <code>list()</code> to wait while collapsing or restoring <code>itemElement</code>.</p></li>
 <li><p><strong><code>overflowContainerCallback</code></strong>: <strong><code>function(isOverflowing, containerElement, uncollapsedCount, collapsedCount)</code></strong> - An optional callback that is called both <em>at the start</em> and <em>at the end</em> of the reflow process that collapses or restores overflowing items.</p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -561,7 +561,7 @@ $(el).data({
 <li><strong><code>uncollapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items in the <em>uncollapsed</em> state.</li>
 <li><strong><code>collapsedCount</code></strong>: <strong><code>Int</code></strong> - The number of items still in the <em>collapsed</em> state.</li></ul>
 <p><strong>Return</strong></p>
-<p><code>Boolean|Promise</code> - A return value is not required for this function. But <code>false</code> (or a <code>Promise</code> that resolves to <code>false</code>) can be returned when <code>isOverflowing</code> is <em>true</em> to tell <code>temize()</code> to skip a reflow.</p></li>
+<p><code>Boolean|Promise</code> - A return value is not required for this function. But <code>false</code> (or a <code>Promise</code> that resolves to <code>false</code>) can be returned when <code>isOverflowing</code> is <em>true</em> to tell <code>list()</code> to skip a reflow.</p></li>
 <li><p><strong><code>collapsionPoint</code></strong>: <strong><code>String</code></strong> - A keyword specifying at what point along the list container to clip overflowing elements. Valid values are:</p>
 <ul>
 <li><strong><code>start</code></strong> - Clip overflows at the left (for horizontal lists) or top (for vertical lists) of the list container.</li>
@@ -570,7 +570,8 @@ $(el).data({
 <li><strong><code>center-end</code></strong> - Clip overflows at the center of the list container, but when visible elements are even in number, go one item less to the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li>
 <li><strong><code>end</code></strong> - Clip overflows at the right (for horizontal lists) or bottom (for vertical lists) of the list container.</li></ul></li>
 <li><p><strong><code>orientation</code></strong>: <strong><code>String</code></strong> - This is either <code>horizontal</code> or <code>vertical</code> to indicate the direction of the list and along which axis to watch for overflow. Default is <code>horizontal</code>.</p></li>
-<li><p><strong><code>live</code></strong>: <strong><code>String</code></strong> - Specifies whether or not for <code>temize()</code> to observe input <code>items</code> for mutations. This is <code>true</code> by default.</p></li>
+<li><p><strong><code>clearDOM</code></strong>: <strong><code>Boolean</code></strong> - Specifies whether or not for <code>list()</code> to clear out any existing item elements that may have been created in a previous call to <code>list()</code>. This is <code>false</code> by default; <code>list()</code> will try to update any existing item elements with new data.</p></li>
+<li><p><strong><code>live</code></strong>: <strong><code>String</code></strong> - Specifies whether or not for <code>list()</code> to observe input <code>items</code> for mutations. This is <code>true</code> by default.</p></li>
 <li><p><strong><code>itemIndexAttribute</code></strong>: <strong><code>String</code></strong> - The attribute name on <code>itemElement</code> on which to set the index of the item. This defaults to <code>data-index</code>.</p></li>
 <li><p><strong><code>itemExportId</code></strong>: <strong><code>String</code></strong> - The <em>export ID</em> used for importing <em>item elements</em> for each item in the input <code>items</code>. When this sub parameter is omitted, the fragment identifier found in the module reference on the list container is used. Otherwise, the <em>default</em> export of the  referenced module is used.</p></li>
 <li><p><strong><code>parentalOverflowBounds</code></strong>: <strong><code>Boolean</code></strong> - Whether or not to use the container of the list container or the list container itself as the overflow bounds. By default, the container of the list container is used. Set to <code>false</code> to use the list container itself.</p></li></ul></li>

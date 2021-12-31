@@ -2,7 +2,7 @@
     "title": "Subscript",
     "icon": "terminal",
     "desc": "A light-weight JavaScript parser and interpreter written in JavaScript; Subscript provides a completely-bendable JavaScript runtime for ambitious usecases.",
-    "categories": ["JS Development"],
+    "categories": ["JavaScript Libraries"],
     "tags": ["OOHTML", "UI", "Build Tool"],
     "quickstart": {"cdn": true},
     "features": [{

@@ -2,7 +2,7 @@
     "title": "OOHTML",
     "icon": "code-slash",
     "desc": "A suite of new DOM features that lets us write modular, reusable, and reactive HTML, offering robust UI development with none of a framework.",
-    "categories": ["Featured", "Browser APIs"],
+    "categories": ["Browser APIs"],
     "tags": ["OOHTML", "Web-Native", "WICG Proposal", "CHTML"],
     "quickstart": {"cdn": true},
     "features": [{

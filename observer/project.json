@@ -2,7 +2,7 @@
     "title": "The Observer API",
     "icon": "braces",
     "desc": "The web-native, JavaScript reactivity API for observing and intercepting JavaScript objects and arrays, and achieving the reactive everything!",
-    "categories": ["JS Development"],
+    "categories": ["JavaScript Libraries"],
     "tags": ["reactivity", "proxies", "accessors"],
     "quickstart": {"cdn": true},
     "features": [{
