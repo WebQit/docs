@@ -1,7 +1,7 @@
 ---
 title: Download
 desc: Follow the download options to add Subscript to your project.
-_index: 1
+_index: first
 ---
 # Download Options
 
@@ -19,7 +19,7 @@ The above tag loads Subscript into a global "WebQit" object.
 
 ```html
 <script>
-    const Subscript = window.WebQit.Subscript;
+    const SubscriptFunction = window.WebQit.Subscript;
 </script>
 ```
 
@@ -35,5 +35,5 @@ Import the installed package:
 
 ```js
 // Import the initializer
-import Subscript from '@webqit/subscript';
+import SubscriptFunction from '@webqit/subscript';
 ```

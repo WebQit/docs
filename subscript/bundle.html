@@ -26,19 +26,498 @@
 	<template name="docs">
 		<div exportgroup="readme">
 
-			<h1 id="subscript-documentation">Subscript Documentation</h1>
-<p>Welcome to the Subscript documentation. We hope you find it easy to understand and navigate. </p>
-<p>If you have questions about anything related to the Subscript, you're always welcome to ask on our <a href="https://github.com/webqit/subscript/discussions">GitHub Discussions</a>.</p>
+			<h1 id="an-overview">An Overview</h1>
+<p>Subscript is a reactivity runtime for JavaScript. It takes any valid JavaScript code, reads its dependency graph, and offers a mechanism to run it both in whole and in <em>reactive</em> selections, called <em>dependency threads</em>.</p>
+<h2 id="whats-a-dependency-thread">What's A Dependency Thread?</h2>
+<p>You could say it's the dependency chain involving two or more JavaScript expressions. 👇</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> count = <span class="hljs-number">10</span>, doubleCount = count * <span class="hljs-number">2</span>, quadCount = doubleCount * <span class="hljs-number">2</span>;</code></pre>
+<p>We just expressed that <code>doubleCount</code> should be two times the value of <code>count</code>, and that <code>quadCount</code> should be two times the value of <code>doubleCount</code>; each subsequent expression being a <em>dependent</em> of the previous.</p>
+<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log( count, doubleCount, quadCount );
+&lt; <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">40</span></code></pre>
+<p>😉 Can you spot that same dependency chain in the following hypothetical UI render function…?</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> count = <span class="hljs-number">10</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> render = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> countElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#count&#x27;</span> );
+    countElement.innerHTML = count;
+
+    <span class="hljs-keyword">let</span> doubleCount = count * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> doubleCountElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#double-count&#x27;</span> );
+    doubleCountElement.innerHTML = doubleCount;
+
+    <span class="hljs-keyword">let</span> quadCount = doubleCount * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> quadCountElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#quad-count&#x27;</span> );
+    quadCountElement.innerHTML = quadCount;
+}</code></pre>
+<p>You'll also notice one additional <em>dependent</em> at each level of the chain. That brings the <em>dependency thread</em> for <code>count</code> to the following sequence: statement <code>2</code> -&gt; statement <code>3</code> -&gt; statement <code>5</code> -&gt; statement <code>6</code> -&gt; statement <code>8</code>; excluding statements <code>1</code>, <code>4</code>, <code>7</code>.</p>
+<p>🤝 Good analysis! But what's the deal?</p>
+<p>Programs are generally expected to run <strong>in whole</strong>, <strong>not in dependency threads</strong>! It would take some magic to have the latter. But… well, that's what's for dinner with Subscript! 😁</p>
+<p>Problem is: the mathematical relationship above only holds for as long as nothing changes. Should the value of <code>count</code> change, then its dependents are sure out of sync.</p>
+<pre><code class="hljs js language-js">count ++;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log( count, doubleCount, quadCount );
+&lt; <span class="hljs-number">11</span>, <span class="hljs-number">20</span>, <span class="hljs-number">40</span></code></pre>
+<p>This is that reminder that expressions in JavaScript aren't automatically bound to their dependencies. (Something we'd expect of any programming language.) The <code>render()</code> function must be called again each time the value of <code>count</code> changes.</p>
+<p>An important worry is that we end up running overheads on sebsequent calls to <code>render()</code>, as those <code>document.querySelector()</code> calls traverse the DOM again, just to return the same elements as in previous runs. (In real life, there could be even more expensive operations up there.)</p>
+<p>Enter dependency threads; suddenly, we can get statements to run in isolation in response to a change! <strong>Here comes a new way to think about reactivity and performance in JavaScript</strong>! 👇</p>
+<p>> Obtain <code>SubscriptFunction</code> and use as a drop-in replacement for <code>Function</code>! 👇</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> render = <span class="hljs-keyword">new</span> SubscriptFunction(<span class="hljs-string">`
+    let countElement = document.querySelector( &#x27;#count&#x27; );
+    countElement.innerHTML = count;
+
+    let doubleCount = count * 2;
+    let doubleCountElement = document.querySelector( &#x27;#double-count&#x27; );
+    doubleCountElement.innerHTML = doubleCount;
+
+    let quadCount = doubleCount * 2;
+    let quadCountElement = document.querySelector( &#x27;#quad-count&#x27; );
+    quadCountElement.innerHTML = quadCount;`</span>
+);</code></pre>
+<blockquote>
+  <p>More about the syntatic rhyme between <code>SubscriptFunction</code> and <code>Function</code> <a href="#api">ahead</a>.</p>
+</blockquote>
+<p>> Use <code>render</code> as a normal function…</p>
+<pre><code class="hljs js language-js">render();</code></pre>
+<p><em>The above executes the function body in whole as we'd expect. Elements are selected and assigned content. And we can see the counters in the console.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log( count, doubleCount, quadCount );
+&lt; <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">40</span></code></pre>
+<p>> Run just the <code>count</code> dependency thread…</p>
+<pre><code class="hljs js language-js">count ++;
+render.thread( [ <span class="hljs-string">&#x27;count&#x27;</span> ] );</code></pre>
+<p>*This time, only statements <code>2</code> -&gt; <code>3</code> -&gt; <code>5</code> -&gt; <code>6</code> -&gt; <code>8</code> are run - *the "count" dependency thread<em>; and the previously selected UI elements in those local variables are only now updated.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log( count, doubleCount, quadCount );
+&lt; <span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">44</span></code></pre>
+<p>> Use <code>SubscriptFunction</code> as a building block.</p>
+<p><em>A Custom Element Example <a href="#a-custom-element-example">ahead</a></em></p>
+<h2 id="what-is-subscript">What Is Subscript?</h2>
+<p>A general-purpose reactivity runtime for JavaScript, with an overarching philosophy of <em>reactivity that is based on the dependency graph of your own code, and nothing of its own syntax</em>!</p>
+<p>It takes any piece of code and compiles it into an ordinary JavaScript function that can also run expressions in <em>dependency threads</em>!</p>
+<p>Being function-based let's us have all of Subscript as a building block… to fit anywhere!</p>
 <h2 id="explore-the-docs">Explore the Docs</h2>
+<p><em>If you have questions about anything related to the Subscript, you're always welcome to ask on our <a href="https://github.com/webqit/subscript/discussions">GitHub Discussions</a>.</em></p>
 
 		</div>
 
-		<template name="getting-started">
+		<template name="concepts">
 			<div exportgroup="readme">
 
-				<h1 id="getting-started">Getting Started</h1>
+				<h1 id="concepts">Concepts</h1>
 
 			</div>
+
+			<template name="conditionals-and-logic">
+				<div exportgroup="readme">
+
+					<h1 id="conditionals-and-logic">Conditionals And Logic</h1>
+<p>When the <em>test expression</em> of an "If/Else" statement, "Switch" statement, or other logical expressions contains references, the statement or logical expression is bound to those references. This lets us have <em>reactive conditionals and logic</em>.</p>
+<h2 id="ifelse-statements">"If/Else" Statements</h2>
+<p>An "If/Else" statement is bound to references in its "test" expression.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> ( score &gt; <span class="hljs-number">80</span> &amp;&amp; passesSomeOtherTest() ) {
+    addBadge( candidate );
+    candidate.remark = <span class="hljs-string">&#x27;You\&#x27;ve got a badge&#x27;</span>;
+} <span class="hljs-keyword">else</span> {
+}</code></pre>
+<p><em>Above, the "If/Else" construct is bound to the references <code>score</code> and <code>passesSomeOtherTest</code> - yes, should that also change. A thread event for any of these gets the construct re-evaluated; first, the "test" expression (<code>score &gt; 80 &amp;&amp; passesSomeOtherTest()</code>), then, the body of the appropriate branch of the construct.</em></p>
+<p>Statements in the body of the "consequent" and "alternate" branches form a binding to references of their own, independent of their containing "If" construct. But they only respond to thread events for as long as the "state" of all <em>conditions in context</em> allows.</p>
+<p><em>Above, the <code>addBadge()</code> expression is bound to the reference <code>candidate</code>, and joins alone in the dependency thread, independent of the "If" construct, but for as long as the condition in context (<code>score &gt; 80 &amp;&amp; passesSomeOtherTest()</code>) holds true.</em></p>
+<blockquote>
+  <p>The "state" of all <em>conditions in context</em> are determined via <em>memoization</em>, and no re-evaluation ever takes place.</p>
+</blockquote>
+<p>An "Else/If" block is taken for just an "If" statement in the "Else" block of a parent "If" statement…</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">if</span> ( score &gt; <span class="hljs-number">80</span> &amp;&amp; passesSomeOtherTest() ) {
+    addBadge( candidate );
+    candidate.remark = <span class="hljs-string">&#x27;You\&#x27;ve got a badge&#x27;</span>;
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( someOtherCondition ) {
+} <span class="hljs-keyword">else</span> {
+}</code></pre>
+<p>…and is bound to references in its own "test" expression, independent of its parent. But it only responds to thread events for as long as the "state" of all <em>conditions in context</em> allows.</p>
+<p><em>Above, the nested "If" statement is bound to the reference <code>someOtherCondition</code>, and joins alone in the dependency thread, independent of the parent "If" construct, but for as long as the parent condition (<code>score &gt; 80 &amp;&amp; passesSomeOtherTest()</code>) holds false.</em></p>
+<h2 id="switch-statements">"Switch" Statements</h2>
+<p>A "Switch" statement is bound to references in its "test" expressions - the "switch/case" expressions.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">switch</span>( score ) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        candidate.remark = <span class="hljs-string">&#x27;You got nothing at all&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> maxScore:
+        candidate.remark = <span class="hljs-string">&#x27;You got the most&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        candidate.remark = defaultRemark;
+}</code></pre>
+<p><em>Above, the "Switch" construct is bound to the references <code>score</code> and <code>maxScore</code>. A thread event for any of these gets the construct re-evaluated; first, the "switch/case" expressions (<code>score === 0</code> | <code>score === maxScore</code> | <code>score === null</code>), then, the body of the appropriate branch of the construct.</em></p>
+<p>Statements in the body of the branches form a binding to references of their own, independent of the "Switch" construct. But they only respond to thread events for as long as the "state" of all <em>conditions in context</em> allows.</p>
+<p><em>Above, the assignment to <code>candidate.remark</code> (in the "default" case) is bound to the reference <code>defaultRemark</code>, and joins alone in the dependency thread, independent of the "Switch" construct, but for as long as the conditions in context (<code>score === null</code>) hold true.</em></p>
+<blockquote>
+  <p>The "state" of all <em>conditions in context</em> are determined via <em>memoization</em>, and no re-evaluation ever takes place.</p>
+</blockquote>
+<h2 id="logical-and-ternary-expressions">Logical And Ternary Expressions</h2>
+<p>Subscript observes the state of logical (<code>a &amp;&amp; b || c</code>) and ternary (<code>a ? b : c</code>) expressions when running dependency threads.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> a = <span class="hljs-function">() =&gt;</span> <span class="hljs-number">1</span>;
+<span class="hljs-keyword">let</span> b = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">let</span> d, e;</code></pre>
+<p>A logical expression…</p>
+<pre><code class="hljs js language-js">e = a() &amp;&amp; b || c;</code></pre>
+<p>A ternary expression…</p>
+<pre><code class="hljs js language-js">d = a() ? b : c;</code></pre>
+<p><em>Above, each of the two expressions is bound to the references <code>a</code>, <code>b</code> and <code>c</code>. A thread event for any of <code>a</code> and <code>b</code> - or <code>a</code> and <code>c</code>, as determined by the "logical state" of the expressions<sup></em></sup> - gets the expressions re-evaluated; first, the "test" expression (<code>a()</code>), then, the expression on the appropriate side of the construct.*</p>
+<p><sup>*</sup>Since expressions in the "consequent" and "alternate" sides of a conditional or logical expression are mutually exclusive (<code>b</code> and <code>c</code> above), as determined by the "test" expression (<code>a()</code> above), only the thread events for the references in the currently active side (<code>b</code> above) are honoured by the expression at any given point in time.</p>
+
+				</div>
+			</template>
+
+			<template name="functions">
+				<div exportgroup="readme">
+
+					<h1 id="functions">Functions</h1>
+<p>Functions are <em>static</em> definitions…</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> a, b </span>) </span>{
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-function">(<span class="hljs-params"> a, b </span>) =&gt;</span> {
+}</code></pre>
+<p>…and nothing about their parameters is reactive!</p>
+<p>They are really only significant at <em>call-time</em>; and call-time arguments are rightly <em>reactive</em>!</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = sum( score, <span class="hljs-number">100</span> );</code></pre>
+<p><em>The expression above is bound to the reference <code>score</code>. A thread event for <code>score</code> gets the <code>sum()</code> function called again with its current value.</em></p>
+<h2 id="side-effects">Side Effects</h2>
+<p>When a function modifies anything outside of its scope, it is said to have <em>side effects</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> callCount = <span class="hljs-number">0</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    callCount ++;
+    <span class="hljs-keyword">return</span> a + b;
+}</code></pre>
+<p>When it does not, it is said to be a <em>pure function</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    <span class="hljs-keyword">return</span> a + b;
+}</code></pre>
+<p>Regardless, Subscript's dependency threads are fully able to pick up changes made via a side effect.</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    callCount ++;
+    <span class="hljs-keyword">return</span> a + b;
+}
+<span class="hljs-keyword">let</span> callCount = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">let</span> result = sum( score, <span class="hljs-number">100</span> );
+<span class="hljs-built_in">console</span>.log( <span class="hljs-string">&#x27;Number of times we\&#x27;ve summed:&#x27;</span>, callCount );</code></pre>
+<p><em>Above, each time the thread event for <code>score</code> gets the <code>sum()</code> expression to run again, <code>callCount</code> is incremented as a side effect; and the dependent <code>console.log()</code> expression joins in the thread to pick that up!</em></p>
+<p>Since statements in a dependency thread are executed in normal program execution order, side effects only trigger dependent expressions that appear <em>after the point of call</em>, <em>not before</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    callCount ++;
+    <span class="hljs-keyword">return</span> a + b;
+}
+<span class="hljs-keyword">let</span> callCount = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">console</span>.log( <span class="hljs-string">&#x27;BEFORE POINT OF CALL: Number of times we\&#x27;ve summed:&#x27;</span>, callCount );
+<span class="hljs-keyword">let</span> result = sum( score, <span class="hljs-number">100</span> );
+<span class="hljs-built_in">console</span>.log( <span class="hljs-string">&#x27;AFTER POINT OF CALL: Number of times we\&#x27;ve summed:&#x27;</span>, callCount );</code></pre>
+<p><em>Above, on the thread event for <code>score</code>, the first <code>console.log()</code> expression doesn't run because at that point <code>sum()</code> hasn't been called to make the side effect!</em></p>
+<p>Also, since Subscript does not change runtime expection in any way, side effects made by function calls outside of a running thread do not get to start a thread in a bid to engage its dependent expressions!</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    callCount ++;
+    <span class="hljs-keyword">return</span> a + b;
+}
+<span class="hljs-keyword">let</span> callCount = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">document</span>.body.addEventListener( <span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">let</span> result = sum( score, <span class="hljs-number">100</span> );
+} );
+<span class="hljs-built_in">console</span>.log( <span class="hljs-string">&#x27;Number of times we\&#x27;ve summed:&#x27;</span>, callCount );</code></pre>
+<p><em>This time, <code>sum()</code> is triggerred from a click event handler, not via a dependency thread, and we do not expect the <code>console.log()</code> expression to run!</em></p>
+<h2 id="subscript-function-syntax-new">Subscript Function Syntax (New)</h2>
+<p>Subscript explores the possibility of defining functions outright as <em>reactive</em> functions using regular <em>Function Declaration</em> and <em>Function Expression</em> syntaxes!</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span>** <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span>**(<span class="hljs-params"> a, b </span>) </span>{
+}</code></pre>
+<p><em>Notice the double star <code>**</code> symbol above; it's just one star extra to the standard syntax for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator">Generator Functions</a> (<code>function* gen() {}</code>) - one more thing in the same classification of a special-purpose function in JavaScript! 😎</em></p>
+<p>Functions defined this way are compiled as <code>SubscriptFunction</code>, exposing a <code>.thread()</code> method for running dependency threads, and offering everything else as in when we use the <code>SubscriptFunction</code> constructor.</p>
+<p>The following syntaxes are interchangeable…</p>
+<pre><code class="hljs js language-js"><span class="hljs-function"><span class="hljs-keyword">function</span>** <span class="hljs-title">sum</span>(<span class="hljs-params"> a, b </span>) </span>{
+    <span class="hljs-keyword">return</span> a + b;
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-function"><span class="hljs-keyword">function</span>**(<span class="hljs-params"> a, b </span>) </span>{
+    <span class="hljs-keyword">return</span> a + b;
+}</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> sum = <span class="hljs-keyword">new</span> SubscriptFunction( <span class="hljs-string">`a`</span>, <span class="hljs-string">`b`</span>, <span class="hljs-string">`return a + b;`</span> );</code></pre>
+<p>…but the first two (proposed syntaxes) are only currently supported within a Subscript Function itself!</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> score = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> program = <span class="hljs-keyword">new</span> SubscriptFunction(<span class="hljs-string">`
+    function** sum( a, b ) {
+        callCount ++;
+        return a + b;
+    }
+
+    let callCount = 0;
+
+    // The following call results in a side effect
+    let result = sum( score, 100 );
+    // and &quot;callCount&quot; is logged as &quot;1&quot; to the console 
+    console.log( &#x27;Number of times we\&#x27;ve summed:&#x27;, callCount );
+
+    // The following call runs a dependency thread that excludes the side effect
+    // while return the sum of the previous values of &quot;a&quot; and &quot;b&quot;
+    let result = sum.thread( [ &#x27;a&#x27; ] );
+    // and &quot;callCount&quot; is still logged as &quot;1&quot;, not &quot;2&quot;, to the console 
+    console.log( &#x27;Number of times we\&#x27;ve summed:&#x27;, callCount );
+`</span>);
+program();</code></pre>
+
+				</div>
+			</template>
+
+			<template name="loops">
+				<div exportgroup="readme">
+
+					<h1 id="loops">Loops</h1>
+<p>When the parameters of a loop ("For" loops, "While" and "Do … While" loops) contain references, the loop is bound to those references. This lets us have reactive loops.</p>
+<h2 id="a-for-loop-while-and-do-…-while-loop">A <code>for</code> Loop, <code>while</code> And <code>do … while</code> Loop</h2>
+<p>A "For" loop is bound to references in its 3-part definition.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">let</span> items = [ <span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>, <span class="hljs-string">&#x27;four&#x27;</span>, <span class="hljs-string">&#x27;five&#x27;</span> ];
+<span class="hljs-keyword">let</span> targetItems = [];</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> index = start; index &lt; items.length; index ++ ) {
+    targetItems[ index ] = items[ index ];
+}</code></pre>
+<p><em>The loop above is bound to the references <code>start</code>, <code>items</code>, and <code>items.length</code>. A thread event for any of these gets the loop to run again.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Say, &quot;start&quot; were a global variable</span>
+start = <span class="hljs-number">2</span>;
+fn.thread( [ <span class="hljs-string">&#x27;start&#x27;</span> ] );</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Say, &quot;items&quot; were a global variable</span>
+items.unshift( <span class="hljs-string">&#x27;zero&#x27;</span> );
+fn.thread( [ <span class="hljs-string">&#x27;items&#x27;</span>, <span class="hljs-string">&#x27;length&#x27;</span> ] );</code></pre>
+<p>As with a "For" loop, a "While" and "Do … While" loop are bound to references in their "test" expression.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">let</span> items = [ <span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>, <span class="hljs-string">&#x27;four&#x27;</span>, <span class="hljs-string">&#x27;five&#x27;</span> ];
+<span class="hljs-keyword">let</span> targetItems = [];</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">while</span> ( index &lt; items.length ) {
+    targetItems[ index ] = items[ index ];
+    index ++;
+}</code></pre>
+<p><em>The loop above is bound to the references <code>items</code> and <code>items.length</code>. A thread event for any of these gets the loop to run again.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Say, items were global variables</span>
+items.unshift( <span class="hljs-string">&#x27;zero&#x27;</span> );
+fn.thread( [ <span class="hljs-string">&#x27;items&#x27;</span>, <span class="hljs-string">&#x27;length&#x27;</span> ] );</code></pre>
+<h2 id="a-for-…-of-loop">A <code>for … of</code> Loop</h2>
+<p>A "For … Of" loop is bound to references in its <em>iteratee</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span>  entries = [ <span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>, <span class="hljs-string">&#x27;four&#x27;</span>, <span class="hljs-string">&#x27;five&#x27;</span> ];
+<span class="hljs-keyword">let</span> targetEntries = [];</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> entry <span class="hljs-keyword">of</span> entries ) {
+    <span class="hljs-keyword">let</span> index = entries.indexOf( entry );
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`Current iteration index is: <span class="hljs-subst">${ index }</span>, and entry is: &#x27;<span class="hljs-subst">${ entry }</span>&#x27;`</span> );
+    targetEntries[ index ] = entries[ index ];
+}</code></pre>
+<p><em>The loop above is bound to the reference <code>entries</code>. A thread event for <code>entries</code> gets the loop to run again.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Say, entries were a global variable</span>
+entries = [ <span class="hljs-string">&#x27;six&#x27;</span>, <span class="hljs-string">&#x27;seven&#x27;</span>, <span class="hljs-string">&#x27;eight&#x27;</span>, <span class="hljs-string">&#x27;nine&#x27;</span>, <span class="hljs-string">&#x27;ten&#x27;</span> ];
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span> ] );</code></pre>
+<p>As an added advantage of this form of loop, updating a specific entry in <code>entries</code> moves the loop's pointer to the specific iteration involving that entry, and the body of that iteration is run again.</p>
+<pre><code class="hljs js language-js">entries[ <span class="hljs-number">7</span> ] = <span class="hljs-string">&#x27;This is new eight&#x27;</span>;
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span>, <span class="hljs-number">7</span> ] );</code></pre>
+<p>Now, the console reports…</p>
+<pre><code class="hljs js language-js">Current iteration index is: <span class="hljs-number">7</span>, and entry is: <span class="hljs-string">&#x27;This is new eight&#x27;</span></code></pre>
+<p>…and index <code>7</code> of <code>targetEntries</code> is updated.</p>
+<h2 id="a-for-…-in-loop">A <code>for … in</code> Loop</h2>
+<p>A "For … In" loop is bound to references in its <em>iteratee</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span>  entries = { <span class="hljs-attr">one</span>: <span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-attr">two</span>: <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-attr">three</span>: <span class="hljs-string">&#x27;three&#x27;</span>, <span class="hljs-attr">four</span>: <span class="hljs-string">&#x27;four&#x27;</span>, <span class="hljs-attr">five</span>: <span class="hljs-string">&#x27;five&#x27;</span> };
+<span class="hljs-keyword">let</span> targetEntries = {};</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> propertyName <span class="hljs-keyword">in</span> entries ) {
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`Current property name is: <span class="hljs-subst">${ propertyName }</span>, and associated value is: &#x27;<span class="hljs-subst">${ entries[ propertyName ] }</span>&#x27;`</span> );
+    targetEntries[ propertyName ] = entries[ propertyName ];
+}</code></pre>
+<p><em>The loop above is bound to the reference <code>entries</code>. A thread event for <code>entries</code> gets the loop to run again.</em></p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Say, entries were a global variable</span>
+entries = { <span class="hljs-attr">six</span>: <span class="hljs-string">&#x27;six&#x27;</span>, <span class="hljs-attr">seven</span>: <span class="hljs-string">&#x27;seven&#x27;</span>, <span class="hljs-attr">eight</span>: <span class="hljs-string">&#x27;eight&#x27;</span>, <span class="hljs-attr">nine</span>: <span class="hljs-string">&#x27;nine&#x27;</span>, <span class="hljs-attr">ten</span>: <span class="hljs-string">&#x27;ten&#x27;</span> };
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span> ] );</code></pre>
+<p>As an added advantage of this form of loop, updating a specific property in <code>entries</code> moves the loop's pointer to the specific iteration involving that property, and the body of that iteration is run again.</p>
+<pre><code class="hljs js language-js">entries[ <span class="hljs-string">&#x27;eight&#x27;</span> ] = <span class="hljs-string">&#x27;This is new eight&#x27;</span>;
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span>, <span class="hljs-string">&#x27;eight&#x27;</span> ] );</code></pre>
+<p>Now, the console reports…</p>
+<pre><code class="hljs js language-js">Current property name is: eight, and property value is: <span class="hljs-string">&#x27;This is new eight&#x27;</span></code></pre>
+<p>…and the property <code>eight</code> of <code>targetEntries</code> is updated.</p>
+<h2 id="iteration-states">Iteration States</h2>
+<p>Conceptually, each round of iteration in a loop is an instance that Subscript can access directly when running a thread. A round of iteration is thus updatable in isolation, in response to a directed event. This is what happens when the <em>iteratee</em> of a "For … Of" and "For … In" loop has any of its properties updated, as seen above.</p>
+<p>Below is a similar case.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span>  entries = { <span class="hljs-attr">one</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;one&#x27;</span> }, <span class="hljs-attr">two</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;two&#x27;</span> } };
+<span class="hljs-keyword">let</span> targetEntries = {};</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> propertyName <span class="hljs-keyword">in</span> entries ) {
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`Current property name is: <span class="hljs-subst">${ propertyName }</span>, and its alias name is: &#x27;<span class="hljs-subst">${ entries[ propertyName ].name }</span>&#x27;`</span> );
+    targetEntries[ propertyName ] = entries[ propertyName ];
+}</code></pre>
+<p>On updating the first entry, only the first round of iteration is executed again.</p>
+<pre><code class="hljs js language-js">entries[ <span class="hljs-string">&#x27;one&#x27;</span> ] = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;New one&#x27;</span> };
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span>, <span class="hljs-string">&#x27;one&#x27;</span> ] );</code></pre>
+<p>For even more granularity, individual expressions inside a round of iteration are also responsive to thread events of their own. So, if we updated just <code>entries.one.name</code>…</p>
+<pre><code class="hljs js language-js">entries.one.name = <span class="hljs-string">&#x27;New one&#x27;</span>;
+fn.thread( [ <span class="hljs-string">&#x27;entries&#x27;</span>, <span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;name&#x27;</span> ] );</code></pre>
+<p>…we would have skipped the iteration instance itself, to target just the first statement within it.</p>
+<p>This granular reactivity makes it often pointless to trigger a full rerun of a loop, offering multiple opportunities to deliver unmatched performance.</p>
+<h2 id="breakouts">Breakouts</h2>
+<p>Subscript observes <code>break</code> and <code>continue</code> statements even when running a thread. And any of these statements may employ <em>labels</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span>  entries = { <span class="hljs-attr">one</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;one&#x27;</span> }, <span class="hljs-attr">two</span>: { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;two&#x27;</span> } };</code></pre>
+<pre><code class="hljs js language-js">parentLoop: <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> propertyName <span class="hljs-keyword">in</span> entries ) {
+    <span class="hljs-attr">childLoop</span>: <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">let</span> subPropertyName <span class="hljs-keyword">in</span> entries[ propertyName ] ) {
+        If ( propertyName === <span class="hljs-string">&#x27;one&#x27;</span> ) {
+            <span class="hljs-keyword">break</span> parentLoop;
+        }
+        <span class="hljs-built_in">console</span>.log( propertyName, subPropertyName );
+    }
+}</code></pre>
+
+				</div>
+			</template>
+
+			<template name="references-and-bindings">
+				<div exportgroup="readme">
+
+					<h1 id="references-and-bindings">References And Bindings</h1>
+<p>Expressions and statements in Subscript maintain a binding to their references. And that's the basis for reactivity in Subscript.</p>
+<p>For example, variable declarations, with <code>let</code> and <code>var</code>, and assignment expressions, are bound to any references that may be in their argument. (<code>const</code> declarations are an exception as they're always <em>const</em> in nature.)</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> tense = score &gt; <span class="hljs-number">50</span> ? <span class="hljs-string">&#x27;passed&#x27;</span> : <span class="hljs-string">&#x27;failed&#x27;</span>;</code></pre>
+<p><em>Above, the assignment expression is bound to the reference <code>score</code>; and thus responds to a thread event for <code>score</code>.</em></p>
+<p>The thread continues with any susequent bindings to the <code>tense</code> variable itself…</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> message = <span class="hljs-string">`Hi <span class="hljs-subst">${ candidate.firstName }</span>, you <span class="hljs-subst">${ tense }</span> this test!`</span>;</code></pre>
+<p><em>Above, the assignment expression is bound to the references <code>candidate</code>, <code>candidate.firstName</code>, and <code>tense</code>; and thus responds to a thread event for each.</em></p>
+<p>And the thread continues with any susequent bindings to the <code>message</code> variable itself… and any bindings of those bindings…</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> fullMessage = [ message, <span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;Thank you!&#x27;</span> ].join( <span class="hljs-string">&#x27;&#x27;</span> );</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> broadcast = { [ candidate.username ]: fullMessage };</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log( broadcast );</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> broadcastInstance = <span class="hljs-keyword">new</span> BroadcastMessage( broadcast );</code></pre>
+
+				</div>
+			</template>
+
+			<template name="thread-events">
+				<div exportgroup="readme">
+
+					<h1 id="thread-events">Thread Events</h1>
+<p>Subscript is not concerned with how changes happen or are detected on the outer scope of the function. It simply gives us a way to announce that something has changed. That announcement is called a <em>thread event</em>.</p>
+<p>A Subscript function has a <code>thread()</code> method that lets us trigger a thread for the list of outside variables or properties that have changed.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> a = <span class="hljs-string">&#x27;Apple&#x27;</span>, b = <span class="hljs-string">&#x27;Banana&#x27;</span>, c = { <span class="hljs-attr">prop</span>: <span class="hljs-string">&#x27;Fruits&#x27;</span> };</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> fn = <span class="hljs-keyword">new</span> SubscriptFunction(<span class="hljs-string">`
+    console.log( \`The value of &#x27;a&#x27; is: \${ a }\` );
+    console.log( \`The value of &#x27;b&#x27; is: \${ b }\` );
+    console.log( \`The value of &#x27;c.prop&#x27; is: \${ c.prop }\` );
+`</span>);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Initial run</span>
+fn();</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Updates and threads</span>
+b = <span class="hljs-string">&#x27;Breadfruit&#x27;</span>;
+fn.thread( [ <span class="hljs-string">&#x27;b&#x27;</span> ] );</code></pre>
+<p>The array syntax allows us to represent properties as paths.</p>
+<pre><code class="hljs js language-js">fn.thread( [ <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;prop&#x27;</span> ] );</code></pre>
+<p>And we can run one thread for multiple changes.</p>
+<pre><code class="hljs js language-js">fn.thread( [ <span class="hljs-string">&#x27;a&#x27;</span> ], [ <span class="hljs-string">&#x27;b&#x27;</span> ] );</code></pre>
+<p>Variable declarations within the function belong in their own scope and do not respond to outside events. But when they do reference variables from the outside scope, they are included in the dependency thread of those outside variables.</p>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> fn = <span class="hljs-keyword">new</span> SubscriptFunction(<span class="hljs-string">`
+    let a = &#x27;Apple&#x27;, b = &#x27;Banana&#x27; + &#x27; &#x27; + c.prop;
+    console.log( \`The value of &#x27;a&#x27; is: \${ a }\` );
+    console.log( \`The value of &#x27;b&#x27; is: \${ b }\` );
+    console.log( \`The value of &#x27;c.prop&#x27; is: \${ c.prop }\` );
+`</span>);</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Initial run</span>
+fn();</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The following events will have no effect since &quot;a&quot; and &quot;b&quot; are local variables.</span>
+fn.thread( [ <span class="hljs-string">&#x27;a&#x27;</span> ], [ <span class="hljs-string">&#x27;b&#x27;</span> ] );</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// The local variable &quot;b&quot; will be part of the dependency thread of &quot;c.prop&quot;</span>
+<span class="hljs-comment">// (The console will therefore show the result of the last two statements in the function)</span>
+fn.thread( [ <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;prop&#x27;</span> ] );</code></pre>
+
+				</div>
+			</template>
+		</template>
+
+		<template name="spec">
+			<div exportgroup="readme">
+
+				<h1 id="spec">SPEC</h1>
+
+			</div>
+
+			<template name="api">
+				<div exportgroup="readme">
+
+					<h1 id="api">API</h1>
+<p><code>SubscriptFunction</code> is a one-to-one equivalent of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function">JavaScript Function constructor</a>. They work interchangeably 😎.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Statically</span>
+<span class="hljs-keyword">let</span> subscrFunction = SubscriptFunction( functionBody );
+<span class="hljs-keyword">let</span> subscrFunction = SubscriptFunction( arg1, functionBody );
+<span class="hljs-keyword">let</span> subscrFunction = SubscriptFunction( arg1, ... argN, functionBody );
+
+<span class="hljs-comment">// With the new operator</span>
+<span class="hljs-keyword">let</span> subscrFunction = <span class="hljs-keyword">new</span> SubscriptFunction( functionBody );
+<span class="hljs-keyword">let</span> subscrFunction = <span class="hljs-keyword">new</span> SubscriptFunction( arg1, functionBody );
+<span class="hljs-keyword">let</span> subscrFunction = <span class="hljs-keyword">new</span> SubscriptFunction( arg1, ... argN, functionBody );</code></pre>
+<h2 id="parameters">Parameters</h2>
+<h3 id="arg1--argn"><code>arg1, ... argN</code></h3>
+<p>Names to be used by the function as formal argument names. Each must be a string that corresponds to a valid JavaScript parameter (any of plain identifier, rest parameter, or destructured parameter, optionally with a default), or a list of such strings separated with commas.</p>
+<h3 id="functionbody"><code>functionBody</code></h3>
+<p>A string that represents the function body.</p>
+<h2 id="return-value">Return Value</h2>
+<p>A regular <code>Function</code> object, or an <code>async function</code> object where the <code>await</code> keyword is used within <code>functionBody</code>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Create a regular function - sum</span>
+<span class="hljs-keyword">let</span> sum = SubscriptFunction( <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;return a + b;&#x27;</span> );
+
+<span class="hljs-comment">// Call the returned sum function and log the result</span>
+<span class="hljs-built_in">console</span>.log( sum( <span class="hljs-number">10</span>, <span class="hljs-number">2</span> ) );
+&lt; <span class="hljs-number">12</span></code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Create an async function - sum</span>
+<span class="hljs-keyword">let</span> sum = SubscriptFunction( <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;return a + await b;&#x27;</span> );
+
+<span class="hljs-comment">// Call the returned sum function and log the result</span>
+sum( <span class="hljs-number">10</span>, <span class="hljs-number">2</span> ).then( <span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log( result );
+} );
+&lt; <span class="hljs-number">12</span></code></pre>
+<h2 id="the-this-binding">The <code>this</code> Binding</h2>
+<p>Functions returned by <code>SubscriptFunction</code> are standard functions that can have their own <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this"><code>this</code></a> binding at <em>call time</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Create a function - colorSwitch - that sets a DOM element&#x27;s color</span>
+<span class="hljs-keyword">let</span> colorSwitch = SubscriptFunction( <span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;this.style.color = color;&#x27;</span> );
+
+<span class="hljs-comment">// Call colorSwitch, with document.body as it&#x27;s this binding</span>
+<span class="hljs-keyword">let</span> element = <span class="hljs-built_in">document</span>.body;
+colorSwitch.call( element, <span class="hljs-string">&#x27;red&#x27;</span> );</code></pre>
+<p>But, where the <code>this</code> binding is <code>undefined</code> at call time, the <code>this</code> binding of the <code>SubscriptFunction</code> itself is used. This lets us have a default <code>this</code> binding at <em>creation time</em>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Create the same colorSwitch, this time, with a this binding that can be used at call time</span>
+<span class="hljs-keyword">let</span> element = <span class="hljs-built_in">document</span>.body;
+<span class="hljs-keyword">let</span> colorSwitch = SubscriptFunction.call( element, <span class="hljs-string">&#x27;color&#x27;</span>, <span class="hljs-string">&#x27;this.style.color = color;&#x27;</span> );
+
+<span class="hljs-comment">// Call colorSwitch, without a this binding</span>
+colorSwitch( <span class="hljs-string">&#x27;red&#x27;</span> );
+colorSwitch.call( <span class="hljs-literal">undefined</span>, <span class="hljs-string">&#x27;red&#x27;</span> );
+
+<span class="hljs-comment">// Call colorSwitch, with a different this binding</span>
+<span class="hljs-keyword">let</span> h1Element = <span class="hljs-built_in">document</span>.getElementById( <span class="hljs-string">&#x27;h1&#x27;</span> );
+colorSwitch.call( h1Element, <span class="hljs-string">&#x27;red&#x27;</span> );</code></pre>
+<h2 id="the-subscrfunctionthread-method">The <code>subscrFunction.thread()</code> Method</h2>
+<p>The <code>.thread()</code> method is the <em>reactivity</em> API in Subscript functions that lets us send <em>thread events</em> into the <em>reactivity runtime</em>. It takes a list of the outside variables or properties that have changed; each as an array path.</p>
+<h4 id="syntax-1">Syntax</h4>
+<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> returnValue = subscrFunction.thread( path1, ... pathN );</code></pre>
+<h4 id="parameters-1">Parameters</h4>
+<h4 id="path1--pathn"><code>path1, ... pathN</code></h4>
+<p>An array path representing each variable, or object property, that has changed. <em>See <a href="#thread-events">Thread Events</a> for concepts and usage.</em></p>
+<h3 id="return-value-1">Return Value</h3>
+<p>The return value of this method depends on the return value of the <em>dependency thread</em> it initiates within the function body.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// Global variables to use</span>
+a = <span class="hljs-number">10</span>;
+b = <span class="hljs-number">2</span>;
+
+<span class="hljs-comment">// Create a function with two possible values</span>
+<span class="hljs-keyword">let</span> sum = SubscriptFunction(<span class="hljs-string">`
+    if ( a &gt; 10 ) {
+        return a + await b;
+    }
+    return a + b;
+`</span>);
+
+<span class="hljs-comment">// Run normally</span>
+<span class="hljs-built_in">console</span>.log( sum() );
+&lt; <span class="hljs-number">12</span>
+
+<span class="hljs-comment">// Run a thread with a different return value</span>
+a = <span class="hljs-number">20</span>;
+<span class="hljs-built_in">console</span>.log( sum.thread( [ <span class="hljs-string">&#x27;a&#x27;</span> ] ) );
+&lt; <span class="hljs-built_in">Promise</span> { <span class="hljs-number">22</span> }</code></pre>
+
+				</div>
+			</template>
 
 			<template name="download">
 				<div exportgroup="readme">
@@ -50,149 +529,67 @@
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/@webqit/subscript/dist/main.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>The above tag loads Subscript into a global "WebQit" object.</p>
 <pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-keyword">const</span> Subscript = <span class="hljs-built_in">window</span>.WebQit.Subscript;
+    <span class="hljs-keyword">const</span> SubscriptFunction = <span class="hljs-built_in">window</span>.WebQit.Subscript;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <h2 id="option-2-as-an-npm-package">Option 2: As an npm Package</h2>
 <p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, run the following command to install Subscript:</p>
 <pre><code class="hljs text language-text">$ npm i @webqit/subscript</code></pre>
 <p>Import the installed package:</p>
 <pre><code class="hljs js language-js"><span class="hljs-comment">// Import the initializer</span>
-<span class="hljs-keyword">import</span> Subscript <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/subscript&#x27;</span>;</code></pre>
+<span class="hljs-keyword">import</span> SubscriptFunction <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/subscript&#x27;</span>;</code></pre>
 
 				</div>
 			</template>
+		</template>
 
-			<template name="overview">
+		<template name="usage">
+			<div exportgroup="readme">
+
+				<h1 id="usage">Usage</h1>
+
+			</div>
+
+			<template name="subscript-element">
 				<div exportgroup="readme">
 
-					<h1 id="overview">Overview</h1>
-<p>Subscript is a language kit for JavaScript, written in JavaScript. It offers language-bending features for implementing ambitious JavaScript projects.</p>
-<p>You can <code>parse()</code> a JavaScript expression <code>(2 + 2) * 3</code> into a <em>Subscript AST</em>,</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> subscript = Subscript.parse(expr);</code></pre>
-<p>then, <code>stringify()</code> the <em>Subscript AST</em> back into its original JavaScript expression <code>(2 + 2) * 3</code>,</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> expr = subscript.stringify();</code></pre>
-<p>or even <code>eval()</code> the JavaScript expression.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> result = subscript.eval();
-<span class="hljs-comment">// 12</span></code></pre>
-<h2 id="features">Features</h2>
-<h3 id="small-fast">Small! Fast!</h3>
-<p>Being an implementation of a subset of JavaScript, as the name implies, Subscript supports the everyday JavaScript that's just enough for most use-cases. That gives us something small and fast that fits anywhere.</p>
-<h3 id="transformable-ast">Transformable AST</h3>
-<p>Make any language transformation between <code>Subscript.parse(expr)</code> and <code>subscript.stringify()</code> / <code>subscript.eval()</code>. Subscript's syntax tree transformability offers a great way to do code transpiling, static code analysis, and more.</p>
-<h3 id="a-pseudo-runtime">A Pseudo Runtime!</h3>
-<p>Subscript's <code>eval()</code> feature is a standalone JavaScript runtime that supports user-defined contexts. This provides the level of runtime encapsulation that is not available with the native JavaScript's <code>eval()</code> function. (<em>Examples ahead.</em>)</p>
-<h3 id="runtime-traps-and-hooks">Runtime Traps and Hooks</h3>
-<p>Supercharge everything with runtime traps. Subscript accepts the same <em>trap</em> object as a Proxy trap, for intercepting runtime <em>assignment</em> <code>=</code>, <code>delete</code>, and <code>in</code> operators, and object accessors. This brings a new level of depth to JavaScript code. (<em>Examples ahead.</em>)</p>
-<h2 id="examples">Examples</h2>
-<h3 id="evaluate-a-javascript-expression">Evaluate a JavaScript expression</h3>
-<p><strong><code>MathExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = <span class="hljs-string">&#x27;7 + 8&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj1 = Subscript.parse(expr1);
-<span class="hljs-comment">// MathExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result1 = exprObj1.eval();
-<span class="hljs-comment">// (Number) 15</span></code></pre>
-<p><strong><code>ArrayExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = <span class="hljs-string">&#x27;[ &quot;New York City&quot;, &quot;Lagos&quot;, &quot;Berlin&quot; ]&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj2 = Subscript.parse(expr2);
-<span class="hljs-comment">// ArrayExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result2 = exprObj2.eval();
-<span class="hljs-comment">// (Array) [ &quot;New York City&quot;, &quot;Lagos&quot;, &quot;Berlin&quot; ]</span></code></pre>
-<p><strong><code>ObjectExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr3 = <span class="hljs-string">&#x27;{ city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: cityNameFromContext }&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj3 = Subscript.parse(expr3);
-<span class="hljs-comment">// ObjectExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result3 = exprObj3.eval();
-<span class="hljs-comment">// (Object) { city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: undefined }</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">cityNameFromContext</span>: <span class="hljs-string">&#x27;London&#x27;</span> };
-<span class="hljs-keyword">var</span> result3 = exprObj3.eval(context);
-<span class="hljs-comment">// (Object) { city1: &quot;New York City&quot;, city2: &quot;Lagos&quot;, city3: &quot;Berlin&quot;, city4: &quot;London&quot; }</span></code></pre>
-<p><strong><code>FunctionExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr4 = <span class="hljs-string">&#x27;( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj4 = Subscript.parse(expr4);
-<span class="hljs-comment">// FunctionExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> result4 = exprObj4.eval();
-<span class="hljs-comment">// (Function) ( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }</span>
+					<h1 id="subscript-element">Subscript Element</h1>
+<h2 id="a-custom-element-example">A Custom Element Example</h2>
+<p>As trivial as our hypothetical <a href="#whats-a-dependency-thread"><code>render()</code></a> function above is, we can see it applicable in real life places! Consider a neat reactive <em>Custom Element</em> example based on <a href="https://webqit.io/tooling/oohtml/docs/spec/subscript#subscript-element-mixin"><code>SubscriptElement</code></a> from <a href="https://github.com/webqit/oohtml">OOHTML</a>.</p>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// We&#x27;ll still keep count as a global variable for now</span>
+<span class="hljs-keyword">let</span> count = <span class="hljs-number">10</span>;</code></pre>
+<pre><code class="hljs js language-js"><span class="hljs-comment">// This custom element extends Subscript as a base class… more on this later</span>
+customElements.define( <span class="hljs-string">&#x27;click-counter&#x27;</span>, <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SubscriptElement</span>( <span class="hljs-title">HTMLElement</span> ) </span>{
 
-result4(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>);
-<span class="hljs-comment">// (Number) 13</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">argFromContext</span>: <span class="hljs-number">20</span> };
-<span class="hljs-keyword">var</span> result4 = exprObj4.eval(context);
-<span class="hljs-comment">// (Function) ( arg1, arg2 ) =&gt; { return arg1 + arg2 + (argFromContext ? argFromContext : 0); }</span>
+    <span class="hljs-comment">// This is how we designate methods as reactive methods</span>
+    <span class="hljs-comment">// But this is implicit having extended SubscriptElement()</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">get</span> <span class="hljs-title">subscriptMethods</span>() {
+        <span class="hljs-keyword">return</span> [ <span class="hljs-string">&#x27;render&#x27;</span> ];
+    }
 
-result4(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>);
-<span class="hljs-comment">// (Number) 33</span></code></pre>
-<p><strong><code>.stringify()</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = exprObj1.stringify();
-<span class="hljs-comment">// 7 + 8</span></code></pre>
-<h3 id="use-conditionals-call-a-function-in-scope">Use conditionals, call a function in scope</h3>
-<p><strong><code>ConditionalExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr1 = <span class="hljs-string">&#x27;age &lt; 18 ? fname + &quot; &quot; + lname + &quot; does not meet the age requirement!&quot; : fname + &quot; &quot; + lname + &quot; is old enough!&quot;&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj1 = Subscript.parse(expr1);
-<span class="hljs-comment">// ConditionalExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">24</span> };
-<span class="hljs-keyword">var</span> result1 = exprObj1.eval();
-<span class="hljs-comment">// (String) John Doe is old enough!</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">fname</span>: <span class="hljs-string">&quot;John2&quot;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&quot;Doe2&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">10</span> };
-<span class="hljs-keyword">var</span> result1 = exprObj1.eval(context);
-<span class="hljs-comment">// (String) John Doe does not meet the age requirement!</span></code></pre>
-<p><strong><code>StringExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = <span class="hljs-string">&#x27;&quot;Today is: &quot; + date().stringify()&#x27;</span>;
-<span class="hljs-keyword">var</span> exprObj2 = Subscript.parse(expr2);
-<span class="hljs-comment">// StringExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">date</span>:<span class="hljs-function">() =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>) };
-<span class="hljs-keyword">var</span> result2 = exprObj2.eval(context);
-<span class="hljs-comment">// (String) Today is: &lt;current date&gt;</span></code></pre>
-<p><strong><code>.stringify()</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr2 = exprObj2.stringify();
-<span class="hljs-comment">// &quot;Today is: &quot; + date().stringify()</span></code></pre>
-<h3 id="write-multiple-expressions-and-comments-plus-a-top-level-return">Write multiple expressions and Comments, plus a top-level return</h3>
-<p><strong><code>BlockExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr = <span class="hljs-string">`
-/**
- * Block comments
- */
+    <span class="hljs-function"><span class="hljs-title">connectedCallback</span>(<span class="hljs-params"></span>)</span> {
+        <span class="hljs-comment">// Full execution at connected time</span>
+        <span class="hljs-built_in">this</span>.render();
+        <span class="hljs-comment">// Granularly-selective execution at click time</span>
+        <span class="hljs-built_in">this</span>.addEventListener( <span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+            count ++;
+            <span class="hljs-built_in">this</span>.render.thread( [ <span class="hljs-string">&#x27;count&#x27;</span> ] );
+        } );
+    }
 
-// Single line comments
-delete obj1.prop1;
-delete /*comment anywhere*/obj2.prop1;
+    <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> {
+        <span class="hljs-keyword">let</span> countElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#count&#x27;</span> );
+        countElement.innerHTML = count;
 
-return;
+        <span class="hljs-keyword">let</span> doubleCount = count * <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">let</span> doubleCountElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#double-count&#x27;</span> );
+        doubleCountElement.innerHTML = doubleCount;
 
-delete obj2.prop2;
-`</span>;
-
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-<span class="hljs-comment">// BlockExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> context = { <span class="hljs-attr">obj1</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;John&quot;</span> }, <span class="hljs-attr">obj2</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;Bar&quot;</span> } };
-<span class="hljs-keyword">var</span> result = exprObj.eval();
-
-context;
-<span class="hljs-comment">// (Object) { obj1: { }, obj2: { prop2: &quot;Bar&quot; } }</span></code></pre>
-<h3 id="use-traps">Use traps</h3>
-<p><strong><code>IfExpression</code>:</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> expr = <span class="hljs-string">`if (&quot;prop1&quot; in obj1) {
-    console.log(&#x27;prop1 exists.&#x27;);
-} else {
-    console.log(&#x27;prop1 does not exist. Creating it now.&#x27;);
-    obj1.prop1 = &#x27;John&#x27;;
-}
-`</span>;
-
-<span class="hljs-keyword">var</span> exprObj = Subscript.parse(expr);
-<span class="hljs-comment">// IfExpression</span></code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> pseudoContext = { <span class="hljs-attr">obj1</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;John&quot;</span> }, <span class="hljs-attr">obj2</span>: { <span class="hljs-attr">prop1</span>: <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-string">&quot;Bar&quot;</span> } };
-<span class="hljs-keyword">var</span> context = {};
-<span class="hljs-keyword">var</span> result = exprObj.eval(context, {
-    <span class="hljs-attr">has</span>: <span class="hljs-function">(<span class="hljs-params">target, property</span>) =&gt;</span> {
-        <span class="hljs-keyword">return</span> property <span class="hljs-keyword">in</span> pseudoContext;
-    },
-    <span class="hljs-attr">set</span>: <span class="hljs-function">(<span class="hljs-params">target, property, value</span>) =&gt;</span> {
-        pseudoContext[property] = value;
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-    },
-});
-
-<span class="hljs-comment">// (String) prop1 exists.</span></code></pre>
+        <span class="hljs-keyword">let</span> quadCount = doubleCount * <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">let</span> quadCountElement = <span class="hljs-built_in">document</span>.querySelector( <span class="hljs-string">&#x27;#quad-count&#x27;</span> );
+        quadCountElement.innerHTML = quadCount;
+    }
+} );</code></pre>
+<p><em>Continue to <a href="https://webqit.io/tooling/oohtml/docs/spec/subscript#subscript-element-mixin">SubscriptElement</a> for the full story.</em></p>
 
 				</div>
 			</template>

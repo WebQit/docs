@@ -41,9 +41,21 @@
                     "outline": [
                         {
                             "level": 1,
-                            "title": "Subscript Documentation",
-                            "uri": "subscript-documentation",
+                            "title": "An Overview",
+                            "uri": "an-overview",
                             "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "What's A Dependency Thread?",
+                                    "uri": "whats-a-dependency-thread",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "What Is Subscript?",
+                                    "uri": "what-is-subscript",
+                                    "subtree": []
+                                },
                                 {
                                     "level": 2,
                                     "title": "Explore the Docs",
@@ -56,27 +68,275 @@
                 }
             },
             "subtree": {
-                "getting-started": {
+                "concepts": {
                     "meta": {
                         "readme": {
                             "_index": "first",
                             "outline": [
                                 {
                                     "level": 1,
-                                    "title": "Getting Started",
-                                    "uri": "getting-started",
+                                    "title": "Concepts",
+                                    "uri": "concepts",
                                     "subtree": []
                                 }
                             ]
                         }
                     },
                     "subtree": {
+                        "conditionals-and-logic": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "About Conditionals And Logic.",
+                                    "_index": "3",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Conditionals And Logic",
+                                            "uri": "conditionals-and-logic",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "\"If/Else\" Statements",
+                                                    "uri": "ifelse-statements",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "\"Switch\" Statements",
+                                                    "uri": "switch-statements",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Logical And Ternary Expressions",
+                                                    "uri": "logical-and-ternary-expressions",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "functions": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "About Functions.",
+                                    "_index": "5",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Functions",
+                                            "uri": "functions",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Side Effects",
+                                                    "uri": "side-effects",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Subscript Function Syntax (New)",
+                                                    "uri": "subscript-function-syntax-new",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "loops": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "About Loops.",
+                                    "_index": "4",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Loops",
+                                            "uri": "loops",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "A for Loop, while And do … while Loop",
+                                                    "uri": "a-for-loop-while-and-do-…-while-loop",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "A for … of Loop",
+                                                    "uri": "a-for-…-of-loop",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "A for … in Loop",
+                                                    "uri": "a-for-…-in-loop",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Iteration States",
+                                                    "uri": "iteration-states",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Breakouts",
+                                                    "uri": "breakouts",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "references-and-bindings": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "About References And Bindings.",
+                                    "_index": "2",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "References And Bindings",
+                                            "uri": "references-and-bindings",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "thread-events": {
+                            "meta": {
+                                "readme": {
+                                    "desc": "About Thread Events.",
+                                    "_index": "first",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "Thread Events",
+                                            "uri": "thread-events",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "spec": {
+                    "meta": {
+                        "readme": {
+                            "title": "SPEC",
+                            "desc": "Download and API.",
+                            "_index": "1",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "SPEC",
+                                    "uri": "spec",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "api": {
+                            "meta": {
+                                "readme": {
+                                    "title": "API",
+                                    "desc": "The SubscriptFunction API.",
+                                    "_index": "2",
+                                    "outline": [
+                                        {
+                                            "level": 1,
+                                            "title": "API",
+                                            "uri": "api",
+                                            "subtree": [
+                                                {
+                                                    "level": 2,
+                                                    "title": "Syntax",
+                                                    "uri": "syntax",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Parameters",
+                                                    "uri": "parameters",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "arg1, ... argN",
+                                                            "uri": "arg1--argn",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "functionBody",
+                                                            "uri": "functionbody",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "Return Value",
+                                                    "uri": "return-value",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "The this Binding",
+                                                    "uri": "the-this-binding",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 2,
+                                                    "title": "The subscrFunction.thread() Method",
+                                                    "uri": "the-subscrfunctionthread-method",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 4,
+                                                            "title": "Syntax",
+                                                            "uri": "syntax-1",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 4,
+                                                            "title": "Parameters",
+                                                            "uri": "parameters-1",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 4,
+                                                            "title": "path1, ... pathN",
+                                                            "uri": "path1--pathn",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Return Value",
+                                                            "uri": "return-value-1",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
                         "download": {
                             "meta": {
                                 "readme": {
                                     "title": "Download",
                                     "desc": "Follow the download options to add Subscript to your project.",
-                                    "_index": "1",
+                                    "_index": "first",
                                     "outline": [
                                         {
                                             "level": 1,
@@ -100,79 +360,40 @@
                                     ]
                                 }
                             }
-                        },
-                        "overview": {
+                        }
+                    }
+                },
+                "usage": {
+                    "meta": {
+                        "readme": {
+                            "desc": "Usage",
+                            "_index": "3",
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Usage",
+                                    "uri": "usage",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    },
+                    "subtree": {
+                        "subscript-element": {
                             "meta": {
                                 "readme": {
-                                    "desc": "An overview of Subscript.",
-                                    "_index": "first",
+                                    "desc": "Subscript Element.",
                                     "outline": [
                                         {
                                             "level": 1,
-                                            "title": "Overview",
-                                            "uri": "overview",
+                                            "title": "Subscript Element",
+                                            "uri": "subscript-element",
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Features",
-                                                    "uri": "features",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Small! Fast!",
-                                                            "uri": "small-fast",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Transformable AST",
-                                                            "uri": "transformable-ast",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "A Pseudo Runtime!",
-                                                            "uri": "a-pseudo-runtime",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Runtime Traps and Hooks",
-                                                            "uri": "runtime-traps-and-hooks",
-                                                            "subtree": []
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Examples",
-                                                    "uri": "examples",
-                                                    "subtree": [
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Evaluate a JavaScript expression",
-                                                            "uri": "evaluate-a-javascript-expression",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Use conditionals, call a function in scope",
-                                                            "uri": "use-conditionals-call-a-function-in-scope",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Write multiple expressions and Comments, plus a top-level return",
-                                                            "uri": "write-multiple-expressions-and-comments-plus-a-top-level-return",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Use traps",
-                                                            "uri": "use-traps",
-                                                            "subtree": []
-                                                        }
-                                                    ]
+                                                    "title": "A Custom Element Example",
+                                                    "uri": "a-custom-element-example",
+                                                    "subtree": []
                                                 }
                                             ]
                                         }
