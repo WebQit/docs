@@ -5,9 +5,13 @@
 
 <!-- /BADGES -->
 
-## A Pseudo JavaScript Engine
+## About
 
-Parse and interprete JavaScript with new possibilities! Designate any object as your runtime scope, and even hook into the runtime with traps and custom callbacks! Take all of the magic as a small piece that fits in any project and any environment!
+A general-purpose reactivity runtime for JavaScript, with an overarching philosophy of reactivity that is based on the dependency graph of your own code, and nothing of its own syntax!
+
+It takes any piece of code and compiles it into an ordinary JavaScript function that can also run expressions in dependency threads!
+
+Being function-based let's us have all of Subscript as a building block… to fit anywhere!
 
 ## Getting Started
 

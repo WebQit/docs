@@ -1,40 +1,40 @@
 {
     "title": "Subscript",
     "icon": "terminal",
-    "desc": "A light-weight JavaScript parser and interpreter written in JavaScript; Subscript provides a completely-bendable JavaScript runtime for ambitious usecases.",
+    "desc": "A is a reactivity runtime for JavaScript, offered in an ordinary JavaScript function! With Subscript we introduce <i>dependency threads</i> for JavaScript!.",
     "categories": ["JavaScript Libraries"],
-    "tags": ["OOHTML", "UI", "Build Tool"],
+    "tags": ["OOHTML", "UI", "Reactivity"],
     "quickstart": {"cdn": true},
     "features": [{
         "icon": "percent",
-        "title": "Small! Fast!",
-        "desc": "Try a focused implementation of just everyday JavaScript that fits anywhere.",
+        "title": "Nothing at all but plain JavaScript!",
+        "desc": "Try a new approach to reactivity that is based on nothing at all but plain JavaScript!.",
         "cta": {
-            "href": "/tooling/subscript/docs/getting-started/overview#small-fast",
+            "href": "/tooling/subscript/docs",
             "text": "Learn more"
         }
     }, {
         "icon": "diagram-2",
-        "title": "Transformable AST",
-        "desc": "Parse your JavaScript code into an AST, and back again into code! Transform in-between.",
+        "title": "Performant JavaScript",
+        "desc": "An insane focus on pure JavaScript syntax - to keep its footprint, and your footprint, ridiculously small!",
         "cta": {
-            "href": "/tooling/subscript/docs/getting-started/overview#transformable-ast",
+            "href": "/tooling/subscript/docs",
             "text": "Learn more"
         }
     }, {
         "icon": "cpu",
-        "title": "A Pseudo Runtime!",
-        "desc": "Fully execute an AST with just any object as its scope! Ditch the native <code>eval()</code> function!",
+        "title": "Developer \"Joooy\"",
+        "desc": "Write your code however you enjoy it; forget about hooks and a complex toolchain, and a required build step!",
         "cta": {
-            "href": "/tooling/subscript/docs/getting-started/overview#a-pseudo-runtime",
+            "href": "/tooling/subscript/docs",
             "text": "Learn more"
         }
     }, {
         "icon": "plug",
-        "title": "Runtime Traps and Hooks",
-        "desc": "Follow every operation with Proxy-traps'ish callbacks and runtime hooks.",
+        "title": "Progressive Development",
+        "desc": "Try turning reactivity on and off on an existing code base, in an afterthought! Go \"progressive\" with Subscript Functions!",
         "cta": {
-            "href": "/tooling/subscript/docs/getting-started/overview#runtime-traps-and-hooks",
+            "href": "/tooling/subscript/docs",
             "text": "Learn more"
         }
     }]
