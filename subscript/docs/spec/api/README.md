@@ -5,9 +5,11 @@ _index: 2
 ---
 # API
 
+## SubscriptFunction
+
 `SubscriptFunction` is a one-to-one equivalent of the [JavaScript Function constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function). They work interchangeably 😎.
 
-## Syntax
+### Syntax
 
 ```js
 // Statically
@@ -21,17 +23,17 @@ let subscrFunction = new SubscriptFunction( arg1, functionBody );
 let subscrFunction = new SubscriptFunction( arg1, ... argN, functionBody );
 ```
 
-## Parameters
+### Parameters
 
-### `arg1, ... argN`
+#### `arg1, ... argN`
 
 Names to be used by the function as formal argument names. Each must be a string that corresponds to a valid JavaScript parameter (any of plain identifier, rest parameter, or destructured parameter, optionally with a default), or a list of such strings separated with commas.
 
-### `functionBody`
+#### `functionBody`
 
 A string that represents the function body.
 
-## Return Value
+### Return Value
 
 A regular `Function` object, or an `async function` object where the `await` keyword is used within `functionBody`.
 
@@ -55,7 +57,7 @@ sum( 10, 2 ).then( result => {
 < 12
 ```
 
-## The `this` Binding
+### The `this` Binding
 
 Functions returned by `SubscriptFunction` are standard functions that can have their own [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) binding at *call time*.
 
@@ -84,23 +86,23 @@ let h1Element = document.getElementById( 'h1' );
 colorSwitch.call( h1Element, 'red' );
 ```
 
-## The `subscrFunction.thread()` Method
+### The `subscrFunction.thread()` Method
 
 The `.thread()` method is the *reactivity* API in Subscript functions that lets us send *thread events* into the *reactivity runtime*. It takes a list of the outside variables or properties that have changed; each as an array path.
 
-#### Syntax
+##### Syntax
 
 ```js
 let returnValue = subscrFunction.thread( path1, ... pathN );
 ```
 
-#### Parameters
+##### Parameters
 
-#### `path1, ... pathN`
+##### `path1, ... pathN`
 
-An array path representing each variable, or object property, that has changed. *See [Thread Events](#thread-events) for concepts and usage.*
+An array path representing each variable, or object property, that has changed. *See [Thread Events](../../concepts/thread-events) for concepts and usage.*
 
-### Return Value
+#### Return Value
 
 The return value of this method depends on the return value of the *dependency thread* it initiates within the function body.
 
@@ -126,3 +128,37 @@ a = 20;
 console.log( sum.thread( [ 'a' ] ) );
 < Promise { 22 }
 ```
+
+## SubscriptClass
+
+`SubscriptClass` is a *convenience* base class *Mixin* that automatically transforms regular class methods as Subscript methods.
+
+### Syntax
+
+```js
+class MyClass extends SubscriptClass( [ BaseClass = null ] ) {
+
+    static get subscriptMethods() {
+        return [ methodName, ... methodNameN ];
+    }
+
+    method() {
+    }
+}
+```
+
+### Parameters
+
+#### `BaseClass`
+
+An optional base class that should be extended.
+
+#### `methodName, ... methodNameN`
+
+Names of the methods that should be transformed to Subscript methods.
+
+### Return Value
+
+A *class* object.
+
+*See [here](../../usage/subscript-element) for usage examples*

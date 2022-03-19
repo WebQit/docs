@@ -288,7 +288,6 @@ The following events are fired on the document object when the document's module
 
             <div exportgroup="export5"></div>
             <div exportgroup="export6"></div>
-
             <template name="module_remote" src="/bundle.html"></template>
 
         </template>
@@ -311,7 +310,6 @@ The following events are fired on the document object when the document's module
 
             <div exportgroup="export5"></div>
             <div exportgroup="export6"></div>
-
             <template name="module_remote" src="/bundle.html"></template>
 
         </template>

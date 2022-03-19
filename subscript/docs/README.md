@@ -7,7 +7,7 @@ Subscript is a reactivity runtime for JavaScript. It takes any valid JavaScript 
 
 ## What's A Dependency Thread?
 
-You could say it's the dependency chain involving two or more JavaScript expressions. 👇
+Think of it as the dependency chain involving two or more JavaScript expressions. 👇
 
 ```js
 let count = 10, doubleCount = count * 2, quadCount = doubleCount * 2;
@@ -112,7 +112,7 @@ console.log( count, doubleCount, quadCount );
 
 \> Use `SubscriptFunction` as a building block.
 
-*A Custom Element Example [ahead](#a-custom-element-example)*
+*A Custom Element Example [ahead](usage/subscript-element)*
 
 ## What Is Subscript?
 

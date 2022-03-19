@@ -19,7 +19,7 @@ The above tag loads Subscript into a global "WebQit" object.
 
 ```html
 <script>
-    const SubscriptFunction = window.WebQit.Subscript;
+    const { SubscriptFunction, SubscriptClass } = window.WebQit.Subscript;
 </script>
 ```
 
@@ -35,5 +35,5 @@ Import the installed package:
 
 ```js
 // Import the initializer
-import SubscriptFunction from '@webqit/subscript';
+import { SubscriptFunction, SubscriptClass } from '@webqit/subscript';
 ```

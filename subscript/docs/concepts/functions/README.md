@@ -51,7 +51,7 @@ function sum( a, b ) {
 }
 ```
 
-Regardless, Subscript's dependency threads are fully able to pick up changes made via a side effect.
+Regardless, Subscript's dependency threads are fully able to pick up changes made via a side effect. (Side effects made by class methods are currently not being detected.)
 
 
 ```js
@@ -98,7 +98,7 @@ console.log( 'Number of times we\'ve summed:', callCount );
 
 *This time, `sum()` is triggerred from a click event handler, not via a dependency thread, and we do not expect the `console.log()` expression to run!*
 
-## Subscript Function Syntax (New)
+## Subscript Function Syntax (`**`)
 
 Subscript explores the possibility of defining functions outright as *reactive* functions using regular *Function Declaration* and *Function Expression* syntaxes!
 
@@ -158,4 +158,59 @@ let program = new SubscriptFunction(`
     console.log( 'Number of times we\'ve summed:', callCount );
 `);
 program();
+```
+
+Objects and classes have an equivalent syntax for a Subscript method...
+
+```js
+let myObject = {
+    sum: function**( a, b ) {
+        return a + b;
+    }
+}
+```
+
+```js
+let myObject = {
+    **sum( a, b ) {
+        return a + b;
+    }
+}
+```
+
+```js
+class MyClass {
+    **sum( a, b ) {
+        return a + b;
+    }
+}
+```
+
+...but these (proposed) syntaxes are only currently supported from within Subscript Function itself! (Also, class methods only currently support the double-star syntax at face value; they do not yet compile as Subscript methods.)
+
+However, Subscript offers a *[Class Mixin](../../api#subscriptclass)* that automatically reredefines class methods as Subscript methods.
+
+```js
+class MyClass extends SubscriptClass() {
+
+    static get subscriptMethods() {
+        return [ 'sum' ];
+    }
+
+    sum( a, b ) {
+        return a + b;
+    }
+}
+```
+
+```js
+class MyClass extends SubscriptClass( HTMLElement ) {
+
+    static get subscriptMethods() {
+        return [ 'render' ];
+    }
+
+    render() {
+    }
+}
 ```

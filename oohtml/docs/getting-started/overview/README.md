@@ -284,98 +284,104 @@ Observer.observe(collapsible.state, 'collapsed', e => {
 
 ## Subscript
 
-Subscript is a type of JavaScript runtime that lets us create scoped, *reactive* `<script>` elements across an HTML document. That gives us a UI binding language and the ability to write UI logic without involving actual JavaScript classes or files.
+[Subscript](/tooling/subscript) is a special language feature for JavaScript that lets us write *reactive* JavaScript code in plain JavaScript. *Subscript UI* is a <1KB extension of Subscript that further simplifies the concept of reactivity for UI development.
 
-Subscript lets us write `<script>` elements that are scoped to their host elements instead of the global browser scope. Below is such a `<script>` element, being scoped to the `#alert` element - its host element:
+There are two approaches to using Subscript:
+
+### (A): SubscriptElement
+
+*SubscriptElement* is an extension of [`SubscriptClass`](/tooling/subscript/docs/spec/api#subscriptclass) - a base class *Mixin* for designating *reactive* class methods.
+
+```js
+class MyClass extends SubscriptElement( HTMLElement ) {
+
+    static get subscriptMethods() {
+        return [ 'render' ];
+    }
+
+    render() {
+    }
+
+}
+```
+
+**An *alert* element**:
+
+```js
+customElements.define( 'my-alert', class Alert extends SubscriptElement( HTMLElement ) {
+
+    static get subscriptMethods() {
+        // The list of methods to make reactive methods
+        return [ 'render' ];
+    }
+
+    connectedCallback() {
+        // Initial rendering
+        // after which automatic selective rendering kicks in
+        this.render();
+    }
+
+    render() {
+        let messageElement = this.querySelector( '.message' );
+        messageElement.innerHTML = globalMessage;
+    }
+
+} );
+```
+
+```js
+var globalMessage = 'This site uses cookies!';
+```
+
+```html
+<body>
+    <my-alert>
+        <div class="message"></div>
+    </my-alert>
+</body>
+```
+
+### (B): ScopedSubscript
+
+*ScopedSubscript* is a `<script>`-based flavour of Subscript that lets us write *reactive* `<script>` elements right within an HTML document; each scoped to their host element instead of the global browser scope.
 
 ```html
 <div id="alert">
     <script type="subscript">
-        console.log(this.id); // alert
+        console.log( this.id ); // alert
     </script>
 </div>
 ```
 
-The `this` variable within Subscript is a reference to the script's host element. In addition, variables declared within the script are available only within the script, and global variables are always available across all scripts.
+The `<script>` above is scoped to the `#alert` element - its host element; the `this` variable is a reference to the script's host element.
 
-```html
-<div id="alert" namespace>
+This lets us have reactive UI logic jsut where they are needed, without involving any JavaScript classes or files.
 
-    <div id="message"></div>
-    <div id="exit" title="Close this message.">X</div>
+**An *alert* element**:
 
-    <script type="subscript">
-        this.namespace.exit.addEventListener('click', () => {
-            this.remove();
-        });
-    </script>
-
-</div>
+```js
+var globalMessage = 'This site uses cookies!';
 ```
-
-Below is how we could render something - a message - from the element's state object - `.state.message`.
 
 ```html
 <body>
 
-    <div id="alert" namespace>
+    <div id="alert">
 
-        <div id="message"></div>
-        <div id="exit" title="Close this message.">X</div>
+        <div class="message"></div>
 
+        <!-- Scoped Subscript -->
         <script type="subscript">
-            // Render the "message" property from the element's state object
-
-            this.namespace.message.innerHTML = this.state.message;
-            this.namespace.exit.addEventListener('click', () => {
-                this.remove();
-            });
+            let messageElement = this.querySelector( '.message' );
+            messageElement.innerHTML = globalMessage;
         </script>
 
     </div>
-
-<body>
-```
-
-But the best part yet is Subscript's reactivity! While Subscript works like regular JavaScript, it is also able to observe changes in its scope and respond to them. And it does this at the granular statement level such that a given statement is evaluated again (independently of other statements in the script) whenever any of the observable references used in the statement experiences a change.
-
-Below, changing the observable reference`.state.message` will trigger that particular statement in the script above to run again.
-
-
-
-```js
-let alertElement = document.querySelector('#alert');
-alertElement.state.message = 'Task started!';
-setTimeout(() => {
-    alertElement.state.message = 'Task complete!';
-}, 1000);
-```
-
-Leveraging this reactivity, we could reimplement the `<my-collapsible>` component we created in the *State API* section above - this time, without a JavaScript class.
-
-```html
-<div id="collapsible" namespace>
     
-    <div id="control">Toggle Me</div>
-    <div id="content" style="height: 0px">
-        Some content
-    </div>
-
-    <script type="subscript">
-        // Observe state and get the UI synced, without requiring Observer.observe() here...
-
-        this.setAttribute('data-collapsed', this.state.collapsed ? 'true' : 'false');
-        this.namespace.content.style.height = this.state.collapsed ? '0px' : 'auto';
-        this.namespace.control.addEventListener('click', () => {
-            // Toggle collapsion state
-            this.state.collapsed = !this.state.collapsed;
-        });
-    </script>
-
-</div>
+</body>
 ```
 
-**Details are in the [Subscript](../../spec/subscript) specification. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.**
+**Details are in the [Subscript](../../spec/subscript) specification. Learn more about the reactivity and observability concepts and the polyfill support.**
 
 ## Getting Started
 

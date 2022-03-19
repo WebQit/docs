@@ -49,9 +49,9 @@ Or a specific feature module:
 
 ```js
 // Import
-import Subscript from '@webqit/oohtml/src/subscript/index.js';
+import State from '@webqit/oohtml/src/state/index.js';
 // Initialize
-Subscript.call(window);
+State.call(window);
 ```
 
 ### Server-Side Initialization

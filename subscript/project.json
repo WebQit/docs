@@ -1,7 +1,7 @@
 {
     "title": "Subscript",
     "icon": "terminal",
-    "desc": "A is a reactivity runtime for JavaScript, offered in an ordinary JavaScript function! With Subscript we introduce <i>dependency threads</i> for JavaScript!.",
+    "desc": "A reactivity runtime for JavaScript, offered in an ordinary JavaScript function! With Subscript we introduce <i>dependency threads</i> for JavaScript!.",
     "categories": ["JavaScript Libraries"],
     "tags": ["OOHTML", "UI", "Reactivity"],
     "quickstart": {"cdn": true},

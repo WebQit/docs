@@ -5,7 +5,7 @@ desc: Subscript Element.
 
 ## A Custom Element Example
 
-As trivial as our hypothetical [`render()`](#whats-a-dependency-thread) function above is, we can see it applicable in real life places! Consider a neat reactive *Custom Element* example based on [`SubscriptElement`](https://webqit.io/tooling/oohtml/docs/spec/subscript#subscript-element-mixin) from [OOHTML](https://github.com/webqit/oohtml).
+As trivial as our hypothetical [`render()`](#whats-a-dependency-thread) function above is, we can see it applicable in real life places! Consider a neat reactive *Custom Element* example based on [`SubscriptClass`](../../api/#subscriptclass).
 
 ```js
 // We'll still keep count as a global variable for now
@@ -14,10 +14,9 @@ let count = 10;
 
 ```js
 // This custom element extends Subscript as a base class… more on this later
-customElements.define( 'click-counter', class extends SubscriptElement( HTMLElement ) {
+customElements.define( 'click-counter', class extends SubscriptClass( HTMLElement ) {
     
     // This is how we designate methods as reactive methods
-    // But this is implicit having extended SubscriptElement()
     static get subscriptMethods() {
         return [ 'render' ];
     }
@@ -47,4 +46,4 @@ customElements.define( 'click-counter', class extends SubscriptElement( HTMLElem
 } );
 ```
 
-*Continue to [SubscriptElement](https://webqit.io/tooling/oohtml/docs/spec/subscript#subscript-element-mixin) for the full story.*
+*See also [SubscriptElement](https://webqit.io/tooling/oohtml/docs/spec/subscript#subscript-element-mixin) - the [OOHTML](https://webqit.io/tooling/oohtml) extension of [`SubscriptClass`](#subscriptclass)*
