@@ -3,12 +3,12 @@
     "icon": "terminal",
     "desc": "A reactivity runtime for JavaScript, offered in an ordinary JavaScript function! With Subscript we introduce <i>dependency threads</i> for JavaScript!.",
     "categories": ["JavaScript Libraries"],
-    "tags": ["OOHTML", "UI", "Reactivity"],
+    "tags": ["OOHTML", "UI", "Reactivity", "Dependency Threads"],
     "quickstart": {"cdn": true},
     "features": [{
         "icon": "percent",
-        "title": "Nothing at all but plain JavaScript!",
-        "desc": "Try a new approach to reactivity that is based on nothing at all but plain JavaScript!.",
+        "title": "No Additives; Just JavaScript!",
+        "desc": "Try a new approach to reactivity that is based on nothing at all but just JavaScript!.",
         "cta": {
             "href": "/tooling/subscript/docs",
             "text": "Learn more"

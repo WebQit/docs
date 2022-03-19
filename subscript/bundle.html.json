@@ -4,8 +4,8 @@
             "outline": [
                 {
                     "level": 2,
-                    "title": "A Pseudo JavaScript Engine",
-                    "uri": "a-pseudo-javascript-engine",
+                    "title": "About",
+                    "uri": "about",
                     "subtree": [
                         {
                             "level": 2,
@@ -137,8 +137,8 @@
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Subscript Function Syntax (New)",
-                                                    "uri": "subscript-function-syntax-new",
+                                                    "title": "Subscript Function Syntax (**)",
+                                                    "uri": "subscript-function-syntax-",
                                                     "subtree": []
                                                 }
                                             ]
@@ -259,68 +259,113 @@
                                             "subtree": [
                                                 {
                                                     "level": 2,
-                                                    "title": "Syntax",
-                                                    "uri": "syntax",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Parameters",
-                                                    "uri": "parameters",
+                                                    "title": "SubscriptFunction",
+                                                    "uri": "subscriptfunction",
                                                     "subtree": [
                                                         {
                                                             "level": 3,
-                                                            "title": "arg1, ... argN",
-                                                            "uri": "arg1--argn",
+                                                            "title": "Syntax",
+                                                            "uri": "syntax",
                                                             "subtree": []
                                                         },
                                                         {
                                                             "level": 3,
-                                                            "title": "functionBody",
-                                                            "uri": "functionbody",
+                                                            "title": "Parameters",
+                                                            "uri": "parameters",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "arg1, ... argN",
+                                                                    "uri": "arg1--argn",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "functionBody",
+                                                                    "uri": "functionbody",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Return Value",
+                                                            "uri": "return-value",
                                                             "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "The this Binding",
+                                                            "uri": "the-this-binding",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "The subscrFunction.thread() Method",
+                                                            "uri": "the-subscrfunctionthread-method",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 5,
+                                                                    "title": "Syntax",
+                                                                    "uri": "syntax-1",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 5,
+                                                                    "title": "Parameters",
+                                                                    "uri": "parameters-1",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 5,
+                                                                    "title": "path1, ... pathN",
+                                                                    "uri": "path1--pathn",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "Return Value",
+                                                                    "uri": "return-value-1",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Return Value",
-                                                    "uri": "return-value",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "The this Binding",
-                                                    "uri": "the-this-binding",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "The subscrFunction.thread() Method",
-                                                    "uri": "the-subscrfunctionthread-method",
+                                                    "title": "SubscriptClass",
+                                                    "uri": "subscriptclass",
                                                     "subtree": [
                                                         {
-                                                            "level": 4,
+                                                            "level": 3,
                                                             "title": "Syntax",
-                                                            "uri": "syntax-1",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": "Parameters",
-                                                            "uri": "parameters-1",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 4,
-                                                            "title": "path1, ... pathN",
-                                                            "uri": "path1--pathn",
+                                                            "uri": "syntax-2",
                                                             "subtree": []
                                                         },
                                                         {
                                                             "level": 3,
+                                                            "title": "Parameters",
+                                                            "uri": "parameters-2",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "BaseClass",
+                                                                    "uri": "baseclass",
+                                                                    "subtree": []
+                                                                },
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "methodName, ... methodNameN",
+                                                                    "uri": "methodname--methodnamen",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 3,
                                                             "title": "Return Value",
-                                                            "uri": "return-value-1",
+                                                            "uri": "return-value-2",
                                                             "subtree": []
                                                         }
                                                     ]

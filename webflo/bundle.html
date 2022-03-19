@@ -1,8 +1,8 @@
 
-	<div exportgroup="readme">
+	<div exportgroup="readme" class="line-numbers match-braces">
 
 		<!-- BADGES/ -->
-<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/webflo.svg" alt="NPM version" /></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/webflo.svg" alt="NPM downloads" /></a></span></p>
+<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/webflo.svg" alt="NPM version"></a></span> <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/webflo" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/webflo.svg" alt="NPM downloads"></a></span></p>
 <!-- /BADGES -->
 <h2 id="for-a-full-development-story">For a Full Development Story!</h2>
 <p>Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to a rich web and mobile experience.</p>
@@ -24,7 +24,7 @@
 	
 
 	<template name="docs">
-		<div exportgroup="readme-1">
+		<div exportgroup="readme-1" class="line-numbers match-braces">
 
 			<h1 id="project-layout">Project Layout</h1>
 <p>It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):</p>
@@ -43,7 +43,7 @@
 <li><code>/index.html</code> - <em>Try add some Hello World greeting.</em></li></ul></li>
 </ul>
 <p>Now, when you start the Webflo server and navigate to <code>http://localhost:3000/</code> (or <code>http://localhost:3000/index.html</code>) on your browser, the start page is shown.</p>
-<pre><code class="hljs bash language-bash">webflo start</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">webflo start</code></pre>
 <blockquote>
   <p>Ensure that you are at your project root <code>webflo-app</code> in the terminal to run the above Webflo command, and subsequent ones.</p>
 </blockquote>
@@ -75,7 +75,7 @@
 <li><code>/index.js</code> - <em>This is a client-side route handler.</em></li></ul></li>
 </ul>
 <p>Next, run a Webflo command that automatically <em>builds</em> these files into a single script that you can include on your <code>/public/index.html</code> page.</p>
-<pre><code class="hljs bash language-bash">webflo build</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">webflo build</code></pre>
 <blockquote>
   <p>Client builds are covered later on. But let's assume for now that the generated JavaScript file is now included in the HTML page.</p>
 </blockquote>
@@ -99,7 +99,7 @@
 <li><code>/index.js</code> - <em>This is a worker-level route handler.</em></li></ul></li>
 </ul>
 <p>Next, run a Webflo command that automatically <em>builds</em> these files into a single script that will form part of the service worker file for your page.</p>
-<pre><code class="hljs bash language-bash">webflo build</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">webflo build</code></pre>
 <blockquote>
   <p>Worker builds are covered later on. But let's assume for now that the generated JavaScript file is now part of the service worker file for your page.</p>
 </blockquote>
@@ -146,8 +146,8 @@
 <p>This is called <em>step routing</em>, and its the most-empowering way to orchestrate routes. </p>
 <h2 id="route-handlers">Route Handlers</h2>
 <p>Route handlers are <code>index.js</code> files that are laid out in the routing directory to handle the application's request/response flow. The most important content of these files are a simple function that is exported as the <em>default export</em> of the file.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">flo, received, next</span>) </span>{
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">flo<span class="token punctuation">,</span> received<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
 <p>This function is what is called when a request flow hits a route.</p>
 <p>Of the three parameters of a route handler, the <code>next</code> parameter is what it uses to forward a request, if it chooses to. This is the concept of flow control.</p>
 <h2 id="flow-control">Flow Control</h2>
@@ -160,19 +160,19 @@
 </ul>
 <p>Here is how our route handlers could look:</p>
 <p><code>file: /server/index.js</code></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">process, received, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.pathname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello World&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">process<span class="token punctuation">,</span> received<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Hello World'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p><code>file: /server/products/index.js</code></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">process, received, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.pathname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Our Products&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">process<span class="token punctuation">,</span> received<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Our Products'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In the first handler, we started by asking if the route path has another step ahead. For a path like <code>/products</code>, the answer is yes, and the flow is forwarded to the next handler in the path.</p>
 <p>In the second handler, we again started by asking if the route path has another step ahead. This time, the answer is no, and <em>reponse data</em> is returned here for the request.</p>
 <p>Flow control is especially important for root-level handlers, i.e handlers that handle the application's root URL <code>/</code>, since they act as the <em>gateway</em> to all of the application's routes - both static and dynamic routes.</p>
@@ -233,23 +233,23 @@
 <h3 id="parameter-passing">Parameter Passing</h3>
 <p>While being used to forward a request, the <code>next()</code> function can help to pass on anything to the next handler.</p>
 <p><code>file: /server/index.js</code></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">process, received, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.pathname) {
-        <span class="hljs-keyword">return</span> next({ <span class="hljs-attr">userId</span>: <span class="hljs-number">1</span> });
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Hello World&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">process<span class="token punctuation">,</span> received<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">userId</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Hello World'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p><code>file: /server/products/index.js</code></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">process, received, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.pathname) {
-        <span class="hljs-keyword">return</span> next(received);
-    }
-    <span class="hljs-keyword">if</span> (received.userId) {
-        <span class="hljs-comment">// Show recommended products</span>
-        <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Recommended Products For You&#x27;</span>, };
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Our Products&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">process<span class="token punctuation">,</span> received<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span>received<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>received<span class="token punctuation">.</span>userId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Show recommended products</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Recommended Products For You'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Our Products'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In the first handler, we passed an object via the <code>next()</code> function. In the second handler, we received it on the <code>received</code> parameter.</p>
 <p>Parameter passing is a great way to implement one source of truth for subsequent handlers in the route hierarchy. Think authentication, certain database or external API queries, etc. Doing these at the earliest level in the route hierarchy and passing tokens or objects down is a perfect way to avoid repeating code down the hierarchy.</p>
 <h3 id="the-process-object">The <code>process</code> Object</h3>
@@ -257,7 +257,7 @@
 
 		</div>
 
-		<div exportgroup="readme">
+		<div exportgroup="readme" class="line-numbers match-braces">
 
 			<h1 id="webflo-documentation">Webflo Documentation</h1>
 <p>Welcome to the Webflo documentation. We hope you find it easy to understand and navigate.</p>
@@ -267,7 +267,7 @@
 		</div>
 
 		<template name="api">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="api">API</h1>
 <p>The Webflo API reference.</p>
@@ -276,7 +276,7 @@
 
 			<template name="route-handlers">
 				<template name="NavigationEvent">
-					<div exportgroup="readme">
+					<div exportgroup="readme" class="line-numbers match-braces">
 
 						<h1 id="class-navigationevent-"><code>class NavigationEvent {}</code></h1>
 <p>This is the <code>NavigationEvent</code> that is fired on every request which route handlers receive on their <code>event</code> parameter.</p>
@@ -290,22 +290,22 @@
 					</div>
 				</template>
 
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="route-handlers">Route Handlers</h1>
 <p>Route handlers are simple <em>export</em> functions that are designed to intercept a request and return a response. Webflo sticks with one way to define route handlers across all routing layers.</p>
 <p><strong>Syntax</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
 <p>The syntax also supports naming a handler after a specific HTTP method, where that level of modularity is needed.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">del</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">put</span>(<span class="hljs-params">event, app, next</span>) </span>{
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">post</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">del</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre>
 <p><em>The default handler will always be called where no method-specific handlers exist.</em></p>
 <p><strong>Parameters</strong></p>
 <ul>
@@ -313,7 +313,7 @@
 <li><p><strong><code>app: Any</code></strong> - Any incoming value being passed by a parent handler. <em>(See <a href="/tooling/webflo/docs/fundamentals/routing#parameter-passing">Parameter Passing</a>.)</em></p></li>
 <li><p><strong><code>next: Function</code></strong> - The function to call to forward a request.</p>
 <p><strong>Syntax</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> next([app[, pathname]]);</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">var</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">[</span>app<span class="token punctuation">[</span><span class="token punctuation">,</span> pathname<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><strong><code>app: Any</code></strong> - An optional value to pass to child handler. <em>(See <a href="/tooling/webflo/docs/fundamentals/routing#parameter-passing">Parameter Passing</a>.)</em></li>
@@ -344,7 +344,7 @@
 				</div>
 
 				<template name="Request">
-					<div exportgroup="readme">
+					<div exportgroup="readme" class="line-numbers match-braces">
 
 						<h1 id="interface-request-"><code>interface Request {}</code></h1>
 <p>This is an interface that is additionally implemented by the incoming request instances that route handlers receive on their <code>event.request</code> parameter. (Client-side <code>event.request</code> objects are an instance of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request"><code>Request</code></a> interface. Server-side <code>event.request</code> objects are an instance of node.js's <a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> class.)</p>
@@ -357,7 +357,7 @@
 <ul>
 <li><p><strong><code>parse(): &lt;Promise&gt;Object</code></strong> - This returns a promise that resolves to the request payload.</p>
 <p><strong>Syntax</strong></p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> submits = <span class="hljs-keyword">await</span> event.request.parse();</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> submits <span class="token operator">=</span> <span class="token keyword">await</span> event<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>Return Value</strong></p>
 <ul>
 <li><strong><code>submits: Object</code></strong> - The parsed request data. <em>(See <a href="#submits">Submits</a> below.)</em></li></ul></li>
@@ -377,44 +377,44 @@
 </ul>
 <p>The <code>inputs</code> and <code>files</code> properties above are object models of the submitted fields. Field names in path notation are written to their equivalent path in the object.</p>
 <p>The fields below…</p>
-<pre><code class="hljs html language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user[profile][visibility]&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;public&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user[profile][pics][]&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">multiple</span> /&gt;</span></code></pre>
+<pre class="language-html" tabindex="0"><code class="html language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user[profile][visibility]<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>public<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user[profile][pics][]<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">multiple</span> <span class="token punctuation">/&gt;</span></span></code></pre>
 <p>…will be accessed in the application as:</p>
-<pre><code class="hljs js language-js">lat payload = <span class="hljs-keyword">await</span> event.request.parse();
-<span class="hljs-keyword">let</span> profileVisibility = submits.inputs.user.profile.visibility;
-<span class="hljs-keyword">let</span> profilePics = submits.files.user.profile.pics;</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">lat payload <span class="token operator">=</span> <span class="token keyword">await</span> event<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> profileVisibility <span class="token operator">=</span> submits<span class="token punctuation">.</span>inputs<span class="token punctuation">.</span>user<span class="token punctuation">.</span>profile<span class="token punctuation">.</span>visibility<span class="token punctuation">;</span>
+<span class="token keyword">let</span> profilePics <span class="token operator">=</span> submits<span class="token punctuation">.</span>files<span class="token punctuation">.</span>user<span class="token punctuation">.</span>profile<span class="token punctuation">.</span>pics<span class="token punctuation">;</span></code></pre>
 
 					</div>
 				</template>
 
 				<template name="Response">
-					<div exportgroup="readme">
+					<div exportgroup="readme" class="line-numbers match-braces">
 
 						<h1 id="class-response-"><code>class Response {}</code></h1>
 <p>This class is used for returning responses from route handlers. It is available to route handlers on their <code>event.Response</code> parameter.</p>
 <p>Returning responses with this class allows a handler to include an HTTP status code and some HTTP headers.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> event.Response({
-        <span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,
-        <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>, },
-        <span class="hljs-attr">body</span>: { <span class="hljs-attr">prop1</span>: value1, }
-    });
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">prop1</span><span class="token operator">:</span> value1<span class="token punctuation">,</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>But in many cases, creating an <code>event.Response</code> instance will not be necessary as Webflo will dynamically figure out an appropriate HTTP status code along with a <code>Content-Type</code> header for the response as detailed in: <a href="/tooling/webflo/docs/fundamentals/requests-and-responses#api-calls-and-page-requests">API Calls and Page Requests</a>. Here, returning the plain data object will just suffice.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">prop1</span>: value1, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">prop1</span><span class="token operator">:</span> value1<span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p>With the first handler above returning a <code>Content-Type</code> header, no automatic content negotiation will be made by Webflo.</p>
 </blockquote>
 <h2 id="constructor-NaN">Constructor</h2>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response(params);</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong>Parameters</strong></p>
 <ul>
 <li><p><strong><code>params: Object</code></strong> - The response parameters.</p>
@@ -454,100 +454,100 @@
 <p>This class exposes certain properties that make it easier to set and access common HTTP headers. Values assigned to these properties are automatically translated to the corresponding headers under the hood; values obtained from these properties are automatically taken from those same headers.</p>
 <h3 id="content-type">Content-Type</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> header may be set and accessed using the <code>contentType</code> property of the response object, and may be provided as the <code>contentType</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;Hello Webflo!&#x27;</span>,
-    <span class="hljs-attr">contentType</span>: <span class="hljs-string">&#x27;text/plain&#x27;</span>
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token string">'Hello Webflo!'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">contentType</span><span class="token operator">:</span> <span class="token string">'text/plain'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Content-Type&#x27;: &#x27;text/plain&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.contentType);
-<span class="hljs-comment">// text/plain</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Content-Type': 'text/plain' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>contentType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// text/plain</span></code></pre>
 <h3 id="redirect">Redirect</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location"><code>Location</code></a> header may be set and accessed using the <code>redirect</code> property of the response object, and may be provided as the <code>redirect</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/new-location&#x27;</span>,
-    <span class="hljs-attr">status</span>: <span class="hljs-number">301</span>,
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">redirect</span><span class="token operator">:</span> <span class="token string">'/new-location'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">301</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { Location: &#x27;/new-location&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.redirect);
-<span class="hljs-comment">// /new-location</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { Location: '/new-location' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>redirect<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// /new-location</span></code></pre>
 <p>Where no <code>status</code> code is given, the <code>302</code> (temporary redirect) is used.</p>
 <h3 id="download">Download</h3>
 <p>The <a href="/tooling/webflo/docs/api/route-handlers/Response/Content-Disposition"><code>Content-Disposition</code></a> header may be set and accessed using the <code>download</code> property of the response object, and may be provided as the <code>download</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">body</span>: blob,
-    <span class="hljs-attr">download</span>: <span class="hljs-literal">true</span>,
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> blob<span class="token punctuation">,</span>
+    <span class="token literal-property property">download</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;attachment&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.download);
-<span class="hljs-comment">// true</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Content-Disposition': 'attachment' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>download<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// true</span></code></pre>
 <p>A filename may be added to the download directive.</p>
-<pre><code class="hljs js language-js">response.download = <span class="hljs-string">&#x27;filename.jpg&#x27;</span>;
+<pre class="language-js" tabindex="0"><code class="js language-js">response<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token string">'filename.jpg'</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;attachment; filename=&quot;filename.jpg&quot;&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.download);
-<span class="hljs-comment">// filename.jpg</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Content-Disposition': 'attachment; filename="filename.jpg"' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>download<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// filename.jpg</span></code></pre>
 <p>Where <code>download</code> is set to <code>false</code>, the default value <code>inline</code> for the header is used.</p>
-<pre><code class="hljs js language-js">response.download = <span class="hljs-literal">false</span>;
+<pre class="language-js" tabindex="0"><code class="js language-js">response<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Content-Disposition&#x27;: &#x27;inline&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.download);
-<span class="hljs-comment">// false</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Content-Disposition': 'inline' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>download<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// false</span></code></pre>
 <h3 id="cache-control">Cache-Control</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><code>Cache-Control</code></a> header may be set and accessed using the <code>cacheControl</code> property of the response object, and may be provided as the <code>cacheControl</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
-    <span class="hljs-attr">cacheControl</span>: <span class="hljs-string">&#x27;no-store&#x27;</span>,
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token string">'John Doe.'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">cacheControl</span><span class="token operator">:</span> <span class="token string">'no-store'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Cache-Control&#x27;: &#x27;no-store&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.cacheControl);
-<span class="hljs-comment">// no-store</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Cache-Control': 'no-store' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>cacheControl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// no-store</span></code></pre>
 <h3 id="cross-origin-requests-cors">Cross-Origin Requests (CORs)</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin"><code>Access-Control-Allow-Origin</code></a> header may be set and accessed using the <code>cors</code> property of the response object, and may be provided as the <code>cors</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
-    <span class="hljs-attr">cors</span>: <span class="hljs-string">&#x27;*&#x27;</span>,
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token string">'John Doe.'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">cors</span><span class="token operator">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Access-Control-Allow-Origin&#x27;: &#x27;*&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.cors);
-<span class="hljs-comment">// *</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Access-Control-Allow-Origin': '*' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>cors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// *</span></code></pre>
 <p>Where <code>cors</code> is set to <code>true</code>, the wildcard <code>*</code> is used. Where <code>false</code>, an empty string <code>''</code> is used.</p>
 <h3 id="cookies">Cookies</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie"><code>Set-Cookie</code></a> header may be set and accessed using the <code>cookies</code> property of the response object, and may be provided as the <code>cookies</code> field of the constructor's input.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">body</span>: <span class="hljs-string">&#x27;John Doe.&#x27;</span>,
-    <span class="hljs-attr">cookies</span>: {
-        <span class="hljs-attr">cookie1</span>: <span class="hljs-string">&#x27;value1&#x27;</span>,
-        <span class="hljs-attr">cookie2</span>: { <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;value12&#x27;</span> },
-    },
-});
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token string">'John Doe.'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">cookies</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">cookie1</span><span class="token operator">:</span> <span class="token string">'value1'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">cookie2</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'value12'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;Set-Cookie&#x27;: { cookie1: &#x27;value1&#x27;, cookie2: { value: &#x27;value12&#x27; } } }</span>
-<span class="hljs-built_in">console</span>.log(response.cookies);
-<span class="hljs-comment">// { cookie1: &#x27;value1&#x27;, cookie2: { value: &#x27;value12&#x27; } }</span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'Set-Cookie': { cookie1: 'value1', cookie2: { value: 'value12' } } }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>cookies<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { cookie1: 'value1', cookie2: { value: 'value12' } }</span></code></pre>
 <p>Cookie attributes may be set - in camel-case names.</p>
-<pre><code class="hljs js language-js">response.cookies.cookie2.secure = <span class="hljs-literal">true</span>;
-response.cookies.cookie2.sameSite = <span class="hljs-string">&#x27;Strict&#x27;</span>;
-response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">response<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>cookie2<span class="token punctuation">.</span>secure <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>cookie2<span class="token punctuation">.</span>sameSite <span class="token operator">=</span> <span class="token string">'Strict'</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>cookie2<span class="token punctuation">.</span>maxAge <span class="token operator">=</span> <span class="token number">2592000</span><span class="token punctuation">;</span></code></pre>
 <p>Where <code>value</code> is set to <code>false</code> and no <code>maxAge</code> attribute is set, a <code>maxAge</code> of <code>0</code> is implied, effectively expiring the cookie immediately.</p>
 
 					</div>
 				</template>
 
 				<template name="URL">
-					<div exportgroup="readme">
+					<div exportgroup="readme" class="line-numbers match-braces">
 
 						<h1 id="class-url-"><code>class URL {}</code></h1>
 <p>This is an interface that is additionally implemented by the request URL objects that route handlers receive on their <code>event.url</code> parameter. (Both client-side and server-side <code>event.url</code> objects are instances of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL"><code>URL</code></a> interface.)</p>
@@ -559,31 +559,31 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
   <p><em><code>event.url.href</code>: <code>https://example.com/path?q1=value1&amp;q2=value2</code></em></p>
 </blockquote>
 <p><em>Modify the query string:</em></p>
-<pre><code class="hljs js language-js">event.url.search += <span class="hljs-string">&#x27;&amp;q3=value3&#x27;</span>;
-<span class="hljs-built_in">console</span>.log(event.url.query);
-<span class="hljs-comment">// { q1: &#x27;value1&#x27;, q2: &#x27;value2&#x27;, q3: &#x27;value3&#x27; }</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>search <span class="token operator">+=</span> <span class="token string">'&amp;q3=value3'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { q1: 'value1', q2: 'value2', q3: 'value3' }</span></code></pre>
 <p><em>Replace the query object:</em></p>
-<pre><code class="hljs js language-js">event.url.query += { <span class="hljs-attr">q4</span>: <span class="hljs-string">&#x27;value4&#x27;</span>, <span class="hljs-attr">q5</span>: <span class="hljs-string">&#x27;value5&#x27;</span>, };
-<span class="hljs-built_in">console</span>.log(event.url.search);
-<span class="hljs-comment">// ?q4=value4&amp;q5=value5</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query <span class="token operator">+=</span> <span class="token punctuation">{</span> <span class="token literal-property property">q4</span><span class="token operator">:</span> <span class="token string">'value4'</span><span class="token punctuation">,</span> <span class="token literal-property property">q5</span><span class="token operator">:</span> <span class="token string">'value5'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>search<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ?q4=value4&amp;q5=value5</span></code></pre>
 <p><em>Modify the query object in-place:</em></p>
-<pre><code class="hljs js language-js">event.url.query.q6 = <span class="hljs-string">&#x27;value6&#x27;</span>;
-<span class="hljs-keyword">delete</span> event.url.query.q4;
-<span class="hljs-built_in">console</span>.log(event.url.search);
-<span class="hljs-comment">// ?q5=value5&amp;q6=value6</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query<span class="token punctuation">.</span>q6 <span class="token operator">=</span> <span class="token string">'value6'</span><span class="token punctuation">;</span>
+<span class="token keyword">delete</span> event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query<span class="token punctuation">.</span>q4<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>search<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ?q5=value5&amp;q6=value6</span></code></pre>
 <p>Additionally, query parameter names in path notation are written to their equivalent path in the object model.</p>
 <p><strong>Case:</strong></p>
 <blockquote>
   <p><em><code>event.url.href</code>: <code>https://example.com/path</code></em></p>
 </blockquote>
 <p><em>Set an path parameter that resolves to an object:</em></p>
-<pre><code class="hljs js language-js">event.url.search = <span class="hljs-string">&#x27;q7[sublevel1][sublevel2]=deepvalue&#x27;</span>;
-<span class="hljs-built_in">console</span>.log(event.url.query);
-<span class="hljs-comment">// { q7: { sublevel1: { sublevel2: &#x27;deepvalue&#x27; } } }</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>search <span class="token operator">=</span> <span class="token string">'q7[sublevel1][sublevel2]=deepvalue'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { q7: { sublevel1: { sublevel2: 'deepvalue' } } }</span></code></pre>
 <p><em>Set an path parameter that resolves to an array:</em></p>
-<pre><code class="hljs js language-js">event.url.search = <span class="hljs-string">&#x27;q7[sublevel1][sublevel2][]=deepvalue&#x27;</span>;
-<span class="hljs-built_in">console</span>.log(event.url.query);
-<span class="hljs-comment">// { q7: { sublevel1: { sublevel2: [ &#x27;deepvalue&#x27; ] } } }</span></code></pre></li>
+<pre class="language-js" tabindex="0"><code class="js language-js">event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>search <span class="token operator">=</span> <span class="token string">'q7[sublevel1][sublevel2][]=deepvalue'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>url<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { q7: { sublevel1: { sublevel2: [ 'deepvalue' ] } } }</span></code></pre></li>
 </ul>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
@@ -596,14 +596,14 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 		</template>
 
 		<template name="build-system">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="build-system">Build System</h1>
 
 			</div>
 
 			<template name="javascript">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="javascript-bundling">JavaScript Bundling</h1>
 
@@ -611,7 +611,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="static-build">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="static-site-generation">Static Site Generation</h1>
 
@@ -620,7 +620,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 		</template>
 
 		<template name="cli">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="command-line">Command-Line</h1>
 <p>The Webflo Command-Line reference.</p>
@@ -628,7 +628,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</div>
 
 			<template name="build">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="-webflo-config"><code>&gt; webflo config</code></h1>
 
@@ -636,7 +636,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="cert">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="self-hosting">Self Hosting</h1>
 
@@ -644,7 +644,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="config">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="-webflo-build"><code>&gt; webflo build</code></h1>
 
@@ -652,7 +652,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="deploy">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="-webflo-deploy"><code>&gt; webflo deploy</code></h1>
 
@@ -660,7 +660,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="help">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="-webflo-help"><code>&gt; webflo help</code></h1>
 
@@ -668,7 +668,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="server">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="-webflo-server"><code>&gt; webflo :server</code></h1>
 <!--Server lifecycle management.-->
@@ -678,14 +678,14 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 		</template>
 
 		<template name="client-runtime">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="client-runtime">Client Runtime</h1>
 
 			</div>
 
 			<template name="navigation">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="navigation">Navigation</h1>
 <!--
@@ -712,7 +712,7 @@ response.cookies.cookie2.maxAge = <span class="hljs-number">2592000</span>;</cod
 			</template>
 
 			<template name="pwa">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="progressive-web-apps">Progressive Web Apps</h1>
 <!--
@@ -730,14 +730,14 @@ Installation
 		</template>
 
 		<template name="deployment">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="deployment">Deployment</h1>
 
 			</div>
 
 			<template name="managed-hosting">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="managed-hosting">Managed Hosting</h1>
 
@@ -745,7 +745,7 @@ Installation
 			</template>
 
 			<template name="self-hosting">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="self-hosting">Self Hosting</h1>
 
@@ -754,14 +754,14 @@ Installation
 		</template>
 
 		<template name="fundamentals">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="fundamentals">Fundamentals</h1>
 
 			</div>
 
 			<template name="rendering">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="rendering">Rendering</h1>
 
@@ -769,27 +769,27 @@ Installation
 			</template>
 
 			<template name="requests-and-responses">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="http-requests-and-responses">HTTP Requests and Responses</h1>
 <p>Routes in Webflo can be designed for different types of requests and responses.</p>
 <h2 id="api-calls-and-page-requests">API Calls and Page Requests</h2>
 <p>HTTP requests are capable of specifying (using the <code>Accept</code> header) in which format a response should be returned by the server. Webflo makes it possible to use this medium to access the <em>data component</em> of a route differently from its <em>HTML component</em>. Routes in Webflo are therefore designed to treat data as a standalone component from HTML, enabling reusability for both.</p>
 <p>A route handler would simply concern itself with data.</p>
-<pre><code class="hljs js language-js">webflo-app
+<pre class="language-js" tabindex="0"><code class="js language-js">webflo<span class="token operator">-</span>app
   ├⏤server
-     ├⏤index.js
-        <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-            <span class="hljs-keyword">if</span> (next.stepname) {
-                <span class="hljs-keyword">return</span> next();
-            }
-            <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-        }</code></pre>
+     ├⏤index<span class="token punctuation">.</span>js
+        <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span></code></pre>
 <p>The data returned would be returned as-is - a JSON response - where the <code>Accept</code> header of the request  does not match <code>text/html</code> but matches <code>application/json</code>. This would be taken as an <em>API call</em>. The response header is automatically given <code>Content-Type: 'application/json'</code>.</p>
 <p>For API endpoints, the above would be everything for the request and response flow. For routes that will deliver a rendered HTML response, the HTML to render would be a standalone file in the <code>/public</code> directory.</p>
-<pre><code class="hljs html language-html">webflo-app
+<pre class="language-html" tabindex="0"><code class="html language-html">webflo-app
   ├⏤public
-    ├⏤index.html <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+    ├⏤index.html <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Webflo knows to find a <code>/public/index.html</code> file for <a href="/tooling/webflo/docs/fundamentals/rendering">rendering</a> the data returned by <code>/server/index.js</code>. Nested routes are given the choice to either have their own <code>index.html</code> file at the corresponding location in the <code>/public</code> directory or inherit the closest one up in their ancestrial line.</p>
 <p>A rendered HTML page is therefore returned where the <code>Accept</code> header of the request matches <code>text/html</code> (as a web browser would normally have it for page navigation). This would be taken as a <em>page request</em>. The response header is automatically given <code>Content-Type: 'text/html'</code>.</p>
 <p>The general rule for this content negotiation therefore becomes: a rendered HTML response for <em>page requests</em> (<code>Accept</code> header matching <code>text/html</code>), and a JSON response for API calls (<code>Accept</code> header not matching <code>text/html</code> but matching <code>application/json</code>).</p>
@@ -797,65 +797,65 @@ Installation
   <p>An automatic <code>Accept: application/json</code> header - <a href="#automatic-headers">just ahead</a> - can always be used on API-only endpoints to tell Webflo to always return a JSON response.</p>
 </blockquote>
 <p>As for the static <code>index.html</code> file in the <code>/public</code> directory, being in the <code>/public</code> directory means that a direct access would still be possible, as it is with all the files in this directory. But route handlers will have a chance to intercept this direct access, where actually necessary.</p>
-<pre><code class="hljs js language-js">webflo-app
+<pre class="language-js" tabindex="0"><code class="js language-js">webflo<span class="token operator">-</span>app
   ├⏤server
-  │  ├⏤index.js
-  │     <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-  │         <span class="hljs-keyword">if</span> (next.stepname &amp;&amp; next.stepname !== <span class="hljs-string">&#x27;index.html&#x27;</span>) {
-  │             <span class="hljs-keyword">return</span> next();
-  │         }
-  │         <span class="hljs-comment">// Both URLs &quot;/&quot; and &quot;/index.html&quot; will lead here </span>
-  │         <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-  │     }
-  ├⏤public
-    │  <span class="hljs-comment">// No more direct access to this file</span>
-    ├⏤index.html &lt;html&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span>&lt;/html&gt;</code></pre>
+  │  ├⏤index<span class="token punctuation">.</span>js
+  │     <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  │         <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname <span class="token operator">&amp;&amp;</span> next<span class="token punctuation">.</span>stepname <span class="token operator">!==</span> <span class="token string">'index.html'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  │             <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  │         <span class="token punctuation">}</span>
+  │         <span class="token comment">// Both URLs "/" and "/index.html" will lead here </span>
+  │         <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  │     <span class="token punctuation">}</span>
+  ├⏤<span class="token keyword">public</span>
+    │  <span class="token comment">// No more direct access to this file</span>
+    ├⏤index<span class="token punctuation">.</span>html <span class="token operator">&lt;</span>html<span class="token operator">&gt;</span><span class="token operator">&lt;</span>head<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span><span class="token operator">&lt;</span>body<span class="token operator">&gt;</span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span></code></pre>
 <p>Overall, this approach lets us <em>reuse more</em> and <em>repeat less</em>. A route handler alone gives us data; an <code>index.html</code> file alone gives us static HTML; a combination gives us the choice of either data, static HTML or rendered HTML - in just simple <em>content negotiation</em>.</p>
 <p>Now, where a route handler returns a value other than an array or an object, no content negotiation takes place (and no automatic <code>Content-Type</code> header). Webflo will try to make a string response of the returned value.</p>
 <h2 id="other-types-of-responses">Other Types of Responses</h2>
 <p>Route handlers may return an instance of the <a href="/tooling/webflo/docs/api/event_Response"><code>event.Response</code></a> class as a response. And Webflo's automatic content negotiation can still take place.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> event.Response({
-        <span class="hljs-attr">body</span>: { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> },
-    });
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>The response data will be available in the <code>.body</code> property of the instance. Parent handlers may test for this type of response object to obtain the actual reponse data.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">let</span> childResponse = <span class="hljs-keyword">await</span> next();
-        <span class="hljs-keyword">if</span> (childResponse <span class="hljs-keyword">instanceof</span> event.Response) {
-            childResponse = childResponse.body;
-            <span class="hljs-keyword">return</span> { ... };
-        }
-    }
-    <span class="hljs-keyword">return</span> { ... };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> childResponse <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>childResponse <span class="token keyword">instanceof</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            childResponse <span class="token operator">=</span> childResponse<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>HTTP status codes and headers may be returned with the instance via the <code>status</code> and <code>headers</code> fields respectively.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">status</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span> },
-    <span class="hljs-attr">body</span>: { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> },
-});</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>The <code>Content-Type</code> header is a special header that will mark the response as final; no automatic content negotiation will take place. This is also the case with the <code>Location</code> header, used to initiate a redirect.</p>
 <p><a href="/tooling/webflo/docs/api/event_Response#header-shortcuts">Header Shortcuts</a> may also be used to more conveniently set and access common headers.</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">let</span> response = <span class="hljs-keyword">new</span> event.Response({
-    <span class="hljs-attr">headers</span>: { <span class="hljs-string">&#x27;X-Custom-Header&#x27;</span>: <span class="hljs-string">&#x27;some value&#x27;</span> },
-    <span class="hljs-attr">body</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// JSON Boolean value</span>
-});
-response.contentType = <span class="hljs-string">&#x27;application/json&#x27;</span>;
-response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</code></pre>
-<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log(response.headers);
-<span class="hljs-comment">// { &#x27;X-Custom-Header&#x27;: &#x27;some value&#x27;, &#x27;Content-Type&#x27;: &#x27;application/json&#x27;, &#x27;Cache-Control&#x27;: &#x27;no-store&#x27; }</span>
-<span class="hljs-built_in">console</span>.log(response.contentType);
-<span class="hljs-comment">// &#x27;application/json&#x27;</span>
-<span class="hljs-built_in">console</span>.log(response.cacheControl);
-<span class="hljs-comment">// &#x27;no-store&#x27;</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">event<span class="token punctuation">.</span>Response</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">'X-Custom-Header'</span><span class="token operator">:</span> <span class="token string">'some value'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// JSON Boolean value</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span>contentType <span class="token operator">=</span> <span class="token string">'application/json'</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span>cacheControl <span class="token operator">=</span> <span class="token string">'no-store'</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>headers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { 'X-Custom-Header': 'some value', 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>contentType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 'application/json'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>cacheControl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 'no-store'</span></code></pre>
 <p>And the <code>.setHeader()</code> and <code>.getHeader()</code> methods can always be used to set and access headers in a case-insensitive manner.</p>
-<pre><code class="hljs js language-js"><span class="hljs-built_in">console</span>.log(response.getHeader(<span class="hljs-string">&#x27;x-custom-Header&#x27;</span>));
-<span class="hljs-comment">// &#x27;some value&#x27;</span></code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token string">'x-custom-Header'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 'some value'</span></code></pre>
 <p>Put together, any type of response can be conveniently returned this way.</p>
 <p>Now, where a route handler returns nothing, Webflo will know to return a <code>404</code> HTTP response.</p>
 <h2 id="the-request-and-response-cycle">The Request and Response Cycle</h2>
@@ -863,13 +863,13 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <h3 id="automatic-headers">Automatic Headers</h3>
 <p>Request headers can always be sent by a HTTP client or browser, and <a href="/tooling/webflo/docs/api/event_Response">response headers</a> can always be returned by route handlers. But in Webflo, it is possible to get certain headers automatically added to these requests and responses. These <em>automatic headers</em> are defined on the command line using <a href="/tooling/webflo/docs/cli/config#headers"><code>$ webflo config headers</code></a>.</p>
 <p>The underlying JSON config file <code>.webqit/webflo/config/headers.json</code> may be directly edited. Entries go into the <code>entries</code> array field as shown below.</p>
-<pre><code class="hljs json language-json">{
-    <span class="hljs-attr">&quot;entries&quot;</span>: [
+<pre class="language-json" tabindex="0"><code class="json language-json">{
+    "entries": [
         {
-            <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;request&quot;</span>, <span class="hljs-comment">// Or &quot;response&quot;</span>
-            <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;/api/v1&quot;</span>, <span class="hljs-comment">// Or a glob pattern</span>
-            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Accept&quot;</span>, <span class="hljs-comment">// Or any other header</span>
-            <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>
+            "type": "request", // Or "response"
+            "url": "/api/v1", // Or a glob pattern
+            "name": "Accept", // Or any other header
+            "value": "application/json"
         }
     ]
 }</code></pre>
@@ -884,13 +884,13 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <h3 id="automatic-redirects">Automatic Redirects</h3>
 <p>A <em><a href="/tooling/webflo/docs/api/event_Response#redirect">redirect response header</a></em> can always be returned by route handlers. But in Webflo, it is possible to get certain URLs automatically redirected as the requests enter the application. <em>Automatic redirects</em> are defined on the command line using <a href="/tooling/webflo/docs/cli/config#redirects"><code>$ webflo config redirects</code></a>.</p>
 <p>The underlying JSON config file <code>.webqit/webflo/config/redirects.json</code> may be directly edited. Entries go into the <code>entries</code> array field as shown below.</p>
-<pre><code class="hljs json language-json">{
-    <span class="hljs-attr">&quot;entries&quot;</span>: [
+<pre class="language-json" tabindex="0"><code class="json language-json">{
+    "entries": [
         {
-            <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;/old-url&quot;</span>, <span class="hljs-comment">// Or a glob pattern</span>
-            <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;/api/v1&quot;</span>,
-            <span class="hljs-attr">&quot;reuseQuery&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// false by default</span>
-            <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;302&quot;</span> <span class="hljs-comment">// 301 by default</span>
+            "from": "/old-url", // Or a glob pattern
+            "to": "/api/v1",
+            "reuseQuery": true, // false by default
+            "code": "302" // 301 by default
         }
     ]
 }</code></pre>
@@ -911,15 +911,15 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 			</template>
 
 			<template name="routing">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="routing">Routing</h1>
 <p>In Webflo, routing is filesystem-based. Here, we simply create a file on the filesystem and it automatically becomes available as an URL.</p>
 <p>The application's root URL <code>/</code>, for example, would be implemented by creating an <em>index file</em> - <code>&lt;indexFile&gt;</code> - in a chosen <em>routing directory</em> - <code>&lt;routingDirectory&gt;</code>.</p>
-<pre><code class="hljs text language-text">&lt;routingDirectory&gt;
+<pre class="language-text" tabindex="0"><code class="text language-text">&lt;routingDirectory&gt;
   ├⏤&lt;indexFile&gt;</code></pre>
 <p>Nested URLs like <code>/shop</code> would be implemented by creating the equivalent directory structure <code>/&lt;routingDirectory&gt;/shop/&lt;indexFile&gt;</code>.</p>
-<pre><code class="hljs text language-text">&lt;routingDirectory&gt;
+<pre class="language-text" tabindex="0"><code class="text language-text">&lt;routingDirectory&gt;
   ├⏤shop
   │  ├⏤&lt;indexFile&gt;
   ├⏤&lt;indexFile&gt;</code></pre>
@@ -935,32 +935,32 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <h4 id="the-public-directory">The <code>/public</code> Directory</h4>
 <p>This is where static files (like images or CSS files) are placed to be served automatically. <em>(Implement this directory for an application that serves static content.)</em></p>
 <p>The application's homepage <code>/index.html</code>, for example, can be served statically by simply placing an <code>index.html</code> file in the <code>/public</code> directory.</p>
-<pre><code class="hljs html language-html">public
-  ├⏤index.html  -  <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>Home | Co<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<pre class="language-html" tabindex="0"><code class="html language-html">public
+  ├⏤index.html  -  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>Home | Co<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre>
 <blockquote>
   <p>Webflo automatically finds the <code>index.html</code> file where a path URL <code>/</code> is given.</p>
 </blockquote>
 <h4 id="the-server-directory">The <code>/server</code> Directory</h4>
 <p>This is where JavaScript files for server-side routing are placed. <em>(Implement this directory for a server-side application, or an isomorphic application, or an API backend.)</em></p>
 <p>The application's root URL <code>/</code>, for example, can be handled on the server by simply placing an <code>index.js</code> file in the <code>/server</code> directory.</p>
-<pre><code class="hljs js language-js">server
-  ├⏤index.js  -  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> } }</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">server
+  ├⏤index<span class="token punctuation">.</span>js  <span class="token operator">-</span>  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p>The data returned by these handlers are either <em>rendered</em> into the correspnding <code>index.html</code> page from the <code>/public</code> directory - <em><a href="#rendering">Server-Side Rendering</a></em>, or returned as a JSON response - <em><a href="#rendering">API Responses</a></em>. The <code>Accept</code> header of the request is used to determine this. (Learn more in <a href="/tooling/webflo/docs/fundamentals/requests-and-responses">Requests and Responses</a>.)</p>
 </blockquote>
 <h4 id="the-client-directory">The <code>/client</code> Directory</h4>
 <p>This is where JavaScript files for client-side routing are placed. <em>(Implement this directory for an application that will deliver a rich client-side experience.)</em></p>
 <p>The application's root URL <code>/</code>, for example, can be handled on the client (the browser) by simply placing an <code>index.js</code> file in the <code>/client</code> directory.</p>
-<pre><code class="hljs js language-js">client
-  ├⏤index.js  -  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> } }</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">client
+  ├⏤index<span class="token punctuation">.</span>js  <span class="token operator">-</span>  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p>The data returned by these handlers are <em>rendered</em> into the already running page in the browser - <em><a href="#rendering">Client-Side Rendering</a></em>.</p>
 </blockquote>
 <h4 id="the-worker-directory">The <code>/worker</code> Directory</h4>
 <p>This is where JavaScript files for service-worker-level routing are placed. <em>(Implement this directory for an application that will have special offline capabilities.)</em></p>
 <p>The application's root URL <code>/</code>, for example, can be handled in the browser's service-worker layer by simply placing an <code>index.js</code> file in the <code>/worker</code> directory.</p>
-<pre><code class="hljs js language-js">worker
-  ├⏤index.js  -  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> } }</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js">worker
+  ├⏤index<span class="token punctuation">.</span>js  <span class="token operator">-</span>  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p>The data returned by these handlers are <em>rendered</em> into the already running page in the browser - <em><a href="#rendering">Client-Side Rendering</a></em>. (These handlers will also be able to intercept certain other browser-generated requests that cannot be intercepted by client-level handlers.)</p>
 </blockquote>
@@ -969,7 +969,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <p>Route handlers recieve a <code>next()</code> function that they can call to get a request moving in this assembly line.</p>
 <h4 id="flow-through">Flow-Through</h4>
 <p>In real life, the equivalent directory structure for nested URLs creates a parent-child relationship. URL handlers are implicitly subject to this relationship.</p>
-<pre><code class="hljs text language-text">&lt;routingDirectory&gt;
+<pre class="language-text" tabindex="0"><code class="text language-text">&lt;routingDirectory&gt;
   ├⏤shop
   │  ├⏤index.js
   ├⏤index.js</code></pre>
@@ -978,83 +978,83 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <blockquote>
   <p><em><code>file: /server/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">let</span> shop = <span class="hljs-keyword">await</span> next();
-        <span class="hljs-keyword">return</span> { ...shop, <span class="hljs-attr">title</span>: shop.title + <span class="hljs-string">&#x27; | Co&#x27;</span>, };
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> shop <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>shop<span class="token punctuation">,</span> <span class="token literal-property property">title</span><span class="token operator">:</span> shop<span class="token punctuation">.</span>title <span class="token operator">+</span> <span class="token string">' | Co'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em><code>file: /server/shop/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Shop&#x27;</span>, <span class="hljs-attr">data</span>: ... };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Shop'</span><span class="token punctuation">,</span> <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em><code>file: /server/shop/products/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next();
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Products&#x27;</span>, <span class="hljs-attr">data</span>: [
-        ...
-    ] };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Products'</span><span class="token punctuation">,</span> <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In the first handler, we started by asking <code>next.stepname</code> if the URL has another step ahead. For an URL like <code>/shop</code>, the answer is yes, and the request is exchanged for the child's data. The parent handler thus intercepts both the request going into the child and the response coming back from the child.</p>
 <p>In the second handler, we again started by asking <code>next.stepname</code> if the URL has another step ahead. This time, the answer is no, and reponse data is returned here for the request.</p>
 <p>As the URL <code>/shop</code> terminates on the second handler, an outright call to <code>next()</code> does not get the request to the third handler. Rather, a <em>fall-through</em> effect happens.</p>
 <h4 id="fall-through">Fall-Through</h4>
 <p>In real life, each of Webflo's routing directories above represents a point between the browser and the server across which a request flows. Put together, they give us the following URL-handling layers in the given order.</p>
-<pre><code class="hljs text language-text">/client     ⥮</code></pre>
-<pre><code class="hljs text language-text">/worker     ⥮</code></pre>
-<pre><code class="hljs text language-text">/server     ⥮</code></pre>
-<pre><code class="hljs text language-text">/public     ⥮</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">/client     ⥮</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">/worker     ⥮</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">/server     ⥮</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">/public     ⥮</code></pre>
 <p>Webflo makes it possible to intercept a request in one layer and forward it <em>down</em> to the next layer. For example, a navigation to the root URL <code>/</code> can be intercepted by the client-side handler <code>/client/index.js</code> and forwarded down - to be further intercepted by the server-side handler <code>/server/index.js</code>, where exists. This creates a <em>fall-through</em> effect that lets us combine powerful cross-stack routing capabilities on a single URL.</p>
 <p>A request for the root URL <code>/</code>, for example, would <em>fall through</em> on a call to <code>next()</code>.</p>
 <blockquote>
   <p><em>file: <code>/client/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">let</span> remoteContent = <span class="hljs-keyword">await</span> next();
-    <span class="hljs-keyword">return</span> remoteContent ? remoteContent : { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Offline Home | Co&#x27;</span> };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> remoteContent <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> remoteContent <span class="token operator">?</span> remoteContent <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Offline Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em>file: <code>/server/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">let</span> shop = <span class="hljs-keyword">await</span> next();
-        <span class="hljs-keyword">return</span> { ...shop, <span class="hljs-attr">title</span>: shop.title + <span class="hljs-string">&#x27; | Co&#x27;</span>, };
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> shop <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>shop<span class="token punctuation">,</span> <span class="token literal-property property">title</span><span class="token operator">:</span> shop<span class="token punctuation">.</span>title <span class="token operator">+</span> <span class="token string">' | Co'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Put together, requests fall through layers in the following flow:</p>
-<pre><code class="hljs text language-text">-&gt; enter `/client` if exists
+<pre class="language-text" tabindex="0"><code class="text language-text">-&gt; enter `/client` if exists
     -&gt; call `index.js`; return response here? or continue</code></pre>
-<pre><code class="hljs text language-text">-&gt; enter `/worker` if exists
+<pre class="language-text" tabindex="0"><code class="text language-text">-&gt; enter `/worker` if exists
     -&gt; call `index.js`; return response here? or continue</code></pre>
-<pre><code class="hljs text language-text">-&gt; enter `/server` if exists
+<pre class="language-text" tabindex="0"><code class="text language-text">-&gt; enter `/server` if exists
     -&gt; call `index.js`; return response here? or continue</code></pre>
-<pre><code class="hljs text language-text">-&gt; enter `/public` if exists; find and return `index.html`</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">-&gt; enter `/public` if exists; find and return `index.html`</code></pre>
 <p>Now, with the <code>/public</code> directory being the last in the stack, a fall-through effect will be especially important for an application that will both implement dynamic routes and serve static content. Static file requests must be forwarded in order to reach the <code>/public</code> directory.</p>
 <p>The handler below has been designed to ensure that the URL <code>/logo.png</code> and <code>/index.html</code>, and in fact, other URLs that are not exactly terminating on it, can <em>flow through</em> and <em>fall through</em>.</p>
-<pre><code class="hljs js language-js">webflo-app
+<pre class="language-js" tabindex="0"><code class="js language-js">webflo<span class="token operator">-</span>app
   ├⏤server
-  │  ├⏤index.js
-  │     <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-  │         <span class="hljs-keyword">if</span> (next.stepname<span class="hljs-comment">/* logo.png or index.html, or other */</span>) {
-  │             <span class="hljs-keyword">return</span> next();
-  │         }
-  │         <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-  │     }
-  ├⏤public
-    ├⏤index.html
-    ├⏤logo.png</code></pre>
+  │  ├⏤index<span class="token punctuation">.</span>js
+  │     <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  │         <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token comment">/* logo.png or index.html, or other */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  │             <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  │         <span class="token punctuation">}</span>
+  │         <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  │     <span class="token punctuation">}</span>
+  ├⏤<span class="token keyword">public</span>
+    ├⏤index<span class="token punctuation">.</span>html
+    ├⏤logo<span class="token punctuation">.</span>png</code></pre>
 <p>The above also demonstrates that the URLs <code>/</code> and <code>/index.html</code> would mean two different things where a route handler exists.</p>
 <ul>
 <li>While the URL <code>/</code> would terminate on the handler, the URL <code>/index.html</code> would flow through and fall to the <code>/public</code> directory and a static file is served.</li>
@@ -1067,25 +1067,25 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <blockquote>
   <p><em>file: <code>/server/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next({ <span class="hljs-attr">userId</span>: <span class="hljs-number">1</span> });
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Home | Co&#x27;</span> };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">userId</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Home | Co'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em>file: <code>/server/shop/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">if</span> (next.stepname) {
-        <span class="hljs-keyword">return</span> next(app);
-    }
-    <span class="hljs-keyword">if</span> (app.userId) {
-        <span class="hljs-comment">// Show recommended products</span>
-        <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Shop Plus Recomendations&#x27;</span>, };
-    }
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Shop&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>app<span class="token punctuation">.</span>userId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Show recommended products</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Shop Plus Recomendations'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Shop'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In the first handler, we passed an object with the <code>next()</code> function. In the second handler, we received it on the <code>app</code> parameter. (The <code>app</code> parameter is always empty for root URL handlers as they have no parent handler.)</p>
 <blockquote>
   <p>Parameter passing is a great way to implement one source of truth for every handler on an URL. Think authentication states, certain database or external API tokens, etc, that would be needed at different levels in the handler hierarchy.</p>
@@ -1095,28 +1095,28 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <blockquote>
   <p><em>file: <code>/server/docs/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-comment">// Serve the highest version of the docs for /latest</span>
-    <span class="hljs-keyword">if</span> (next.stepname === <span class="hljs-string">&#x27;latest&#x27;</span>) {
-        <span class="hljs-keyword">return</span> next(app, next.pathname.replace(<span class="hljs-string">&#x27;latest&#x27;</span>, <span class="hljs-string">&#x27;v2&#x27;</span>));
-    }
-    <span class="hljs-keyword">return</span> next(app);
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Serve the highest version of the docs for /latest</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname <span class="token operator">===</span> <span class="token string">'latest'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> next<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'latest'</span><span class="token punctuation">,</span> <span class="token string">'v2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em>file: <code>/server/docs/v2/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Docs: V2&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Docs: V2'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
   <p><em>file: <code>/server/docs/v1/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-keyword">return</span> { <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Docs: V1&#x27;</span>, };
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Docs: V1'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h3 id="wildcard-steps">Wildcard Steps</h3>
 <p>A handler can be designed for a step that is dynamically resolved from the request URL. This generic point in the layout is called a <em>wildcard step</em>. Wildcard steps are always a hyphen <code>-</code>. (Notice the <code>-</code> hyphen in the directory below.)</p>
-<pre><code class="hljs text language-text">&lt;routingDirectory&gt;
+<pre class="language-text" tabindex="0"><code class="text language-text">&lt;routingDirectory&gt;
   ├⏤docs
   │  ├⏤-
   │  │  ├⏤index.js
@@ -1126,18 +1126,18 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <blockquote>
   <p><em>file: <code>/server/docs/-/index.js</code></em></p>
 </blockquote>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event, app, next</span>) </span>{
-    <span class="hljs-comment">// The resolved stepname from the request URL will be available as this.stepname</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.stepname); <span class="hljs-comment">// v2</span>
-    <span class="hljs-built_in">console</span>.log(next.stepname); <span class="hljs-comment">// getting-started</span>
-    <span class="hljs-built_in">console</span>.log(next.pathname); <span class="hljs-comment">// getting-started/overview</span>
-}</code></pre>
+<pre class="language-js" tabindex="0"><code class="js language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> app<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The resolved stepname from the request URL will be available as this.stepname</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>stepname<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// v2</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>next<span class="token punctuation">.</span>stepname<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// getting-started</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>next<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// getting-started/overview</span>
+<span class="token punctuation">}</span></code></pre>
 
 				</div>
 			</template>
 
 			<template name="templating">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="templating">Templating</h1>
 
@@ -1146,40 +1146,40 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 		</template>
 
 		<template name="getting-started">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="getting-started">Getting Started</h1>
 
 			</div>
 
 			<template name="installation">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="installation">Installation</h1>
 <p>Every Webflo project starts on an empty directory that you can create on your machine. The command below will make a new directory <code>webflo-app</code> from the terminal and navigate into it.</p>
-<pre><code class="hljs bash language-bash">mkdir webflo-app
-<span class="hljs-built_in">cd</span> webflo-app</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">mkdir webflo-app
+cd webflo-app</code></pre>
 <p>With <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">npm available on your terminal</a>, the following command will install Webflo to your project:</p>
 <blockquote>
   <p>System Requirements: Node.js 12.0 or later</p>
 </blockquote>
-<pre><code class="hljs text language-text">$ npm i @webqit/webflo</code></pre>
+<pre class="language-text" tabindex="0"><code class="text language-text">$ npm i @webqit/webflo</code></pre>
 <p>The installation automatically creates a <code>package.json</code> file at project root, containing <code>@webqit/webflo</code> as a project dependency.</p>
-<pre><code class="hljs json language-json">{
-  <span class="hljs-attr">&quot;dependencies&quot;</span>: {
-    <span class="hljs-attr">&quot;@webqit/webflo&quot;</span>: &lt;webflo version&gt;
+<pre class="language-json" tabindex="0"><code class="json language-json">{
+  "dependencies": {
+    "@webqit/webflo": &lt;webflo version&gt;
   }
 }</code></pre>
 <p>Other important definitions like project name, package type, and aliases for common Webflo commands will also belong in this file.</p>
-<pre><code class="hljs json language-json">{
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;webflo-app&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;module&quot;</span>,
-  <span class="hljs-attr">&quot;scripts&quot;</span>: {
-    <span class="hljs-attr">&quot;start:dev&quot;</span>: <span class="hljs-string">&quot;webflo start --dev&quot;</span>,
-    <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;webflo build&quot;</span>
+<pre class="language-json" tabindex="0"><code class="json language-json">{
+  "name": "webflo-app",
+  "type": "module",
+  "scripts": {
+    "start:dev": "webflo start --dev",
+    "build": "webflo build"
   },
-  <span class="hljs-attr">&quot;dependencies&quot;</span>: {
-    <span class="hljs-attr">&quot;@webqit/webflo&quot;</span>: &lt;webflo version&gt;
+  "dependencies": {
+    "@webqit/webflo": &lt;webflo version&gt;
   }
 }</code></pre>
 <p>All is now set! The commands <a href="/tooling/webflo/docs/cli/start"><code>npm run start:dev</code></a> and <a href="/tooling/webflo/docs/cli/build"><code>npm run build</code></a> will be coming in often during the development process.</p>
@@ -1195,7 +1195,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <li><code>/index.html</code> - <code>&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hello Webflo!&lt;/body&gt;&lt;/html&gt;</code></li></ul></li>
 </ul>
 <p>Now, when you start the Webflo server and navigate to <code>http://localhost:3000/</code> (or <code>http://localhost:3000/index.html</code>) on your browser, the start page is shown.</p>
-<pre><code class="hljs bash language-bash">$ npm run start:dev</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">$ npm run start:dev</code></pre>
 <blockquote>
   <p>Be sure to give Webflo a better "Hello!" with a more beautiful start page.</p>
 </blockquote>
@@ -1211,7 +1211,7 @@ response.cacheControl = <span class="hljs-string">&#x27;no-store&#x27;</span>;</
 <p>The <code>--env=example</code> flag may be used to create <em>example copies</em> of these configurations - written with no actual values, and for simply providing an example of what might be in the actual configuration. Edits made with <code>$ webflo config variables --env=example</code>, for example, will be written to the file: <code>./.webqit/webflo/variables.example.json</code>. These <em>example copies</em> are what goes to other deployment environments. The <em>allow rule</em> would be: <code>!.webqit/**.example.json</code>.</p>
 <h3 id="the-gitignorefile">The <code>.gitignore</code>File</h3>
 <p>This file should now be part of your project. And an important folder to ignore is the <code>node_modules</code> folder. Together with the environment-specific files above, your <code>.gitignore</code> file could be looking similar to the below:</p>
-<pre><code class="hljs text language-text">node_modules
+<pre class="language-text" tabindex="0"><code class="text language-text">node_modules
 .env
 .webqit
 !.webqit/**.example.json</code></pre>
@@ -1226,15 +1226,15 @@ Config Layout
 			</template>
 
 			<template name="overview">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="overview">Overview</h1>
 <p>Webflo is the universal JavaScript framework for Web, Mobile, and API Backends, and the single tool that takes you from development, to deployment, to continous delivery. The Webflo experience is: <em>all of the possibilities</em> delivered in a <em>long-story-short approach</em>!</p>
 <p>Take an overview!</p>
 <h2 id="starting">Starting</h2>
 <p>Every Webflo project starts on an empty directory that you can create on your machine. We are creating one below - named <code>webflo-app</code> - and navigating into it on the terminal.</p>
-<pre><code class="hljs bash language-bash">mkdir webflo-app
-<span class="hljs-built_in">cd</span> webflo-app</code></pre>
+<pre class="language-bash" tabindex="0"><code class="bash language-bash">mkdir webflo-app
+cd webflo-app</code></pre>
 <p>Next is to have Webflo installed, following the <a href="/tooling/webflo/docs/getting-started/installation">installation guide</a>. This makes the <code>webflo</code> command available on the terminal. And that is all the setup required!</p>
 <blockquote>
   <p>Webflo is a command-line tool. So the installed files won't be showing up anywhere in your workspace.</p>
@@ -1259,14 +1259,14 @@ Config Layout
 		</template>
 
 		<template name="server-runtime">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="server-runtime">Server Runtime</h1>
 
 			</div>
 
 			<template name="dns">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="hosts-resolution">Hosts Resolution</h1>
 <!--
@@ -1281,7 +1281,7 @@ vhosts
 			</template>
 
 			<template name="processes">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="server-processes">Server Processes</h1>
 <!--
@@ -1296,7 +1296,7 @@ process modes: fork, exec
 		</template>
 
 		<template name="workflow">
-			<div exportgroup="readme">
+			<div exportgroup="readme" class="line-numbers match-braces">
 
 				<h1 id="workflow">Workflow</h1>
 <!--
@@ -1310,7 +1310,7 @@ Workflo
 			</div>
 
 			<template name="dev-mode">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="dev-mode">Dev Mode</h1>
 
@@ -1318,7 +1318,7 @@ Workflo
 			</template>
 
 			<template name="git-flow">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="git-workflow">Git Workflow</h1>
 
@@ -1326,7 +1326,7 @@ Workflo
 			</template>
 
 			<template name="testing">
-				<div exportgroup="readme">
+				<div exportgroup="readme" class="line-numbers match-braces">
 
 					<h1 id="testing-workflow">Testing Workflow</h1>
 

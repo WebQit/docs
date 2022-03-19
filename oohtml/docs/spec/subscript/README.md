@@ -17,7 +17,9 @@ _index: 4
 ```js
 // If loaded as a script tag...
 const { SubscriptElement } = window.WebQit.OOHTML;
+```
 
+```js
 // If installed as an NPM package...
 import { SubscriptElement } from '@webqit/oohtml';
 ```

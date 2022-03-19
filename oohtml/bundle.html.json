@@ -160,7 +160,20 @@
                                                     "level": 2,
                                                     "title": "Subscript",
                                                     "uri": "subscript",
-                                                    "subtree": []
+                                                    "subtree": [
+                                                        {
+                                                            "level": 3,
+                                                            "title": "(A): SubscriptElement",
+                                                            "uri": "a-subscriptelement",
+                                                            "subtree": []
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "(B): ScopedSubscript",
+                                                            "uri": "b-scopedsubscript",
+                                                            "subtree": []
+                                                        }
+                                                    ]
                                                 },
                                                 {
                                                     "level": 2,
@@ -565,44 +578,51 @@
                                                     "level": 2,
                                                     "title": "Convention",
                                                     "uri": "convention",
-                                                    "subtree": []
-                                                },
-                                                {
-                                                    "level": 2,
-                                                    "title": "Runtime",
-                                                    "uri": "runtime",
                                                     "subtree": [
                                                         {
                                                             "level": 3,
-                                                            "title": "Observability",
-                                                            "uri": "observability",
-                                                            "subtree": []
-                                                        },
-                                                        {
-                                                            "level": 3,
-                                                            "title": "Bindings",
-                                                            "uri": "bindings",
+                                                            "title": "SubscriptElement",
+                                                            "uri": "subscriptelement",
                                                             "subtree": [
                                                                 {
                                                                     "level": 4,
-                                                                    "title": "API",
-                                                                    "uri": "api",
+                                                                    "title": "Usage",
+                                                                    "uri": "usage",
                                                                     "subtree": []
                                                                 }
                                                             ]
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "ScopedSubscript",
+                                                            "uri": "scopedsubscript",
+                                                            "subtree": [
+                                                                {
+                                                                    "level": 4,
+                                                                    "title": "Usage",
+                                                                    "uri": "usage-1",
+                                                                    "subtree": []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "level": 3,
+                                                            "title": "Class-Based Or Script-Based… Or Both!",
+                                                            "uri": "class-based-or-script-based-or-both",
+                                                            "subtree": []
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Error Handling",
-                                                    "uri": "error-handling",
+                                                    "title": "Reactivity And Observability",
+                                                    "uri": "reactivity-and-observability",
                                                     "subtree": []
                                                 },
                                                 {
                                                     "level": 2,
-                                                    "title": "Subscript Element Mixin",
-                                                    "uri": "subscript-element-mixin",
+                                                    "title": "Keeping It Neat With the State API and the Namespace API",
+                                                    "uri": "keeping-it-neat-with-the-state-api-and-the-namespace-api",
                                                     "subtree": []
                                                 },
                                                 {
