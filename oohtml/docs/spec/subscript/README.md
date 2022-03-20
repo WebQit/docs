@@ -126,8 +126,8 @@ And... it can be either *class*-based or `<script>`-based, or both! (For power u
 ```html
 <my-alert>
 
-    <span class="icon"></span> <!------------ introducing an icon -->
-    <div class="message"></div>
+    <div class="message"></div> <!------------ managed at <my-alert>'s render() method -->
+    <span class="icon"></span> <!------------ introducing an icon, managed below -->
 
     <!-- Scoped Subscript -->
     <script type="subscript">
@@ -138,7 +138,7 @@ And... it can be either *class*-based or `<script>`-based, or both! (For power u
 </my-alert>
 ```
 
-Also, *class*-based Subscript is primarily programmatic, whereas `<script>`-based Subscript is primarily declarative! But interestingly, an equivalent programmatic access is offered in both cases via a `.subscripts` property.
+Also, *class*-based Subscript is primarily imperative, whereas `<script>`-based Subscript is primarily declarative! But interestingly, an equivalent imperative API is offered in both cases via a `.subscripts` property.
 
 *For the `#alert` element...*
 
