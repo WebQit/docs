@@ -88,7 +88,9 @@ colorSwitch.call( h1Element, 'red' );
 
 ### The `subscrFunction.thread()` Method
 
-The `.thread()` method is the *reactivity* API in Subscript functions that lets us send *thread events* into the *reactivity runtime*. It takes a list of the outside variables or properties that have changed; each as an array path.
+The `.thread()` method is the *reactivity* API in Subscript functions that lets us send *thread events* into the *reactivity runtime*. It constitues one clear interaction point and enables a one-liner approach to reactivity.
+
+It takes a list of the outside variables or properties that have changed; each as an array path.
 
 ##### Syntax
 

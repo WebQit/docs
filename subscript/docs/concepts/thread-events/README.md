@@ -43,7 +43,7 @@ And we can run one thread for multiple changes.
 fn.thread( [ 'a' ], [ 'b' ] );
 ```
 
-Variable declarations within the function belong in their own scope and do not respond to outside events. But when they do reference variables from the outside scope, they are included in the dependency thread of those outside variables.
+Variable declarations within the function belong in their own scope and do not respond to outside events. But their containing expression may also maintain a binding to those variables from the outside scope.
 
 ```js
 let fn = new SubscriptFunction(`
