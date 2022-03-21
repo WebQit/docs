@@ -39,3 +39,11 @@ console.log( broadcast );
 ```js
 let broadcastInstance = new BroadcastMessage( broadcast );
 ```
+
+And ES6 syntax niceties can come in anywhere.
+
+```js
+let { username, profile: { avatar: avatarUrl } } = candidate;
+```
+
+*And that's essentially two variables declared up there: `username` and `avatarUrl`! And while `username` is bound to `candidate.username`, `avatarUrl` is bound to `candidate.profile.avatar`. Each gets updated independent of the other; in sync with their own binding. (But a thread event for their common root object - `candidate` - gets both variables updated.)*
