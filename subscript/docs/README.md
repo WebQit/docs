@@ -114,6 +114,10 @@ console.log( count, doubleCount, quadCount );
 
 *A Custom Element Example [here](usage/subscript-element)*
 
+*And here is a live demo of a "count" dependency thread.*
+
+<iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@WebQit/Dependency-Thread-Demo-3-Counts-Button?embed=true"></iframe>
+
 ## What Is Subscript?
 
 A general-purpose reactivity runtime for JavaScript, with an overarching philosophy of *reactivity that is based on the dependency graph of your own code, and nothing of its own syntax*!
