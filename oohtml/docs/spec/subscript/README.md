@@ -53,6 +53,9 @@ customElements.define( 'my-alert', class Alert extends SubscriptElement( HTMLEle
         // Initial rendering
         // after which automatic selective rendering kicks in
         this.render();
+        this.addEventListener('click', () => {
+            this.render.thread( ... );
+        });
     }
 
     render() {
@@ -138,7 +141,7 @@ And... it can be either *class*-based or `<script>`-based, or both! (For power u
 </my-alert>
 ```
 
-Also, *class*-based Subscript is primarily imperative, whereas `<script>`-based Subscript is primarily declarative! But interestingly, an equivalent imperative API is offered in both cases via a `.subscripts` property.
+Also, *class*-based Subscript is primarily triggerable ondemand using their `.thread()` method, whereas `<script>`-based Subscript aren't so exposed! Yet it is possible to access equivalent instances of embedded scripts via the class's `.subscript` property.
 
 *For the `#alert` element...*
 
@@ -146,7 +149,7 @@ Also, *class*-based Subscript is primarily imperative, whereas `<script>`-based 
 // Retreive the "alert" elements
 let alertElement = document.querySelector( '#alert' );
 // Obtain the first embedded script. (Indexes are zero-based.)
-let scopedSubscript1 = alertElement.subscripts.get( 0 );
+let scopedSubscript1 = alertElement.subscript.get( 0 );
 // Call for a full rerun
 scopedSubscript1();
 // Call for a reactive rerun. (Details ahead!)
@@ -159,9 +162,9 @@ scopedSubscript1.thread( [ 'globalMessage' ] );
 // Retreive the "alert" elements
 let myAlertElement = document.querySelector( 'my-alert' );
 // Obtain the render method in either of two ways
-let renderMethod = myAlertElement.subscripts.get( 'render' ); // Similar to: myAlertElement.render.bind( myAlertElement );
+let renderMethod = myAlertElement.subscript.get( 'render' ); // Similar to: myAlertElement.render.bind( myAlertElement );
 // Obtain the first embedded script. (Indexes are zero-based.)
-let scopedSubscript1 = myAlertElement.subscripts.get( 0 );
+let scopedSubscript1 = myAlertElement.subscript.get( 0 );
 
 // Call for a full rerun
 renderMethod();
